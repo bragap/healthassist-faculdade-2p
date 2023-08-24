@@ -1,20 +1,20 @@
-# Nome do projeto
+# HealthAssist
 
-Escreva um ou dois parágrafos resumindo o objetivo do seu projeto.
+O objetivo deste trabalho é desenvolver um sistema para facilitar o gerenciamento e os processos de consultas em clínicas médicas.
 
 ## Integrantes
 
-* Nome completo do aluno 1
-* Nome completo do aluno 2
-* Nome completo do aluno 3
-* Nome completo do aluno 4
-* Nome completo do aluno 5
+* Arthur Ferreira Costa
+* Fernando Antônio Ferreira Ibrahim
+* Ian Matsuhara Ferraz
+* Jhonata Silveira Dias
+* Pedro Henrique Braga de Castro
 
 ## Professor
 
-* Nome completo do professor 1
-* Nome completo do professor 2
-* Nome completo do professor 3
+* Hugo Bastos de Paula
+* Eveline Alonso Veloso
+* Juliana Amaral Baroni de Carvalho
 
 ## Instruções de utilização
 
