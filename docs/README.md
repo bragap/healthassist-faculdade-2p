@@ -68,21 +68,21 @@ No cenário atual, clínicas médicas enfrentam desafios na organização de hor
 
 ## 2. Participantes do processo
 
-* Pacientes: * 
+* Pacientes: 
 
 Perfil: Indivíduos em busca de atendimento médico.
 Características Relevantes: Necessidades de saúde, preferências de horários, histórico médico.
 Papel: Utilizar o sistema para agendar consultas, visualizar horários disponíveis, receber lembretes de consultas, acessar informações sobre médicos e clínicas.
 
 
-* Profissionais de Saúde (Médicos e Equipe Clínica): *
+* Profissionais de Saúde (Médicos e Equipe Clínica): 
 
 Perfil: Médicos, enfermeiros, especialistas clínicos.
 Características Relevantes: Conhecimento médico, expertise clínica, agenda de consultas, especialização, agenda ocupada, necessidade de coordenação eficiente.
 Papel: Os profissionais de saúde usarão o sistema para visualizar, atualizar e gerenciar suas agendas de consultas. Eles precisarão de uma visão clara dos horários disponíveis e recursos para ajustar compromissos, garantindo uma distribuição equilibrada de consultas.
 
 
-* Administradores da Clínica: *
+* Administradores da Clínica: 
 
 Perfil: Equipe administrativa, recepcionistas.
 Características Relevantes: Conhecimento da operação da clínica, habilidades de atendimento ao cliente.
