@@ -105,9 +105,9 @@ Em resumo, a transição para um sistema de agendamento e gerenciamento de consu
 
 ### 3.3. Modelagem dos processos
 
-[PROCESSO 1 - Nome do Processo](processo-1-nome-do-processo.md "Detalhamento do Processo 1.")
+[PROCESSO 1 - Verificar disponibilidade](processo-1-verificar-disponibilidade.md "Detalhamento do Processo 1.")
 
-[PROCESSO 2 - Nome do Processo](processo-2-nome-do-processo.md "Detalhamento do Processo 2.")
+[PROCESSO 2 - Gerenciar paciente](processo-2-gerenciar-paciente.md "Detalhamento do Processo 2.")
 
 [PROCESSO 3 - Nome do Processo](processo-3-nome-do-processo.md "Detalhamento do Processo 3.")
 
@@ -116,6 +116,11 @@ Em resumo, a transição para um sistema de agendamento e gerenciamento de consu
 [PROCESSO 5 - Nome do Processo](processo-5-nome-do-processo.md "Detalhamento do Processo 5.")
 
 [PROCESSO 6 - Nome do Processo](processo-6-nome-do-processo.md "Detalhamento do Processo 6.")
+
+Processo 1 - Verificar disponibilidade: Paciente acessa as informações sobre os médicos e as clínicas, incluindo as avaliações. Ao encontrar a melhor data e horário, verifica a disponibilidade do médico.
+
+Processo 2 - Gerenciar paciente: Se não houver cadastro, o paciente deve preencher um formulário online com suas informações pessoais. 
+
 
 ## 4. Projeto da solução
 
