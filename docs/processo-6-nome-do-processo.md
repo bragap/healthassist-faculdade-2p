@@ -1,15 +1,16 @@
-### 3.3.6 Processo 6 – NOME DO PROCESSO
+### 3.3.5 Processo 6 – Lembrete de Consulta
 
-Apresente aqui o nome e as oportunidades de melhoria para o processo 6. 
-Em seguida, apresente o modelo do processo 6, descrito no padrão BPMN.
+Oportunidades de melhorias para este processo incluem que o lembrete de consulta posso ser cusomtizado, com de texto escolhidos pelo usuário. (OPORTUNIDADE)
 
-![Exemplo de um Modelo BPMN do PROCESSO 6](images/process.png "Modelo BPMN do Processo 6.")
+
+![Exemplo de um Modelo BPMN do PROCESSO 5](imagens/process.png "Modelo BPMN do Processo 5.")
 
 
 #### Detalhamento das atividades
 
-Descreva aqui cada uma das propriedades das atividades do processo 6. 
-Devem estar relacionadas com o modelo de processo apresentado anteriormente.
+O lembrete de consultas acontecerá ao momento que o usuário tem uma consulta se aproximando da data local do sistema. Através de um intervalo de tempo definfido previamente pelo usuário ao tempo do seu cadasdtro, o sistema irá disparar e-mails de acrodo com os respectivos intervalos lemrbando o mesmo da sua consulta.
+
+
 
 Os tipos de dados a serem utilizados são:
 
@@ -26,31 +27,14 @@ Os tipos de dados a serem utilizados são:
 * **Link** - campo que armazena uma URL
 * **Tabela** - campo formado por uma matriz de valores
 
-**Nome da atividade 1**
+**Lembrete de Consulta**
 
 | **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
 | ---             | ---              | ---            | ---               |
-| [Nome do campo] | [tipo de dados]  |                |                   |
-| ***Exemplo:***  |                  |                |                   |
-| login           | Caixa de Texto   | formato de e-mail |                |
-| senha           | Caixa de Texto   | mínimo de 8 caracteres |           |
+| [Data e Hora ] | [Data e Hora]  |                |                   |
+| [Tabela de Lembretes ] | [Tabela ]  |                |                   |
+
 
 | **Comandos**         |  **Destino**                   | **Tipo** |
 | ---                  | ---                            | ---               |
-| [Nome do botão/link] | Atividade/processo de destino  | (default/cancel/  ) |
-| ***Exemplo:***       |                                |                   |
-| entrar               | Fim do Processo 1              | default           |
-| cadastrar            | Início do proceso de cadastro  |                   |
-
-
-**Nome da atividade 2**
-
-| **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
-| ---             | ---              | ---            | ---               |
-| [Nome do campo] | [tipo de dados]  |                |                   |
-|                 |                  |                |                   |
-
-| **Comandos**         |  **Destino**                   | **Tipo**          |
-| ---                  | ---                            | ---               |
-| [Nome do botão/link] | Atividade/processo de destino  | (default/cancel/  ) |
-|                      |                                |                   |
+| [Gravar Lembrete ] | Tabela de Lembretes contendo intervalos de tempo definidos pelo usuário  | (Tabela  ) |
