@@ -1,15 +1,14 @@
-### 3.3.5 Processo 5 – NOME DO PROCESSO
+### 3.3.5 Processo 5 – Rating dos Profissionais/Atendimentos
 
-Apresente aqui o nome e as oportunidades de melhoria para o processo 5. 
-Em seguida, apresente o modelo do processo 5, descrito no padrão BPMN.
+Oportunidades de melhorias para este processo incluem mas não se limitam à: Inclusão de comentários na função de rating que permitam usuários visualizarem comentários feitos previamente por outros usuários.
+
 
 ![Exemplo de um Modelo BPMN do PROCESSO 5](imagens/process.png "Modelo BPMN do Processo 5.")
 
 
 #### Detalhamento das atividades
 
-Descreva aqui cada uma das propriedades das atividades do processo 5. 
-Devem estar relacionadas com o modelo de processo apresentado anteriormente.
+O rating de profissionais acontecerá em dois momentos na plataforma. Primeiramente, ao fim de uma consulta o usuário/cliente que foi consultado será convidado através de um e-mail enviado pelo sistema a avaliar sua experiência com o médico e a clínica como um todo. Caso o usuário opte por não visualizar o e-mail, o mesmo ainda poderá avaliar sua consulta através do site, bastando apenas visualizar a consulta em questão na aba de histórico de consultas, podendo este então avaliar a consulta através do botão avaliar. Ambos caminhos irão direcionar o usuário a um formulário de avaliação, onde serão feitas perguntas para apurar e quatificar a satisfação do mesmo.
 
 Os tipos de dados a serem utilizados são:
 
@@ -26,31 +25,26 @@ Os tipos de dados a serem utilizados são:
 * **Link** - campo que armazena uma URL
 * **Tabela** - campo formado por uma matriz de valores
 
-**Nome da atividade 1**
+**Rating dos Profissionais**
 
 | **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
 | ---             | ---              | ---            | ---               |
-| [Nome do campo] | [tipo de dados]  |                |                   |
-| ***Exemplo:***  |                  |                |                   |
-| login           | Caixa de Texto   | formato de e-mail |                |
-| senha           | Caixa de Texto   | mínimo de 8 caracteres |           |
+| [Dar nota ao Profissional] | [tipo de dados]  |                |                   |
+
 
 | **Comandos**         |  **Destino**                   | **Tipo** |
 | ---                  | ---                            | ---               |
-| [Nome do botão/link] | Atividade/processo de destino  | (default/cancel/  ) |
-| ***Exemplo:***       |                                |                   |
-| entrar               | Fim do Processo 1              | default           |
-| cadastrar            | Início do proceso de cadastro  |                   |
+| [Avaliar ] | Número de 1-5 representando qualidade do serviço  | (número  ) |
 
 
-**Nome da atividade 2**
+**Rating da Clínica**
 
 | **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
 | ---             | ---              | ---            | ---               |
-| [Nome do campo] | [tipo de dados]  |                |                   |
+| [Dar nota a Clinica] | [numéro ]  |                |                   |
 |                 |                  |                |                   |
 
 | **Comandos**         |  **Destino**                   | **Tipo**          |
 | ---                  | ---                            | ---               |
-| [Nome do botão/link] | Atividade/processo de destino  | (default/cancel/  ) |
+| [Avaliar ] | Número de 1-5 representando qualidade do serviço  | (número ) |
 |                      |                                |                   |
