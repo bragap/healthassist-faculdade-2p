@@ -106,9 +106,9 @@ A visão de futuro para o gerenciamento e agendamento de consultas em clínicas 
 
 [PROCESSO 2 - Gerenciar paciente](processo-2-gerenciar-paciente.md "Detalhamento do Processo 2.")
 
-[PROCESSO 3 - Nome do Processo](processo-3-concluir-agendamento.md "Detalhamento do Processo 3.")
+[PROCESSO 3 - Concluir Agendamento](processo-3-concluir-agendamento.md "Detalhamento do Processo 3.")
 
-[PROCESSO 4 - Nome do Processo](processo-4-realizar-consulta.md "Detalhamento do Processo 4.")
+[PROCESSO 4 - Realizar Consulta](processo-4-realizar-consulta.md "Detalhamento do Processo 4.")
 
 [PROCESSO 5 - Nome do Processo](processo-5-nome-do-processo.md "Detalhamento do Processo 5.")
 
