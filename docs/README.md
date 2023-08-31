@@ -59,7 +59,6 @@ Para abordar a grande parte das questões ligadas ao agendamento de consultas, �
 * Cadastro de Médicos
 * Cadastro de Clientes
 * Rating dos profissionais/Atendimentos.
-* Calendários.
 * Lembrete de consulta.
 
 ### 1.4 Justificativas
