@@ -118,6 +118,10 @@ Processo 1 - Verificar disponibilidade: Paciente acessa as informações sobre o
 
 Processo 2 - Gerenciar paciente: Se não houver cadastro, o paciente deve preencher um formulário online com suas informações pessoais. 
 
+Processo 3 - Concluir agendamento: Concluir agendamento, enviar notificações para o paciente e adicionar na agenda do médico: a data, horário e informações do paciente.
+
+Processo 4 - Realizar a consulta: Após um timebreaking, será realizado a consulta.
+
 
 ## 4. Projeto da solução
 
