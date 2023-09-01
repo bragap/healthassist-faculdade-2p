@@ -106,7 +106,7 @@ A visão de futuro para o gerenciamento e agendamento de consultas em clínicas 
 
 [PROCESSO 2 - Gerenciar paciente](processo-2-gerenciar-paciente.md "Detalhamento do Processo 2.")
 
-[PROCESSO 3 - Concluir Agendamento](processo-3-concluir-agendamento.md "Detalhamento do Processo 3.")
+[PROCESSO 3 - Gerenciar Profissionais de Saúde](processo-3-gerenciar-profissionais.md "Detalhamento do Processo 3.")
 
 [PROCESSO 4 - Realizar Consulta](processo-4-realizar-consulta.md "Detalhamento do Processo 4.")
 
@@ -118,7 +118,6 @@ Processo 1 - Verificar disponibilidade: Paciente acessa as informações sobre o
 
 Processo 2 - Gerenciar paciente: Se não houver cadastro, o paciente deve preencher um formulário online com suas informações pessoais. 
 
-Processo 3 - Concluir agendamento: Concluir agendamento, enviar notificações para o paciente e adicionar na agenda do médico: a data, horário e informações do paciente.
 
 Processo 4 - Realizar a consulta: Após um timebreaking, será realizado a consulta.
 

@@ -1,7 +1,6 @@
 ### 3.3.3 Processo 3 – NOME DO PROCESSO
 
-Apresente aqui o nome e as oportunidades de melhoria para o processo 3. 
-Em seguida, apresente o modelo do processo 3, descrito no padrão BPMN.
+O processo de Gestão dos Profissionais de Saúde tem como objetivo manter um registro preciso e atualizado de todos os profissionais médicos e de saúde associados à clínica, garantindo que eles estejam disponíveis para consultas, atualizando suas informações pessoais e profissionais, e gerenciando suas agendas de atendimento.
 
 ![Exemplo de um Modelo BPMN do PROCESSO 3](images/process.png "Modelo BPMN do Processo 3.")
 
