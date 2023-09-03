@@ -102,25 +102,17 @@ A visão de futuro para o gerenciamento e agendamento de consultas em clínicas 
 
 ### 3.3. Modelagem dos processos
 
-[PROCESSO 1 - Verificar disponibilidade](processo-1-verificar-disponibilidade.md "Detalhamento do Processo 1.")
+[PROCESSO 1 - Gerenciar Horários](processo-1-gerenciar-horários.md "Detalhamento do Processo 1.")
 
-[PROCESSO 2 - Gerenciar paciente](processo-2-gerenciar-paciente.md "Detalhamento do Processo 2.")
+[PROCESSO 2 - Gerenciar Pacientes](processo-2-gerenciar-pacientes.md "Detalhamento do Processo 2.")
 
-[PROCESSO 3 - Gerenciar Profissionais de Saúde](processo-3-gerenciar-profissionais.md "Detalhamento do Processo 3.")
+[PROCESSO 3 - Gerenciar Profissionais de Saúde](processo-3-gerenciar-profissionais-de-saude.md "Detalhamento do Processo 3.")
 
-[PROCESSO 4 - Realizar Consulta](processo-4-realizar-consulta.md "Detalhamento do Processo 4.")
+[PROCESSO 4 - Avaliar Atendimentos](processo-4-avaliar-atendimentos.md "Detalhamento do Processo 4.")
 
-[PROCESSO 5 - Nome do Processo](processo-5-nome-do-processo.md "Detalhamento do Processo 5.")
+[PROCESSO 5 - Gerenciar Consultas Online](processo-5-gerenciar-consultas-online.md "Detalhamento do Processo 5.")
 
-[PROCESSO 6 - Nome do Processo](processo-6-nome-do-processo.md "Detalhamento do Processo 6.")
-
-Processo 1 - Verificar disponibilidade: Paciente acessa as informações sobre os médicos e as clínicas, incluindo as avaliações. Ao encontrar a melhor data e horário, verifica a disponibilidade do médico.
-
-Processo 2 - Gerenciar paciente: Se não houver cadastro, o paciente deve preencher um formulário online com suas informações pessoais. 
-
-
-Processo 4 - Realizar a consulta: Após um timebreaking, será realizado a consulta.
-
+[PROCESSO 6 - Agendar Consultas Online](processo-6-agendar-consultas-online.md "Detalhamento do Processo 6.")
 
 ## 4. Projeto da solução
 
