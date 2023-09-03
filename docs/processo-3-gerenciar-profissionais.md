@@ -1,7 +1,7 @@
 ### 3.3.3 Processo 3 – GERENCIAR PROFISSIONAIS DE SAÚDE
 O processo de Gestão dos Profissionais de Saúde tem como objetivo manter um registro preciso e atualizado de todos os profissionais médicos e de saúde associados à clínica, garantindo que eles estejam disponíveis para consultas, atualizando suas informações pessoais e profissionais, e gerenciando suas agendas de atendimento.
 
-![Exemplo de um Modelo BPMN do PROCESSO 3](images/process.png "Modelo BPMN do Processo 3.")
+![Modelo BPMN do PROCESSO 3](images/bpmn-processo3.png "Modelo BPMN do Processo 3.")
 
 
 #### Detalhamento das atividades
