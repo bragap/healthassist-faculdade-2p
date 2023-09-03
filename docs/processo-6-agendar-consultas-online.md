@@ -1,4 +1,4 @@
-### 3.3.5 Processo 6 – Lembrete de Consulta
+### 3.3.5 Processo 6 – Notificar Consulta
 
 Oportunidades de melhorias para este processo incluem que o lembrete de consulta posso ser cusomtizado, com de texto escolhidos pelo usuário. (OPORTUNIDADE)
 

@@ -1,4 +1,4 @@
-### 3.3.1 Processo 1 – VERIFICAR DISPONIBILIDADE
+### 3.3.1 Processo 1 – Gerenciar horários
 
 Apresente aqui o nome e as oportunidades de melhoria para o processo 1. 
 Em seguida, apresente o modelo do processo 1, descrito no padrão BPMN.

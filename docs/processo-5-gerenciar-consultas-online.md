@@ -1,4 +1,4 @@
-### 3.3.5 Processo 5 – Rating dos Profissionais/Atendimentos
+### 3.3.5 Processo 5 – Avaliar serviços prestados
 
 Oportunidades de melhorias para este processo incluem mas não se limitam à: Inclusão de comentários na função de rating que permitam usuários visualizarem comentários feitos previamente por outros usuários.
 
