@@ -8,8 +8,8 @@ Em seguida, apresente o modelo do processo 2, descrito no padrão BPMN.
 
 #### Detalhamento das atividades
 
-Descreva aqui cada uma das propriedades das atividades do processo 2. 
-Devem estar relacionadas com o modelo de processo apresentado anteriormente.
+O cliente acessa o site e realiza a busca pelos profissionais e horários de seu interesse, se o cliente já possui um cadastro, ele é redirecionado para uma tela de login, onde deve inserir seu email e senha para acessar sua conta. Caso o cliente não tenha um cadastro prévio, ele precisa realizar tanto o cadastro quanto o login separadamente, nesse caso, ele preenche as informações necessárias para criar sua conta. 
+Após o login ou cadastro bem-sucedidos, o cliente está apto a marcar sua consulta de forma simples e rápida.
 
 Os tipos de dados a serem utilizados são:
 
