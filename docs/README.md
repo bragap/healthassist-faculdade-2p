@@ -81,7 +81,7 @@ Características Relevantes: Conhecimento médico, expertise clínica, agenda de
 Papel: Os profissionais de saúde usarão o sistema para visualizar, atualizar e gerenciar suas agendas de consultas. Eles precisarão de uma visão clara dos horários disponíveis e recursos para ajustar compromissos, garantindo uma distribuição equilibrada de consultas.
 
 
-* Administradores da Clínica: 
+* Secretaria: 
 
 Perfil: Equipe administrativa, recepcionistas.
 Características Relevantes: Conhecimento da operação da clínica, habilidades de atendimento ao cliente.
