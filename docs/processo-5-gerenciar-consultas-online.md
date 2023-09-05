@@ -1,6 +1,6 @@
-### 3.3.5 Processo 5 – Avaliar serviços prestados
+### 3.3.5 Processo 5 – GERENCIAR CONSULTAS ONLINE
 
-Oportunidades de melhorias para este processo incluem mas não se limitam à: Inclusão de comentários na função de rating que permitam usuários visualizarem comentários feitos previamente por outros usuários.
+O processo de Gerenciamento de Consultas Online tem como objetivo simplificar o agendamento de consultas por meio de um sistema digital. Neste processo, os pacientes têm a capacidade de agendar consultas de forma conveniente e eficiente, selecionando horários disponíveis e e acessando informações relevantes sobre os médicos e as clínicas. 
 
 
 ![Exemplo de um Modelo BPMN do PROCESSO 5](imagens/process.png "Modelo BPMN do Processo 5.")
