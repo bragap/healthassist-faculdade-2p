@@ -1,7 +1,8 @@
 ### 3.3.2 Processo 2 – GERENCIAR PACIENTE
 
-Apresente aqui o nome e as oportunidades de melhoria para o processo 2. 
-Em seguida, apresente o modelo do processo 2, descrito no padrão BPMN.
+O processo de Gerenciar Pacientes hoje se mostra muito arcaico e pouco prático, é feito de maneira manual, no qual um funcionário da clínica fica responsável por anotar os dados pessoais de um paciente, tal atividade é muito demorada além de dar muitas oportunidades à erros. 
+
+O processo no qual visamos desenvolver tem como objetivo optimizar essa tarefa e evitar possíveis erros, uma vez que o próprio paciente que irá realizar seu próprio cadastro na plataforma de maneira remota inserindo seus dados pessoais e tendo a oportunidade de altera-ls de maneira prática.
 
 ![Exemplo de um Modelo BPMN do PROCESSO 2](images/process.png "Modelo BPMN do Processo 2.")
 
