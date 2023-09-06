@@ -4,7 +4,7 @@ O processo de Gerenciar Pacientes hoje se mostra muito arcaico e pouco prático,
 
 O processo no qual visamos desenvolver tem como objetivo optimizar essa tarefa e evitar possíveis erros, uma vez que o próprio paciente que irá realizar seu próprio cadastro na plataforma de maneira remota inserindo seus dados pessoais e tendo a oportunidade de altera-ls de maneira prática.
 
-![Exemplo de um Modelo BPMN do PROCESSO 2](images/process.png "Modelo BPMN do Processo 2.")
+![Modelo BPMN do PROCESSO 2](images/diagrama-processo-2.png "BPMN do Processo 2.")
 
 
 #### Detalhamento das atividades
