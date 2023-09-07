@@ -1,17 +1,13 @@
 ### 3.3.2 Processo 2 – GERENCIAR PACIENTE
 
-O processo de Gerenciar Pacientes hoje se mostra muito arcaico e pouco prático, é feito de maneira manual, no qual um funcionário da clínica fica responsável por anotar os dados pessoais de um paciente, tal atividade é muito demorada além de dar muitas oportunidades à erros. 
+O procedimento de gestão de pacientes hoje em dia se mostra antiquado e pouco eficiente. Ele é conduzido de forma manual, onde um funcionário da clínica é encarregado de registrar as informações pessoais de um paciente, além de repassar o resultado das suas consultas e exames. Essa abordagem é demorada e suscetível a erros.
 
-O processo no qual visamos desenvolver tem como objetivo optimizar essa tarefa e evitar possíveis erros, uma vez que o próprio paciente que irá realizar seu próprio cadastro na plataforma de maneira remota inserindo seus dados pessoais e tendo a oportunidade de altera-ls de maneira prática.
+O processo que estamos desenvolvendo tem como objetivo otimizar essa tarefa e reduzir as chances de erros. Agora, o próprio paciente terá a capacidade de cadastrar-se remotamente na plataforma, inserindo suas informações pessoais e tendo a facilidade de atualizá-las de forma prática, além de terem acesso aos seus resultados de exames virtualmente.
 
 ![Modelo BPMN do PROCESSO 2](images/diagrama-processo-2.png "BPMN do Processo 2.")
 
 
 #### Detalhamento das atividades
-
-O cliente acessa o site e realiza a busca pelos profissionais e horários de seu interesse, se o cliente já possui um cadastro, ele é redirecionado para uma tela de login, onde deve inserir seu email e senha para acessar sua conta. Caso o cliente não tenha um cadastro prévio, ele precisa realizar tanto o cadastro quanto o login separadamente, nesse caso, ele preenche as informações necessárias para criar sua conta.
-
-Após o login ou cadastro bem-sucedidos, o cliente está apto a marcar sua consulta de forma simples e rápida.
 
 Os tipos de dados a serem utilizados são:
 
