@@ -1,7 +1,7 @@
 ### 3.3.1 Processo 1 – Gerenciar horários
 
-Apresente aqui o nome e as oportunidades de melhoria para o processo 1. 
-Em seguida, apresente o modelo do processo 1, descrito no padrão BPMN.
+O processo de gerenciamento de horários de consulta é mister para o funcionamento da uma clíinica onde as atividades dependem de horários marcados pré-definidos para funcionarem, logo a necessidade deste processo. Um bom processo de gerenciamento de horários afeta positivamente o funcionamento da empresa, como a satisfação dos pacientes.
+
 
 ![Exemplo de um Modelo BPMN do PROCESSO 1](images/diagram_1.png "BPMN do Processo 1.")
 
