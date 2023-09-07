@@ -29,10 +29,10 @@ Os tipos de dados a serem utilizados são:
 
 | **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
 | ---             | ---              | ---            | ---               |
-| Horário | Data e Hora  |          -      |       -            |
+| Horário | Data e Hora  |      conflitos de horário       |       inexistente           |
 |                 |                  |                |                   |
 
 | **Comandos**         |  **Destino**                   | **Tipo**          |
 | ---                  | ---                            | ---               |
-| [Agendar horário] | Agenda fo sistema  | (Planilha de campos de Data e Hora  ) |
+| [Agendar horário] | Agenda do sistema  | (Planilha de campos de Data e Hora  ) |
 |                      |                                |                   |
