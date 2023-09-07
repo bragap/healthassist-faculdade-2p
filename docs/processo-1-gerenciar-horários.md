@@ -7,8 +7,7 @@ O processo de gerenciamento de horários de consulta é mister para o funcioname
 
 #### Detalhamento das atividades
 
-Descreva aqui cada uma das propriedades das atividades do processo 1. 
-Devem estar relacionadas com o modelo de processo apresentado anteriormente.
+O gerenciamento de horários acontecerá em três momentos na plataforma. No primeiro momento, quando um paciente desejar agendar um novo horário. Neste caso, o sistema deverá verificar se há conflitos de horário, caso contrário, a agenda será atualizada. Caso hajam conflitos, o cliente será notificado e convidado a escolher um novo horário. No segundo momento, quando um profissional da saúde desejar alterar sua agenda, o mesmo poderá fazer as alterações que desejar no sistema, mesmo que hajam conflitos de horário. Para os conflitos gerados, o sistema deverá notificar o paciente, e o mesmo deverá escolher um novo horário que o atenda. Em um terceiro momento, quando o paciente desejar alterar um horário que já tenha agendado, o mesmo deverá solicitar uma alteração de horários e selecionar um novo horário. Caso não hajam conflitos, o novo horário será salvo, caso hajam, o usuário será convidado a escolher um novo horário.
 
 Os tipos de dados a serem utilizados são:
 
