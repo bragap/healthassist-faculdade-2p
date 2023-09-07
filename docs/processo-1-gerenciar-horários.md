@@ -24,21 +24,15 @@ Os tipos de dados a serem utilizados são:
 * **Link** - campo que armazena uma URL
 * **Tabela** - campo formado por uma matriz de valores
 
-**Visualizar médicos e clínicas**
+
+**Gerenciamento de horáriose**
 
 | **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
 | ---             | ---              | ---            | ---               |
-| Avaliações dos serviços prestados | Tabela  |       -         |           -        |
-
-
-**Verificar disponibilidade**
-
-| **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
-| ---             | ---              | ---            | ---               |
-| Disponibilidade | Seleção única  |          -      |       -            |
+| Horário | Data e Hora  |          -      |       -            |
 |                 |                  |                |                   |
 
 | **Comandos**         |  **Destino**                   | **Tipo**          |
 | ---                  | ---                            | ---               |
-| [Nome do botão/link] | Atividade/processo de destino  | (default/cancel/  ) |
+| [Agendar horário] | Agenda fo sistema  | (Planilha de campos de Data e Hora  ) |
 |                      |                                |                   |
