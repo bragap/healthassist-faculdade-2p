@@ -4,6 +4,7 @@ O procedimento de gestão de pacientes hoje em dia se mostra antiquado e pouco e
 
 O processo que estamos desenvolvendo tem como objetivo otimizar essa tarefa e reduzir as chances de erros. Agora, o próprio paciente terá a capacidade de cadastrar-se remotamente na plataforma, inserindo suas informações pessoais e tendo a facilidade de atualizá-las de forma prática, além de terem acesso aos seus resultados de exames virtualmente.
 
+
 ![Modelo BPMN do PROCESSO 2](images/diagrama-processo-2.png "BPMN do Processo 2.")
 
 
