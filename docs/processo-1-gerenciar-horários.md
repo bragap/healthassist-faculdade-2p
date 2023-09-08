@@ -3,7 +3,7 @@
 O gerenciamento de horários, pode impactar na melhoria da clínica ao otimizar a alocação de recursos e melhorar a eficiência operacional, garantindo que os horários estejam bem distribuídos e evitando sobrecargas ou ociosidade da equipe dos profissionais de saúde, pode facilitar mostrando o horário de atendimento de cada profissional. Isso resulta em um atendimento mais pontual, redução de tempos de espera para os pacientes e maior satisfação geral.
 
 
-![Exemplo de um Modelo BPMN do PROCESSO 1](images/diagram_3.png "BPMN do Processo 1.")
+![Exemplo de um Modelo BPMN do PROCESSO 1](images/processo_1_gerenciar_horario.png "BPMN do Processo 1.")
 
 #### Detalhamento das atividades
 
