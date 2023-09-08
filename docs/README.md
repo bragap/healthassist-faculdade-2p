@@ -102,17 +102,17 @@ A visão de futuro para o gerenciamento e agendamento de consultas em clínicas 
 
 ### 3.3. Modelagem dos processos
 
-[PROCESSO 1 - Gerenciar horários](processo-1-gerenciar-horários.md "Detalhamento do Processo 1.")
+[PROCESSO 1 - Cadastrar profissional de saúde](processo-1-cadastrar-profissionais-de-saude.md "Detalhamento do Processo 1.")
 
-[PROCESSO 2 - Gerenciar pacientes](processo-2-gerenciar-pacientes.md "Detalhamento do Processo 2.")
+[PROCESSO 2 - Cadastrar paciente](processo-2-cadastrar-paciente.md "Detalhamento do Processo 2.")
 
-[PROCESSO 3 - Gerenciar profissionais de saúde](processo-3-gerenciar-profissionais-de-saude.md "Detalhamento do Processo 3.")
+[PROCESSO 3 - Cadastrar consulta online](processo-3-cadastrar-consulta-online.md "Detalhamento do Processo 3.")
 
-[PROCESSO 4 - Avaliar atendimentos](processo-4-avaliar-atendimentos.md "Detalhamento do Processo 4.")
+[PROCESSO 4 - Gerenciar horários](processo-4-gerenciar-horarios.md "Detalhamento do Processo 4.")
 
-[PROCESSO 5 - Gerenciar consultas online](processo-5-gerenciar-consultas-online.md "Detalhamento do Processo 5.")
+[PROCESSO 5 - Atualizar prontuário e registrar consultas](processo-5-atualizar-prontuario-e-registrar-consultas.md "Detalhamento do Processo 5.")
 
-[PROCESSO 6 - Agendar consultas online](processo-6-agendar-consultas-online.md "Detalhamento do Processo 6.")
+[PROCESSO 6 - Avaliar consultas e atendimentos](processo-6-avaliar-consultas-e-atendimentos.md "Detalhamento do Processo 6.")
 
 ## 4. Projeto da solução
 

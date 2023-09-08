@@ -1,4 +1,4 @@
-### 3.3.2 Processo 2 – GERENCIAR PACIENTE
+### 3.3.2 Processo 2 – CADASTRAR PACIENTE
 
 O procedimento de gestão de pacientes hoje em dia se mostra antiquado e pouco eficiente. Ele é conduzido de forma manual, onde um funcionário da clínica é encarregado de registrar as informações pessoais de um paciente, além de repassar o resultado das suas consultas e exames. Essa abordagem é demorada e suscetível a erros.
 

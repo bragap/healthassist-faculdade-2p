@@ -1,13 +1,13 @@
-### 3.3.1 Processo 1 – GERENCIAR HORÁRIOS
+### 3.3.4 Processo 6 – AVALIAR CONSULTAS E ATENDIMENTOS
 
-O gerenciamento de horários, pode impactar na melhoria da clínica ao otimizar a alocação de recursos e melhorar a eficiência operacional, garantindo que os horários estejam bem distribuídos e evitando sobrecargas ou ociosidade da equipe dos profissionais de saúde, pode facilitar mostrando o horário de atendimento de cada profissional. Isso resulta em um atendimento mais pontual, redução de tempos de espera para os pacientes e maior satisfação geral.
+O processo de avaliação do atendimento pode ser útil para mensurar a qualidade do atendimento oferecido pela empresa como um todo. Esse processo de melhoria de qualidade afeta muito positivamente a continuidade da empresa, como aumento da satisfação com os pacientes, reputação, competitividade e eficiência operacional.
 
+![BPMN do PROCESSO 6](images/processo_6_avaliar_consultas_e_atendimentos.png "Processo 6 - Avaliar Consultas e Atendimentos.")
 
-![Exemplo de um Modelo BPMN do PROCESSO 1](images/processo_1_gerenciar_horario.png "BPMN do Processo 1.")
 
 #### Detalhamento das atividades
 
-Descreva aqui cada uma das propriedades das atividades do processo 1. 
+Descreva aqui cada uma das propriedades das atividades do processo 4. 
 Devem estar relacionadas com o modelo de processo apresentado anteriormente.
 
 Os tipos de dados a serem utilizados são:
@@ -18,13 +18,12 @@ Os tipos de dados a serem utilizados são:
 * **Data** - campo do tipo data (dd-mm-aaaa)
 * **Hora** - campo do tipo hora (hh:mm:ss)
 * **Data e Hora** - campo do tipo data e hora (dd-mm-aaaa, hh:mm:ss)
-* **Imagem** - campo contendo uma imagem
+* **Imagem** - campo - contendo uma imagem
 * **Seleção única** - campo com várias opções de valores que são mutuamente exclusivos (tradicional radio button ou combobox)
 * **Seleção múltipla** - campo com várias opções que podem ser selecionadas mutuamente (tradicional checkbox ou listbox)
 * **Arquivo** - campo de upload de documento
 * **Link** - campo que armazena uma URL
 * **Tabela** - campo formado por uma matriz de valores
-
 
 **Nome da atividade 1**
 
@@ -33,7 +32,7 @@ Os tipos de dados a serem utilizados são:
 | [Nome do campo] | [tipo de dados]  |                |                   |
 | ***Exemplo:***  |                  |                |                   |
 | login           | Caixa de Texto   | formato de e-mail |                |
-| senha           | Caixa de Texto   | mínimo de 8 caracteres |           |                  |
+| senha           | Caixa de Texto   | mínimo de 8 caracteres |           |
 
 | **Comandos**         |  **Destino**                   | **Tipo** |
 | ---                  | ---                            | ---               |
@@ -49,6 +48,7 @@ Os tipos de dados a serem utilizados são:
 | ---             | ---              | ---            | ---               |
 | [Nome do campo] | [tipo de dados]  |                |                   |
 |                 |                  |                |                   |
+
 | **Comandos**         |  **Destino**                   | **Tipo**          |
 | ---                  | ---                            | ---               |
 | [Nome do botão/link] | Atividade/processo de destino  | (default/cancel/  ) |

@@ -1,9 +1,9 @@
-### 3.3.5 Processo 5 – GERENCIAR CONSULTAS ONLINE
+### 3.3.5 Processo 5 – ATUALIZAR PRONTUÁRIO E REGISTRAR CONSULTAS
 
 O processo de Gerenciamento de Consultas Online tem como objetivo simplificar o agendamento de consultas por meio de um sistema digital. Neste processo, os pacientes têm a capacidade de agendar consultas de forma conveniente e eficiente, selecionando horários disponíveis e acessando informações relevantes sobre os médicos e as clínicas. 
 
 
-![Exemplo de um Modelo BPMN do PROCESSO 5](images/processo_5_gerenciar_consultas_online.png "Modelo BPMN do Processo 5.")
+![Exemplo de um Modelo BPMN do PROCESSO 5](images/processo_5_atualizar_prontuario_e_registrar_consultas.png "Modelo BPMN do Processo 5.")
 
 
 #### Detalhamento das atividades
