@@ -1,15 +1,15 @@
-### 3.3.5 Processo 6 – Notificar Consulta
+### 3.3.5 Processo 6 – AGENDAR CONSULTAS ONLINE
 
-Oportunidades de melhorias para este processo incluem que o lembrete de consulta posso ser cusomtizado, com de texto escolhidos pelo usuário. (OPORTUNIDADE)
+O processo de gerenciamento das consultas online é mister para o funcionamento da uma clíinica onde as atividades dependem de horários marcados pré-definidos para funcionarem, logo a necessidade deste processo. Um bom processo de gerenciamento de horários afeta positivamente o funcionamento da empresa, como a satisfação dos pacientes. Este processo tem como objetivo simplificar o dia a dia do paciente e dos profissionais da clínica, possibilitando aos mesmos acesso direto e facilitado à agenda.
 
 
-![Exemplo de um Modelo BPMN do PROCESSO 5](imagens/process.png "Modelo BPMN do Processo 5.")
+![Exemplo de um Modelo BPMN do PROCESSO 6](images/processo_6_agendar_consultas_online.png "Modelo BPMN do Processo 6.")
 
 
 #### Detalhamento das atividades
 
-O lembrete de consultas acontecerá ao momento que o usuário tem uma consulta se aproximando da data local do sistema. Através de um intervalo de tempo definfido previamente pelo usuário ao tempo do seu cadasdtro, o sistema irá disparar e-mails de acrodo com os respectivos intervalos lemrbando o mesmo da sua consulta.
-
+Descreva aqui cada uma das propriedades das atividades do processo 6. 
+Devem estar relacionadas com o modelo de processo apresentado anteriormente.
 
 
 Os tipos de dados a serem utilizados são:
@@ -27,14 +27,30 @@ Os tipos de dados a serem utilizados são:
 * **Link** - campo que armazena uma URL
 * **Tabela** - campo formado por uma matriz de valores
 
-**Lembrete de Consulta**
+**Nome da atividade 1**
 
 | **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
 | ---             | ---              | ---            | ---               |
-| [Data e Hora ] | [Data e Hora]  |                |                   |
-| [Tabela de Lembretes ] | [Tabela ]  |                |                   |
-
+| [Nome do campo] | [tipo de dados]  |                |                   |
+| ***Exemplo:***  |                  |                |                   |
+| login           | Caixa de Texto   | formato de e-mail |                |
+| senha           | Caixa de Texto   | mínimo de 8 caracteres |           |                  |
 
 | **Comandos**         |  **Destino**                   | **Tipo** |
 | ---                  | ---                            | ---               |
-| [Gravar Lembrete ] | Tabela de Lembretes contendo intervalos de tempo definidos pelo usuário  | (Tabela  ) |
+| [Nome do botão/link] | Atividade/processo de destino  | (default/cancel/  ) |
+| ***Exemplo:***       |                                |                   |
+| entrar               | Fim do Processo 6              | default           |
+| cadastrar            | Início do proceso de cadastro  |                   |
+
+
+**Nome da atividade 2**
+
+| **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
+| ---             | ---              | ---            | ---               |
+| [Nome do campo] | [tipo de dados]  |                |                   |
+|                 |                  |                |                   |
+| **Comandos**         |  **Destino**                   | **Tipo**          |
+| ---                  | ---                            | ---               |
+| [Nome do botão/link] | Atividade/processo de destino  | (default/cancel/  ) |
+|                      |                                |                   |
