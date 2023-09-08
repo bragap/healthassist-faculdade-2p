@@ -1,13 +1,14 @@
-### 3.3.1 Processo 1 – Gerenciar horários
+### 3.3.1 Processo 1 – GERENCIAR HORÁRIOS
 
-O processo de gerenciamento de horários de consulta é mister para o funcionamento da uma clíinica onde as atividades dependem de horários marcados pré-definidos para funcionarem, logo a necessidade deste processo. Um bom processo de gerenciamento de horários afeta positivamente o funcionamento da empresa, como a satisfação dos pacientes. Este processo tem como objetivo simplificar o dia a dia do paciente e dos profissionais da clínica, possibilitando aos mesmos acesso direto e facilitado à agenda.
+O gerenciamento de horários, pode impactar na melhoria da clínica ao otimizar a alocação de recursos e melhorar a eficiência operacional, garantindo que os horários estejam bem distribuídos e evitando sobrecargas ou ociosidade da equipe dos profissionais de saúde, pode facilitar mostrando o horário de atendimento de cada profissional. Isso resulta em um atendimento mais pontual, redução de tempos de espera para os pacientes e maior satisfação geral.
 
 
 ![Exemplo de um Modelo BPMN do PROCESSO 1](images/diagram_3.png "BPMN do Processo 1.")
 
 #### Detalhamento das atividades
 
-O gerenciamento de horários acontecerá em três momentos na plataforma. No primeiro momento, quando um paciente desejar agendar um novo horário. Neste caso, o sistema deverá verificar se há conflitos de horário, caso contrário, a agenda será atualizada. Caso hajam conflitos, o cliente será notificado e convidado a escolher um novo horário. No segundo momento, quando um profissional da saúde desejar alterar sua agenda, o mesmo poderá fazer as alterações que desejar no sistema, mesmo que hajam conflitos de horário. Para os conflitos gerados, o sistema deverá notificar o paciente, e o mesmo deverá escolher um novo horário que o atenda. Em um terceiro momento, quando o paciente desejar alterar um horário que já tenha agendado, o mesmo deverá solicitar uma alteração de horários e selecionar um novo horário. Caso não hajam conflitos, o novo horário será salvo, caso hajam, o usuário será convidado a escolher um novo horário.
+Descreva aqui cada uma das propriedades das atividades do processo 1. 
+Devem estar relacionadas com o modelo de processo apresentado anteriormente.
 
 Os tipos de dados a serem utilizados são:
 
@@ -25,14 +26,30 @@ Os tipos de dados a serem utilizados são:
 * **Tabela** - campo formado por uma matriz de valores
 
 
-**Gerenciamento de horáriose**
+**Nome da atividade 1**
 
 | **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
 | ---             | ---              | ---            | ---               |
-| Horário | Data e Hora  |      conflitos de horário       |       inexistente           |
-|                 |                  |                |                   |
+| [Nome do campo] | [tipo de dados]  |                |                   |
+| ***Exemplo:***  |                  |                |                   |
+| login           | Caixa de Texto   | formato de e-mail |                |
+| senha           | Caixa de Texto   | mínimo de 8 caracteres |           |                  |
 
+| **Comandos**         |  **Destino**                   | **Tipo** |
+| ---                  | ---                            | ---               |
+| [Nome do botão/link] | Atividade/processo de destino  | (default/cancel/  ) |
+| ***Exemplo:***       |                                |                   |
+| entrar               | Fim do Processo 1              | default           |
+| cadastrar            | Início do proceso de cadastro  |                   |
+
+
+**Nome da atividade 2**
+
+| **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
+| ---             | ---              | ---            | ---               |
+| [Nome do campo] | [tipo de dados]  |                |                   |
+|                 |                  |                |                   |
 | **Comandos**         |  **Destino**                   | **Tipo**          |
 | ---                  | ---                            | ---               |
-| [Agendar horário] | Agenda do sistema  | (Planilha de campos de Data e Hora  ) |
+| [Nome do botão/link] | Atividade/processo de destino  | (default/cancel/  ) |
 |                      |                                |                   |
