@@ -1,8 +1,7 @@
 ### 3.3.5 Processo 5 – ATUALIZAR PRONTUÁRIO E REGISTRAR CONSULTAS
 
-O processo de Gerenciamento de Consultas Online tem como objetivo simplificar o agendamento de consultas por meio de um sistema digital. Neste processo, os pacientes têm a capacidade de agendar consultas de forma conveniente e eficiente, selecionando horários disponíveis e acessando informações relevantes sobre os médicos e as clínicas. 
-
-
+O processo de Atualizar Prontuário e Registrar Consultas tem como objetivo manter registros médicos precisos e atualizados dos pacientes, garantindo que todas as informações relevantes das consultas sejam registradas adequadamente. Isso inclui detalhes sobre o histórico médico, diagnósticos, tratamentos, prescrições e qualquer outra informação importante relacionada às consultas médicas. 
+ 
 ![Exemplo de um Modelo BPMN do PROCESSO 5](images/processo_5_atualizar_prontuario_e_registrar_consultas.png "Modelo BPMN do Processo 5.")
 
 
