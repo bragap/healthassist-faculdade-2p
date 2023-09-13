@@ -5,6 +5,7 @@ O processo de Atualizar Prontuário e Registrar Consultas tem como objetivo mant
 ![Exemplo de um Modelo BPMN do PROCESSO 5](images/processo_5_atualizar_prontuario_e_registrar_consultas.png "Modelo BPMN do Processo 5.")
 
 
+
 #### Detalhamento das atividades
 
 O rating de profissionais acontecerá em dois momentos na plataforma. Primeiramente, ao fim de uma consulta o usuário/cliente que foi consultado será convidado através de um e-mail enviado pelo sistema a avaliar sua experiência com o médico e a clínica como um todo. Caso o usuário opte por não visualizar o e-mail, o mesmo ainda poderá avaliar sua consulta através do site, bastando apenas visualizar a consulta em questão na aba de histórico de consultas, podendo este então avaliar a consulta através do botão avaliar. Ambos caminhos irão direcionar o usuário a um formulário de avaliação, onde serão feitas perguntas para apurar e quatificar a satisfação do mesmo.
