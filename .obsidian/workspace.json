@@ -1,0 +1,169 @@
+{
+  "main": {
+    "id": "71ffe15e90943d38",
+    "type": "split",
+    "children": [
+      {
+        "id": "a6e27c70ee9dd91a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "181c9e11294b95ad",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "docs/processo-2-cadastrar-paciente.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "65aeb38e8f3054c2",
+    "type": "split",
+    "children": [
+      {
+        "id": "0481e36d1706940e",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "179ca44c142dca22",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "d63fac6669607d39",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "2a4d212a6fac87ba",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "9c12585e742e8b8c",
+    "type": "split",
+    "children": [
+      {
+        "id": "d34df2b1f7b613b8",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0577ee5482f1c152",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "docs/processo-2-cadastrar-paciente.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "6f49703fd5bbf943",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "docs/processo-2-cadastrar-paciente.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "5855866674c42a6d",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "78976f4517913245",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "docs/processo-2-cadastrar-paciente.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:Open quick switcher": false,
+      "graph:Open graph view": false,
+      "canvas:Create new canvas": false,
+      "daily-notes:Open today's daily note": false,
+      "templates:Insert template": false,
+      "command-palette:Open command palette": false
+    }
+  },
+  "active": "181c9e11294b95ad",
+  "lastOpenFiles": [
+    "docs/processo-1-cadastrar-profissionais-de-saude.md",
+    "docs/processo-2-cadastrar-paciente.md",
+    "docs/processo-4-gerenciar-horarios.md",
+    "docs/processo-3-cadastrar-consulta-online.md",
+    "docs/interface.md",
+    "docs/Apresentação de Negocios Pitch.pdf",
+    "docs/images/processo_2_cadastrar_paciente.png",
+    "docs/images/processo_3_cadastrar_consultas_online.png",
+    "docs/images/processo_6_avaliar_consultas_e_atendimentos.png",
+    "docs/images/processo_5_atualizar_prontuario_e_registrar_consultas.png",
+    "docs/images/processo_1_cadastrar_profissionais_de_saude.png",
+    "images/processo_2_cadastrar_paciente.png",
+    "images/diagrama-processo-2.png.md",
+    "images",
+    "docs/README.md",
+    "docs/solution-design.md",
+    "docs/tests.md"
+  ]
+}
