@@ -110,7 +110,7 @@ A visão de futuro para o gerenciamento e agendamento de consultas em clínicas 
 
 [PROCESSO 4 - Gerenciar horários](processo-4-gerenciar-horarios.md "Detalhamento do Processo 4.")
 
-[PROCESSO 5 - Atualizar prontuário e registrar consultas](processo-5-atualizar-prontuario-e-registrar-consultas.md "Detalhamento do Processo 5.")
+[PROCESSO 5 - Atualizar prontuário](processo-5-atualizar-prontuario.md "Detalhamento do Processo 5.")
 
 [PROCESSO 6 - Avaliar consultas e atendimentos](processo-6-avaliar-consultas-e-atendimentos.md "Detalhamento do Processo 6.")
 
