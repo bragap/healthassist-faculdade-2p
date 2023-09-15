@@ -1,9 +1,9 @@
-### 3.3.5 Processo 3 – CADASTRAR CONSULTA ONLINE
+### 3.3.5 Processo 3 – GERENCIAR CONSULTA ONLINE
 
 O processo de gerenciamento das consultas online é mister para o funcionamento da uma clíinica onde as atividades dependem de horários marcados pré-definidos para funcionarem, logo a necessidade deste processo. Um bom processo de gerenciamento de horários afeta positivamente o funcionamento da empresa, como a satisfação dos pacientes. Este processo tem como objetivo simplificar o dia a dia do paciente e dos profissionais da clínica, possibilitando aos mesmos acesso direto e facilitado à agenda.
 
 
-![Exemplo de um Modelo BPMN do PROCESSO 3](images/processo_3_cadastrar_consultas_online.png "Modelo BPMN do Processo 3.")
+![Exemplo de um Modelo BPMN do PROCESSO 3](images/processo_3_gerenciar_consultas_online.png "Modelo BPMN do Processo 3.")
 
 
 #### Detalhamento das atividades
