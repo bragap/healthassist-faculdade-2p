@@ -1,7 +1,7 @@
 ### 3.3.3 Processo 1 – CADASTRAR PROFISSIONAIS DE SAÚDE
 O processo de Cadastrar Profissionais de Saúde tem como objetivo manter um registro preciso e atualizado de todos os profissionais médicos e de saúde associados à clínica, garantindo que eles estejam disponíveis para consultas, atualizando suas informações pessoais e profissionais. Assim, a existência deste cadastro de forma online traz benefícios significativos para a clínica. Isso porque permite a edição das informações e facilita o controle a todos os profissionais.
 
-![Modelo BPMN do PROCESSO 1](images/processo_1_cadastrar_profissionais_de_saude.png "Modelo BPMN do Processo 1.")
+![Modelo BPMN do PROCESSO 1](images/processo_1_gerenciar_profissionais_de_saude.png "Modelo BPMN do Processo 1.")
 
 
 #### Detalhamento das atividades
