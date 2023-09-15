@@ -3,7 +3,7 @@
   Hoje em dia, a gestão de paciente em muitas clínicas ainda se mostra antiquada e pouco eficiente. Ela é conduzida de forma manual, onde um funcionário da clínica é encarregado de registrar as informações pessoais de um paciente. Assim o processo que estamos desenvolvendo tem como objetivo otimizar essa tarefa e reduzir as chances de erros. Agora, o próprio paciente terá a capacidade de cadastrar-se remotamente na plataforma, inserindo suas informações.
 
 
-![Modelo BPMN do PROCESSO 2](images/processo_2_gerenciar_paciente.png "BPMN do Processo 2.")
+![Modelo BPMN do PROCESSO 2](images/processo_2_cadastrar_paciente.png "BPMN do Processo 2.")
 
 
 #### Detalhamento das atividades
