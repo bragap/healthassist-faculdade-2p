@@ -1,6 +1,6 @@
 ### 3.3.2 Processo 2 – CADASTRAR PACIENTE
 
-  Hoje em dia, a gestão de paciente em muitas clinicas ainda se mostra antiquada e pouco eficiente. Ela é conduzido de forma manual, onde um funcionário da clínica é encarregado de registrar as informações pessoais de um paciente. Assim o process que estamos desenvolvendo tem como objetivo otimizar essa tarefa e reduzir as chances de erros. Agora, o próprio paciente terá a capacidade de cadastrar-se remotamente na plataforma, inserindo suas informações.
+  Hoje em dia, a gestão de paciente em muitas clínicas ainda se mostra antiquada e pouco eficiente. Ela é conduzida de forma manual, onde um funcionário da clínica é encarregado de registrar as informações pessoais de um paciente. Assim o processo que estamos desenvolvendo tem como objetivo otimizar essa tarefa e reduzir as chances de erros. Agora, o próprio paciente terá a capacidade de cadastrar-se remotamente na plataforma, inserindo suas informações.
 
 
 ![Modelo BPMN do PROCESSO 2](images/processo_2_cadastrar_paciente.png "BPMN do Processo 2.")
