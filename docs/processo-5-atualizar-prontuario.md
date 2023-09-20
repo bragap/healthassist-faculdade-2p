@@ -9,26 +9,23 @@ O processo de Atualizar Prontuário tem como objetivo manter registros médicos 
 #### Detalhamento das atividades
 
 
-**Rating dos Profissionais**
+**Identificar prontuário do paciente**
 
 | **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
 | ---             | ---              | ---            | ---               |
-| [Dar nota ao Profissional] | [tipo de dados]  |                |                   |
+| Visualizar dados | Tabela  |     Cliente não cadastrado           |         -          |
 
 
-| **Comandos**         |  **Destino**                   | **Tipo** |
-| ---                  | ---                            | ---               |
-| [Avaliar ] | Número de 1-5 representando qualidade do serviço  | (número  ) |
-
-
-**Rating da Clínica**
+**Atualizar prontuário do paciente**
 
 | **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
 | ---             | ---              | ---            | ---               |
-| [Dar nota a Clinica] | [numéro ]  |                |                   |
-|                 |                  |                |                   |
+| Data e Hora da consulta        | Data e hora          | -            |  -    |
+| Nome do médico   | Caixa de texto  |      Mínimo de 3 caracteres	       |  - |
+| Especialidade médica | Caixa de texto |        -        |    -               |
+| Respostas da anamnese |         Área de texto         |        -        |  -  |
 
-| **Comandos**         |  **Destino**                   | **Tipo**          |
-| ---                  | ---                            | ---               |
-| [Avaliar ] | Número de 1-5 representando qualidade do serviço  | (número ) |
-|                      |                                |                   |
+| **Comandos**         |  **Destino**                   | **Tipo**             |
+| ---                  | ---                            | ---                  |
+|       Atualizar      |  Atualiza dados do prontuário  |       Confirm        |
+|       Cancelar       | Cancela atualização dos dados do prontuário |  Cancel |
