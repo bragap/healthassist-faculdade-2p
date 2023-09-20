@@ -5,7 +5,6 @@ O processo de Atualizar Prontuário tem como objetivo manter registros médicos 
 ![Exemplo de um Modelo BPMN do PROCESSO 5](images/processo_5_atualizar_prontuario.png "Modelo BPMN do Processo 5.")
 
 
-
 #### Detalhamento das atividades
 
 
