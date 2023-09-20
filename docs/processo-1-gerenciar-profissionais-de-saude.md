@@ -6,49 +6,58 @@ O processo de Gerenciar Profissionais de Saúde tem como objetivo manter um regi
 
 #### Detalhamento das atividades
 
-Descreva aqui cada uma das propriedades das atividades do processo 3. 
-Devem estar relacionadas com o modelo de processo apresentado anteriormente.
-
-Os tipos de dados a serem utilizados são:
-
-* **Área de texto** - campo texto de múltiplas linhas
-* **Caixa de texto** - campo texto de uma linha
-* **Número** - campo numérico
-* **Data** - campo do tipo data (dd-mm-aaaa)
-* **Hora** - campo do tipo hora (hh:mm:ss)
-* **Data e Hora** - campo do tipo data e hora (dd-mm-aaaa, hh:mm:ss)
-* **Imagem** - campo - contendo uma imagem
-* **Seleção única** - campo com várias opções de valores que são mutuamente exclusivos (tradicional radio button ou combobox)
-* **Seleção múltipla** - campo com várias opções que podem ser selecionadas mutuamente (tradicional checkbox ou listbox)
-* **Arquivo** - campo de upload de documento
-* **Link** - campo que armazena uma URL
-* **Tabela** - campo formado por uma matriz de valores
-
-**Nome da atividade 1**
+**Inserir dados na área de cadastro**
 
 | **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
 | ---             | ---              | ---            | ---               |
-| [Nome do campo] | [tipo de dados]  |                |                   |
-| ***Exemplo:***  |                  |                |                   |
-| login           | Caixa de Texto   | formato de e-mail |                |
-| senha           | Caixa de Texto   | mínimo de 8 caracteres |           |
+| Nome | Caixa de texto  |      Mínimo de 2 caracteres        |           -        |
+| Endereço | Caixa de texto  |    -            |        -           |
+| Idade | Número  |                |                   |
+| Data de Nascimento | Data |        -        |    -               |
+| Código de registro | Caixa de texto |        -        |    -               |
+| Especialidade médica | Caixa de texto |        -        |    -               |
 
 | **Comandos**         |  **Destino**                   | **Tipo** |
 | ---                  | ---                            | ---               |
-| [Nome do botão/link] | Atividade/processo de destino  | (default/cancel/  ) |
-| ***Exemplo:***       |                                |                   |
-| entrar               | Fim do Processo 1              | default           |
-| cadastrar            | Início do proceso de cadastro  |                   |
+| Cadastrar |  Enviar dados para cadastro  | Confirm |
+| Cancelar |  Cancela envio dos dados  | Cancel |
 
 
-**Nome da atividade 2**
+
+**Inserir disponibilidades e horários**
 
 | **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
 | ---             | ---              | ---            | ---               |
-| [Nome do campo] | [tipo de dados]  |                |                   |
-|                 |                  |                |                   |
+| Especialidade de atendimento | Caixa de texto  |       -         |           -        |
+| Horários disponíveis | Data e Hora |    -            |        -           |
 
-| **Comandos**         |  **Destino**                   | **Tipo**          |
+| **Comandos**         |  **Destino**                   | **Tipo** |
 | ---                  | ---                            | ---               |
-| [Nome do botão/link] | Atividade/processo de destino  | (default/cancel/  ) |
-|                      |                                |                   |
+| Enviar |  Envia os dados para análise pela secretária  | Confirm |
+| Cancelar |  Cancela envio dos dados  | Cancel |
+
+
+
+**Verificar dados e informações**
+
+| **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
+| ---             | ---              | ---            | ---               |
+| Visualizar dados | Tabela  |       Conflito de horários        |           -        |
+
+| **Comandos**         |  **Destino**                   | **Tipo** |
+| ---                  | ---                            | ---               |
+| Autorizar |  Autoriza o cadastro do profissional e envia os dados para montagem da agenda | Confirm |
+| Cancelar |  Cancela cadastro e envia notificação ao profissional  | Cancel |
+
+
+
+**Montar agenda do profissional**
+
+| **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
+| ---             | ---              | ---            | ---               |
+| Agenda pessoal | Tabela  |       -         |           -        |
+
+| **Comandos**         |  **Destino**                   | **Tipo** |
+| ---                  | ---                            | ---               |
+| Enviar |  Envia a agenda para o profissional  | Confirm |
+| Cancelar |  Cancela envio dos dados  | Cancel |
