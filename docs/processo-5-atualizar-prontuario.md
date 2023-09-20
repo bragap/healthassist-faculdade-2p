@@ -8,8 +8,6 @@ O processo de Atualizar Prontuário tem como objetivo manter registros médicos 
 
 #### Detalhamento das atividades
 
-O rating de profissionais acontecerá em dois momentos na plataforma. Primeiramente, ao fim de uma consulta o usuário/cliente que foi consultado será convidado através de um e-mail enviado pelo sistema a avaliar sua experiência com o médico e a clínica como um todo. Caso o usuário opte por não visualizar o e-mail, o mesmo ainda poderá avaliar sua consulta através do site, bastando apenas visualizar a consulta em questão na aba de histórico de consultas, podendo este então avaliar a consulta através do botão avaliar. Ambos caminhos irão direcionar o usuário a um formulário de avaliação, onde serão feitas perguntas para apurar e quatificar a satisfação do mesmo.
-
 Os tipos de dados a serem utilizados são:
 
 * **Área de texto** - campo texto de múltiplas linhas
@@ -25,26 +23,23 @@ Os tipos de dados a serem utilizados são:
 * **Link** - campo que armazena uma URL
 * **Tabela** - campo formado por uma matriz de valores
 
-**Rating dos Profissionais**
+**Identificar prontuário do paciente**
 
 | **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
 | ---             | ---              | ---            | ---               |
-| [Dar nota ao Profissional] | [tipo de dados]  |                |                   |
+| Visualizar dados | Tabela  |     Cliente não cadastrado           |         -          |
 
 
-| **Comandos**         |  **Destino**                   | **Tipo** |
-| ---                  | ---                            | ---               |
-| [Avaliar ] | Número de 1-5 representando qualidade do serviço  | (número  ) |
-
-
-**Rating da Clínica**
+**Atualizar prontuário do paciente**
 
 | **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
 | ---             | ---              | ---            | ---               |
-| [Dar nota a Clinica] | [numéro ]  |                |                   |
-|                 |                  |                |                   |
+| Data e Hora da consulta        | Data e hora          | -            |  -    |
+| Nome do médico   | Caixa de texto  |      Mínimo de 3 caracteres	       |  - |
+| Especialidade médica | Caixa de texto |        -        |    -               |
+| Respostas da anamnese |         Área de texto         |        -        |  -  |
 
-| **Comandos**         |  **Destino**                   | **Tipo**          |
-| ---                  | ---                            | ---               |
-| [Avaliar ] | Número de 1-5 representando qualidade do serviço  | (número ) |
-|                      |                                |                   |
+| **Comandos**         |  **Destino**                   | **Tipo**             |
+| ---                  | ---                            | ---                  |
+|       Atualizar      |  Atualiza dados do prontuário  |       Confirm        |
+|       Cancelar       | Cancela atualização dos dados do prontuário |  Cancel |
