@@ -84,4 +84,50 @@ Os tipos de dados a serem utilizados são:
 
 
 
+**Validar os dados inseridos**
+
+| **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
+| ---             | ---              | ---            | ---               |
+| Visualizar dados | Tabela  |               |           -        |
+
+| **Comandos**         |  **Destino**                   | **Tipo** |
+| ---                  | ---                            | ---               |
+| Confirmar |  Direncionar para a página do perfil | Confirm |
+| Cancelar |  Não reponde ao ticket momentaneamente   | Cancel |
+
+
+**Reescrever os dados**
+
+| **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
+| ---             | ---              | ---            | ---               |
+| Nome | Caixa de texto  |      Mínimo de 2 caracteres        |           -        |
+| Endereço | Caixa de texto  |    -            |        -           |
+| Idade | Número  |                |                   |
+| Data de Nascimento | Data |        -        |    -               |
+| Código de registro | Caixa de texto |        -        |    -               |
+
+| **Comandos**         |  **Destino**                   | **Tipo** |
+| ---                  | ---                            | ---               |
+| Cadastrar |  Enviar dados para atualização do perfil  | Confirm |
+| Cancelar |  Cancela envio dos dados  | Cancel |
+
+
+**Cadastrar e anexar dados médicos**
+
+| **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
+| ---             | ---              | ---            | ---               |
+| Titulo | Caixa de texto  |      Mínimo de 2 caracteres        |           -        |
+| Descrição | Caixa de texto  |    -            |        -           |
+| Resultado | Arquivo  |                |                   |
+| Data de Resultado | Data |        -        |    -               |
+
+
+| **Comandos**         |  **Destino**                   | **Tipo** |
+| ---                  | ---                            | ---               |
+| Inserir |  Enviar Dados  | Confirm |
+| Cancelar |  Cancela envio dos dados  | Cancel |
+
+
+
+
 
