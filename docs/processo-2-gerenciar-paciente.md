@@ -127,7 +127,32 @@ Os tipos de dados a serem utilizados são:
 | Inserir |  Enviar Dados  | Confirm |
 | Cancelar |  Cancela envio dos dados  | Cancel |
 
+**Validar os dados inseridos**
+| **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
+| ---             | ---              | ---            | ---               |
+| Visualizar dados | Tabela  |               |           -        |
+
+| **Comandos**         |  **Destino**                   | **Tipo** |
+| ---                  | ---                            | ---               |
+| Inserir |  Enviar Dados  | Confirm |
+| Cancelar |  Cancela envio dos dados  | Cancel |
+
+**Enviar resultado dos exames médicos**
 
 
+
+| **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
+| ---             | ---              | ---            | ---               |
+| Titulo | Caixa de texto  |      Mínimo de 2 caracteres        |           -        |
+| Descrição | Caixa de texto  |    -            |        -           |
+| Resultado | Arquivo  |                |                   |
+| Data do Resultado | Data |        -        |    -               |
+| Data da Consulta | Data |        -        |    -               |
+
+
+| **Comandos**         |  **Destino**                   | **Tipo** |
+| ---                  | ---                            | ---               |
+| Inserir |  Enviar Dados  | Confirm |
+| Cancelar |  Cancela envio dos dados  | Cancel |
 
 
