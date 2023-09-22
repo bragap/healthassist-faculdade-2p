@@ -24,14 +24,15 @@ Os tipos de dados a serem utilizados são:
 * **Tabela** - campo formado por uma matriz de valores
 
 
-**Gerenciamento de horáriose**
+**Verificar agenda diária**
 
 | **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
 | ---             | ---              | ---            | ---               |
-| Horário | Data e Hora  |      conflitos de horário       |       inexistente           |
-|                 |                  |                |                   |
+| Agenda  | Data e Hora  |      conflitos de horário       |                  |
+|          Nome do Paciente       |    Tabela              |               |                   |
+|          Idade do Paciente       |    Tabela              |               |                   |
 
 | **Comandos**         |  **Destino**                   | **Tipo**          |
 | ---                  | ---                            | ---               |
-| [Agendar horário] | Agenda do sistema  | (Planilha de campos de Data e Hora  ) |
+| Seleção única | Data (dd-mm-aaaa)  |  |
 |                      |                                |                   |
