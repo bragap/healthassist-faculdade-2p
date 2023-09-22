@@ -33,9 +33,7 @@ Os tipos de dados a serem utilizados são:
 | ---             | ---              | ---            | ---               |
 | Data | Data  |      dd-mm-aaaa          |       hoje (dd-mm-aaaa)            |
 | Horário | Hora  |      hh:mm:ss          |       00:00:00           |
-|                 |
 
 | **Comandos**         |  **Destino**                   | **Tipo** |
 | ---                  | ---                            | ---               |
 | Salvar | Fim do Processo 3  |  |
-| 

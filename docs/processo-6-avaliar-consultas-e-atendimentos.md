@@ -31,9 +31,7 @@ Os tipos de dados a serem utilizados são:
 | ---             | ---              | ---            | ---               |
 | Avaliar | Seleção única  |      campo com várias opções de valores que são mutuamente exclusivos (min: 1 - max: 5)         |        0            |
 | Comentário | Caixa de texto  |      300 caracteres          |   Escreva aqui seu comentário                | 
-| 
 
 | **Comandos**         |  **Destino**                   | **Tipo** |
 | ---                  | ---                            | ---               |
 | Salvar | Fim do Processo 6  |  |
-| 

@@ -30,9 +30,8 @@ Os tipos de dados a serem utilizados são:
 | ---             | ---              | ---            | ---               |
 | Agenda  | Data e Hora  |      conflitos de horário       |                  |
 |          Nome do Paciente       |    Tabela              |               |                   |
-|          Idade do Paciente       |    Tabela              |               |                   |
+|          Idade do Paciente       |    Tabela              |               |            |
 
 | **Comandos**         |  **Destino**                   | **Tipo**          |
 | ---                  | ---                            | ---               |
 | Seleção única | Data (dd-mm-aaaa)  |  |
-|                      |                                |                   |
