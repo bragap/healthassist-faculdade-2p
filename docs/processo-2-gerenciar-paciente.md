@@ -23,15 +23,65 @@ Os tipos de dados a serem utilizados são:
 * **Link** - campo que armazena uma URL
 * **Tabela** - campo formado por uma matriz de valores
 
-**Cadastrar paciente**
+**Detalhamento das atividades**
+
+**Inserir os dados para o cadastro**
 
 | **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
 | ---             | ---              | ---            | ---               |
-| Cadastrar | Caixa de Texto  |          -      |            -       |
+| Nome | Caixa de texto  |      Mínimo de 2 caracteres        |           -        |
+| Endereço | Caixa de texto  |    -            |        -           |
+| Idade | Número  |                |                   |
+| Data de Nascimento | Data |        -        |    -               |
+| Código de registro | Caixa de texto |        -        |    -               |
 
 | **Comandos**         |  **Destino**                   | **Tipo** |
 | ---                  | ---                            | ---               |
-| Cadastrar            | Início do proceso de cadastro  |      -             |
+| Cadastrar |  Enviar dados para cadastro  | Confirm |
+| Cancelar |  Cancela envio dos dados  | Cancel |
+
+
+
+**Enviar as dúvidas encontradas a secretária**
+
+| **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
+| ---             | ---              | ---            | ---               |
+| Ticket | Número  |       -         |           -        |
+| Titulo | Caixa de texto |    -            |        -           |
+| Descrição | Caixa de texto |    -            |        -           |
+
+| **Comandos**         |  **Destino**                   | **Tipo** |
+| ---                  | ---                            | ---               |
+| Enviar |  Envia os ticket para análise pela secretária  | Confirm |
+| Cancelar |  Cancela envio do ticket  | Cancel |
+
+
+**Analisar as dúvidas**
+
+| **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
+| ---             | ---              | ---            | ---               |
+| Visualizar dados | Tabela  |               |           -        |
+
+| **Comandos**         |  **Destino**                   | **Tipo** |
+| ---                  | ---                            | ---               |
+| Responder |  É direcinado para uma página de para realizar a reposta do ticket | Confirm |
+| Cancelar |  Não reponde ao ticket momentaneamente   | Cancel |
+
+
+
+**Enviar ao cliente uma resposta**
+
+| **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
+| ---             | ---              | ---            | ---               |
+| Ticket Resposta | Número  |       -         |           -        |
+| Titulo | Caixa de texto |    -            |        -           |
+| Descrição | Caixa de texto |    -            |        -           |
+
+| **Comandos**         |  **Destino**                   | **Tipo** |
+| ---                  | ---                            | ---               |
+| Enviar |  Envia os ticket para análise pela secretária  | Confirm |
+| Cancelar |  Cancela envio do ticket  | Cancel |
+
 
 
 
