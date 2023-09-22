@@ -135,8 +135,9 @@ Os tipos de dados a serem utilizados são:
 
 | **Comandos**         |  **Destino**                   | **Tipo** |
 | ---                  | ---                            | ---               |
-| Inserir | Confirmar os Anexos fonecidos  | Confirm |
-| Cancelar |  Cancelar os dados enviado  | Cancel |
+| Aprovar | Confirmar os Anexos fonecidos  | Confirm |
+| Desparovar | Confirmar os Anexos fonecidos  | Cancel |
+| Cancelar |  Cancelar a validação dados enviado  | Return |
 
 **Enviar resultado dos exames médicos**
 
@@ -154,7 +155,7 @@ Os tipos de dados a serem utilizados são:
 | **Comandos**         |  **Destino**                   | **Tipo** |
 | ---                  | ---                            | ---               |
 | Inserir |  Enviar Dados  | Confirm |
-| Cancelar |  Cancela envio dos dados  | Cancel |
+| Cancelar |  Cancelar a avaliação dos dados  | Return |
 
 
 **Enviar ao Paciente o motivo da invalidade**
@@ -168,5 +169,5 @@ Os tipos de dados a serem utilizados são:
 | **Comandos**         |  **Destino**                   | **Tipo** |
 | ---                  | ---                            | ---               |
 | Inserir |  Enviar motivos  | Confirm |
-| Cancelar |  Cancela envio dos motivos  | Cancel |
+| Cancelar |  Cancela envio dos motivos  | Return |
 
