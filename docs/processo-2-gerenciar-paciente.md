@@ -125,17 +125,18 @@ Os tipos de dados a serem utilizados são:
 | **Comandos**         |  **Destino**                   | **Tipo** |
 | ---                  | ---                            | ---               |
 | Inserir |  Enviar Dados  | Confirm |
-| Cancelar |  Cancela envio dos dados  | Cancel |
+| Cancelar |  Cancelar o envio dos dados  | Cancel |
 
-**Validar os dados inseridos**
+
+**Validar os dados inseridos de Anexos de Documentos **
 | **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
 | ---             | ---              | ---            | ---               |
 | Visualizar dados | Tabela  |               |           -        |
 
 | **Comandos**         |  **Destino**                   | **Tipo** |
 | ---                  | ---                            | ---               |
-| Inserir |  Enviar Dados  | Confirm |
-| Cancelar |  Cancela envio dos dados  | Cancel |
+| Inserir | Confirmar os Anexos fonecidos  | Confirm |
+| Cancelar |  Cancelar os dados enviado  | Cancel |
 
 **Enviar resultado dos exames médicos**
 
@@ -155,4 +156,17 @@ Os tipos de dados a serem utilizados são:
 | Inserir |  Enviar Dados  | Confirm |
 | Cancelar |  Cancela envio dos dados  | Cancel |
 
+
+**Enviar ao Paciente o motivo da invalidade**
+| **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
+| ---             | ---              | ---            | ---               |
+| Titulo | Caixa de texto  |      Mínimo de 2 caracteres        |           -        |
+| Descrição | Caixa de texto  |    -            |        -           |
+| Resultado | Arquivo  |                |                   |
+
+
+| **Comandos**         |  **Destino**                   | **Tipo** |
+| ---                  | ---                            | ---               |
+| Inserir |  Enviar motivos  | Confirm |
+| Cancelar |  Cancela envio dos motivos  | Cancel |
 
