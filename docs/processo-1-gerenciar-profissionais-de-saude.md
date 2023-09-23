@@ -29,7 +29,7 @@ O processo de Gerenciar Profissionais de Saúde tem como objetivo manter um regi
 | **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
 | ---             | ---              | ---            | ---               |
 | Especialidade de atendimento | Caixa de texto  |       -         |           -        |
-| Horários disponíveis | Data e Hora |    -            |        -           |
+| Horários disponíveis | Tabela |    -            |        -           |
 
 | **Comandos**         |  **Destino**                   | **Tipo** |
 | ---                  | ---                            | ---               |
