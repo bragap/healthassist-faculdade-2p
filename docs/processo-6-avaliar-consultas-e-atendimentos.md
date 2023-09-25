@@ -30,8 +30,19 @@ Os tipos de dados a serem utilizados são:
 | **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
 | ---             | ---              | ---            | ---               |
 | Avaliar | Seleção única  |      campo com várias opções de valores que são mutuamente exclusivos (min: 1 - max: 5)         |        0            |
-| Comentário | Caixa de texto  |      300 caracteres          |   Escreva aqui seu comentário                | 
+| Comentário | Caixa de texto  |      400 caracteres          |                   | 
 
 | **Comandos**         |  **Destino**                   | **Tipo** |
 | ---                  | ---                            | ---               |
 | Salvar | Fim do Processo 6  |  |
+
+
+**Avaliar a qualidade através do histórico**
+| **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
+| ---             | ---              | ---            | ---               |
+| Período  | Data e Hora  |     (dd-mm-aaaa, hh:mm:ss)       |                  |
+| Informações  | Tabela  |            |                  |
+
+| **Comandos**         |  **Destino**                   | **Tipo** |
+| ---                  | ---                            | ---               |
+| Gerar relatório | Fim do Processo 6  |  |

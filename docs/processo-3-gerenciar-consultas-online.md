@@ -27,13 +27,27 @@ Os tipos de dados a serem utilizados são:
 * **Link** - campo que armazena uma URL
 * **Tabela** - campo formado por uma matriz de valores
 
+
 **Registrar consulta**
 
 | **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
 | ---             | ---              | ---            | ---               |
+| Especialidades disponíveis | Seleção única  |      campo com várias opções de valores que são mutuamente exclusivos          |                   |
+| Nome do médico | Seleção única  |      campo com várias opções de valores que são mutuamente exclusivos          |                   |
 | Data | Data  |      dd-mm-aaaa          |       hoje (dd-mm-aaaa)            |
 | Horário | Hora  |      hh:mm:ss          |       00:00:00           |
 
 | **Comandos**         |  **Destino**                   | **Tipo** |
 | ---                  | ---                            | ---               |
 | Salvar | Fim do Processo 3  |  |
+
+
+**Cancelamento da consulta**
+
+| **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
+| ---             | ---              | ---            | ---               |
+| Consultas | Tabela  |            |                  |
+
+| **Comandos**         |  **Destino**                   | **Tipo** |
+| ---                  | ---                            | ---               |
+| Cancelar | Reinicia o Processo 3  |  |

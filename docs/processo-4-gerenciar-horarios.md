@@ -28,10 +28,10 @@ Os tipos de dados a serem utilizados são:
 
 | **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
 | ---             | ---              | ---            | ---               |
-| Agenda  | Data e Hora  |      conflitos de horário       |                  |
+| Agenda  | Data e Hora  |      conflitos de horário (dd-mm-aaaa, hh:mm:ss)       |                  |
 |          Nome do Paciente       |    Tabela              |               |                   |
 |          Idade do Paciente       |    Tabela              |               |            |
 
 | **Comandos**         |  **Destino**                   | **Tipo**          |
 | ---                  | ---                            | ---               |
-| Seleção única | Data (dd-mm-aaaa)  |  |
+| Detalhes | Tabela  |  |
