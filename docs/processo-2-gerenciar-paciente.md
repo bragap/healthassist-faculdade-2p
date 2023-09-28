@@ -56,7 +56,6 @@
 
 | **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
 | ---             | ---              | ---            | ---               |
-| Ticket Resposta | Número  |       -         |           -        |
 | Titulo | Caixa de texto |    -            |        -           |
 | Descrição | Caixa de texto |    -            |        -           |
 
@@ -87,7 +86,6 @@
 | Endereço | Caixa de texto  |    -            |        -           |
 | Idade | Número  |                |                   |
 | Data de Nascimento | Data |        -        |    -               |
-| Código de registro | Caixa de texto |        -        |    -               |
 
 | **Comandos**         |  **Destino**                   | **Tipo** |
 | ---                  | ---                            | ---               |
@@ -119,7 +117,7 @@
 | **Comandos**         |  **Destino**                   | **Tipo** |
 | ---                  | ---                            | ---               |
 | Aprovar | Confirmar os Anexos fonecidos  | Confirm |
-| Desparovar | Confirmar os Anexos fonecidos  |   |
+| Desaprovar | Confirmar os Anexos fonecidos  |   |
 | Cancelar |  Cancelar a validação dados enviado  | Return |
 
 
