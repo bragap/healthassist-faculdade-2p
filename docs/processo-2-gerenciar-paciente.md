@@ -35,7 +35,7 @@
 
 | **Comandos**         |  **Destino**                   | **Tipo** |
 | ---                  | ---                            | ---               |
-| Enviar |  Envia os ticket para análise pela secretária  | Confirm |
+| Enviar |  Envia o ticket de ajuda para análise pela secretária  | Confirm |
 | Cancelar |  Cancela envio do ticket  | Cancel |
 
 
@@ -61,7 +61,7 @@
 
 | **Comandos**         |  **Destino**                   | **Tipo** |
 | ---                  | ---                            | ---               |
-| Enviar |  Envia os ticket para análise pela secretária  | Confirm |
+| Enviar |  Retonar uma resposta ao cliente  | Confirm |
 | Cancelar |  Cancela envio do ticket  | Cancel |
 
 
