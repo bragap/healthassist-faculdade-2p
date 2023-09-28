@@ -21,6 +21,7 @@
 | **Comandos**         |  **Destino**                   | **Tipo** |
 | ---                  | ---                            | ---               |
 | Cadastrar |  Enviar dados para cadastro  | Confirm |
+| Ajuda |  Enviar dúvidas sobre o cadastro para a secretária |  |
 | Cancelar |  Cancela envio dos dados  | Cancel |
 
 
@@ -43,7 +44,7 @@
 
 | **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
 | ---             | ---              | ---            | ---               |
-| Visualizar dados | Tabela  |               |           -        |
+| Visualizar dados | Caixa de texto  |               |           -        |
 
 | **Comandos**         |  **Destino**                   | **Tipo** |
 | ---                  | ---                            | ---               |
@@ -71,12 +72,12 @@
 
 | **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
 | ---             | ---              | ---            | ---               |
-| Visualizar dados | Tabela  |               |           -        |
+| Visualizar dados | Caixa de texto  |               |           -        |
 
 | **Comandos**         |  **Destino**                   | **Tipo** |
 | ---                  | ---                            | ---               |
-| Confirmar |  Direncionar para a página do perfil | Confirm |
-| Cancelar |  Não reponde ao ticket momentaneamente   | Cancel |
+| Confirmar |  Direcionar para a página do perfil | Confirm |
+| Cancelar |  Direcionar para a página de Reescrever os dados   | Cancel |
 
 
 **Reescrever os dados**
@@ -107,38 +108,20 @@
 
 | **Comandos**         |  **Destino**                   | **Tipo** |
 | ---                  | ---                            | ---               |
-| Inserir |  Enviar Dados  | Confirm |
+| Enviar |  Enviar Dados  | Confirm |
 | Cancelar |  Cancelar o envio dos dados  | Cancel |
 
 
 **Validar os dados inseridos de Anexos de Documentos **
 | **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
 | ---             | ---              | ---            | ---               |
-| Visualizar dados | Tabela  |               |           -        |
+| Visualizar dados | Caixa de Texto  |               |           -        |
 
 | **Comandos**         |  **Destino**                   | **Tipo** |
 | ---                  | ---                            | ---               |
 | Aprovar | Confirmar os Anexos fonecidos  | Confirm |
-| Desparovar | Confirmar os Anexos fonecidos  | Cancel |
+| Desparovar | Confirmar os Anexos fonecidos  |   |
 | Cancelar |  Cancelar a validação dados enviado  | Return |
-
-**Enviar resultado dos exames médicos**
-
-
-
-| **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
-| ---             | ---              | ---            | ---               |
-| Titulo | Caixa de texto  |      Mínimo de 2 caracteres        |           -        |
-| Descrição | Caixa de texto  |    -            |        -           |
-| Resultado | Arquivo  |                |                   |
-| Data do Resultado | Data |        -        |    -               |
-| Data da Consulta | Data |        -        |    -               |
-
-
-| **Comandos**         |  **Destino**                   | **Tipo** |
-| ---                  | ---                            | ---               |
-| Inserir |  Enviar Dados  | Confirm |
-| Cancelar |  Cancelar a avaliação dos dados  | Return |
 
 
 **Enviar ao Paciente o motivo da invalidade**
@@ -151,6 +134,6 @@
 
 | **Comandos**         |  **Destino**                   | **Tipo** |
 | ---                  | ---                            | ---               |
-| Inserir |  Enviar motivos  | Confirm |
+| Enviar |  Enviar motivos  | Confirm |
 | Cancelar |  Cancela envio dos motivos  | Return |
 
