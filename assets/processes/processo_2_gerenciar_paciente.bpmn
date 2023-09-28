@@ -27,7 +27,6 @@
         <bpmn:flowNodeRef>Event_0cgc745</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_1qm8433</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_0s90o4s</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Activity_0w6vjut</bpmn:flowNodeRef>
       </bpmn:lane>
     </bpmn:laneSet>
     <bpmn:receiveTask id="Activity_1k74spr" name="Analisar as dúvidas">
@@ -80,7 +79,6 @@
       <bpmn:incoming>Flow_0ak7jpw</bpmn:incoming>
       <bpmn:outgoing>Flow_09x4iq9</bpmn:outgoing>
       <bpmn:outgoing>Flow_1cr27e5</bpmn:outgoing>
-      <bpmn:outgoing>Flow_1jlukpm</bpmn:outgoing>
       <bpmn:outgoing>Flow_0gxxbc2</bpmn:outgoing>
     </bpmn:exclusiveGateway>
     <bpmn:userTask id="Activity_1uh46bh" name="Cadastrar e anexar dados médicos">
@@ -109,7 +107,6 @@
     <bpmn:dataObject id="DataObject_1htvhfl" />
     <bpmn:serviceTask id="Activity_0s90o4s" name="Adicionar ao perfil do usuário o documento">
       <bpmn:incoming>Flow_1c5ybh8</bpmn:incoming>
-      <bpmn:incoming>Flow_0zhslco</bpmn:incoming>
       <bpmn:outgoing>Flow_0xi59nz</bpmn:outgoing>
     </bpmn:serviceTask>
     <bpmn:intermediateCatchEvent id="Event_124ii7f">
@@ -117,10 +114,6 @@
       <bpmn:outgoing>Flow_0ak7jpw</bpmn:outgoing>
       <bpmn:timerEventDefinition id="TimerEventDefinition_1l4uxvo" />
     </bpmn:intermediateCatchEvent>
-    <bpmn:userTask id="Activity_0w6vjut" name="Enviar resultado dos exames médicos">
-      <bpmn:incoming>Flow_1jlukpm</bpmn:incoming>
-      <bpmn:outgoing>Flow_0zhslco</bpmn:outgoing>
-    </bpmn:userTask>
     <bpmn:endEvent id="Event_1cx78rn" name="Remover  acesso de visualização do Perfil.">
       <bpmn:incoming>Flow_1cr27e5</bpmn:incoming>
     </bpmn:endEvent>
@@ -141,13 +134,11 @@
     <bpmn:sequenceFlow id="Flow_0ak7jpw" sourceRef="Event_124ii7f" targetRef="Gateway_01h7dkd" />
     <bpmn:sequenceFlow id="Flow_09x4iq9" name="Inserir Documentos" sourceRef="Gateway_01h7dkd" targetRef="Activity_1uh46bh" />
     <bpmn:sequenceFlow id="Flow_1cr27e5" name="Desativar Perfil" sourceRef="Gateway_01h7dkd" targetRef="Event_1cx78rn" />
-    <bpmn:sequenceFlow id="Flow_1jlukpm" name="Cadastrar resultado dos exames" sourceRef="Gateway_01h7dkd" targetRef="Activity_0w6vjut" />
     <bpmn:sequenceFlow id="Flow_0gxxbc2" name="Atualizar Dados" sourceRef="Gateway_01h7dkd" targetRef="Activity_17m2b4s" />
     <bpmn:sequenceFlow id="Flow_1ur9eoa" sourceRef="Activity_17m2b4s" targetRef="Activity_1hhisiy" />
     <bpmn:sequenceFlow id="Flow_0zt8ran" sourceRef="Activity_1hhisiy" targetRef="Gateway_0npbagi" />
     <bpmn:sequenceFlow id="Flow_14v4wbw" name="Não" sourceRef="Gateway_0npbagi" targetRef="Activity_17m2b4s" />
     <bpmn:sequenceFlow id="Flow_1udco0a" name="Sim" sourceRef="Gateway_0npbagi" targetRef="Event_124ii7f" />
-    <bpmn:sequenceFlow id="Flow_0zhslco" sourceRef="Activity_0w6vjut" targetRef="Activity_0s90o4s" />
     <bpmn:textAnnotation id="TextAnnotation_0smolsh">
       <bpmn:text>Qual atividade deseja realizar</bpmn:text>
     </bpmn:textAnnotation>
@@ -177,6 +168,7 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0dtupg4_di" bpmnElement="Activity_0jjg0b7">
         <dc:Bounds x="461" y="815" width="100" height="80" />
+        <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_0sfhz6f_di" bpmnElement="Gateway_0sfhz6f" isMarkerVisible="true">
         <dc:Bounds x="616" y="830" width="50" height="50" />
@@ -199,9 +191,11 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0gnvbt1_di" bpmnElement="Activity_059ozpp">
         <dc:Bounds x="1771" y="525" width="100" height="80" />
+        <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0960czg_di" bpmnElement="Activity_0fo6mar">
         <dc:Bounds x="1921" y="405" width="100" height="80" />
+        <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_0cgc745_di" bpmnElement="Event_0cgc745">
         <dc:Bounds x="1613" y="187" width="36" height="36" />
@@ -221,9 +215,11 @@
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1svm2bz_di" bpmnElement="Activity_1hhisiy">
         <dc:Bounds x="851" y="815" width="100" height="80" />
+        <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_17metm2_di" bpmnElement="Activity_17m2b4s">
         <dc:Bounds x="1111" y="815" width="100" height="80" />
+        <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_0npbagi_di" bpmnElement="Gateway_0npbagi" isMarkerVisible="true">
         <dc:Bounds x="1136" y="685" width="50" height="50" />
@@ -245,10 +241,6 @@
         <bpmndi:BPMNLabel>
           <dc:Bounds x="1272" y="515" width="76" height="14" />
         </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1dfwktq_di" bpmnElement="Activity_0w6vjut">
-        <dc:Bounds x="1381" y="455" width="100" height="80" />
-        <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_1cx78rn_di" bpmnElement="Event_1cx78rn">
         <dc:Bounds x="1553" y="837" width="36" height="36" />
@@ -350,13 +342,6 @@
           <dc:Bounds x="1462" y="828" width="75" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_1jlukpm_di" bpmnElement="Flow_1jlukpm">
-        <di:waypoint x="1431" y="685" />
-        <di:waypoint x="1431" y="535" />
-        <bpmndi:BPMNLabel>
-          <dc:Bounds x="1437" y="573" width="67" height="40" />
-        </bpmndi:BPMNLabel>
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0gxxbc2_di" bpmnElement="Flow_0gxxbc2">
         <di:waypoint x="1421" y="725" />
         <di:waypoint x="1421" y="855" />
@@ -387,11 +372,6 @@
         <bpmndi:BPMNLabel>
           <dc:Bounds x="1200" y="692" width="19" height="14" />
         </bpmndi:BPMNLabel>
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_0zhslco_di" bpmnElement="Flow_0zhslco">
-        <di:waypoint x="1431" y="455" />
-        <di:waypoint x="1431" y="325" />
-        <di:waypoint x="1771" y="325" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Association_0c7k4td_di" bpmnElement="Association_0c7k4td">
         <di:waypoint x="1447" y="719" />

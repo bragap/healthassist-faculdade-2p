@@ -16,7 +16,7 @@
 | Endereço | Caixa de texto  |    -            |        -           |
 | Idade | Número  |                |                   |
 | Data de Nascimento | Data |        -        |    -               |
-| Código de registro | Caixa de texto |        -        |    -               |
+
 
 | **Comandos**         |  **Destino**                   | **Tipo** |
 | ---                  | ---                            | ---               |
@@ -30,7 +30,6 @@
 
 | **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
 | ---             | ---              | ---            | ---               |
-| Ticket | Número  |       -         |           -        |
 | Titulo | Caixa de texto |    -            |        -           |
 | Descrição | Caixa de texto |    -            |        -           |
 
@@ -103,7 +102,7 @@
 | Titulo | Caixa de texto  |      Mínimo de 2 caracteres        |           -        |
 | Descrição | Caixa de texto  |    -            |        -           |
 | Resultado | Arquivo  |                |                   |
-| Data de Resultado | Data |        -        |    -               |
+| Data do Resultado | Data |        -        |    -               |
 
 
 | **Comandos**         |  **Destino**                   | **Tipo** |
@@ -127,9 +126,8 @@
 **Enviar ao Paciente o motivo da invalidade**
 | **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
 | ---             | ---              | ---            | ---               |
-| Titulo | Caixa de texto  |      Mínimo de 2 caracteres        |           -        |
+| Titulo | Caixa de texto  |  Mínimo de 2 caracteres        |           -        |
 | Descrição | Caixa de texto  |    -            |        -           |
-| Resultado | Arquivo  |                |                   |
 
 
 | **Comandos**         |  **Destino**                   | **Tipo** |
