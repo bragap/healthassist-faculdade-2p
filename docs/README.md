@@ -102,7 +102,7 @@ A visão de futuro para o gerenciamento e agendamento de consultas em clínicas 
 
 ### 3.3. Modelagem dos processos
 
-[PROCESSO 1 - Gerenciar profissional de saúde](processo-1-gerenciar-profissionais-de-saude.md "Detalhamento do Processo 1.")
+[PROCESSO 1 - Gerenciar médico](processo-1-gerenciar-medico.md "Detalhamento do Processo 1.")
 
 [PROCESSO 2 - Gerenciar paciente](processo-2-gerenciar-paciente.md "Detalhamento do Processo 2.")
 
