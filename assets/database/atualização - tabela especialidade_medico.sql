@@ -1,1 +1,0 @@
-RENAME TABLE healthassist.especialidade TO healthassist.especialidade_medico;

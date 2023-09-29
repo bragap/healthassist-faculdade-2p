@@ -1,1 +1,0 @@
-DROP TABLE healthassist.horario_de_atendimento;
