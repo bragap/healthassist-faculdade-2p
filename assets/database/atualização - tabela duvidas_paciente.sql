@@ -1,0 +1,2 @@
+ALTER TABLE healthassist.duvidas_paciente
+ADD data_criacao TIMESTAMP DEFAULT CURRENT_TIMESTAMP;

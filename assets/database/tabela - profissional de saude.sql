@@ -7,7 +7,7 @@ data_nasc DATE,
 código_de_registro VARCHAR(255) UNIQUE NOT NULL,
 especialidade ENUM('Cardiologista', 'Oftalmologista'),
 PRIMARY KEY (id)
-);
+);arquivos
 
 CREATE TABLE healthassist.disponibilidade_de_horario (
 id_medico INT,
