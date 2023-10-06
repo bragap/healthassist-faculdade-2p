@@ -28,7 +28,6 @@ _Apresente o modelo de dados por meio de um modelo relacional ou Diagrama de Ent
 
 ### 4.4. Tecnologias
 
-_Descreva qual(is) tecnologias você vai usar para resolver o seu problema, ou seja, implementar a sua solução. Liste todas as tecnologias envolvidas, linguagens a serem utilizadas, serviços web, frameworks, bibliotecas, IDEs de desenvolvimento, e ferramentas. Apresente também uma figura explicando como as tecnologias estão relacionadas ou como uma interação do usuário com o sistema vai ser conduzida, por onde ela passa até retornar uma resposta ao usuário._
 
 | **Dimensão**   | **Tecnologia**  |
 | ---            | ---             |
@@ -44,35 +43,47 @@ _Descreva qual(is) tecnologias você vai usar para resolver o seu problema, ou s
 
 Layout padrão do site (HTML e CSS) que será utilizado em todas as páginas com a definição de identidade visual, aspectos de responsividade e iconografia.
 
-Explique as guias de estilo utilizadas no seu projeto.
+##### Menu padrão
+![Menu padrão](images/menu_padrao.png "Menu padrão")
 
 ## Design
+##### Logo
+![Logo](images/logo.png "Logo")
 
-Detalhe os layouts que serão utilizados. Apresente onde será colocado o logo do sistema. Defina os menus padrões, entre outras coisas.
+##### Login
+![login](images/login.png "login")
+
+##### Cadastro Médico
+![design_cadastro_medico](images/design_cadastro_medico.png "design_cadastro_medico")
+
+##### Cadastro Paciente
+![design_cadastro_paciente](images/design_cadastro_paciente.png "design_cadastro_paciente")
+
+##### Tela Médico
+![tela_medico](images/tela_medico.png "tela_medico")
+
+##### Tela Paciente
+![tela_paciente](images/tela_paciente.png "tela_paciente")
+
+##### Visualizar Agenda
+![agenda](images/agenda.png "agenda")
+
+##### Avaliar atendimento
+![avaliacao](images/avaliacao.png "avaliacao")
 
 
 ## Cores
 
-Apresente a paleta de cores que será utilizada. Uma ferramenta interessante para a criação de palestas de cores é o *Adobe Color* ([https://color.adobe.com/pt/create/color-wheel](https://color.adobe.com/pt/create/color-wheel)).
-
+![Paleta De Cores](images/paleta_cores.png "Paleta de Cores")
 
 ## Tipografia
 
-Apresente as fontes que serão utilizadas e sua função no site. As principais funções são: Título de página, Título de seção, Rótulos de componentes e Corpo de Texto.
+![Tipografia](images/tipografia.png "Tipografia")
 
 
 ## Iconografia
 
-Defina os ícones que serão utilizados e suas respectivas funções.
+![Icones](images/icones_1.png "Icones")
 
-Apresente os estilos CSS criados para cada um dos elementos apresentados.
-Outras seções podem ser adicionadas neste documento para apresentar padrões de componentes, de menus, etc.
+![Icones](images/icones_2.png "Icones")
 
-
-> **Links Úteis**:
->
-> - [Como criar um guia de estilo de design da Web](https://edrodrigues.com.br/blog/como-criar-um-guia-de-estilo-de-design-da-web/#)
-> - [CSS Website Layout (W3Schools)](https://www.w3schools.com/css/css_website_layout.asp)
-> - [Website Page Layouts](http://www.cellbiol.com/bioinformatics_web_development/chapter-3-your-first-web-page-learning-html-and-css/website-page-layouts/)
-> - [Perfect Liquid Layout](https://matthewjamestaylor.com/perfect-liquid-layouts)
-> - [How and Why Icons Improve Your Web Design](https://usabilla.com/blog/how-and-why-icons-improve-you-web-design/)
