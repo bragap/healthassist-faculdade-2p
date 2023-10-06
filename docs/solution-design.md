@@ -53,17 +53,20 @@ _Apresente o modelo de dados por meio de um modelo relacional ou Diagrama de Ent
 
 Layout padrão do site (HTML e CSS) que será utilizado em todas as páginas com a definição de identidade visual, aspectos de responsividade e iconografia.
 
-##### Menu padrão
-![Menu padrão](images/menu_padrao.png "Menu padrão")
 
 ## Design
-##### Logo
+##### Logo 1
 ![Logo](images/logo.png "Logo")
+
+##### Logo 2
+![Logo2](images/logo_escrita.png "Logo2")
 
 ##### Login
 ![login](images/login.png "login")
 
-##### Cadastro Médico
+##### Menu padrão
+![Menu padrão](images/menu_padrao.png "Menu padrão")
+<!-- ##### Cadastro Médico
 ![design_cadastro_medico](images/design_cadastro_medico.png "design_cadastro_medico")
 
 ##### Cadastro Paciente
@@ -79,7 +82,7 @@ Layout padrão do site (HTML e CSS) que será utilizado em todas as páginas com
 ![agenda](images/agenda.png "agenda")
 
 ##### Avaliar atendimento
-![avaliacao](images/avaliacao.png "avaliacao")
+![avaliacao](images/avaliacao.png "avaliacao") -->
 
 
 ## Cores
@@ -89,11 +92,11 @@ Layout padrão do site (HTML e CSS) que será utilizado em todas as páginas com
 ## Tipografia
 
 ![Tipografia](images/tipografia.png "Tipografia")
-
+ ##### Título: será utilizado Semibold
+ ##### Conteúdo de texto: será utilizado Regular
 
 ## Iconografia
 
-![Icones](images/icones_1.png "Icones")
 
 ![Icones](images/icones_2.png "Icones")
 
