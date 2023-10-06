@@ -2,9 +2,19 @@
 
 ### 4.1. Diagrama de classes
 
-![Diagrama de classes](images/classes.gif "Diagrama de classes")
+![Diagrama de classes](images/HealthAssistUML.jpg "Diagrama de classes")
 
-_Acrescente uma breve descrição sobre o diagrama apresentado. Descreva cada uma de suas classes._
+A classe "Medico" contém informações relevantes, como nome, especialização, CRM e detalhes de contato. O método editarAgenda permitem que os profissionais de saúde gerenciem suas agendas, otimizando a gestão de consultas.
+
+A classe "AgendaDoMedico" inclui informações sobre os horários disponíveis para consultas. Esta classe é essencial para otimizar a coordenação de consultas médicas, evitando conflitos de horário e garantindo uma distribuição equilibrada das consultas. Além disso, a classe inclui o método "cancelarConsulta" para permitir o cancelamento de consultas agendadas quando necessário.
+
+A classe "Paciente" representa os indivíduos em busca de atendimento médico. Ela armazena informações essenciais, como o nome do paciente e detalhes de contato. Os métodos associados a esta classe incluem a capacidade de agendar, cancelar e avaliar consultas e visualizar prontuário, assim melhorando a experiência do paciente.
+
+A classe "Prontuário" é responsável por armazenar informações detalhadas sobre o histórico médico dos pacientes. Ela inclui dados como diagnósticos, tratamentos anteriores e qualquer outra informação relevante relacionada às consultas médicas. O prontuário é uma parte fundamental da assistência médica, pois fornece um registro completo e atualizado da saúde do paciente, permitindo que os profissionais de saúde tomem decisões informadas. Essa classe desempenha um papel crucial na melhoria da qualidade da assistência médica e na continuidade do cuidado ao paciente.
+
+A classe "Consulta" mantém informações sobre consultas médicas, como data, hora, paciente, médico e estado da consulta (agendada, realizada, cancelada, etc.), além de avaliações do usuário. Os métodos relacionados a esta classe permitem a atualização do estado da consulta e atualização do prontuário do paciente.
+
+Descrição: A classe "LembreteDeConsulta" cuida dos lembretes enviados aos pacientes e médicos para informa-los sobre os status de cada consulta(agendada, realizada, cancelada). Ela armazena informações como mensagem do lembrete, data e hora e destinatários(médico e paciente). O método associado a esta classe se refere ao envio destes lembretes.
 
 ### 4.2. Diagrama de componentes
 
