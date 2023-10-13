@@ -1,5 +1,4 @@
 body {
-    height: 100%;
     margin: 0;
 }
 
@@ -9,32 +8,31 @@ body {
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
-
 }
 
 main {
     font-family: 'Poppins', sans-serif;
     font-size: 1.1em;
     position: absolute;
-    top: 10%;
-    right: 250px;
-    height: 550px;
+    top:0;
+    right: 0;
+    bottom: 0;
     display: flex;
     flex-direction: column;
     text-align: center;
     align-items: center;
+    justify-content: center;
     color: #0367A6;
-    width: 600px;
+    width: 50%;
     user-select: none;
     background-color: #fff;
-    border-radius: 25px;
     padding: 20px;
 }
 
 main img {
-    width: 70%;
+    width: 45%;
     border-radius: 10px;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
 }
 
 main a {
@@ -46,7 +44,7 @@ main a {
     padding: 10px 20px;
     font-size: 1.2em;
     margin-top: 50px;
-    width: 40%;
+    width: 25%;
 }
 
 main a:hover {
@@ -54,54 +52,38 @@ main a:hover {
     cursor: pointer;
 }
 
-
-
-@media (min-width: 521px) and (max-width: 1310px) {
-    main {
-        width: 45%;
-        right: 5%;
-    }
+.conteudo-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-@media (min-width: 800px) and (max-width: 1610px) {
-    main {
-        top: 12%;
-    }
+.descricao{
+    color: #aaa;
+    padding: 10px;
 }
 
-
-
-@media (max-width: 730px) {
-    .bg {
-        background-image: url("../images/background-home.jpg");
-        background-repeat: no-repeat;
-        background-size: cover;
-        background-position: left;
-        background-attachment: fixed;
-    }
-
+@media (max-width: 729px){
+    .bg{
+        background-image: linear-gradient(to bottom, #2f89c1, #2882bc, #217cb7, #1975b2, #116fad, #1367a1, #155f96, #15578a, #1a4b76, #1b4063, #1b3550, #192a3e);    }
     main {
-        top: 15%;
-        right: 10%;
-        width: 70%;
-        height: 60%;
-    }
-
-    main a {
+        background-image: linear-gradient(to bottom, #2f89c1, #2882bc, #217cb7, #1975b2, #116fad, #1367a1, #155f96, #15578a, #1a4b76, #1b4063, #1b3550, #192a3e);        width: 95%;
+        right: 0;
+      
         font-size: 0.9em;
-        padding: 10px;
     }
-
-    main p,
-    main h1 {
-        font-size: 1.3em;
+    main img{
+        width: 75%;
+    }
+    .conteudo-card{
+        color: white;
+        font-size: 0.9em;
     }
 }
 
 
-@media (min-width: 1311px) and (max-width: 1620px) {
-    main {
-        width: 40%;
-        right: 5%;
+@media (min-width: 730px) and (max-width: 1000px) {
+    main img{
+       width: 60%;
     }
 }
