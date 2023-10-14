@@ -7,6 +7,7 @@ body{
 img {
     user-select: none;
 }
+
 .forms{
     display: flex;
     flex-direction: column;
@@ -22,7 +23,7 @@ input, textarea{
     margin: 10px;
     box-sizing: border-box;
     border: none;
-    border-bottom: 1.8px solid #2f89c1;
+    border-bottom: 1.8px solid #192A3E;
     padding: 5px;
     background-color: transparent;
 }
@@ -37,30 +38,30 @@ textarea:focus {
     border: none;
     border-radius: 5px;
     padding: 5px;
-    background: #0367A6;
+    background: #192A3E;
     color: #F2F2F2 ;
     cursor: pointer;
     user-select: none;
 }
 .forms img{
-    margin-top: -20px;
-    height: 200px;
+    margin-top: 80px;
+    height: 50px;
     user-select: none;
 }
 .forms button:hover{
-    background-color: #2f89c1;
+    background-color: #192A3E;
     color: #F2F2F2;
 }
 .forms h3 {
     font-size: 2rem;
-    color:  #0367A6;
+    color:  #192A3E;
     user-select: none;
 }
 .forms p{
     user-select: none;
 }
 .forms a{
-    color: #0367A6;
+    color: #192A3E;
     text-decoration: none;
     user-select: none;
 }
@@ -82,14 +83,14 @@ textarea:focus {
     margin: auto;
     shape-outside: circle(50% at 30%);
     clip-path: circle(50% at 5%);
-    background: #0367A6;
+    background: #192A3E;
     margin-right: -150px;
     user-select: none;
   }
 
 #circulo img{
   margin-right: 70px;
-  width: 400px;
+  width: 360px;
   user-select: none;
 }
 footer{
@@ -101,7 +102,7 @@ footer{
     text-align: center;
     margin: 0;
     padding: 0;
-    color: #0367A6;
+    color: #192A3E;
     font-weight: bold;
     user-select: none;
 

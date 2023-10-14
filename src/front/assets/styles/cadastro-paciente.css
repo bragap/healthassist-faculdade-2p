@@ -2,6 +2,7 @@ body{
     display: flex;
     width: calc(100% - 10px);
     margin: 0;
+    background-color: #0367A6;
     font-family: "Popins", sans-serif;
 }
 img {
@@ -14,62 +15,9 @@ img {
     text-align: center;
     margin-top: 150px;
     width: 500px;
+    color: #fff;
     user-select: none;
-}
-input, textarea{
-    width: 300px;
-    height: 30px;
-    margin: 10px;
-    box-sizing: border-box;
-    border: none;
-    border-bottom: 1.8px solid #2f89c1;
-    padding: 5px;
-    background-color: transparent;
-}
-input:focus,
-textarea:focus {
-  outline: none;
-}
-.forms button{
-    width: 300px;
-    height: 30px;
-    margin: 10px;
-    border: none;
-    border-radius: 5px;
-    padding: 5px;
-    background: #0367A6;
-    color: #F2F2F2 ;
-    cursor: pointer;
-    user-select: none;
-}
-.forms img{
-    margin-top: -20px;
-    height: 200px;
-    user-select: none;
-}
-.forms button:hover{
-    background-color: #2f89c1;
-    color: #F2F2F2;
-}
-.forms h3 {
-    font-size: 2rem;
-    color:  #0367A6;
-    user-select: none;
-}
-.forms p{
-    user-select: none;
-}
-.forms a{
-    color: #0367A6;
-    text-decoration: none;
-    user-select: none;
-}
-.forms a:hover{
-    text-decoration: underline;
-}
-.forms .a-doutor{
-    color: grey;
-    margin-bottom: 10px;
+
 }
 
 #circulo {
@@ -82,7 +30,7 @@ textarea:focus {
     margin: auto;
     shape-outside: circle(50% at 30%);
     clip-path: circle(50% at 5%);
-    background: #0367A6;
+    background: #fff;
     margin-right: -150px;
     user-select: none;
   }
@@ -92,6 +40,7 @@ textarea:focus {
   width: 400px;
   user-select: none;
 }
+
 footer{
     position: fixed;
     bottom: 0;
@@ -101,11 +50,11 @@ footer{
     text-align: center;
     margin: 0;
     padding: 0;
-    color: #0367A6;
+    color: #fff;
     font-weight: bold;
-    user-select: none;
-
+user-select: none;
 }
+
 
 /* RESPONSIVIDADE */
 @media (max-width: 1500px){
