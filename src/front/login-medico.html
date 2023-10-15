@@ -17,8 +17,18 @@
             <h3>MÉDICOS</h3>
             <input type="text" placeholder="Username">
             <input type="password" placeholder="Password">
-            <button href="/">Entrar</button>
-            <p>Não possui conta? <a href="">Registre-se</a> </p>
+            <button id="btn-entrar" href="/">Entrar</button>
+            <p>Não possui conta? <button id="button-modal">Registre-se</button> </p>
+            <dialog id="modal">
+                <form action="">
+                    <h3>Realize o Cadastro</h3>
+                    <input type="text" placeholder="Username">
+                    <input type="email" placeholder="Email">
+                    <input type="password" placeholder="Password">
+                    <input type="password" placeholder="Confirm Password">
+                    <button id="btn-close-modal" href="/">Cadastrar</button>
+                </form>
+            </dialog>
             <img src="./assets/images/logo-v2.png" alt="">
         </div>
     </div>
@@ -26,7 +36,7 @@
     <footer>
         <p>&copy; 2023 HealthAssist</p>
     </footer>
-
+    <script src="./assets/scripts/login.js"></script>
 </body>
 
 </html>

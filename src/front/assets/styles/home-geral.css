@@ -1,0 +1,148 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif;
+    user-select: none;
+  }
+  main {
+     width: 70%;
+     margin: 0 auto;
+     display: flex;
+     flex-wrap: wrap;
+     height: 180vh;
+    
+  }
+  main img {
+    width: 40%;
+  }
+  
+  section{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin: 0 auto;
+  }
+
+  section div{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding: 10px;
+    align-items: center;
+    font-size: 1.5em;
+    color: #192A3E;
+  }
+  section div h1{
+    font-size: 70px;
+    margin-bottom: 10px;
+  }
+  section div p{
+    margin-left: 20px;
+}
+   span {
+    color:#0367A6;
+  }
+  
+  article{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #192A3E;
+  }
+
+  article img{
+    margin-right: 100px;
+  }
+  article div h1{
+    font-size: 70px;
+  }
+article div p{
+    font-size: 1.2em;
+
+}
+
+aside{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #192A3E;
+    padding: 10px;
+  }
+
+  aside img{
+    width: 55%;
+  }
+
+  aside div{
+    margin-left: 25px;
+  }
+  aside div h1{
+    font-size: 60px;
+  }
+aside div p{
+    font-size: 1.2em;
+    margin-left: 10px;
+}
+
+
+  @media (max-width: 999px) {
+    body {
+      overflow-x: hidden;  
+    }  
+    main {
+        height: 160vh;
+        margin: 0 auto;
+    }    
+    section{
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+    }    
+    section div {
+        text-align: center;
+    }    
+    section img{
+        width: 65%;
+    }    
+    section div h1{
+        font-size: 1.5em;
+    }    
+     section div p{
+        font-size: 1em; 
+    }    
+    article{
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+    }    
+    article div {
+        text-align: center;
+    }    
+    article img{
+        width: 65%;
+        margin: 0 auto;
+    }    
+    article div h1{
+        font-size: 2.2em;
+    }    
+    
+    aside{
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+    }    
+    aside div {
+        text-align: center;
+    }    
+    aside img{
+        width: 65%;
+    }    
+   aside div h1{
+        font-size: 2em;
+    }    
+    aside div p{
+        font-size: 1.2em;
+    }    
+   
+  }  
+  
