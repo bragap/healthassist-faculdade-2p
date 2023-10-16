@@ -49,6 +49,17 @@ footer, header, hgroup, menu, nav, section {
 body {
     line-height: 1;
 }
+body::-webkit-scrollbar {
+    width: 0.5em;
+  }
+  body::-webkit-scrollbar-track {
+    background-color: #F5F5F7;
+  }
+  body::-webkit-scrollbar-thumb{
+    background-color: #0367A6;
+    border-radius: 10px;
+  }
+
 ol, ul {
     list-style: none;
 }
