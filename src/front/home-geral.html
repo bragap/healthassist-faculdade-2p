@@ -7,19 +7,23 @@
     <title>Bem-vindo ao HealthAssist</title>
     <link rel="stylesheet" href="./assets/styles/home-geral.css">
     <link rel="icon" href="./assets/images/favicon.ico">
+    <script src="https://unpkg.com/scrollreveal@4"></script>
+	<script>
+		ScrollReveal({ duration: 1000 })
+	</script>
 </head>
 
 <body>
     <mobile-navbar></mobile-navbar>
     <main>
-        <section id="inicio">
+        <section class="headline" id="inicio">
             <div>
                 <h1> Somos o <br><span>HealthAssist</span></h1>
                 <p>Nos preocupamos com sua saúde</p>
             </div>
             <img src="./assets/images/home-v2.jpg">
         </section>
-        <article>
+        <article  class="tagline">
             <img src="./assets/images/home-v3.png">
             <div>
                 <h1> Oque é?
@@ -27,7 +31,7 @@
                 <p> Solução que simplifica e <br> aprimora <span>marcações de consultas</span></p>
             </div>
         </article>
-        <aside id="integrantes">
+        <aside class="punchline" id="integrantes">
             <div>
                 <h1> Quem somos?
                 </h1>
@@ -39,6 +43,11 @@
     </main>
 
     <script src="./assets/scripts/mobile-navbar.js"></script>
+    <script>
+		ScrollReveal().reveal('.headline')
+		ScrollReveal().reveal('.tagline', { delay: 500 })
+		ScrollReveal().reveal('.punchline', { delay: 550 })
+	</script>
 </body>
 </body>
 

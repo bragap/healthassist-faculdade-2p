@@ -91,7 +91,7 @@ aside div p{
     }  
     main {
         height: 160vh;
-        margin: 0 auto;
+        margin: 50px auto;
     }    
     section{
         margin-top: 10px;
@@ -99,13 +99,17 @@ aside div p{
         flex-direction: column;
     }    
     section div {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
         text-align: center;
+     
     }    
     section img{
         width: 65%;
     }    
     section div h1{
-        font-size: 1.5em;
+        font-size: 1.4em;
     }    
      section div p{
         font-size: 1em; 
@@ -129,7 +133,8 @@ aside div p{
     aside{
         margin-top: 10px;
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        flex-wrap: wrap;
     }    
     aside div {
         text-align: center;

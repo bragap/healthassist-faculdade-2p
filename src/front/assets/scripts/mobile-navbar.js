@@ -27,12 +27,14 @@ class MobileNavbar extends HTMLElement {
           opacity: 0.7;
         }
         
-        .logo {
-          font-size: 1.6em;
-          letter-spacing: 2px;
+        .logo img{
+         width: 80%;
         }
         
         nav {
+          position:fixed;
+          top:0;
+          width:100%;
           display: flex;
           justify-content: space-around;
           align-items: center;
@@ -105,15 +107,15 @@ class MobileNavbar extends HTMLElement {
               height: 8vh;
               padding-top: 13px;
           }    
-          nav img {
-              width: 70%;
+          .logo img {
+              width: 45%;
             }    
           .nav-list {
             position: absolute;  
-            top: 8vh;
+            top: 6vh;
             right: 0;
             width: 50vw;
-            height: 165.4vh;
+            height: 92vh;
             background: #0367A6;
             flex-direction: column;
             align-items: center;
@@ -144,7 +146,7 @@ class MobileNavbar extends HTMLElement {
           </div>
           <ul class="nav-list">
             <li><a href="#inicio">Início</a></li>
-            <li><a href="/front/login.html">Acesse</a></li>
+            <li><a href="/login.html">Acesse</a></li>
             <li><a href="#integrantes">Quem Somos</a></li>
             </ul>
             </nav>
