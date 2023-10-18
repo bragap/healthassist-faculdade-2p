@@ -28,7 +28,7 @@ class HomeHeader extends HTMLElement {
         }
         
         .logo img{
-         width: 80%;
+         width: 50%;
         }
         
         nav {

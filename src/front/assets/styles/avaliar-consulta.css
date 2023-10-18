@@ -1,0 +1,45 @@
+.headline {
+    margin-top: 13vh;
+}
+
+.main-box {
+    background-color: #FAFAFA;
+
+}
+
+p {
+    color: rgba(0, 0, 0, 0.60);
+}
+
+.star-list {
+    display: flex;
+    padding: 0;
+    gap: 0.5rem;
+}
+
+.bi-star, .bi-star-fill  {
+    font-size: 1.5rem;
+    color: #0487D9;
+}
+
+.star {
+    cursor: pointer;
+}
+
+
+#box-comment {
+    width: 100%;
+    padding: 1em;
+    height: 14em;
+}
+
+button {
+    width: 16rem;
+    padding: 0.5rem;
+    color: #fff;
+    background: #0487D9;
+    border-radius: 0.25rem !important;
+    border: 0px;
+    margin-top: 0.5em !important;
+}
+

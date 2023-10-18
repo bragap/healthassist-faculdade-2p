@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
 
 /* FONTES E CORES GLOBAIS */
 :root {
-    font-family: 'Poppins', sans-serif;
     --color-blue: #0487D9;
     --color-blue-dark: #0367A6;
     --color-blue-light: #048ABF;
@@ -12,6 +12,10 @@
     --color-table-grey: #00000002;
     --color-table-ice: #F5F5F7;
     --color-white: #FFF;
+}
+
+*{ 
+    font-family: 'Poppins', sans-serif;
 }
 
 /* RESETANDO CSS PADRÃO */
