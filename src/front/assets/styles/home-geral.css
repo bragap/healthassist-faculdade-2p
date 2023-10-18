@@ -14,6 +14,9 @@
     background-color: #0367A6;
     border-radius: 10px;
   }
+  html{
+    scroll-behavior:smooth;
+  }
   main {
      width: 70%;
      margin: 0 auto;
@@ -26,52 +29,52 @@
     width: 40%;
   }
   
-  section{
+  #inicio{
     display: flex;
     justify-content: space-around;
     align-items: center;
     margin: 0 auto;
   }
 
-  section div{
+  #inicio div{
     display: flex;
     flex-direction: column;
-    text-align: left;
+    text-align: center;
     padding: 10px;
     align-items: center;
     font-size: 1.5em;
     color: #192A3E;
   }
-  section div h1{
+  #inicio div h1{
     font-size: 70px;
     margin-bottom: 10px;
   }
-  section div p{
+  #inicio div p{
     margin-left: 20px;
 }
    span {
     color:#0367A6;
   }
   
-  article{
+  #oque-somos{
     display: flex;
     justify-content: center;
     align-items: center;
     color: #192A3E;
   }
 
-  article img{
+  #oque-somos img{
     margin-right: 100px;
   }
-  article div h1{
+  #oque-somos div h1{
     font-size: 70px;
   }
-article div p{
+#oque-somos div p{
     font-size: 1.2em;
 
 }
 
-aside{
+#integrantes{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -79,17 +82,17 @@ aside{
     padding: 10px;
   }
 
-  aside img{
+  #integrantes img{
     width: 55%;
   }
 
-  aside div{
+  #integrantes div{
     margin-left: 25px;
   }
-  aside div h1{
+  #integrantes div h1{
     font-size: 60px;
   }
-aside div p{
+#integrantes div p{
     font-size: 1.2em;
     margin-left: 10px;
 }
@@ -103,59 +106,58 @@ aside div p{
         height: 160vh;
         margin: 50px auto;
     }    
-    section{
+    #inicio{
         margin-top: 10px;
         display: flex;
         flex-direction: column;
     }    
-    section div {
+    #inicio div {
       display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-        text-align: center;
+      flex-direction: column;
+      text-align: center;
      
     }    
-    section img{
+    #inicio img{
         width: 65%;
     }    
-    section div h1{
+    #inicio div h1{
         font-size: 1.4em;
     }    
-     section div p{
+     #inicio div p{
         font-size: 1em; 
     }    
-    article{
+    #oque-somos{
         margin-top: 10px;
         display: flex;
         flex-direction: column;
     }    
-    article div {
+    #oque-somos div {
         text-align: center;
     }    
-    article img{
+    #oque-somos img{
         width: 65%;
         margin: 0 auto;
     }    
-    article div h1{
+    #oque-somos div h1{
         font-size: 2.2em;
     }    
     
-    aside{
+    #integrantes{
         margin-top: 10px;
         display: flex;
         flex-direction: row;
         flex-wrap: wrap;
     }    
-    aside div {
+    #integrantes div {
         text-align: center;
     }    
-    aside img{
+    #integrantes img{
         width: 65%;
     }    
-   aside div h1{
+   #integrantes div h1{
         font-size: 2em;
     }    
-    aside div p{
+    #integrantes div p{
         font-size: 1.2em;
     }    
    
