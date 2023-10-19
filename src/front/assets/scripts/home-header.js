@@ -1,7 +1,7 @@
-class MobileNavbar extends HTMLElement {
+class HomeHeader extends HTMLElement {
   constructor() {
     super();
-  
+
     this.mobileMenu = null;
     this.navList = null;
     this.navLinks = null;
@@ -11,7 +11,7 @@ class MobileNavbar extends HTMLElement {
   }
 
 
-  
+
   connectedCallback() {
     const shadowRoot = this.attachShadow({ mode: 'closed' });
     // HTML do componente
@@ -28,7 +28,7 @@ class MobileNavbar extends HTMLElement {
         }
         
         .logo img{
-         width: 80%;
+         width: 50%;
         }
         
         nav {
@@ -149,14 +149,14 @@ class MobileNavbar extends HTMLElement {
             <li><a href="/login.html">Acesse</a></li>
             <li><a href="#integrantes">Quem Somos</a></li>
             </ul>
-            </nav>
-            </header>
+        </nav>
+      </header>
     `;
 
     this.mobileMenu = shadowRoot.querySelector('.mobile-menu');
     this.navList = shadowRoot.querySelector('.nav-list');
     this.navLinks = shadowRoot.querySelectorAll('.nav-list li');
-   
+
     this.mobileMenu.addEventListener('click', this.handleClick);
 
     this.animateLinks();
@@ -175,4 +175,4 @@ class MobileNavbar extends HTMLElement {
 
 }
 
-customElements.define('mobile-navbar', MobileNavbar);
+customElements.define('home-header', HomeHeader);

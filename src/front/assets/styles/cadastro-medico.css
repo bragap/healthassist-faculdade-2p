@@ -2,8 +2,12 @@ body{
     display: flex;
     width: calc(100% - 10px);
     margin: 0;
-    background-color: #192A3E;
+    background-color: #0367A6;
     font-family: "Popins", sans-serif;
+}
+.container{
+    width: 100vw;
+    height: 100vh;
 }
 img {
     user-select: none;
