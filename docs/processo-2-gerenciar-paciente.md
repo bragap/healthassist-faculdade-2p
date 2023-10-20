@@ -8,6 +8,31 @@
 
 **Detalhamento das atividades**
 
+**Realizar cadastro no sistema**
+
+| **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
+| ---             | ---              | ---            | ---               |
+| Nome | Caixa de texto  |      Mínimo de 2 caracteres        |           -        |
+| Email | Caixa de texto  |    -            |        -           |
+| Senha | Caixa de texto  |          Mínimo de 6 caracteres          |                  |
+| Confirmação de Senha | Caixa de texto  |           Mínimo de 6 caracteres        |               |
+
+| **Comandos**         |  **Destino**                   | **Tipo** |
+| ---                  | ---                            | ---               |
+| Cadastrar |  Enviar dados para cadastro  | Confirm |
+
+**Realizar login no sistema**
+
+| **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
+| ---             | ---              | ---            | ---               |
+| Email | Caixa de texto  |    -            |        -           |
+| Senha | Caixa de texto  |          Mínimo de 6 caracteres          |                  |
+
+| **Comandos**         |  **Destino**                   | **Tipo** |
+| ---                  | ---                            | ---               |
+| Entrar |  Acessar a plataforma HealthAssist  | Confirm |
+
+
 **Inserir os dados para o cadastro**
 
 | **Campo**       | **Tipo**         | **Restrições** | **Valor default** |

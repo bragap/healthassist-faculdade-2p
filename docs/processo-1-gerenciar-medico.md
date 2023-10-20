@@ -4,7 +4,32 @@ O processo de Gerenciar Médico tem como objetivo manter um registro preciso e a
 ![Modelo BPMN do PROCESSO 1](images/processo_1_gerenciar_medico.png "Modelo BPMN do Processo 1.")
 
 
-#### Detalhamento das atividades
+**Detalhamento das atividades**
+
+**Realizar cadastro no sistema**
+
+| **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
+| ---             | ---              | ---            | ---               |
+| Nome | Caixa de texto  |      Mínimo de 2 caracteres        |           -        |
+| Email | Caixa de texto  |    -            |        -           |
+| Senha | Caixa de texto  |          Mínimo de 6 caracteres          |        -          |
+| Confirmação de Senha | Caixa de texto  |           Mínimo de 6 caracteres        |        -       |
+
+| **Comandos**         |  **Destino**                   | **Tipo** |
+| ---                  | ---                            | ---               |
+| Cadastrar |  Enviar dados para cadastro  | Confirm |
+
+**Realizar login no sistema**
+
+| **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
+| ---             | ---              | ---            | ---               |
+| Email | Caixa de texto  |    -            |        -           |
+| Senha | Caixa de texto  |          Mínimo de 6 caracteres          |       -           |
+
+| **Comandos**         |  **Destino**                   | **Tipo** |
+| ---                  | ---                            | ---               |
+| Entrar |  Acessar a plataforma HealthAssist  | Confirm |
+
 
 **Inserir dados na área de cadastro**
 
