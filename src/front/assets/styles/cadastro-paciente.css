@@ -1,6 +1,6 @@
 body{
     display: flex;
-    width: calc(100% - 10px);
+    width: calc(100%);
     margin: 0;
     background-color: #0367A6;
     font-family: "Popins", sans-serif;
@@ -26,18 +26,15 @@ img {
     align-items: center;
     justify-content: space-between;
     float: left;
-    width: 798px;
-    height: 786px;
-    margin: auto;
+    width: 775px;
+    height: 775px;
     shape-outside: circle(50% at 30%);
     clip-path: circle(50% at 5%);
     background: #fff;
-    margin-right: -150px;
     user-select: none;
   }
 
 #circulo img{
-  margin-right: 70px;
   width: 400px;
   user-select: none;
 }
@@ -75,20 +72,6 @@ img {
 }
 
 
-footer{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    color: #fff;
-    font-weight: bold;
-user-select: none;
-}
-
 
 /* RESPONSIVIDADE */
 @media (max-width: 1500px){
@@ -99,46 +82,40 @@ user-select: none;
         margin: 0;
     }
     #circulo{
-        margin-right: 100px;
         max-width: 800px;
         max-height: 800px;
     }
     .forms{
         margin-top: 75px;
-        max-width: 900px;
-        max-height: 700px;
-    }
-}
-
-@media (max-width:1228px){
-    #circulo{
-        margin-right: -200px;
-    }
-}
-
-
-@media (min-width: 820px) and (max-width: 1227px){
-    #circulo{
-        margin-right: -300px;
-    }
-}
-@media (max-width: 819px) {
-    body{
-        display:flex;
-       justify-content: center;
-        align-items: center;
-        margin: 10px;
-    }
-    .container{
-        display: flex;
-    }
-    #circulo{
-       display: none;
-    }
-    .forms{
         max-width: 320px;
         max-height: 700px;
     }
+}
+
+@media (min-width:901px) and (max-width:1228px){
+   .forms{
+    position: absolute;
+    top: 2%;
+    right: 10%;
+   }
+}
+
+
+@media (max-width: 900px) {
+    body{
+        width: 100% ;
+       }
+        #circulo{
+            display: none;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            margin: auto;
+        }
+        .forms{
+            max-width: 80%;
+        }
 }
   @media (max-width: 400px) {
     body{

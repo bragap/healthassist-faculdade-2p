@@ -29,18 +29,15 @@ img {
     align-items: center;
     justify-content: space-between;
     float: left;
-    width: 798px;
-    height: 786px;
-    margin: auto;
+    width: 775px;
+    height: 775px;
     shape-outside: circle(50% at 30%);
     clip-path: circle(50% at 5%);
     background: #fff;
-    margin-right: -150px;
     user-select: none;
   }
 
 #circulo img{
-  margin-right: 70px;
   width: 400px;
   user-select: none;
 }
@@ -59,7 +56,6 @@ footer{
 
 }
 
-
 /* RESPONSIVIDADE */
 @media (max-width: 1500px){
     body{
@@ -69,7 +65,6 @@ footer{
         margin: 0;
     }
     #circulo{
-        margin-right: 100px;
         max-width: 800px;
         max-height: 800px;
     }
@@ -80,31 +75,28 @@ footer{
     }
 }
 
-@media (max-width:1228px){
-    #circulo{
-        margin-right: -200px;
-    }
+@media (min-width:901px) and (max-width:1228px){
+   .forms{
+    position: absolute;
+    top: 2%;
+    right: 10%;
+   }
 }
 
-
-@media (min-width: 820px) and (max-width: 1227px){
+@media (max-width: 900px) {
+   body{
+    width: 100% ;
+   }
     #circulo{
-        margin-right: -300px;
+        display: none;
     }
-}
-@media (max-width: 819px) {
-    body{
-        display:flex;
-       justify-content: center;
-        align-items: center;
-        margin: 10px;
-    }
-    #circulo{
-       display: none;
+    .container{
+        display: flex;
+        justify-content: center;
+        margin: auto;
     }
     .forms{
-        max-width: 320px;
-        max-height: 700px;
+        max-width: 80%;
     }
 }
   @media (max-width: 400px) {
@@ -112,14 +104,8 @@ footer{
         margin:10px;
     }
     .forms{
-        max-width: 250px;
-        max-height: 650px;
+       max-width: 80%;
     }
-    .forms input{
-        max-width: 220px;
-    }
-    .forms button{
-        max-width: 200px;
-    }
+    
   }
   

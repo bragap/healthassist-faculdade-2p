@@ -48,6 +48,7 @@ textarea:focus {
 }
 #button-modal{
     border: none;
+    background: none;
     font-size: 0.92em;
     margin-left: -4px;
 }
@@ -104,18 +105,15 @@ textarea:focus {
     align-items: center;
     justify-content: space-between;
     float: left;
-    width: 798px;
-    height: 786px;
-    margin: auto;
+    width: 775px;
+    height: 775px;
     shape-outside: circle(50% at 30%);
     clip-path: circle(50% at 5%);
     background: #192A3E;
-    margin-right: -150px;
     user-select: none;
   }
 
 #circulo img{
-  margin-right: 70px;
   width: 360px;
   user-select: none;
 }
@@ -135,23 +133,7 @@ dialog::backdrop{
         justify-content: space-between;
         user-select: none;
     }
-    
-    
 
-footer{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    color: #192A3E;
-    font-weight: bold;
-    user-select: none;
-
-}
 
 /* RESPONSIVIDADE */
 @media (max-width: 1500px){
@@ -173,19 +155,16 @@ footer{
     }
 }
 
-@media (max-width:1228px){
-    #circulo{
-        margin-right: -200px;
-    }
+@media (min-width:901px) and (max-width:1228px){
+   .forms{
+    position: absolute;
+    top: 2%;
+    right: 10%;
+   }
 }
 
 
-@media (min-width: 820px) and (max-width: 1227px){
-    #circulo{
-        margin-right: -300px;
-    }
-}
-@media (max-width: 819px) {
+@media (max-width: 900px) {
     body{
         display:flex;
        justify-content: center;

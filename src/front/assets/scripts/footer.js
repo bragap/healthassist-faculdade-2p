@@ -22,6 +22,10 @@ class Footer extends HTMLElement {
             font-weight: bold;
             user-select: none;
         }
+        footer p{
+         margin:0;
+         padding:5px;
+        }
         </style>
 
         <footer>
