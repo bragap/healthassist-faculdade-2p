@@ -7,7 +7,7 @@
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!50503 SET NAMES utf8 */;
+/*!50503 SET NAMES utf8mb4 */;
 /*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
 /*!40103 SET TIME_ZONE='+00:00' */;
 /*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
@@ -29,10 +29,21 @@ CREATE TABLE `arquivos_medico` (
   `dados_arquivo` longblob,
   `aprovado` tinyint(1) DEFAULT NULL,
   `motivo_inviabilidade` varchar(255) DEFAULT NULL,
+  `id` int NOT NULL,
+  PRIMARY KEY (`id`),
   KEY `id_medico` (`id_medico`),
   CONSTRAINT `arquivos_medico_ibfk_1` FOREIGN KEY (`id_medico`) REFERENCES `medico` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `arquivos_medico`
+--
+
+LOCK TABLES `arquivos_medico` WRITE;
+/*!40000 ALTER TABLE `arquivos_medico` DISABLE KEYS */;
+/*!40000 ALTER TABLE `arquivos_medico` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `arquivos_paciente`
@@ -48,10 +59,21 @@ CREATE TABLE `arquivos_paciente` (
   `dados_arquivo` longblob,
   `aprovado` tinyint(1) DEFAULT NULL,
   `motivo_inviabilidade` varchar(255) DEFAULT NULL,
+  `id` int NOT NULL,
+  PRIMARY KEY (`id`),
   KEY `id_paciente` (`id_paciente`),
   CONSTRAINT `arquivos_paciente_ibfk_1` FOREIGN KEY (`id_paciente`) REFERENCES `paciente` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `arquivos_paciente`
+--
+
+LOCK TABLES `arquivos_paciente` WRITE;
+/*!40000 ALTER TABLE `arquivos_paciente` DISABLE KEYS */;
+/*!40000 ALTER TABLE `arquivos_paciente` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `avaliar_consulta`
@@ -65,10 +87,21 @@ CREATE TABLE `avaliar_consulta` (
   `titulo` enum('Qualidade no atendimento') DEFAULT NULL,
   `comentario` text,
   `data_criacao` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `id` int NOT NULL,
+  PRIMARY KEY (`id`),
   KEY `id_consulta` (`id_consulta`),
   CONSTRAINT `avaliar_consulta_ibfk_1` FOREIGN KEY (`id_consulta`) REFERENCES `consulta` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `avaliar_consulta`
+--
+
+LOCK TABLES `avaliar_consulta` WRITE;
+/*!40000 ALTER TABLE `avaliar_consulta` DISABLE KEYS */;
+/*!40000 ALTER TABLE `avaliar_consulta` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `consulta`
@@ -94,6 +127,15 @@ CREATE TABLE `consulta` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `consulta`
+--
+
+LOCK TABLES `consulta` WRITE;
+/*!40000 ALTER TABLE `consulta` DISABLE KEYS */;
+/*!40000 ALTER TABLE `consulta` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `dia_da_semana`
 --
 
@@ -108,6 +150,15 @@ CREATE TABLE `dia_da_semana` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `dia_da_semana`
+--
+
+LOCK TABLES `dia_da_semana` WRITE;
+/*!40000 ALTER TABLE `dia_da_semana` DISABLE KEYS */;
+/*!40000 ALTER TABLE `dia_da_semana` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `disponibilidade_de_horario`
 --
 
@@ -119,12 +170,23 @@ CREATE TABLE `disponibilidade_de_horario` (
   `horario_incio` time DEFAULT NULL,
   `horario_fim` time DEFAULT NULL,
   `dia_da_semana` int DEFAULT NULL,
+  `id` int NOT NULL,
+  PRIMARY KEY (`id`),
   KEY `id_medico` (`id_medico`),
   KEY `dia_da_semana` (`dia_da_semana`),
   CONSTRAINT `disponibilidade_de_horario_ibfk_1` FOREIGN KEY (`id_medico`) REFERENCES `medico` (`id`),
   CONSTRAINT `disponibilidade_de_horario_ibfk_2` FOREIGN KEY (`dia_da_semana`) REFERENCES `dia_da_semana` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `disponibilidade_de_horario`
+--
+
+LOCK TABLES `disponibilidade_de_horario` WRITE;
+/*!40000 ALTER TABLE `disponibilidade_de_horario` DISABLE KEYS */;
+/*!40000 ALTER TABLE `disponibilidade_de_horario` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `duvidas_paciente`
@@ -139,10 +201,21 @@ CREATE TABLE `duvidas_paciente` (
   `descricao` text,
   `resposta` text,
   `data_criacao` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
+  `id` int NOT NULL,
+  PRIMARY KEY (`id`),
   KEY `id_paciente` (`id_paciente`),
   CONSTRAINT `duvidas_paciente_ibfk_1` FOREIGN KEY (`id_paciente`) REFERENCES `paciente` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `duvidas_paciente`
+--
+
+LOCK TABLES `duvidas_paciente` WRITE;
+/*!40000 ALTER TABLE `duvidas_paciente` DISABLE KEYS */;
+/*!40000 ALTER TABLE `duvidas_paciente` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `especialidade_medico`
@@ -157,6 +230,15 @@ CREATE TABLE `especialidade_medico` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `especialidade_medico`
+--
+
+LOCK TABLES `especialidade_medico` WRITE;
+/*!40000 ALTER TABLE `especialidade_medico` DISABLE KEYS */;
+/*!40000 ALTER TABLE `especialidade_medico` ENABLE KEYS */;
+UNLOCK TABLES;
 
 --
 -- Table structure for table `medico`
@@ -182,6 +264,15 @@ CREATE TABLE `medico` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Dumping data for table `medico`
+--
+
+LOCK TABLES `medico` WRITE;
+/*!40000 ALTER TABLE `medico` DISABLE KEYS */;
+/*!40000 ALTER TABLE `medico` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `paciente`
 --
 
@@ -199,6 +290,19 @@ CREATE TABLE `paciente` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `paciente`
+--
+
+LOCK TABLES `paciente` WRITE;
+/*!40000 ALTER TABLE `paciente` DISABLE KEYS */;
+/*!40000 ALTER TABLE `paciente` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Dumping routines for database 'healthassist'
+--
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -209,4 +313,4 @@ CREATE TABLE `paciente` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-09-29 13:45:48
+-- Dump completed on 2023-10-20 13:40:57
