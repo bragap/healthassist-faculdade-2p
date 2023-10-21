@@ -75,11 +75,11 @@ class HomeHeader extends HTMLElement {
         @keyframes navLinkFade {
           from {
             opacity: 0;
-            transform: translateX(50px);
+            transform: translateY(-100px);
           }
           to {
             opacity: 1;
-            transform: translateX(0);
+            transform: translateY(0);
           }
         }
         

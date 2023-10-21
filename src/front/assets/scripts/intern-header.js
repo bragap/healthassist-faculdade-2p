@@ -75,7 +75,7 @@ class InterHeader extends HTMLElement {
           @keyframes navLinkFade {
             from {
               opacity: 0;
-              transform: translateX(50px);
+              transform: translateX(-100px);
             }
             to {
               opacity: 1;
