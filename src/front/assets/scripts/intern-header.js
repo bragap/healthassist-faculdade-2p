@@ -49,7 +49,7 @@ class InterHeader extends HTMLElement {
           }
           
           .nav-list li {
-            letter-spacing: 3px;
+            letter-spacing: 2px;
             margin-left: 32px;
             color: #0367A6;
           

@@ -8,7 +8,7 @@ img {
     user-select: none;
 }
 
-.forms{
+.forms-medico{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -16,7 +16,7 @@ img {
     margin-top: 150px;
     width: 500px;
 }
-input, textarea{
+ .forms-medico input, .forms-medico textarea{
     width: 300px;
     height: 30px;
     margin: 10px;
@@ -26,8 +26,8 @@ input, textarea{
     padding: 5px;
     background-color: transparent;
 }
-input:focus,
-textarea:focus {
+.forms-medico input:focus,
+.forms-medico textarea:focus {
   outline: none;
 }
 #btn-entrar{
@@ -74,28 +74,28 @@ textarea:focus {
     background-color: #2d4b6d;
     color: #F2F2F2;
 }
-.forms img{
+.forms-medico img{
     margin-top: 80px;
     height: 50px;
     user-select: none;
 }
-.forms h3 {
+.forms-medico h3 {
     font-size: 2rem;
     color:  #192A3E;
     user-select: none;
 }
-.forms p{
+.forms-medico p{
     user-select: none;
 }
-.forms a{
+.forms-medico a{
     color: #192A3E;
     text-decoration: none;
     user-select: none;
 }
-.forms a:hover{
+.forms-medico a:hover{
     text-decoration: underline;
 }
-.forms .a-doutor{
+.forms-medico .a-doutor{
     color: grey;
     margin-bottom: 10px;
 }
@@ -148,7 +148,7 @@ dialog::backdrop{
         max-width: 800px;
         max-height: 800px;
     }
-    .forms{
+    .forms-medico{
         margin-top: 75px;
         max-width: 320px;
         max-height: 700px;
@@ -156,7 +156,7 @@ dialog::backdrop{
 }
 
 @media (min-width:901px) and (max-width:1228px){
-   .forms{
+   .forms-medico{
     position: absolute;
     top: 2%;
     right: 10%;
@@ -174,7 +174,7 @@ dialog::backdrop{
     #circulo{
        display: none;
     }
-    .forms{
+    .forms-medico{
         max-width: 320px;
         max-height: 700px;
     }
@@ -183,14 +183,14 @@ dialog::backdrop{
     body{
         margin:10px;
     }
-    .forms{
+    .forms-medico{
         max-width: 250px;
         max-height: 650px;
     }
-    .forms input{
+    .forms-medico input{
         max-width: 220px;
     }
-    .forms button{
+    .forms-medico button{
         max-width: 200px;
     }
   }

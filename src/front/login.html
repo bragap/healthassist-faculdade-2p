@@ -12,25 +12,27 @@
 <body>
     <div class="container">
 
-        <div id="circulo"><img src="./assets/images/logo-v8.png" alt=""></div>
-        <div class="forms">
+        <div id="circulo"><img src="./assets/images/logo-v8.png" alt="logo v8"></div>
+        <div class="forms-login">
             <h3>LOGIN</h3>
+            <form method="post" action="">
             <input type="text" placeholder="Username">
             <input type="password" placeholder="Password">
-            <button id="btn-entrar" href="/">Entrar</button>
-            <a class="a-doutor" href="/front/login-medico.html">Acessar como médico</a>
+            <button id="btn-entrar" type="submit">Entrar</button>
+        </form>
+            <a class="a-doutor" href="./login-medico.html">Acessar como médico</a>
             <p>Não possui conta? <button id="button-modal">Registre-se</button> </p>
             <dialog id="modal">
-                <form action="">
+                <form method="post" action="">
                     <h3>Realize o Cadastro</h3>
                     <input type="text" placeholder="Username">
                     <input type="email" placeholder="Email">
                     <input type="password" placeholder="Password">
                     <input type="password" placeholder="Confirm Password">
-                    <button id="btn-close-modal" href="/">Cadastrar</button>
+                    <button id="btn-close-modal"type="submit">Cadastrar</button>
                 </form>
             </dialog>
-            <img src="./assets/images/logo-v6.png" alt="">
+            <img src="./assets/images/logo-v6.png" alt="logo v6">
         </div>
     </div>
 
