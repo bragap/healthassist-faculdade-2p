@@ -146,8 +146,9 @@ class HomeHeader extends HTMLElement {
           </div>
           <ul class="nav-list">
             <li><a href="#inicio">Início</a></li>
-            <li><a href="login.html">Acesse</a></li>
             <li><a href="#integrantes">Quem Somos</a></li>
+            <li><a href="login.html">Login</a></li>
+            <li><a href="#">Admin</a></li>
             </ul>
         </nav>
       </header>

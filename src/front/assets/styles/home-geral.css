@@ -1,195 +1,231 @@
 * {
-    margin: 0;
-    padding: 0;
-    font-family: "Poppins", sans-serif;
-    user-select: none;
-  }
-  body::-webkit-scrollbar {
-    width: 0.5em;
-  }
-  body::-webkit-scrollbar-track {
-    background-color: #F5F5F7;
-  }
-  body::-webkit-scrollbar-thumb{
-    background-color: #0367A6;
-    border-radius: 10px;
-  }
-  html{
-    scroll-behavior:smooth;
-  }
-  main {
-     width: 70%;
-     margin: 0 auto;
-     display: flex;
-     flex-direction: column;
-  }
-  main img {
-    width: 45%;
-  }
-  #bg1{
-    background-image: url("../images/bg-siringa.png");
-    background-repeat: no-repeat;
-   background-position: 1% 20%;
-  }
-  #bg2{
-    background-image: url("../images/bg-remedio.png");
-    background-repeat: no-repeat;
-    background-position-y: 70%;
-   background-position-x: right;
-  }
-#bg3{
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  user-select: none;
+}
+
+body::-webkit-scrollbar {
+  width: 0.5em;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #F5F5F7;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #0367A6;
+  border-radius: 10px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+main {
+  width: 70%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+main img {
+  width: 45%;
+}
+
+#bg1 {
+  background-image: url("../images/bg-siringa.png");
+  background-repeat: no-repeat;
+  background-position: 1% 20%;
+}
+
+#bg2 {
+  background-image: url("../images/bg-remedio.png");
+  background-repeat: no-repeat;
+  background-position-y: 70%;
+  background-position-x: right;
+}
+
+#bg3 {
   background-image: url("../images/bg-remedios.png");
   background-repeat: no-repeat;
   background-position: 5% 50%;
 }
-#bg4{
+
+#bg4 {
   background-image: url("../images/bg-cura.png");
   background-repeat: no-repeat;
   background-position-y: 45%;
-   background-position-x: 90%;
+  background-position-x: 90%;
 }
-#bg5{
+
+#bg5 {
   background-image: url("../images/bg-bag.png");
   background-repeat: no-repeat;
   background-position: 9% 80%;
 }
-  #inicio{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    height: 75vh;
+
+#inicio {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 75vh;
+}
+
+#inicio div {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  padding: 10px;
+  align-items: center;
+  font-size: 1.5em;
+  color: #192A3E;
+}
+
+#inicio div h1 {
+  font-size: 70px;
+  margin-bottom: 10px;
+}
+
+#inicio div p {
+  margin-left: 20px;
+}
+
+span {
+  color: #0367A6;
+}
+
+#oque-somos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #192A3E;
+  height: 50vh;
+}
+
+#oque-somos img {
+  margin-right: 100px;
+}
+
+#oque-somos div h1 {
+  font-size: 70px;
+}
+
+#oque-somos div p {
+  font-size: 1.2em;
+
+}
+
+#integrantes {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #192A3E;
+  height: 50vh;
+}
+
+#integrantes img {
+  width: 55%;
+}
+
+#integrantes div {
+  margin-left: 25px;
+}
+
+#integrantes h1 {
+  font-size: 60px;
+}
+
+#integrantes div p {
+  font-size: 1.2em;
+  margin-left: 10px;
+}
+
+
+@media (max-width: 999px) {
+  body {
+    overflow-x: hidden;
   }
 
-  #inicio div{
+  main {
+    height: 160vh;
+    margin: 50px auto;
+  }
+
+  #inicio {
+    margin-top: 10px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  #inicio div {
     display: flex;
     flex-direction: column;
     text-align: center;
-    padding: 10px;
-    align-items: center;
-    font-size: 1.5em;
-    color: #192A3E;
+
   }
-  #inicio div h1{
-    font-size: 70px;
-    margin-bottom: 10px;
+
+  #inicio img {
+    width: 70%;
   }
-  #inicio div p{
-    margin-left: 20px;
-}
-   span {
-    color:#0367A6;
+
+  #inicio div h1 {
+    font-size: 1.4em;
   }
-  
-  #oque-somos{
+
+  #inicio div p {
+    font-size: 1em;
+  }
+
+  #oque-somos {
+    margin-top: 10px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #192A3E;
-    height: 50vh;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 
-  #oque-somos img{
-    margin-right: 100px;
+  #oque-somos div {
+    text-align: center;
   }
-  #oque-somos div h1{
-    font-size: 70px;
+
+  #oque-somos img {
+    width: 70%;
+    margin: 0 auto;
   }
-#oque-somos div p{
-    font-size: 1.2em;
 
-}
+  #oque-somos div h1 {
+    font-size: 2.2em;
+  }
 
-#integrantes{
+  #integrantes {
+    margin-top: 10px;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #192A3E;
-    height: 50vh;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 
-  #integrantes img{
-    width: 55%;
+  #integrantes div {
+    text-align: center;
   }
 
-  #integrantes div{
-    margin-left: 25px;
+  #integrantes img {
+    width: 70%;
   }
-  #integrantes div h1{
-    font-size: 60px;
+
+  #integrantes div h1 {
+    font-size: 2em;
   }
-#integrantes div p{
+
+  #integrantes div p {
     font-size: 1.2em;
-    margin-left: 10px;
+  }
+
+  #bg1,
+  #bg2,
+  #bg3,
+  #bg4,
+  #bg5 {
+    background-size: 15%;
+  }
+
 }
-
-
-  @media (max-width: 999px) {
-    body {
-      overflow-x: hidden;  
-    }  
-    main {
-        height: 160vh;
-        margin: 50px auto;
-    }    
-    #inicio{
-        margin-top: 10px;
-        display: flex;
-        flex-direction: column;
-    }    
-    #inicio div {
-      display: flex;
-      flex-direction: column;
-      text-align: center;
-     
-    }    
-    #inicio img{
-        width: 100%;
-    }    
-    #inicio div h1{
-        font-size: 1.4em;
-    }    
-     #inicio div p{
-        font-size: 1em; 
-    }    
-    #oque-somos{
-        margin-top: 10px;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-    }    
-    #oque-somos div {
-        text-align: center;
-    }    
-    #oque-somos img{
-        width: 100%;
-        margin: 0 auto;
-    }    
-    #oque-somos div h1{
-        font-size: 2.2em;
-    }    
-    
-    #integrantes{
-        margin-top: 10px;
-        display: flex;
-        flex-direction: row;
-        flex-wrap: wrap;
-    }    
-    #integrantes div {
-        text-align: center;
-    }    
-    #integrantes img{
-        width: 100%;
-    }    
-   #integrantes div h1{
-        font-size: 2em;
-    }    
-    #integrantes div p{
-        font-size: 1.2em;
-    }    
-
-    #bg1,#bg2,#bg3,#bg4,#bg5{
-      background-size: 15%;
-    }
-    
-  }  
-  
