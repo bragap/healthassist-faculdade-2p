@@ -9,7 +9,7 @@ class Footer extends HTMLElement {
         this.root.innerHTML = `	
         <style>
         footer{
-            position: fixed;
+            position: absolute;
             bottom: 0;
             left:0;
             width: 100%;

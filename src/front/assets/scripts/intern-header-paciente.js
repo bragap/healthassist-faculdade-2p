@@ -1,4 +1,4 @@
-class InterHeader extends HTMLElement {
+class InterHeaderPaciente extends HTMLElement {
     constructor() {
       super();
   
@@ -18,7 +18,7 @@ class InterHeader extends HTMLElement {
       shadowRoot.innerHTML = `
         <style>
         a {
-            color: #0367A6;
+            color: #fff;
             text-decoration: none;
             transition: 0.3s;
           }
@@ -39,8 +39,8 @@ class InterHeader extends HTMLElement {
             justify-content: space-around;
             align-items: center;
             font-family: "Poppins", sans-serif;
-            background: #fff;
-            color: #0367A6;
+            background:  #0367A6;
+            color: #fff;
             height: 13vh;
           }
           .nav-list {
@@ -63,7 +63,7 @@ class InterHeader extends HTMLElement {
           .mobile-menu div {
             width: 32px;
             height: 2px;
-            background: #0367A6;
+            background: #fff;
             margin: 8px;
             transition: 0.3s;
           }
@@ -75,7 +75,7 @@ class InterHeader extends HTMLElement {
           @keyframes navLinkFade {
             from {
               opacity: 0;
-              transform: translateX(-100px);
+              transform: translateY(-100px);
             }
             to {
               opacity: 1;
@@ -138,15 +138,16 @@ class InterHeader extends HTMLElement {
         </style>
         <header>
           <nav>
-            <a class="logo" href="#"><img src="./assets/images/logo-v5.png"></a>
+            <a class="logo" href="home-paciente.html"><img src="./assets/images/logo-v9.png"></a>
             <div class="mobile-menu">
               <div class="line1"></div>
               <div class="line2"></div>
               <div class="line3"></div>
             </div>
             <ul class="nav-list">
-              <li><a href="#">Início</a></li>
-              <li><a href="#">Agenda</a></li>
+              <li><a href="home-paciente.html">Início</a></li>
+              <li><a href="avaliar-consulta.html">Avaliar consultas</a></li>
+              <li><a href="#">Perfil</a></li>
               </ul>
           </nav>
         </header>
@@ -174,5 +175,5 @@ class InterHeader extends HTMLElement {
   
   }
   
-  customElements.define('intern-header', InterHeader);
+  customElements.define('intern-header-paciente', InterHeaderPaciente);
   
