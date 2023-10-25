@@ -57,22 +57,7 @@ body{
     color: #000;
     cursor: pointer;
 }
-#btn-close-modal{
-    width: 300px;
-    height: 30px;
-    margin: 10px;
-    border: none;
-    border-radius: 5px;
-    padding: 5px;
-    background: #0367A6;
-    color: #F2F2F2 ;
-    cursor: pointer;
-    user-select: none;
-}
-#btn-close-modal:hover{
-    background-color: #2f89c1;
-    color: #F2F2F2;
-}
+
 .forms-login img{
     margin-top: -20px;
     height: 200px;
@@ -130,13 +115,6 @@ dialog {
     box-shadow:  0 0 1em rgb (0 0 0 /.3);
     width: 30%;
 }
-dialog form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    user-select: none;
-}
 
 
 /* RESPONSIVIDADE */
@@ -180,6 +158,9 @@ dialog form {
         max-width: 320px;
         max-height: 700px;
     }
+    #modal{
+        width: 70%;
+       }
 }
   @media (max-width: 400px) {
     body{
@@ -195,5 +176,106 @@ dialog form {
     .forms-login button{
         max-width: 200px;
     }
+    #modal{
+        width: 70%;
+       }
   }
   
+
+  .form {
+    padding: 0 40px 30px;
+}
+
+.form-control {
+    margin-bottom: 10px;
+    padding-bottom: 20px;
+    position: relative;
+}
+
+.form-control label {
+    display: flex;
+    padding-left: 25px;
+    color: #828CAD;
+}
+
+.form-control input {
+    font-size: 14px;
+    width: 90%;
+    padding: 15px;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 1.8px solid #2f89c1;
+    padding: 5px;
+    background-color: transparent;
+}
+
+.form-control.success input {
+    border-bottom: 2px solid #4ECA64;
+}
+
+.form-control.error input {
+    border-bottom: 2px solid #DB5A5A;
+}
+
+.form-control.error i .img-error {
+    visibility: visible;
+}
+
+.form-control.success i .img-success {
+    visibility: visible;
+}
+
+.form-control.error small{
+    color: #DB5A5A;
+    visibility: visible;
+}
+
+.form-control i {
+    position: absolute;
+    top: -30px;
+    right: 10px;
+    visibility: hidden;
+}
+
+.form-control small {
+    visibility: hidden;
+    position: absolute;
+    left: 6%;
+    top: 70%;
+    font-size: 14px;
+    color: #DB5A5A
+
+}
+.header-modal{
+    display: flex;
+    justify-content: space-around;
+}
+#btn-close-modal{
+    background: none;
+    cursor: pointer;
+    border: none;
+    font-size: 30px;
+}   
+
+#btn-submit {
+    background-color: #0367A6;
+    border-radius: 5px;
+    color: #fff;
+    padding: 15px;
+    font-size: 15px;
+    font-weight: 600;
+    width: 100%;
+    border: none;
+    margin-top: 5px;
+
+    cursor: pointer;
+}
+
+#btn-submit:hover {
+    background-color: #2f89c1;
+    transition: 0.3s;
+}
+
+.img-success, .img-error {
+    width: 15px;
+}

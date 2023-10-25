@@ -23,14 +23,47 @@
         <a class="a-doutor" href="./login.html">Acessar como paciente</a>
             <p>Não possui conta? <button id="button-modal">Registre-se</button> </p>
             <dialog id="modal">
-                <form method="post" action="">
-                    <h3>Realize o Cadastro</h3>
-                    <input type="text" placeholder="Username">
-                    <input type="email" placeholder="Email">
-                    <input type="password" placeholder="Password">
-                    <input type="password" placeholder="Confirm Password">
-                    <button id="btn-close-modal" type="submit">Cadastrar</button>
+                <form action="" method="post" id="form-register">
+                    <div class="header-modal">
+                        <h2>Realize seu cadastro!</h2> <button id="btn-close-modal">X</button>
+                    </div>
+                    <div class="form-control">
+                        <label for="username">Usuário</label>
+                        <input type="text" id="username" placeholder="Digite seu nome de usuário">
+                        <i><img src="./assets/images/success-icon.svg" class="img-success"></i>
+                        <i><img src="./assets/images/error-icon.svg" class="img-error"></i>
+                        <small>Error message</small>
+                    </div>
+
+                    <div class="form-control">
+                        <label for="email">Email</label>
+                        <input type="text" id="email" placeholder="Digite seu email">
+                        <i><img src="./assets/images/success-icon.svg" class="img-success"></i>
+                        <i><img src="./assets/images/error-icon.svg" class="img-error"></i>
+                        <small>Error message</small>
+                    </div>
+
+                    <div class="form-control">
+                        <label for="password">Senha</label>
+                        <input type="password" id="password" placeholder="Digite sua senha">
+                        <i><img src="./assets/images/success-icon.svg" class="img-success"></i>
+                        <i><img src="./assets/images/error-icon.svg" class="img-error"></i>
+                        <small>Error message</small>
+                    </div>
+
+                    <div class="form-control">
+                        <label for="password2">Confirme sua senha</label>
+                        <input type="password" id="password2" placeholder="Digite sua senha novamente">
+                        <i><img src="./assets/images/success-icon.svg" class="img-success"></i>
+                        <i><img src="./assets/images/error-icon.svg" class="img-error"></i>
+                        <small>Error message</small>
+                    </div>
+                    <p class="text-sucess"></p>
+                    <button type="submit" id="btn-submit">Realizar cadastro</button>
                 </form>
+
+            
+
             </dialog>
             <img src="./assets/images/logo-v2.png" alt=" Logo v2">
         </div>
