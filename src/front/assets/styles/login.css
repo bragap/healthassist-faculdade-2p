@@ -1,7 +1,7 @@
 body{
     display: flex;
     width: 100vw;
-    margin: 0;
+    margin: 0 auto;
     font-family: "Popins", sans-serif;
 }
 .container{
@@ -93,10 +93,10 @@ body{
     align-items: center;
     justify-content: space-between;
     float: left;
-    width: 775px;
-    height: 775px;
+    width: 776px;
+    height: 776px;
     shape-outside: circle(50% at 30%);
-    clip-path: circle(50% at 5%);
+    clip-path: circle(51% at 5%);
     background: #0367A6;
     user-select: none;
   }

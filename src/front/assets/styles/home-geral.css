@@ -103,7 +103,7 @@ span {
   height: 50vh;
 }
 
-#oque-somos img {
+#oque-somos svg {
   margin-right: 100px;
 }
 
@@ -120,11 +120,13 @@ span {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 100px;
+  margin-bottom: 100px;
   color: #192A3E;
   height: 50vh;
 }
 
-#integrantes img {
+#integrantes svg {
   width: 55%;
 }
 
@@ -148,14 +150,15 @@ span {
   }
 
   main {
-    height: 160vh;
+    
     margin: 50px auto;
   }
 
   #inicio {
-    margin-top: 10px;
+    margin-top: 20px;
     display: flex;
     flex-direction: column;
+    height: 50%;
   }
 
   #inicio div {
@@ -182,6 +185,7 @@ span {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    height: 50%;
   }
 
   #oque-somos div {
@@ -198,10 +202,11 @@ span {
   }
 
   #integrantes {
-    margin-top: 10px;
+    margin-top: 50px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    height: 50%;
   }
 
   #integrantes div {

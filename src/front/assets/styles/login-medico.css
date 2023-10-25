@@ -94,7 +94,7 @@ img {
     width: 775px;
     height: 775px;
     shape-outside: circle(50% at 30%);
-    clip-path: circle(50% at 5%);
+    clip-path: circle(51% at 5%);
     background: #192A3E;
     user-select: none;
   }
