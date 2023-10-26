@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+  postgres:
+    container_name: postgreshealthassist
+    image: postgres
+    env_file:
+      - ./.env
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${SQLDB_USER}
+      POSTGRES_PASSWORD: ${SQLDB_PASSWORD}
+      POSTGRES_DB: ${SQLDB_DATABASE}
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./db:/var/lib/postgresql/data
+
+volumes:
+  db:
