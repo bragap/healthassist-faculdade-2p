@@ -1,4 +1,4 @@
-# Sistema de Rotas do FrontEnd
+# Sistema de Rotas do Back-end
 
 | Método | Rota         | Descrição                         |
 |--------|--------------|-----------------------------------|
