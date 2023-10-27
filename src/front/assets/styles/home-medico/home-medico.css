@@ -1,0 +1,87 @@
+main {
+	margin-top: 15vh !important;
+	width: 70%;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
+
+h2 {
+	margin: 1.5rem 0 !important;
+}
+
+.card-consultas {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+	margin-bottom: 2em;
+}
+
+.card-consulta {
+	width: 25%;
+	height: 8.375rem;
+	border-radius: 1.0625rem;
+	background: #D9D9D9;
+}
+
+/* Estilos da tabela */
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 2rem !important;
+}
+
+
+th {
+	background-color: #f5f5f5;
+	padding: 1em !important;
+	text-align: left;
+	font-weight: 700 !important;
+}
+
+.icones-th, .icon-container svg:hover {
+	cursor: pointer;
+}
+
+
+/* Estilos dos ícones */
+.icon {
+	width: 20px;
+	height: 20px;
+	margin-right: 5px;
+}
+
+.icon:last-child {
+	margin-right: 0;
+}
+
+/* Adicionando estilo zebra à tabela */
+tbody tr:nth-child(odd) {
+	background-color: #f9f9f9;
+}
+
+td {
+	padding: 1em !important;
+	text-align: left;
+}
+
+
+.cb1 {
+	accent-color: #2ED47A;
+	font-size: 1em;
+	color: #fff !important;
+	cursor: pointer;
+}
+  
+
+input[type="checkbox"] {
+    width: 1.1em !important;
+	height: 1.1em !important;
+}
+
+

@@ -1,166 +1,126 @@
 <!DOCTYPE html>
-<html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Área do Profissional</title>
+    <link href="./assets/styles/home-medico/home-medico.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/styles/global.css"/>
+  </head>
+  <body>
+    <intern-header-medico></intern-header-medico>
 
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Área do Profissional</title>
-  <link rel="icon" href="./assets/images/favicon.ico" />
-  <link href="./assets/styles/home-medico.css" rel="stylesheet" />
-  <link rel="stylesheet" href="./assets/styles/global.css" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
-</head>
-
-<body>
-  <intern-header-medico></intern-header-medico>
-
-  <!-- Inicia conteúdo da página-->
-
-  <main class="flex-shrink-0">
-    <div class="container">
-      <div class="row">
-        <h2 class="text-center mt-2">Próximas consultas</h2>
-
-        <!-- Cards consultas -->
-        <div class="container">
-          <div class="row ">
-            <div class="col-md-3 my-2">
-              <div class="card">
-                <h5 class="card-header">Consulta 1</h5>
-                <div class="card-body">
-                  <h5 class="card-title">Special title treatment</h5>
-                  <p class="card-text">
-                    With supporting text below as a natural lead-in to
-                    additional content.
-                  </p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-3 my-2">
-              <div class="card">
-                <h5 class="card-header">Consulta 2</h5>
-                <div class="card-body">
-                  <h5 class="card-title">Special title treatment</h5>
-                  <p class="card-text">
-                    With supporting text below as a natural lead-in to
-                    additional content.
-                  </p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-3 my-2">
-              <div class="card">
-                <h5 class="card-header">Consulta 3</h5>
-                <div class="card-body">
-                  <h5 class="card-title">Special title treatment</h5>
-                  <p class="card-text">
-                    With supporting text below as a natural lead-in to
-                    additional content.
-                  </p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-
-            <div class="col-md-3 my-2">
-              <div class="card">
-                <h5 class="card-header">Consulta 4</h5>
-                <div class="card-body">
-                  <h5 class="card-title">Special title treatment</h5>
-                  <p class="card-text">
-                    With supporting text below as a natural lead-in to
-                    additional content.
-                  </p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
-                </div>
-              </div>
-            </div>
-          </div>
+    <main>
+        
+        <h2 class="headline">Próximas Consultas</h2>
+        <div class="card-consultas">
+            <div class="card-consulta"></div>
+            <div class="card-consulta"></div>
+            <div class="card-consulta"></div>
+            <div class="card-consulta"></div>
         </div>
-
-        <h2 class="text-center mt-5">Atualizar consulta</h2>
-
-        <!-- Tabela pacientes -->
-        <table class="table table-striped">
-
-          <thead>
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Nome Paciente</th>
-              <th scope="col">Idade</th>
-              <th scope="col">Peso</th>
-              <th scope="col">Telefone</th>
-              <th scope="col">
-                <button class="btn btn-warning">
-                  <i class="bi bi-funnel-fill"></i>
-                </button>
-                <button class="btn btn-success">
-                  <i class="bi bi-plus-square-fill"></i>
-                </button>
-              </th>
-            </tr>
-          </thead>
-
-          <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>Mark</td>
-              <td>23</td>
-              <td>55kg</td>
-              <td>+3 555 68 70</td>
-              <td class="multiple-elements">
-                <input type="checkbox" name="" id="" />
-                <button class="edit-pencil">
-                  <i class="bi bi-pencil-square"></i>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>Jacob</td>
-              <td>24</td>
-              <td>83kg</td>
-              <td>+3 555 68 70</td>
-              <td class="multiple-elements">
-                <input type="checkbox" name="" id="" />
-                <button class="edit-pencil">
-                  <i class="bi bi-pencil-square"></i>
-                </button>
-              </td>
-            </tr>
-            <tr>
-              <th scope="row">3</th>
-              <td>Larry the Bird</td>
-              <td>40</td>
-              <td>90kg</td>
-              <td>+3 555 68 70</td>
-              <td class="multiple-elements">
-                <input type="checkbox" name="" id="" />
-                <button class="edit-pencil">
-                  <i class="bi bi-pencil-square"></i>
-                </button>
-              </td>
-            </tr>
-          </tbody>
-
+       
+       
+        <h2 class="headline">Atualizar Consultas</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nome Paciente</th>
+                    <th>Idade</th>
+                    <th>Peso</th>
+                    <th>Telefone</th>
+                    <th class="icones-th">
+                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="30" height="30" rx="4" fill="#FFB946"/>
+                            <path d="M12.919 14.9006C13.1627 15.2532 13.0898 14.9594 13.0898 21.9892C13.0898 22.6182 13.8075 22.9783 14.3134 22.602C16.4749 20.9723 16.9068 20.8312 16.9068 20.0689C16.9068 14.9461 16.8471 15.2342 17.0776 14.9006L20.5877 10.1227H9.40892L12.919 14.9006Z" fill="white"/>
+                            <path d="M21.9136 7.63445C21.7882 7.39422 21.5422 7.24487 21.2714 7.24487H8.7252C8.14038 7.24487 7.79628 7.90457 8.13175 8.38391C8.1345 8.38851 8.09367 8.33262 8.74125 9.21395H21.2553C21.8072 8.46288 22.1761 8.13838 21.9136 7.63445Z" fill="white"/>
+                         </svg>
+                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="30" height="30" rx="4" fill="#2ED47A"/>
+                            <path d="M14.1597 19.38V10.62H15.8397V19.38H14.1597ZM10.5197 15.8V14.22H19.4797V15.8H10.5197Z" fill="white"/>
+                        </svg>                            
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>1</td>
+                    <td>Maria José</td>
+                    <td>23</td>
+                    <td>55kg</td>
+                    <td>+3 555 68 70</td>
+                    <td class="icon-container">
+                        <input class="cb1" type="checkbox" />
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="20.0001" height="20.0001" rx="2.66667" fill="#34AFF9"/>
+                            <path d="M9.47289 6.05427H5.99398C5.73036 6.05427 5.47754 6.15899 5.29113 6.3454C5.10472 6.53181 5 6.78463 5 7.04825V14.0061C5 14.2697 5.10472 14.5225 5.29113 14.7089C5.47754 14.8953 5.73036 15.0001 5.99398 15.0001H12.9518C13.2154 15.0001 13.4683 14.8953 13.6547 14.7089C13.8411 14.5225 13.9458 14.2697 13.9458 14.0061V10.5272M13.2003 5.30879C13.398 5.11107 13.6662 5 13.9458 5C14.2254 5 14.4936 5.11107 14.6913 5.30879C14.889 5.5065 15.0001 5.77466 15.0001 6.05427C15.0001 6.33388 14.889 6.60204 14.6913 6.79975L9.96988 11.5211L7.98193 12.0181L8.47892 10.0302L13.2003 5.30879Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </td>
+                </tr>
+                <tr>
+                    <td>2</td>
+                    <td>Otávio Passos</td>
+                    <td>24</td>
+                    <td>83kg</td>
+                    <td>+3 555 68 70</td>
+                    <td class="icon-container">
+                        <input class="cb1" type="checkbox" />
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="20.0001" height="20.0001" rx="2.66667" fill="#34AFF9"/>
+                            <path d="M9.47289 6.05427H5.99398C5.73036 6.05427 5.47754 6.15899 5.29113 6.3454C5.10472 6.53181 5 6.78463 5 7.04825V14.0061C5 14.2697 5.10472 14.5225 5.29113 14.7089C5.47754 14.8953 5.73036 15.0001 5.99398 15.0001H12.9518C13.2154 15.0001 13.4683 14.8953 13.6547 14.7089C13.8411 14.5225 13.9458 14.2697 13.9458 14.0061V10.5272M13.2003 5.30879C13.398 5.11107 13.6662 5 13.9458 5C14.2254 5 14.4936 5.11107 14.6913 5.30879C14.889 5.5065 15.0001 5.77466 15.0001 6.05427C15.0001 6.33388 14.889 6.60204 14.6913 6.79975L9.96988 11.5211L7.98193 12.0181L8.47892 10.0302L13.2003 5.30879Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </td>
+                </tr>
+                <tr>
+                    <td>3</td>
+                    <td>Iago da Silva</td>
+                    <td>23</td>
+                    <td>55kg</td>
+                    <td>+3 555 68 70</td>
+                    <td class="icon-container">
+                        <input class="cb1" type="checkbox" />
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="20.0001" height="20.0001" rx="2.66667" fill="#34AFF9"/>
+                            <path d="M9.47289 6.05427H5.99398C5.73036 6.05427 5.47754 6.15899 5.29113 6.3454C5.10472 6.53181 5 6.78463 5 7.04825V14.0061C5 14.2697 5.10472 14.5225 5.29113 14.7089C5.47754 14.8953 5.73036 15.0001 5.99398 15.0001H12.9518C13.2154 15.0001 13.4683 14.8953 13.6547 14.7089C13.8411 14.5225 13.9458 14.2697 13.9458 14.0061V10.5272M13.2003 5.30879C13.398 5.11107 13.6662 5 13.9458 5C14.2254 5 14.4936 5.11107 14.6913 5.30879C14.889 5.5065 15.0001 5.77466 15.0001 6.05427C15.0001 6.33388 14.889 6.60204 14.6913 6.79975L9.96988 11.5211L7.98193 12.0181L8.47892 10.0302L13.2003 5.30879Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </td>
+                </tr>
+                <tr>
+                    <td>4</td>
+                    <td>Ana Jordânia</td>
+                    <td>24</td>
+                    <td>83kg</td>
+                    <td>+3 555 68 70</td>
+                    <td class="icon-container">
+                        <input class="cb1" type="checkbox" />
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="20.0001" height="20.0001" rx="2.66667" fill="#34AFF9"/>
+                            <path d="M9.47289 6.05427H5.99398C5.73036 6.05427 5.47754 6.15899 5.29113 6.3454C5.10472 6.53181 5 6.78463 5 7.04825V14.0061C5 14.2697 5.10472 14.5225 5.29113 14.7089C5.47754 14.8953 5.73036 15.0001 5.99398 15.0001H12.9518C13.2154 15.0001 13.4683 14.8953 13.6547 14.7089C13.8411 14.5225 13.9458 14.2697 13.9458 14.0061V10.5272M13.2003 5.30879C13.398 5.11107 13.6662 5 13.9458 5C14.2254 5 14.4936 5.11107 14.6913 5.30879C14.889 5.5065 15.0001 5.77466 15.0001 6.05427C15.0001 6.33388 14.889 6.60204 14.6913 6.79975L9.96988 11.5211L7.98193 12.0181L8.47892 10.0302L13.2003 5.30879Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </td>
+                </tr>
+                <tr>
+                    <td>5</td>
+                    <td>Cordeiro Machado</td>
+                    <td>24</td>
+                    <td>83kg</td>
+                    <td>+3 555 68 70</td>
+                    <td class="icon-container">
+                        <input class="cb1" type="checkbox" />
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <rect width="20.0001" height="20.0001" rx="2.66667" fill="#34AFF9"/>
+                            <path d="M9.47289 6.05427H5.99398C5.73036 6.05427 5.47754 6.15899 5.29113 6.3454C5.10472 6.53181 5 6.78463 5 7.04825V14.0061C5 14.2697 5.10472 14.5225 5.29113 14.7089C5.47754 14.8953 5.73036 15.0001 5.99398 15.0001H12.9518C13.2154 15.0001 13.4683 14.8953 13.6547 14.7089C13.8411 14.5225 13.9458 14.2697 13.9458 14.0061V10.5272M13.2003 5.30879C13.398 5.11107 13.6662 5 13.9458 5C14.2254 5 14.4936 5.11107 14.6913 5.30879C14.889 5.5065 15.0001 5.77466 15.0001 6.05427C15.0001 6.33388 14.889 6.60204 14.6913 6.79975L9.96988 11.5211L7.98193 12.0181L8.47892 10.0302L13.2003 5.30879Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </td>
+                </tr>
+            </tbody>
         </table>
-      </div>
-    </div>
-  </main>
-  <!-- Termina conteúdo da página-->
 
-  <footer-home></footer-home>
+    </main>
+
+    <footer-home></footer-home>
     <script src="./assets/scripts/footer-home-geral.js"></script>
-  <script src="./assets/scripts/intern-header-medico.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-    crossorigin="anonymous"></script>
-</body>
-
+    <script src="./assets/scripts/intern-header-medico.js"></script>
+  </body>
 </html>
