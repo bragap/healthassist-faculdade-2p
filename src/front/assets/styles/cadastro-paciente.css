@@ -16,8 +16,15 @@ img {
 }
 
 .forms{
+    text-align: center;
     display: flex;
     align-items: center;
+    flex-direction: column;
+}
+
+form{
+    display: flex;
+    text-align: center;
     flex-direction: column;
 }
 
@@ -127,12 +134,15 @@ img {
         }
 }
   @media (max-width: 600px) {
+    .forms{
+        margin-top: 0px ;
+    }
     .form-grid{
-        margin-top: 60px;
+        margin-top: 40px;
         display: grid;
         grid-template-columns: 1fr; /* Duas colunas com largura igual */
         grid-template-rows: repeat(6, 1fr); /* Três linhas com altura igual */
-        grid-gap: 50px; /* Espaçamento entre as colunas e linhas */
+        grid-gap: 30px; /* Espaçamento entre as colunas e linhas */
         min-height: fit-content;
     }
     html{
