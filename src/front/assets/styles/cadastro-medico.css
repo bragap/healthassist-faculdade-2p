@@ -1,27 +1,24 @@
 body{
     display: flex;
-    width: calc(100% - 10px);
+    width: calc(100%);
     margin: 0;
     background-color: #0367A6;
-    font-family: "Popins", sans-serif;
-}
-.container{
-    width: 100vw;
-    height: 100vh;
+    font-family: "Poppins", sans-serif;
 }
 img {
     user-select: none;
 }
+.forms-title{
+    color: #fff;
+}
+.container{
+    width: 100vw;
+}
+
 .forms{
     display: flex;
-    flex-direction: column;
     align-items: center;
-    text-align: center;
-    margin-top: 150px;
-    width: 500px;
-    color:#fff;
-    user-select: none;
-
+    flex-direction: column;
 }
 
 #circulo {
@@ -41,19 +38,141 @@ img {
   width: 400px;
   user-select: none;
 }
-footer{
-    position: fixed;
-    bottom: 0;
-    width: 100%;
+
+.form-grid{
+    margin-top: 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Duas colunas com largura igual */
+    grid-template-rows: repeat(3, 1fr); /* Três linhas com altura igual */
+    grid-gap: 50px; /* Espaçamento entre as colunas e linhas */
+}
+
+.form-grid-inputs{
+    border-radius: 5px;
+    border-width: 0px;
+    border: none;
+    height: 25px;
+    width: 200px;
+    padding-left:15px ;
+}
+
+.form-grid-item {
     display: flex;
     flex-direction: column;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    color: #fff;
-    font-weight: bold;
-    user-select: none;
+    padding: 10px;
+    text-align: start;
+}
 
+.form-grid-item-label{
+    font-size: 18px;
+    color: #ffff;
+    margin-bottom: 5px;
+}
+
+/* Estilos gerais */
+.file-upload-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaço entre o input e o botão */
+}
+
+/* Estilos para o container que envolve o select */
+.select-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* Estilização para o select */
+.form-select {
+    width: 100%;
+    border-radius: 5px;
+    border-width: 0px;
+    border: none;
+    height: 25px;
+    padding: 1px 2px 1px 15px;
+    border-radius: 5px; /* Bordas arredondadas */
+    appearance: none; /* Removendo estilos padrão */
+    -webkit-appearance: none; /* Removendo estilos padrão para navegadores Webkit */
+    -moz-appearance: none; /* Removendo estilos padrão para navegadores Firefox */
+    background-color: #FFFFFF; /* Cor de fundo */
+    cursor: pointer; /* Estilo de cursor ao passar o mouse */
+    outline: none; /* Removendo destaque ao selecionar */
+}
+
+/* Estilização para a seta (ícone) do select */
+.select-arrow {
+    position: absolute;
+    right: 15px; /* Posicionando à direita */
+    top: 50%; /* Centralizando verticalmente */
+    transform: translateY(-50%); /* Ajustando a centralização vertical */
+    font-size: 12px; /* Tamanho da fonte do ícone da seta */
+    color: #777; /* Cor da seta */
+    pointer-events: none; /* Fazendo com que o ícone da seta não responda a eventos de clique */
+}
+
+
+/* Estilizando o input de arquivo */
+.form-control {
+    display: none; /* Ocultando o input padrão */
+}
+
+/* Estilizando o label do input */
+.input-group-text {
+    background-color: #FFFFFF;
+    border: 1px solid #ccc;
+    border-radius: 5px; /* Bordas arredondadas */
+    padding: 10px 20px; /* Espaçamento interno */
+    cursor: pointer; /* Estilo de cursor ao passar o mouse */
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Espaço entre o ícone e o texto */
+    font-size: 14px; /* Tamanho da fonte */
+}
+
+/* Ícone de link simbolizando o upload */
+.input-group-text::before {
+    content: "\1F517"; /* Código Unicode do ícone de link */
+    display: inline-block;
+    font-size: 14px;
+    margin-right: 5px; /* Espaço entre o ícone e o texto */
+}
+
+/* Estilizando o botão "Go" */
+.go-button {
+    background-color: #0099FF; /* Cor de fundo do botão */
+    color: #FFFFFF; /* Cor do texto do botão */
+    border: none; /* Removendo borda padrão */
+    border-radius: 20px; /* Bordas arredondadas */
+    padding: 10px 20px; /* Espaçamento interno */
+    cursor: pointer; /* Estilo de cursor ao passar o mouse */
+    font-size: 14px; /* Tamanho da fonte */
+}
+
+/* Efeitos de hover para o botão "Go" */
+.go-button:hover {
+    background-color: #0077CC; /* Escurecendo um pouco a cor ao passar o mouse */
+}
+
+
+button {
+    width: 16rem;
+	font-size: 1em;
+    padding: 0.5rem;
+    color: #fff;
+    background: #0487D9;
+    border-radius: 0.25rem !important;
+    border: 0px;
+    margin-top: 0.5em !important;
+    cursor: pointer;
+}
+
+
+@media (max-width: 3000px){
+    .forms{
+        margin-top: 75px;
+        align-items: start;
+
+    }
 }
 
 /* RESPONSIVIDADE */
@@ -69,13 +188,13 @@ footer{
         max-height: 800px;
     }
     .forms{
-        margin-top: 75px;
-        max-width: 320px;
-        max-height: 700px;
+        margin-top: 50px;
+        max-height: 800px;
     }
 }
 
-@media (min-width:901px) and (max-width:1228px){
+@media (min-width:1051px) and (max-width:1400px){
+    
    .forms{
     position: absolute;
     top: 2%;
@@ -83,29 +202,40 @@ footer{
    }
 }
 
-@media (max-width: 900px) {
-   body{
-    width: 100% ;
-   }
-    #circulo{
-        display: none;
-    }
-    .container{
-        display: flex;
-        justify-content: center;
-        margin: auto;
-    }
-    .forms{
-        max-width: 80%;
-    }
-}
-  @media (max-width: 400px) {
+
+@media (max-width: 1050px) {
     body{
-        margin:10px;
+        width: 100% ;
+       }
+        #circulo{
+            display: none;
+        }
+        .container{
+            display: flex;
+            justify-content: center;
+            margin: auto;
+        }
+        .forms{
+            max-width: 80%;
+        }
+        .form-grid-inputs{
+            width: 150;
+        }
+}
+  @media (max-width: 600px) {
+    .form-grid{
+        margin-top: 60px;
+        display: grid;
+        grid-template-columns: 1fr; /* Duas colunas com largura igual */
+        grid-template-rows: repeat(6, 1fr); /* Três linhas com altura igual */
+        grid-gap: 50px; /* Espaçamento entre as colunas e linhas */
+        min-height: fit-content;
     }
-    .forms{
-       max-width: 80%;
+    html{
+        min-height: fit-content;
     }
-    
+    body{
+        height: 900px;
+    }
   }
   
