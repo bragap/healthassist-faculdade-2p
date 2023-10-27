@@ -2,7 +2,7 @@
 
 ### 4.1. Diagrama de classes
 
-![Diagrama de classes](images/HealthAssistUML.jpg "Diagrama de classes")
+![Diagrama de classes](images/UMLhealthAssist.jpg "Diagrama de classes")
 
 A classe "Medico" contém informações relevantes, como nome, especialização, CRM e detalhes de contato. O método editarAgenda permitem que os profissionais de saúde gerenciem suas agendas, otimizando a gestão de consultas.
 
