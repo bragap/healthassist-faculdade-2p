@@ -1,12 +1,25 @@
-.headline {
-    margin-top: 13vh;
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
+
+main {
+	margin-top: 15vh !important;
+	width: 70%;
+	margin: 0 auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
 }
 
-.main-box {
-    background-color: #FAFAFA;
-
+section {
+	padding: 3em;
+	background-color: #FAFAFA;
+	width: 90%;
+	margin-bottom: 4em;
 }
 
+h2 {
+	margin: 1.5rem 0;
+}
 p {
     color: rgba(0, 0, 0, 0.60);
 }
@@ -15,6 +28,7 @@ p {
     display: flex;
     padding: 0;
     gap: 0.5rem;
+	margin-bottom: 1em;
 }
 
 .bi-star, .bi-star-fill  {
@@ -26,7 +40,6 @@ p {
     cursor: pointer;
 }
 
-
 #box-comment {
     width: 100%;
     padding: 1em;
@@ -35,11 +48,12 @@ p {
 
 button {
     width: 16rem;
+	font-size: 1em;
     padding: 0.5rem;
     color: #fff;
     background: #0487D9;
     border-radius: 0.25rem !important;
     border: 0px;
     margin-top: 0.5em !important;
+    cursor: pointer;
 }
-
