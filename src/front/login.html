@@ -20,7 +20,7 @@
                 <input type="password" placeholder="Password">
                 <button id="btn-entrar" type="submit">Entrar</button>
             </form>
-            <a class="a-doutor" href="./login-medico.html">Acessar como médico</a>
+
             <p>Não possui conta? <button id="button-modal">Registre-se</button> </p>
             <dialog id="modal">
                 <form action="" method="post" id="form-register">
@@ -57,6 +57,16 @@
                         <i><img src="./assets/images/success-icon.svg" class="img-success"></i>
                         <i><img src="./assets/images/error-icon.svg" class="img-error"></i>
                         <small>Error message</small>
+                    </div>
+                    <div class="box-usuario">
+                        <div class="tipo-usuario">
+                            <input type="checkbox" name="tipo_medico" id="tipo_medico" value="MEDICO">
+                            <p>Sou médico</p>
+                        </div>
+                        <div class="tipo-usuario">
+                            <input type="checkbox" name="tipo_paciente" id="tipo_paciente" value="PACIENTE">
+                            <p>Sou paciente</p>
+                        </div>
                     </div>
                     <p class="text-sucess"></p>
                     <button type="submit" id="btn-submit">Realizar cadastro</button>

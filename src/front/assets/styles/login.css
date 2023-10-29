@@ -2,8 +2,13 @@ body{
     display: flex;
     width: 100vw;
     margin: 0 auto;
-    font-family: "Popins", sans-serif;
+    font-family: "Poppins", sans-serif;
 }
+
+#modal {
+    padding: 2em;
+}
+
 .container{
     width: 100vw;
     height: 100vh;
@@ -86,6 +91,19 @@ body{
 .forms-login .a-doutor{
     color: grey;
     margin-bottom: 10px;
+}
+.box-usuario, .tipo-usuario {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+}
+
+.tipo-usuario {
+    width: 50%;
+}
+.tipo-usuario input {
+    width: 50px;
 }
 
 #circulo {
@@ -187,25 +205,23 @@ dialog {
 }
 
 .form-control {
+    display: flex;
+    flex-direction: column;
     margin-bottom: 10px;
     padding-bottom: 20px;
-    position: relative;
 }
 
 .form-control label {
     display: flex;
-    padding-left: 25px;
     color: #828CAD;
 }
 
 .form-control input {
     font-size: 14px;
     width: 90%;
-    padding: 15px;
-    box-sizing: border-box;
+    margin: 10px;
     border: none;
     border-bottom: 1.8px solid #2f89c1;
-    padding: 5px;
     background-color: transparent;
 }
 
@@ -248,7 +264,7 @@ dialog {
 }
 .header-modal{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 #btn-close-modal{
     background: none;
