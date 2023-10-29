@@ -14,7 +14,22 @@ services:
     ports:
       - "5433:5432"
     volumes:
-      - ./db:/var/lib/postgresql/data
-
+      - ./db/postgres:/var/lib/postgresql/data
+      - ./entrypoint:/docker-entrypoint-initdb.d
+#  mysql:
+#    container_name: mysql
+#    image: mysql
+#    env_file:
+#      - ./.env
+#    restart: unless-stopped
+#    environment:
+#      MYSQL_ROOT_PASSWORD: ${SQLDB_PASSWORD}
+#      MYSQL_DATABASE: ${SQLDB_DATABASE}
+#      MYSQL_SSL: "false"
+#    ports:
+#      - "3607:3606"
+#    volumes:
+#      - ./db/mysql:/var/lib/mysql
+#      - ./config/:/etc/mysql/my.cnf
 volumes:
   db:
