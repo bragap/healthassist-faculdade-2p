@@ -78,6 +78,48 @@ form{
     margin-bottom: 5px;
 }
 
+/* Estilizando o input de arquivo */
+.form-control {
+    display: none; /* Ocultando o input padrão */
+}
+
+/* Estilizando o label do input */
+.input-group-text {
+    background-color: #FFFFFF;
+    border: 1px solid #ccc;
+    border-radius: 5px; /* Bordas arredondadas */
+    padding: 10px 20px; /* Espaçamento interno */
+    cursor: pointer; /* Estilo de cursor ao passar o mouse */
+    display: flex;
+    align-items: center;
+    gap: 5px; /* Espaço entre o ícone e o texto */
+    font-size: 14px; /* Tamanho da fonte */
+}
+
+/* Ícone de link simbolizando o upload */
+.input-group-text::before {
+    content: "\1F517"; /* Código Unicode do ícone de link */
+    display: inline-block;
+    font-size: 14px;
+    margin-right: 5px; /* Espaço entre o ícone e o texto */
+}
+
+/* Estilizando o botão "Go" */
+.go-button {
+    background-color: #0099FF; /* Cor de fundo do botão */
+    color: #FFFFFF; /* Cor do texto do botão */
+    border: none; /* Removendo borda padrão */
+    border-radius: 20px; /* Bordas arredondadas */
+    padding: 10px 20px; /* Espaçamento interno */
+    cursor: pointer; /* Estilo de cursor ao passar o mouse */
+    font-size: 14px; /* Tamanho da fonte */
+}
+
+/* Efeitos de hover para o botão "Go" */
+.go-button:hover {
+    background-color: #0077CC; /* Escurecendo um pouco a cor ao passar o mouse */
+}
+
 @media (max-width: 3000px){
     .forms{
         margin-top: 75px;
