@@ -6,11 +6,11 @@ O processo de Gerenciar Médico tem como objetivo manter um registro preciso e a
 
 **Detalhamento das atividades**
 
-**Realizar cadastro no sistema**
+**Inserir dados na área de cadastro**
 
 | **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
 | ---             | ---              | ---            | ---               |
-| Nome | Caixa de texto  |      Mínimo de 2 caracteres        |           -        |
+| Nome de usuário | Caixa de texto  |      Mínimo de 2 caracteres        |           -        |
 | Email | Caixa de texto  |    -            |        -           |
 | Senha | Caixa de texto  |          Mínimo de 6 caracteres          |        -          |
 | Confirmação de Senha | Caixa de texto  |           Mínimo de 6 caracteres        |        -       |
@@ -23,7 +23,7 @@ O processo de Gerenciar Médico tem como objetivo manter um registro preciso e a
 
 | **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
 | ---             | ---              | ---            | ---               |
-| Email | Caixa de texto  |    -            |        -           |
+| Nome de usuário | Caixa de texto  |    -            |        -           |
 | Senha | Caixa de texto  |          Mínimo de 6 caracteres          |       -           |
 
 | **Comandos**         |  **Destino**                   | **Tipo** |
@@ -31,59 +31,33 @@ O processo de Gerenciar Médico tem como objetivo manter um registro preciso e a
 | Entrar |  Acessar a plataforma HealthAssist  | Confirm |
 
 
-**Inserir dados na área de cadastro**
+**Criar perfil profissional**
 
 | **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
 | ---             | ---              | ---            | ---               |
-| Nome | Caixa de texto  |      Mínimo de 2 caracteres        |           -        |
+| Nome Completo| Caixa de texto  |      Mínimo de 2 caracteres        |           -        |
 | Endereço | Caixa de texto  |    -            |        -           |
 | Idade | Número  |                |                   |
 | Data de Nascimento | Data |        -        |    -               |
 | Código de registro | Caixa de texto |        -        |    -               |
 | Especialidade médica | Caixa de texto |        -        |    -               |
 | Arquivos pessoais | Arquivos |            -            |                   |
+| Dia da Semana | Caixa de texto  |       -         |           -        |
+| Horário de Início | Hora |    -            |        -           |
+| Horário de Fim | Hora |    -            |        -           |
 
 | **Comandos**         |  **Destino**                   | **Tipo** |
 | ---                  | ---                            | ---               |
 | Cadastrar |  Enviar dados para cadastro  | Confirm |
-| Cancelar |  Cancela envio dos dados  | Cancel |
 
 
-
-**Inserir disponibilidades e horários**
+**Confirmar registro do profissional**
 
 | **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
 | ---             | ---              | ---            | ---               |
-| Especialidade de atendimento | Caixa de texto  |       -         |           -        |
-| Horários disponíveis | Tabela |    -            |        -           |
+| Exibição dos dados inseridos pelo Profissional | Tabela  |       -         |           -        |
 
 | **Comandos**         |  **Destino**                   | **Tipo** |
 | ---                  | ---                            | ---               |
-| Enviar |  Envia os dados para análise pela secretária  | Confirm |
-| Cancelar |  Cancela envio dos dados  | Cancel |
-
-
-
-**Verificar dados e informações**
-
-| **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
-| ---             | ---              | ---            | ---               |
-| Visualizar dados | Tabela  |       Conflito de horários        |           -        |
-
-| **Comandos**         |  **Destino**                   | **Tipo** |
-| ---                  | ---                            | ---               |
-| Autorizar |  Autoriza o cadastro do profissional e envia os dados para montagem da agenda | Confirm |
-| Cancelar |  Cancela cadastro e envia notificação ao profissional  | Cancel |
-
-
-
-**Montar agenda do profissional**
-
-| **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
-| ---             | ---              | ---            | ---               |
-| Agenda pessoal | Tabela  |       -         |           -        |
-
-| **Comandos**         |  **Destino**                   | **Tipo** |
-| ---                  | ---                            | ---               |
-| Enviar |  Envia a agenda para o profissional  | Confirm |
-| Cancelar |  Cancela envio dos dados  | Cancel |
+| Confirmar |  Cadastra no HealthAssist e envia mensagem por email  | Confirm |
+| Cancelar |  Cancela cadastro e envia mensagem por email | Cancel |
