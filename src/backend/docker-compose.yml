@@ -31,5 +31,3 @@ services:
 #    volumes:
 #      - ./db/mysql:/var/lib/mysql
 #      - ./config/:/etc/mysql/my.cnf
-volumes:
-  db:

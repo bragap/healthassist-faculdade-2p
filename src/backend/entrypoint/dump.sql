@@ -1,3 +1,11 @@
+-- Create Database --
+DO $$
+BEGIN
+  IF NOT EXISTS (SELECT 1 FROM pg_database WHERE datname = 'healthassist') THEN
+    CREATE DATABASE healthassist;
+END IF;
+END $$;
+
 -- Tabela para armazenar os dias da semana
 CREATE TABLE dia_da_semana (
                                id serial PRIMARY KEY,
@@ -17,7 +25,7 @@ CREATE TABLE usuario (
                          email character varying(50) NOT NULL,
                          senha character varying(50) NOT NULL,
                          autorizacao character varying(20) check (autorizacao in ('MEDICO','PACIENTE','ADMINISTRADOR')) not null,
-                         data_criacao timestamp
+                         data_criacao timestamp DEFAULT now()
 );
 
 -- Tabela para armazenar informações de médicos
@@ -26,7 +34,7 @@ CREATE TABLE medico (
                         endereco character varying(255) COLLATE "pg_catalog"."default",
                         data_nasc date,
                         código_de_registro character varying(255) COLLATE "pg_catalog"."default",
-                        data_criacao timestamp,
+                        data_criacao timestamp DEFAULT now(),
                         id_especialidade_medico integer,
                         nome_completo character varying(100) COLLATE "pg_catalog"."default",
                         id_usuario integer,
@@ -40,7 +48,7 @@ CREATE TABLE paciente (
                           id serial PRIMARY KEY,
                           endereco character varying(255) COLLATE "pg_catalog"."default",
                           data_nasc date,
-                          data_criacao timestamp,
+                          data_criacao timestamp DEFAULT now(),
                           nome_completo character varying(100) COLLATE "pg_catalog"."default",
                           id_usuario integer,
                           FOREIGN KEY (id_usuario) REFERENCES usuario (id)
@@ -55,7 +63,7 @@ CREATE TABLE consulta (
                           horario_inicio time,
                           horario_fim time,
                           resposta_anamnese text,
-                          data_criacao timestamp,
+                          data_criacao timestamp DEFAULT now(),
                           FOREIGN KEY (id_medico) REFERENCES medico (id),
                           FOREIGN KEY (id_paciente) REFERENCES paciente (id)
 );
@@ -67,7 +75,7 @@ CREATE TABLE avaliar_consulta (
                                   id_consulta integer,
                                   titulo character varying(100) COLLATE "pg_catalog"."default",
                                   comentario text,
-                                  data_criacao timestamp,
+                                  data_criacao timestamp DEFAULT now(),
                                   id serial PRIMARY KEY,
                                   FOREIGN KEY (id_consulta) REFERENCES consulta (id)
 );
