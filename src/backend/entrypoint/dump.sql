@@ -33,12 +33,12 @@ CREATE TABLE medico (
                         id serial PRIMARY KEY,
                         endereco character varying(255) COLLATE "pg_catalog"."default",
                         data_nasc date,
-                        código_de_registro character varying(255) COLLATE "pg_catalog"."default",
+                        codigo_de_registro character varying(255) COLLATE "pg_catalog"."default",
                         data_criacao timestamp DEFAULT now(),
                         id_especialidade_medico integer,
                         nome_completo character varying(100) COLLATE "pg_catalog"."default",
                         id_usuario integer,
-                        UNIQUE (código_de_registro),
+                        UNIQUE (codigo_de_registro),
                         FOREIGN KEY (id_usuario) REFERENCES usuario (id),
                         FOREIGN KEY (id_especialidade_medico) REFERENCES especialidade_medico (id)
 );
