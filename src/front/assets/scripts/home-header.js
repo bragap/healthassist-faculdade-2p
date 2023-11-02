@@ -116,7 +116,7 @@ class HomeHeader extends HTMLElement {
             right: 0;
             width: 50vw;
             height: 92vh;
-            background: #0367A6;
+            background: #fff;
             flex-direction: column;
             align-items: center;
             justify-content: space-around;
@@ -125,7 +125,7 @@ class HomeHeader extends HTMLElement {
             
           } 
           .nav-list li a{
-              color: #fff;
+              color: #0367A6;
           }
         
           .nav-list li {
