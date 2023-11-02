@@ -1,5 +1,5 @@
 main {
-    
+
     width: 90%;
     margin: 0 auto;
     padding-top: 250px;
@@ -45,11 +45,11 @@ main {
     background-color: transparent;
 }
 
-#input-box input:focus{
+#input-box input:focus {
     outline: none;
 }
 
-#view-doctors{
+#view-doctors {
     margin-top: 50px;
     display: flex;
     flex-direction: row;
@@ -58,7 +58,7 @@ main {
     justify-content: space-between;
 }
 
-#cards-section{
+#cards-section {
     margin-top: 50px;
     width: 100%;
     display: flex;
@@ -69,7 +69,7 @@ main {
     padding: 10px;
 }
 
-#card-individual{
+#card-individual {
     background-color: #048ABF;
     color: #fff;
     padding: 10px;
@@ -77,7 +77,7 @@ main {
     margin: 30px;
 }
 
-#card-individual button{
+#card-individual button {
     width: 100%;
     border: none;
     border-radius: 10px;
@@ -85,7 +85,106 @@ main {
     transition: 0.5s;
 }
 
-#card-individual button:hover{
+#card-individual button:hover {
     background-color: #192A3E;
     color: #fff;
+}
+dialog::backdrop{
+    background-color: rgb(0 0 0/ .5);
+}
+dialog{
+    box-shadow: 0 0 1em rgb(0 0 0 / .3);
+
+}
+#modal {
+    width: 50%;
+    height: 60%;
+    border: none;
+}
+
+#modal::-webkit-scrollbar{
+    width: 0.5em;
+}
+#modal::-webkit-scrollbar-track{
+    background-color: #F5F5F7;
+}
+#modal::-webkit-scrollbar-thumb{
+  background-color: #0367A6;
+  border-radius: 10px;
+}
+
+
+
+#header-modal {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: space-between;
+}
+
+#btn-close-modal {
+    border: none;
+    width: 10%;
+    font-size: 1.5em;
+}
+
+#modal-filter {
+    display: flex;
+    justify-content: center;
+}
+
+#modal-filter select {
+    padding: 5px;
+    margin: 3px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: auto;
+    text-align: center;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: center;
+    width: 120px;
+}
+
+th {
+    font-weight: bold;
+}
+
+
+tr:nth-child(even) {
+    background-color: #d2e2f8;
+}
+
+tr:hover:nth-child(1n + 2) {
+    background-color: #048ABF;
+    color: #fff;
+}
+
+#section-confirm{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px
+}
+
+#section-confirm button{
+    border: none;
+    background-color: #048ABF;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.rolagem-bloqueada{
+    overflow: hidden;
+}
+
+.rolagem-permitida{
+    overflow: auto;
 }
