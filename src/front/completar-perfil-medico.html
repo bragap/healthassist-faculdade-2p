@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Cadastre-se no HealthAssist</title>
+    <link rel="icon" href="./assets/images/favicon.ico" />
+    <link href="./assets/styles/global.css" rel="stylesheet" />
+    <link href="./assets/styles/completar-perfil-medico.css" rel="stylesheet" />
+  </head>
+
+  <body>
+    <div class="container">
+      <div id="circulo">
+        <img src="./assets/images/logo-v5.png" alt="logo v5" />
+      </div>
+      <div class="forms">
+        <h2 class="forms-title">Complete seu perfil profissional</h2>
+        <forms method="post" action="">
+          <div class="form-grid">
+            <div class="form-grid-item">
+              <label class="form-grid-item-label" for="nome"
+                >Nome completo *</label
+              >
+              <input type="text" class="form-grid-inputs" placeholder="Nome" />
+            </div>
+
+            <div class="form-grid-item">
+              <label class="form-grid-item-label" for="nome">Endereço *</label>
+              <input
+                type="text"
+                class="form-grid-inputs"
+                placeholder="Endereço"
+              />
+            </div>
+
+            <div class="form-grid-item">
+              <label class="form-grid-item-label" for="nome">
+                Especialidade *</label
+              >
+              <div class="select-container">
+                <select class="form-select" aria-label="">
+                  <option selected>Selecione</option>
+                  <option name="clinico_geral" value="clinico geral">
+                    Clínico geral
+                  </option>
+                  <option name="pediatra" value="pediatra">Pediatra</option>
+                  <option name="urologista" value="urologista">
+                    Urologista
+                  </option>
+                  <option name="odontologia" value="odontologia">
+                    Odontologia
+                  </option>
+                  <option name="psicologia" value="psicologia">
+                    Psicologia
+                  </option>
+                  <option name="psiquiatria" value="psiquiatria">
+                    Psiquiatria
+                  </option>
+                  <option name="cardiologia" value="cardiologia">
+                    Cardiologia
+                  </option>
+                  <option name="neurologia" value="neurologia">
+                    Neurologia
+                  </option>
+                  <option name="oftalmologia" value="oftalmologia">
+                    Oftalmologia
+                  </option>
+                </select>
+                <div class="select-arrow">▼</div>
+              </div>
+            </div>
+
+            <div class="form-grid-item">
+              <label class="form-grid-item-label" for="nome"
+                >Data de Nascimento *</label
+              >
+              <input
+                type="text"
+                class="form-grid-inputs"
+                placeholder="1/1/2001"
+              />
+            </div>
+
+            <div class="form-grid-item">
+              <label class="form-grid-item-label" for="nome"
+                >Envie documentos *</label
+              >
+              <div class="input-group mb-3">
+                <input type="file" class="form-control" id="inputGroupFile" />
+                <label class="input-group-text" for="inputGroupFile"
+                  >Upload</label
+                >
+                <button class="go-button">Enviar</button>
+              </div>
+            </div>
+
+            <div class="form-grid-item">
+              <label class="form-grid-item-label" for="nome"
+                >Código de registro *</label
+              >
+              <input
+                type="text"
+                class="form-grid-inputs"
+                placeholder="Código"
+              />
+            </div>
+          </div>
+        </forms>
+
+        <div class="disponibilidade">
+          <h3 class="disponibilidade">Disponibilidade *</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Dia da semana</th>
+                <th>Horário início</th>
+                <th>Horário fim</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="icon-container">
+                  <input class="cb1" name="SEGUNDA" value="2" type="checkbox" />
+                </td>
+                <td>Segunda-feira</td>
+                <td>
+                  <input
+                    class="inputs-dias"
+                    type="time"
+                    name="h_inicio_segunda"
+                    id="h_inicio_segunda"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="inputs-dias"
+                    type="time"
+                    name="h_inicio_segunda"
+                    id="h_inicio_segunda"
+                  />
+                </td>
+              </tr>
+
+              <tr>
+                <td class="icon-container">
+                  <input class="cb1" name="TERCA" value="3" type="checkbox" />
+                </td>
+                <td>Terça-feira</td>
+                <td>
+                  <input
+                    class="inputs-dias"
+                    type="time"
+                    name="h_inicio_terca"
+                    id="h_inicio_terca"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="inputs-dias"
+                    type="time"
+                    name="h_inicio_terca"
+                    id="h_inicio_terca"
+                  />
+                </td>
+              </tr>
+
+              <tr>
+                <td class="icon-container">
+                  <input class="cb1" name="QUARTA" value="4" type="checkbox" />
+                </td>
+                <td>Quarta-feira</td>
+                <td>
+                  <input
+                    class="inputs-dias"
+                    type="time"
+                    name="h_inicio_quarta"
+                    id="h_inicio_quarta"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="inputs-dias"
+                    type="time"
+                    name="h_inicio_quarta"
+                    id="h_inicio_quarta"
+                  />
+                </td>
+              </tr>
+
+              <tr>
+                <td class="icon-container">
+                  <input class="cb1" name="QUINTA" value="5" type="checkbox" />
+                </td>
+                <td>Quinta-feira</td>
+                <td>
+                  <input
+                    class="inputs-dias"
+                    type="time"
+                    name="h_inicio_quinta"
+                    id="h_inicio_quinta"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="inputs-dias"
+                    type="time"
+                    name="h_inicio_quinta"
+                    id="h_inicio_quinta"
+                  />
+                </td>
+              </tr>
+
+              <tr>
+                <td class="icon-container">
+                  <input class="cb1" name="SEXTA" value="6" type="checkbox" />
+                </td>
+                <td>Sexta-feira</td>
+                <td>
+                  <input
+                    class="inputs-dias"
+                    type="time"
+                    name="h_inicio_sexta"
+                    id="h_inicio_sexta"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="inputs-dias"
+                    type="time"
+                    name="h_inicio_sexta"
+                    id="h_inicio_sexta"
+                  />
+                </td>
+              </tr>
+
+              <tr>
+                <td class="icon-container">
+                  <input class="cb1" name="SABADO" value="7" type="checkbox" />
+                </td>
+                <td>Sábado</td>
+                <td>
+                  <input
+                    class="inputs-dias"
+                    type="time"
+                    name="h_inicio_sabado"
+                    id="h_inicio_sabado"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="inputs-dias"
+                    type="time"
+                    name="h_inicio_sabado"
+                    id="h_inicio_sabado"
+                  />
+                </td>
+              </tr>
+
+              <tr>
+                <td class="icon-container">
+                  <input class="cb1" name="DOMINGO" value="1" type="checkbox" />
+                </td>
+                <td>Domingo</td>
+                <td>
+                  <input
+                    class="inputs-dias"
+                    type="time"
+                    name="h_inicio_domingo"
+                    id="h_inicio_domingo"
+                  />
+                </td>
+                <td>
+                  <input
+                    class="inputs-dias"
+                    type="time"
+                    name="h_inicio_domingo"
+                    id="h_inicio_domingo"
+                  />
+                </td>
+              </tr>
+            </tbody>
+          </table>
+          <button id="btn-cadastrar">Cadastrar</button>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

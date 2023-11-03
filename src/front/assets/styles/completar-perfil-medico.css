@@ -8,6 +8,11 @@ body{
 img {
     user-select: none;
 }
+
+h2 {
+    font-size: 2em ;
+}
+
 .forms-title{
     color: #fff;
 }
@@ -48,12 +53,11 @@ img {
 }
 
 .form-grid-inputs{
+    background-color: #FFFFFF;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    border-width: 0px;
-    border: none;
-    height: 25px;
-    width: 200px;
-    padding-left:15px ;
+    padding: 10px 20px;
+    cursor: pointer;
 }
 
 .form-grid-item {
@@ -64,9 +68,10 @@ img {
 }
 
 .form-grid-item-label{
-    font-size: 18px;
+    font-size: 1rem;
+    font-weight: 400 !important;
     color: #ffff;
-    margin-bottom: 5px;
+    margin-bottom: 1rem;
 }
 
 /* Estilos gerais */
@@ -87,9 +92,7 @@ img {
     width: 100%;
     border-radius: 5px;
     border-width: 0px;
-    border: none;
-    height: 25px;
-    padding: 1px 2px 1px 15px;
+    padding: 10px 20px;
     border-radius: 5px; /* Bordas arredondadas */
     appearance: none; /* Removendo estilos padrão */
     -webkit-appearance: none; /* Removendo estilos padrão para navegadores Webkit */
@@ -140,12 +143,14 @@ img {
 /* Estilizando o botão "Go" */
 .go-button {
     background-color: #0099FF; /* Cor de fundo do botão */
+    margin-top: 0.5em;
     color: #FFFFFF; /* Cor do texto do botão */
     border: none; /* Removendo borda padrão */
-    border-radius: 20px; /* Bordas arredondadas */
+    border-radius: 0.25rem !important; /* Bordas arredondadas */
     padding: 10px 20px; /* Espaçamento interno */
     cursor: pointer; /* Estilo de cursor ao passar o mouse */
     font-size: 14px; /* Tamanho da fonte */
+    width: 100%;
 }
 
 /* Efeitos de hover para o botão "Go" */
@@ -153,18 +158,87 @@ img {
     background-color: #0077CC; /* Escurecendo um pouco a cor ao passar o mouse */
 }
 
-
-button {
-    width: 16rem;
+#btn-cadastrar {
+    width: 100%;
 	font-size: 1em;
-    padding: 0.5rem;
+    padding: 10px 20px;
     color: #fff;
-    background: #0487D9;
+    background: #0099FF;
     border-radius: 0.25rem !important;
     border: 0px;
     margin-top: 0.5em !important;
     cursor: pointer;
 }
+
+
+
+h3 {
+    padding: 10px;
+    margin-top: 1em;
+    color: #fff;
+    font-size: 1.25em;
+}
+
+
+/* Estilos da tabela */
+table {
+    margin: 10px;
+	border-collapse: collapse;
+	margin-bottom: 2rem !important;
+    background-color: #fff;
+    border-radius: 10px !important;
+}
+
+
+th {
+	background-color: #f5f5f5;
+	padding: 1em !important;
+	text-align: left;
+	font-weight: 700 !important;
+}
+
+.icones-th, .icon-container svg:hover {
+	cursor: pointer;
+}
+
+
+/* Estilos dos ícones */
+.icon {
+	width: 20px;
+	height: 20px;
+	margin-right: 5px;
+}
+
+.icon:last-child {
+	margin-right: 0;
+}
+
+/* Adicionando estilo zebra à tabela */
+tbody tr:nth-child(odd) {
+	background-color: #f9f9f9;
+}
+
+td {
+	padding: 1em !important;
+	text-align: left;
+}
+
+.cb1 {
+	accent-color: #2ED47A;
+	font-size: 1em;
+	color: #fff !important;
+	cursor: pointer;
+}
+
+.inputs-dias {
+    margin-left: 10px;
+    background-color: #fff;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer !important;
+}
+
 
 
 @media (max-width: 3000px){
