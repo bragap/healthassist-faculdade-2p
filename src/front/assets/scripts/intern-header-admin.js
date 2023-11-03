@@ -1,4 +1,4 @@
-class InterHeaderPaciente extends HTMLElement {
+class InterHeaderAdmin extends HTMLElement {
     constructor() {
       super();
   
@@ -122,7 +122,6 @@ class InterHeaderPaciente extends HTMLElement {
               justify-content: space-around;
               transform: translateX(100%);
               transition: transform 0.3s ease-in;
-              
             } 
             .nav-list li a{
                 color: #fff;
@@ -138,16 +137,16 @@ class InterHeaderPaciente extends HTMLElement {
         </style>
         <header>
           <nav>
-            <a class="logo" href="home-paciente.html"><img src="./assets/images/logo-v9.png"></a>
+            <a class="logo" href="home-admin.html"><img src="./assets/images/logo-v9.png"></a>
             <div class="mobile-menu">
               <div class="line1"></div>
               <div class="line2"></div>
               <div class="line3"></div>
             </div>
             <ul class="nav-list">
-              <li><a href="home-paciente.html">Início</a></li>
-              <li><a href="avaliar-consulta.html">Últimas consultas</a></li>
-              <li><a href="#">Perfil</a></li>
+              <li><a href="home-admin.html">Início</a></li>
+              <li><a href="cancelamentos.html">Cancelamentos</a></li>
+              <li><a href="relatorio-avaliacoes.html">Relatórios</a></li>
               <li><a href="home-geral.html">Sair</a></li>
               </ul>
           </nav>
@@ -176,5 +175,5 @@ class InterHeaderPaciente extends HTMLElement {
   
   }
   
-  customElements.define('intern-header-paciente', InterHeaderPaciente);
+  customElements.define('intern-header-admin', InterHeaderAdmin);
   

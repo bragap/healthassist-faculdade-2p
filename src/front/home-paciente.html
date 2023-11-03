@@ -1,118 +1,181 @@
 <!DOCTYPE html>
 <html lang="en" class="h-100" data-bs-theme="auto">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Área do Paciente</title>
-    <link rel="icon" href="./assets/images/favicon.ico" />
-    <link href="./assets/styles/home-paciente.css" rel="stylesheet" />
-    <link rel="stylesheet" href="./assets/styles/global.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
-      crossorigin="anonymous"
-    />
-  </head>
 
-  <body>
-    <intern-header-paciente></intern-header-paciente>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Área do Paciente</title>
+  <link rel="icon" href="./assets/images/favicon.ico" />
+  <link href="./assets/styles/home-paciente.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/styles/global.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+</head>
 
-    <!-- Inicia conteúdo da página-->
+<body>
+  <intern-header-paciente></intern-header-paciente>
 
-    <main>
-      <div class="box-esquerda">
-        <div class="consultas">
-          <h2>Consultas anteriores</h2>
-          <div class="box-consultas">
-            <div class="card-consulta"></div>
-            <div class="card-consulta"></div>
-            <div class="card-consulta"></div>
-          </div>
+  <!-- Inicia conteúdo da página-->
+
+  <main>
+    <section id="search-doctor">
+      <h2>Selecione o melhor médico para você</h2>
+      <p>Pesquise por nome ou especialidade</p>
+      <div id="input-box">
+        <input type="text" placeholder="Nome do médico">
+        <input type="text" placeholder="Dropdown">
+      </div>
+      <input type="submit" value="Pesquisar" id="btn-submit">
+    </section>
+
+
+    <section id="view-doctors">
+
+      <div id="cards-section">
+        <div id="card-individual">
+          <h5>Nome do médico</h5>
+          <p>Área</p>
+          <button type="button" id="btn-open-modal">Agende uma consulta!</button>
         </div>
-
-        <div class="agendamento">
-          <h2>Áreas para agendamento</h2>
-          <div class="areas-agendamento">
-            <div class="area-especifica">
-              <img src="./assets/images/paciente/clinico-geral.jpg" alt="" />
-              <span>CLÍNICO GERAL</span>
-            </div>
-            <div class="area-especifica">
-              <img src="./assets/images/paciente/pediatria.jpg" alt="" />
-              <span>PEDIATRIA</span>
-            </div>
-            <div class="area-especifica">
-              <img src="./assets/images/paciente/urologia.jpg" alt="" />
-              <span>UROLOGIA</span>
-            </div>
-            <div class="area-especifica">
-              <img src="./assets/images/paciente/odontologia.jpg" alt="" />
-              <span>ODONTOLOGIA</span>
-            </div>
-            <div class="area-especifica">
-              <img src="./assets/images/paciente/psicologia.jpg" alt="" />
-              <span>PSICOLOGIA</span>
-            </div>
-            <div class="area-especifica">
-              <img src="./assets/images/paciente/psiquiatria.jpg" alt="" />
-              <sVpan>PSIQUIATRIA</sVpan>
-            </div>
-            <div class="area-especifica">
-              <img src="./assets/images/paciente/cardiologia.jpg" alt="" />
-              <span>CARDIOLOGIA</span>
-            </div>
-            <div class="area-especifica">
-              <img src="./assets/images/paciente/neurologia.jpg" alt="" />
-              <span>NEUROLOGIA</span>
-            </div>
-            <div class="area-especifica">
-              <img src="./assets/images/paciente/oftamologia.jpg" alt="" />
-              <span>OFTAMOLOGIA</span>
-            </div>
-          </div>
+        <div id="card-individual">
+          <h5>Nome do médico</h5>
+          <p>Área</p>
+          <button type="button" id="btn-open-modal">Agende uma consulta!</button>
+        </div>
+        <div id="card-individual">
+          <h5>Nome do médico</h5>
+          <p>Área</p>
+          <button type="button" id="btn-open-modal">Agende uma consulta!</button>
+        </div>
+        <div id="card-individual">
+          <h5>Nome do médico</h5>
+          <p>Área</p>
+          <button type="button" id="btn-open-modal">Agende uma consulta!</button>
+        </div>
+        <div id="card-individual">
+          <h5>Nome do médico</h5>
+          <p>Área</p>
+          <button type="button" id="btn-open-modal">Agende uma consulta!</button>
+        </div>
+        <div id="card-individual">
+          <h5>Nome do médico</h5>
+          <p>Área</p>
+          <button type="button" id="btn-open-modal">Agende uma consulta!</button>
+        </div>
+        <div id="card-individual">
+          <h5>Nome do médico</h5>
+          <p>Área</p>
+          <button type="button" id="btn-open-modal">Agende uma consulta!</button>
+        </div>
+        <div id="card-individual">
+          <h5>Nome do médico</h5>
+          <p>Área</p>
+          <button type="button" id="btn-open-modal">Agende uma consulta!</button>
+        </div>
+        <div id="card-individual">
+          <h5>Nome do médico</h5>
+          <p>Área</p>
+          <button type="button" id="btn-open-modal">Agende uma consulta!</button>
+        </div>
+        <div id="card-individual">
+          <h5>Nome do médico</h5>
+          <p>Área</p>
+          <button type="button" id="btn-open-modal">Agende uma consulta!</button>
+        </div>
+        <div id="card-individual">
+          <h5>Nome do médico</h5>
+          <p>Área</p>
+          <button type="button" id="btn-open-modal">Agende uma consulta!</button>
+        </div>
+        <div id="card-individual">
+          <h5>Nome do médico</h5>
+          <p>Área</p>
+          <button type="button" id="btn-open-modal">Agende uma consulta!</button>
         </div>
       </div>
 
-      <div class="box-direita">
-        <h2>Selecione a clínica</h2>
-        <span>Clínicas</span>
+    </section>
+    <dialog id="modal">
 
-        <form action="">
-          <input
-            type="text"
-            class="form-control"
-            id="nome-clinica"
-            placeholder="Nome"
-          />
-          <select class="form-select" aria-label="">
-            <option selected>Estado</option>
-            <option value="1">MG</option>
-            <option value="2">SP</option>
-            <option value="3">RJ</option>
-            <option value="4">ES</option>
-          </select>
-          <select class="form-select" aria-label="">
-            <option selected>Cidade</option>
-            <option value="1">Belo Horizonte</option>
-            <option value="2">São Paulo</option>
-            <option value="3">Rio de Janeiro</option>
-            <option value="4">Vitória</option>
-          </select>
-          <button>Pesquisar</button>
-        </form>
+      <div id="header-modal">
+        <h4>Nome do médico </h4> <button id="btn-close-modal">X</button>
+        <p>Especialidade do médico</p>
       </div>
-    </main>
+      <div id="modal-filter">
+        <select name="dia">
+          <option value="">Selecione o dia</option>
+          <option value="SEGUNDA">Segunda-feira</option>
+          <option value="TERÇA">Terça-feira</option>
+          <option value="QUARTA">Quarta-feira</option>
+          <option value="QUINTA">Quinta-feira</option>
+          <option value="SEXTA">Sexta-feira</option>
+          <option value="SABADO">Sábado</option>
+          <option value="DOMINGO">Domingo</option>
+        </select>
+        <select name="horario">
+          <option value="">Escolha o horário</option>
+          <option value="13:00">13:00</option>
+          <option value="14:00">14:00</option>
+          <option value="15:00">15:00</option>
+          <option value="16:00">16:00</option>
+          <option value="17:00">17:00</option>
+          <option value="18:00">18:00</option>
+        </select>
 
-    <!-- Termina conteúdo da página-->
+      </div>
 
-    <footer-home></footer-home>
-    <script src="./assets/scripts/footer-home-geral.js"></script>
-    <script src="./assets/scripts/intern-header-paciente.js"></script>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+      <table>
+        <tr>
+          <th>Horário</th>
+          <th>Dia da semana</th>
+          <th>Selecione</th>
+        </tr>
+        <tr>
+          <td>14:00</td>
+          <td>Segunda-feira</td>
+          <td><input type="checkbox" name="" id=""></td>
+        </tr>
+        <tr>
+          <td>15:00</td>
+          <td>Segunda-feira</td>
+          <td><input type="checkbox" name="" id=""></td>
+        </tr>
+        <tr>
+          <td>16:00</td>
+          <td>Segunda-feira</td>
+          <td><input type="checkbox" name="" id=""></td>
+        </tr>
+        <tr>
+          <td>17:00</td>
+          <td>Segunda-feira</td>
+          <td><input type="checkbox" name="" id=""></td>
+        </tr>
+        <tr>
+          <td>18:00</td>
+          <td>Segunda-feira</td>
+          <td><input type="checkbox" name="" id=""></td>
+        </tr>
+        <tr>
+          <td>13:00</td>
+          <td>Terça-feira</td>
+          <td><input type="checkbox" name="" id=""></td>
+        </tr>
+      </table>
+
+
+     <div id="section-confirm">
+       <button> Marcar consulta </button>
+     </div>
+
+    </dialog>
+  </main>
+
+  <!-- Termina conteúdo da página-->
+
+  <footer-home></footer-home>
+  <script src="./assets/scripts/footer-home-geral.js"></script>
+  <script src="./assets/scripts/intern-header-paciente.js"></script>
+  <script src="./assets/scripts/home-paciente.js"></script>
+</body>
+
 </html>

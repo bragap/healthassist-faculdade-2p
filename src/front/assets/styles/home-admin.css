@@ -1,0 +1,67 @@
+main{
+    padding-top: 170px;
+    height: 90%;
+    display: flex;
+    text-align: center;
+    flex-wrap: wrap;
+    align-self: center;
+    width: 90%;
+    margin: 0 auto;
+}
+
+main h2{
+    margin-bottom: 30px;
+}
+
+#confirmacoes-layout{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+#doctors-title{
+    width: 100%;
+    margin-bottom: 30px;
+    font-size: 1.4em;
+}
+
+#card-section{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: space-around;
+    border: 1px solid #192A3E;
+    border-radius: 15px;
+    margin: 10px;
+}
+
+#card-conteudo{
+    padding: 10px;
+}
+
+#pacientes-title{
+    width: 100%;
+    margin-top: 100px;
+    margin-bottom: 30px;
+    font-size: 1.4em;
+}
+
+.aceitar{
+    background-color: rgb(2, 255, 103);
+    color: #fff;
+    border: none;
+    padding: 2px 15px;
+    cursor: pointer;
+}
+
+.rejeitar{
+    background-color: rgb(252, 45, 45);
+    color: #fff;
+    border: none;
+    padding: 2px 15px;
+    cursor: pointer;
+}
