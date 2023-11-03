@@ -10,7 +10,7 @@
 | POST   | /consulta             | Armazenar dados da consulta                       |
 | PUT    | /medico/confirmacao   | Atualizar status de confirmação dados do médico   |
 | PUT    | /paciente/confirmacao | Atualizar status de confirmação dados do paciente |
-| GET    | /consultas/           | Informações da consulta                           |
+| GET    | /consulta             | Informações da consulta                           |
 | GET    | /medicos/             | Informações do médico                             |
 | GET    | /avaliar-consulta/    | Informações da avaliação da consulta              |
 
