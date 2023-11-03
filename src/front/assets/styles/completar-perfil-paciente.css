@@ -3,11 +3,20 @@ body{
     width: calc(100%);
     margin: 0;
     background-color: #0367A6;
-    font-family: "Poppins", sans-serif;
+    font-family: "Poppins", sans-serif !important;
 }
+
 img {
     user-select: none;
 }
+
+h2 {
+    font-size: 2em !important;
+    text-align: left;
+    color: #fff;
+}
+
+
 .forms-title{
     color: #fff;
 }
@@ -22,7 +31,7 @@ img {
     flex-direction: column;
 }
 
-form{
+form {
     display: flex;
     text-align: center;
     flex-direction: column;
@@ -50,19 +59,17 @@ form{
     margin-top: 60px;
     display: grid;
     grid-template-columns: 1fr 1fr; /* Duas colunas com largura igual */
-    grid-template-rows: repeat(3, 1fr); /* Três linhas com altura igual */
+    grid-template-rows: repeat(2, 1fr); /* Três linhas com altura igual */
     grid-gap: 50px; /* Espaçamento entre as colunas e linhas */
 }
 
 .form-grid-inputs{
+    background-color: #FFFFFF;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    border-width: 0px;
-    border: none;
-    height: 25px;
-    width: 200px;
-    padding-left:15px ;
+    padding: 10px 20px;
+    cursor: pointer;
 }
-
 
 
 .form-grid-item {
@@ -73,9 +80,18 @@ form{
 }
 
 .form-grid-item-label{
-    font-size: 18px;
+    font-size: 1rem;
+    font-weight: 400 !important;
     color: #ffff;
-    margin-bottom: 5px;
+    margin-bottom: 1rem;
+}
+
+/* Estilos gerais */
+.file-upload-container {
+    display: flex !important;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px; /* Espaço entre o input e o botão */
 }
 
 /* Estilizando o input de arquivo */
@@ -104,21 +120,11 @@ form{
     margin-right: 5px; /* Espaço entre o ícone e o texto */
 }
 
-/* Estilizando o botão "Go" */
-.go-button {
-    background-color: #0099FF; /* Cor de fundo do botão */
-    color: #FFFFFF; /* Cor do texto do botão */
-    border: none; /* Removendo borda padrão */
-    border-radius: 20px; /* Bordas arredondadas */
-    padding: 10px 20px; /* Espaçamento interno */
-    cursor: pointer; /* Estilo de cursor ao passar o mouse */
-    font-size: 14px; /* Tamanho da fonte */
+#btn-cadastrar {
+    margin-top: 25px !important;
 }
 
-/* Efeitos de hover para o botão "Go" */
-.go-button:hover {
-    background-color: #0077CC; /* Escurecendo um pouco a cor ao passar o mouse */
-}
+
 
 @media (max-width: 3000px){
     .forms{

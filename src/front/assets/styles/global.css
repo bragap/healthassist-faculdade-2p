@@ -90,3 +90,34 @@ table {
     border-collapse: collapse;
     border-spacing: 0;
 }
+
+#btn-cadastrar {
+    width: 100%;
+	font-size: 1em;
+    padding: 10px 20px;
+    color: #fff;
+    background: #0099FF;
+    border-radius: 0.25rem !important;
+    border: 0px;
+    margin-top: 0.5em;
+    cursor: pointer;
+    margin-bottom: 50px;
+}
+
+/* Estilizando o botão "Go" */
+.go-button {
+    background-color: #0099FF; /* Cor de fundo do botão */
+    margin-top: 0.5em;
+    color: #FFFFFF; /* Cor do texto do botão */
+    border: none; /* Removendo borda padrão */
+    border-radius: 0.25rem !important; /* Bordas arredondadas */
+    padding: 10px 20px; /* Espaçamento interno */
+    cursor: pointer; /* Estilo de cursor ao passar o mouse */
+    font-size: 14px; /* Tamanho da fonte */
+    width: 100%;
+}
+
+/* Efeitos de hover para o botão "Go" */
+.go-button:hover {
+    background-color: #0077CC; /* Escurecendo um pouco a cor ao passar o mouse */
+}
