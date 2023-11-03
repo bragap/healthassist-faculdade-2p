@@ -53,6 +53,9 @@ public class UserController {
     }
 
     private Medico converter(MedicoDto dto){
+
+
+
         Medico medico = Medico.builder()
                 .endereco(dto.getEndereco())
                 .dataNasc(dto.getData_nasc())
