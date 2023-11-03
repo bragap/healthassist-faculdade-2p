@@ -202,6 +202,7 @@
             <td>14:00</td>
             <td class="icon-container">
               <svg
+                class="button-modal"
                 width="20"
                 height="20"
                 viewBox="0 0 20 20"
@@ -231,6 +232,7 @@
             <td>14:00</td>
             <td class="icon-container">
               <svg
+                class="button-modal"
                 width="20"
                 height="20"
                 viewBox="0 0 20 20"
@@ -260,6 +262,7 @@
             <td>14:00</td>
             <td class="icon-container">
               <svg
+                class="button-modal"
                 width="20"
                 height="20"
                 viewBox="0 0 20 20"
@@ -289,6 +292,7 @@
             <td>14:00</td>
             <td class="icon-container">
               <svg
+                class="button-modal"
                 width="20"
                 height="20"
                 viewBox="0 0 20 20"
@@ -318,6 +322,7 @@
             <td>14:00</td>
             <td class="icon-container">
               <svg
+                class="button-modal"
                 width="20"
                 height="20"
                 viewBox="0 0 20 20"
@@ -343,7 +348,29 @@
       </table>
     </main>
 
+    <!-- Modal atualizar prontuário -->
+
+    <dialog id="modal">
+      <form action="" method="post" id="form-prontuario">
+        <div class="header-modal">
+          <h2>Nome do Paciente</h2>
+          <button id="btn-close-modal">X</button>
+        </div>
+
+        <div class="form-control">
+          <input
+            type="text"
+            placeholder="Resultados da anamnese"
+          />
+        </div>
+        <button type="submit" class="btn-cadastrar">
+          Atualizar prontuário
+        </button>
+      </form>
+    </dialog>
+
     <footer-home></footer-home>
+    <script src="./assets/scripts/home-medico.js"></script>
     <script src="./assets/scripts/footer-home-geral.js"></script>
     <script src="./assets/scripts/intern-header-medico.js"></script>
   </body>

@@ -91,7 +91,7 @@ table {
     border-spacing: 0;
 }
 
-#btn-cadastrar {
+.btn-cadastrar {
     width: 100%;
 	font-size: 1em;
     padding: 10px 20px;

@@ -1,87 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="./assets/images/favicon.ico">
-    <link rel="stylesheet" href="./assets/styles/login.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="./assets/images/favicon.ico" />
+    <link rel="stylesheet" href="./assets/styles/login.css" />
     <title>Acesse o HealthAssist</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="container">
+      <div id="circulo">
+        <img src="./assets/images/logo-v8.png" alt="logo v8" />
+      </div>
+      <div class="forms-login">
+        <h3>LOGIN</h3>
+        <form method="post" action="" id="forms-login-paciente">
+          <input type="text" placeholder="Username" />
+          <input type="password" placeholder="Password" />
+          <button id="btn-entrar" type="submit">Entrar</button>
+        </form>
 
-        <div id="circulo"><img src="./assets/images/logo-v8.png" alt="logo v8"></div>
-        <div class="forms-login">
-            <h3>LOGIN</h3>
-            <form method="post" action="" id="forms-login-paciente">
-                <input type="text" placeholder="Username">
-                <input type="password" placeholder="Password">
-                <button id="btn-entrar" type="submit">Entrar</button>
-            </form>
+        <p>Não possui conta? <button id="button-modal">Registre-se</button></p>
+        <dialog id="modal">
+          <form action="" method="post" id="form-register">
+            <div class="header-modal">
+              <h2>Realize seu cadastro!</h2>
+              <button id="btn-close-modal">X</button>
+            </div>
+            <div class="form-control">
+              <label for="username">Usuário</label>
+              <input
+                type="text"
+                id="username"
+                placeholder="Digite seu nome de usuário"
+              />
+              <i
+                ><img
+                  src="./assets/images/success-icon.svg"
+                  class="img-success"
+              /></i>
+              <i
+                ><img src="./assets/images/error-icon.svg" class="img-error"
+              /></i>
+              <small>Error message</small>
+            </div>
 
-            <p>Não possui conta? <button id="button-modal">Registre-se</button> </p>
-            <dialog id="modal">
-                <form action="" method="post" id="form-register">
-                    <div class="header-modal">
-                        <h2>Realize seu cadastro!</h2> <button id="btn-close-modal">X</button>
-                    </div>
-                    <div class="form-control">
-                        <label for="username">Usuário</label>
-                        <input type="text" id="username" placeholder="Digite seu nome de usuário">
-                        <i><img src="./assets/images/success-icon.svg" class="img-success"></i>
-                        <i><img src="./assets/images/error-icon.svg" class="img-error"></i>
-                        <small>Error message</small>
-                    </div>
+            <div class="form-control">
+              <label for="email">Email</label>
+              <input type="text" id="email" placeholder="Digite seu email" />
+              <i
+                ><img
+                  src="./assets/images/success-icon.svg"
+                  class="img-success"
+              /></i>
+              <i
+                ><img src="./assets/images/error-icon.svg" class="img-error"
+              /></i>
+              <small>Error message</small>
+            </div>
 
-                    <div class="form-control">
-                        <label for="email">Email</label>
-                        <input type="text" id="email" placeholder="Digite seu email">
-                        <i><img src="./assets/images/success-icon.svg" class="img-success"></i>
-                        <i><img src="./assets/images/error-icon.svg" class="img-error"></i>
-                        <small>Error message</small>
-                    </div>
+            <div class="form-control">
+              <label for="password">Senha</label>
+              <input
+                type="password"
+                id="password"
+                placeholder="Digite sua senha"
+              />
+              <i
+                ><img
+                  src="./assets/images/success-icon.svg"
+                  class="img-success"
+              /></i>
+              <i
+                ><img src="./assets/images/error-icon.svg" class="img-error"
+              /></i>
+              <small>Error message</small>
+            </div>
 
-                    <div class="form-control">
-                        <label for="password">Senha</label>
-                        <input type="password" id="password" placeholder="Digite sua senha">
-                        <i><img src="./assets/images/success-icon.svg" class="img-success"></i>
-                        <i><img src="./assets/images/error-icon.svg" class="img-error"></i>
-                        <small>Error message</small>
-                    </div>
-
-                    <div class="form-control">
-                        <label for="password2">Confirme sua senha</label>
-                        <input type="password" id="password2" placeholder="Digite sua senha novamente">
-                        <i><img src="./assets/images/success-icon.svg" class="img-success"></i>
-                        <i><img src="./assets/images/error-icon.svg" class="img-error"></i>
-                        <small>Error message</small>
-                    </div>
-                    <div class="box-usuario">
-                        <div class="tipo-usuario">
-                            <input class="cb1" type="checkbox" name="tipo_medico" id="tipo_medico" value="MEDICO">
-                            <p>Sou médico</p>
-                        </div>
-                        <div class="tipo-usuario">
-                            <input class="cb1" type="checkbox" name="tipo_paciente" id="tipo_paciente" value="PACIENTE">
-                            <p>Sou paciente</p>
-                        </div>
-                    </div>
-                    <p class="text-sucess"></p>
-                    <button type="submit" id="btn-submit">Realizar cadastro</button>
-                </form>
-
-            
-
-            </dialog>
-            <img src="./assets/images/logo-v6.png" alt="logo v6">
-        </div>
+            <div class="form-control">
+              <label for="password2">Confirme sua senha</label>
+              <input
+                type="password"
+                id="password2"
+                placeholder="Digite sua senha novamente"
+              />
+              <i
+                ><img
+                  src="./assets/images/success-icon.svg"
+                  class="img-success"
+              /></i>
+              <i
+                ><img src="./assets/images/error-icon.svg" class="img-error"
+              /></i>
+              <small>Error message</small>
+            </div>
+            <div class="box-usuario">
+              <div class="tipo-usuario">
+                <input
+                  class="cb1"
+                  type="checkbox"
+                  name="tipo_medico"
+                  id="tipo_medico"
+                  value="MEDICO"
+                />
+                <p>Sou médico</p>
+              </div>
+              <div class="tipo-usuario">
+                <input
+                  class="cb1"
+                  type="checkbox"
+                  name="tipo_paciente"
+                  id="tipo_paciente"
+                  value="PACIENTE"
+                />
+                <p>Sou paciente</p>
+              </div>
+            </div>
+            <p class="text-sucess"></p>
+            <button type="submit" id="btn-submit">Realizar cadastro</button>
+          </form>
+        </dialog>
+        <img src="./assets/images/logo-v6.png" alt="logo v6" />
+      </div>
     </div>
 
-
     <script src="./assets/scripts/login.js"></script>
-
-</body>
-
+  </body>
 </html>
