@@ -1,0 +1,53 @@
+main{
+    padding-top: 170px;
+    display: flex;
+    text-align: center;
+    flex-wrap: wrap;
+    align-self: center;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.aceitar{
+    background-color: rgb(2, 255, 103);
+    color: #fff;
+    border: none;
+    padding: 5px 15px;
+    cursor: pointer;
+    width: 100%;
+}
+
+#card-layout{
+    margin-top: 50px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-around;
+    height: 90vh;
+}
+
+#card-individual{
+    border: none;
+    background-color: #048ABF ;
+    color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    height: 180px;
+    margin: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 30%;
+}
+
+
+@media (max-width: 700px){
+     #card-layout{
+        height: 120vh;
+        flex-direction: column;
+        align-items: center;
+     }
+     #card-individual{
+        width: 90%;
+     }
+}
