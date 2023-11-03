@@ -1,7 +1,7 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
 
 main {
-	margin-top: 15vh !important;
+	margin-top: 17vh !important;
 	width: 70%;
 	margin: 0 auto;
 	display: flex;
@@ -24,20 +24,70 @@ p {
     color: rgba(0, 0, 0, 0.60);
 }
 
-.star-list {
-    display: flex;
-    padding: 0;
-    gap: 0.5rem;
-	margin-bottom: 1em;
+.card-consultas {
+	width: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: 10px;
+	margin-bottom: 2em;
 }
 
-.bi-star, .bi-star-fill  {
-    font-size: 1.5rem;
-    color: #0487D9;
+.card-consulta {
+	display: flex;
+	flex-direction: column;
+	justify-content: end;
+	padding: 30px;
+	gap: 5px;
+	width: 25%;
+	height: 8rem;
+	border-radius: 1.0625rem;
+	background: #D9D9D9;
 }
 
-.star {
-    cursor: pointer;
+.card-consulta span {
+	font-size: 12px;
+	
+}
+
+.card-consulta svg {
+	position: relative;
+	left: 90%;
+	margin-top: -1.525em;
+	cursor: pointer;
+}
+
+/* Estilos para o container que envolve o select */
+.select-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* Estilização para o select */
+.form-select {
+    width: 100%;
+    border-radius: 5px;
+    border-width: 0px;
+    padding: 10px 25px;
+    border-radius: 5px; /* Bordas arredondadas */
+    appearance: none; /* Removendo estilos padrão */
+    -webkit-appearance: none; /* Removendo estilos padrão para navegadores Webkit */
+    -moz-appearance: none; /* Removendo estilos padrão para navegadores Firefox */
+    background-color: #FFFFFF; /* Cor de fundo */
+    cursor: pointer; /* Estilo de cursor ao passar o mouse */
+    outline: none; /* Removendo destaque ao selecionar */
+    margin-bottom: 30px;
+}
+
+/* Estilização para a seta (ícone) do select */
+.select-arrow {
+    position: absolute;
+    right: 5px; /* Posicionando à direita */
+    top: 20px; /* Centralizando verticalmente */
+    transform: translateY(-50%); /* Ajustando a centralização vertical */
+    font-size: 12px; /* Tamanho da fonte do ícone da seta */
+    color: #777; /* Cor da seta */
+    pointer-events: none; /* Fazendo com que o ícone da seta não responda a eventos de clique */
 }
 
 #box-comment {
