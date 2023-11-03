@@ -124,14 +124,17 @@ form {
     margin-top: 25px !important;
 }
 
-
+.cadastrar {
+    padding: 10px;
+    width: 40%;
+}
 
 @media (max-width: 3000px){
     .forms{
         margin-top: 75px;
         align-items: start;
-
     }
+    
 }
 
 /* RESPONSIVIDADE */
@@ -150,6 +153,9 @@ form {
         margin-top: 50px;
         max-height: 800px;
     }
+    .cadastrar {
+        width: 75%;
+    }
 }
 
 @media (min-width:1051px) and (max-width:1400px){
@@ -159,6 +165,9 @@ form {
     top: 2%;
     right: 10%;
    }
+   .cadastrar {
+    width: 80%;
+    }
 }
 
 
@@ -189,9 +198,12 @@ form {
         margin-top: 40px;
         display: grid;
         grid-template-columns: 1fr; /* Duas colunas com largura igual */
-        grid-template-rows: repeat(6, 1fr); /* Três linhas com altura igual */
+        grid-template-rows: repeat(4, 1fr); /* Três linhas com altura igual */
         grid-gap: 30px; /* Espaçamento entre as colunas e linhas */
         min-height: fit-content;
+    }
+    .cadastrar {
+        width: 100%;
     }
     html{
         min-height: fit-content;
