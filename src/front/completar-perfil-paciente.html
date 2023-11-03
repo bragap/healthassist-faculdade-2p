@@ -7,17 +7,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Cadastre-se no HealthAssist</title>
     <link rel="icon" href="./assets/images/favicon.ico">
-    <link href="./assets/styles/cadastro-paciente.css" rel="stylesheet">
-
+    <link href="./assets/styles/completar-perfil-paciente.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/styles/global.css">
 <body>
 
     <div class="container">
-
         <div id="circulo"><img src="./assets/images/logo-v5.png" alt="logo v5"></div>
         <div class="forms">
             <form method="post" action="">
 
-                <h3 class="forms-title">Cadastro de Pacientes</h3>
+                <h2>Complete seu perfil</h2>
+
                 <div class="form-grid">
 
                     <div class="form-grid-item">
@@ -31,33 +31,35 @@
                     </div>
 
                     <div class="form-grid-item">
-                        <label class="form-grid-item-label" for="nome">Envie documentos *</label>
+                        <label class="form-grid-item-label" for="nome"
+                          >Envie documentos *</label
+                        >
                         <div class="input-group mb-3">
-                            <input type="file" class="form-control" id="inputGroupFile">
-                            <label class="input-group-text" for="inputGroupFile">Upload</label>
-                            <button class="go-button">Enviar</button>
+                          <input type="file" class="form-control" id="inputGroupFile" />
+                          <label class="input-group-text" for="inputGroupFile"
+                            >Upload</label
+                          >
+                          <button class="go-button">Enviar</button>
                         </div>
-                    </div>
+                      </div>
 
                     <div class="form-grid-item">
                         <label class="form-grid-item-label" for="nome">Data de Nascimento *</label>
-                        <input type="text" class="form-grid-inputs" placeholder="1/1/2001">
+                        <input type="text" class="form-grid-inputs" placeholder="dd/mm/aaaa">
                     </div>
-
-                    <div class="form-grid-item">
-                        <label class="form-grid-item-label" for="nome"> Senha*</label>
-                        <input type="text" class="form-grid-inputs" placeholder="*******">
-                    </div>
-                    <div class="form-grid-item">
-                        <label class="form-grid-item-label" for="nome"> Confirmar Senha*</label>
-                        <input type="text" class="form-grid-inputs" placeholder="*******">
-                    </div>
-
                 </div>
 
-                <button>Cadastrar</button>
-
             </form>
+
+            <div class="cadastrar">
+                <a href="home-paciente.html">
+                    <button class="btn-cadastrar">
+                        Cadastrar
+                    </button>
+                </a>
+            </div>
+
+
         </div>
     </div>
 

@@ -8,6 +8,11 @@ body{
 img {
     user-select: none;
 }
+
+h2 {
+    font-size: 2em ;
+}
+
 .forms-title{
     color: #fff;
 }
@@ -16,15 +21,8 @@ img {
 }
 
 .forms{
-    text-align: center;
     display: flex;
     align-items: center;
-    flex-direction: column;
-}
-
-form{
-    display: flex;
-    text-align: center;
     flex-direction: column;
 }
 
@@ -55,15 +53,12 @@ form{
 }
 
 .form-grid-inputs{
+    background-color: #FFFFFF;
+    border: 1px solid #ccc;
     border-radius: 5px;
-    border-width: 0px;
-    border: none;
-    height: 25px;
-    width: 200px;
-    padding-left:15px ;
+    padding: 10px 20px;
+    cursor: pointer;
 }
-
-
 
 .form-grid-item {
     display: flex;
@@ -73,10 +68,51 @@ form{
 }
 
 .form-grid-item-label{
-    font-size: 18px;
+    font-size: 1rem;
+    font-weight: 400 !important;
     color: #ffff;
-    margin-bottom: 5px;
+    margin-bottom: 1rem;
 }
+
+/* Estilos gerais */
+.file-upload-container {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espaço entre o input e o botão */
+}
+
+/* Estilos para o container que envolve o select */
+.select-container {
+    position: relative;
+    display: inline-block;
+}
+
+/* Estilização para o select */
+.form-select {
+    width: 100%;
+    border-radius: 5px;
+    border-width: 0px;
+    padding: 10px 20px;
+    border-radius: 5px; /* Bordas arredondadas */
+    appearance: none; /* Removendo estilos padrão */
+    -webkit-appearance: none; /* Removendo estilos padrão para navegadores Webkit */
+    -moz-appearance: none; /* Removendo estilos padrão para navegadores Firefox */
+    background-color: #FFFFFF; /* Cor de fundo */
+    cursor: pointer; /* Estilo de cursor ao passar o mouse */
+    outline: none; /* Removendo destaque ao selecionar */
+}
+
+/* Estilização para a seta (ícone) do select */
+.select-arrow {
+    position: absolute;
+    right: 15px; /* Posicionando à direita */
+    top: 50%; /* Centralizando verticalmente */
+    transform: translateY(-50%); /* Ajustando a centralização vertical */
+    font-size: 12px; /* Tamanho da fonte do ícone da seta */
+    color: #777; /* Cor da seta */
+    pointer-events: none; /* Fazendo com que o ícone da seta não responda a eventos de clique */
+}
+
 
 /* Estilizando o input de arquivo */
 .form-control {
@@ -104,21 +140,77 @@ form{
     margin-right: 5px; /* Espaço entre o ícone e o texto */
 }
 
-/* Estilizando o botão "Go" */
-.go-button {
-    background-color: #0099FF; /* Cor de fundo do botão */
-    color: #FFFFFF; /* Cor do texto do botão */
-    border: none; /* Removendo borda padrão */
-    border-radius: 20px; /* Bordas arredondadas */
-    padding: 10px 20px; /* Espaçamento interno */
-    cursor: pointer; /* Estilo de cursor ao passar o mouse */
-    font-size: 14px; /* Tamanho da fonte */
+
+
+
+h3 {
+    padding: 10px;
+    margin-top: 1em;
+    color: #fff;
+    font-size: 1.25em;
 }
 
-/* Efeitos de hover para o botão "Go" */
-.go-button:hover {
-    background-color: #0077CC; /* Escurecendo um pouco a cor ao passar o mouse */
+
+/* Estilos da tabela */
+table {
+    margin: 10px;
+	border-collapse: collapse;
+	margin-bottom: 2rem !important;
+    background-color: #fff;
+    border-radius: 10px !important;
 }
+
+
+th {
+	background-color: #f5f5f5;
+	padding: 1em !important;
+	text-align: left;
+	font-weight: 700 !important;
+}
+
+.icones-th, .icon-container svg:hover {
+	cursor: pointer;
+}
+
+
+/* Estilos dos ícones */
+.icon {
+	width: 20px;
+	height: 20px;
+	margin-right: 5px;
+}
+
+.icon:last-child {
+	margin-right: 0;
+}
+
+/* Adicionando estilo zebra à tabela */
+tbody tr:nth-child(odd) {
+	background-color: #f9f9f9;
+}
+
+td {
+	padding: 1em !important;
+	text-align: left;
+}
+
+.cb1 {
+	accent-color: #2ED47A;
+	font-size: 1em;
+	color: #fff !important;
+	cursor: pointer;
+}
+
+.inputs-dias {
+    margin-left: 10px;
+    background-color: #fff;
+    border: 1px solid rgb(204, 204, 204);
+    border-radius: 5px;
+    padding: 5px 10px;
+    cursor: pointer !important;
+}
+
+
 
 @media (max-width: 3000px){
     .forms{
@@ -176,15 +268,12 @@ form{
         }
 }
   @media (max-width: 600px) {
-    .forms{
-        margin-top: 0px ;
-    }
     .form-grid{
-        margin-top: 40px;
+        margin-top: 60px;
         display: grid;
         grid-template-columns: 1fr; /* Duas colunas com largura igual */
         grid-template-rows: repeat(6, 1fr); /* Três linhas com altura igual */
-        grid-gap: 30px; /* Espaçamento entre as colunas e linhas */
+        grid-gap: 50px; /* Espaçamento entre as colunas e linhas */
         min-height: fit-content;
     }
     html{

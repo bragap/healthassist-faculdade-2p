@@ -99,12 +99,23 @@ body{
     justify-content: start;
 }
 
-.tipo-usuario {
-    width: 50%;
+.box-usuario {
+    margin-top: -20px;
 }
-.tipo-usuario input {
-    width: 50px;
+
+.cb1 {
+	accent-color: #2ED47A;
+	font-size: 1em;
+	color: #fff !important;
+	cursor: pointer;
 }
+
+input[type="checkbox"] {
+    width: 1.2em !important;
+	height: 1.2em !important;
+    margin: 0em 1em;
+}
+
 
 #circulo {
     display: flex;
@@ -178,7 +189,14 @@ dialog {
     }
     #modal{
         width: 70%;
-       }
+       }  
+    
+    .box-usuario {
+        flex-direction: column;
+    } 
+    .tipo-usuario {
+        width: 100%;
+    }
 }
   @media (max-width: 400px) {
     body{
@@ -191,9 +209,7 @@ dialog {
     .forms-login input{
         max-width: 220px;
     }
-    .forms-login button{
-        max-width: 200px;
-    }
+
     #modal{
         width: 70%;
        }
