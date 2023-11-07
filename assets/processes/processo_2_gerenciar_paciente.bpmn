@@ -5,33 +5,25 @@
   </bpmn:collaboration>
   <bpmn:process id="Process_0zk8se1" isExecutable="true">
     <bpmn:laneSet id="LaneSet_177w6l2">
-      <bpmn:lane id="Lane_17djouv" name="Paciente">
-        <bpmn:flowNodeRef>Activity_0jjg0b7</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Event_12jf6pt</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Activity_1uh46bh</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Activity_1hhisiy</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Gateway_0npbagi</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Activity_17m2b4s</bpmn:flowNodeRef>
-        <bpmn:flowNodeRef>Gateway_01h7dkd</bpmn:flowNodeRef>
-      </bpmn:lane>
       <bpmn:lane id="Lane_00neu57" name="Secretaria">
+        <bpmn:flowNodeRef>Event_12jf6pt</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Event_0cgc745</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_1uh46bh</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_059ozpp</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Gateway_0z5pkxs</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_0s90o4s</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_1qm8433</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_1hhisiy</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_0npbagi</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_17m2b4s</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Gateway_01h7dkd</bpmn:flowNodeRef>
         <bpmn:flowNodeRef>Activity_0fo6mar</bpmn:flowNodeRef>
+        <bpmn:flowNodeRef>Activity_0jjg0b7</bpmn:flowNodeRef>
       </bpmn:lane>
     </bpmn:laneSet>
-    <bpmn:userTask id="Activity_0jjg0b7" name="Inserir  dados na área de cadastro">
-      <bpmn:incoming>Flow_1rxp8q8</bpmn:incoming>
-      <bpmn:outgoing>Flow_0lqyyad</bpmn:outgoing>
-    </bpmn:userTask>
     <bpmn:startEvent id="Event_12jf6pt">
       <bpmn:outgoing>Flow_1rxp8q8</bpmn:outgoing>
     </bpmn:startEvent>
-    <bpmn:sequenceFlow id="Flow_1rxp8q8" sourceRef="Event_12jf6pt" targetRef="Activity_0jjg0b7" />
-    <bpmn:sequenceFlow id="Flow_0lqyyad" sourceRef="Activity_0jjg0b7" targetRef="Activity_1hhisiy" />
     <bpmn:endEvent id="Event_0cgc745">
       <bpmn:incoming>Flow_1huy0m7</bpmn:incoming>
     </bpmn:endEvent>
@@ -99,6 +91,12 @@
       <bpmn:incoming>Flow_0w3y1g6</bpmn:incoming>
       <bpmn:outgoing>Flow_0z67ucf</bpmn:outgoing>
     </bpmn:scriptTask>
+    <bpmn:userTask id="Activity_0jjg0b7" name="Inserir  dados na área de cadastro">
+      <bpmn:incoming>Flow_1rxp8q8</bpmn:incoming>
+      <bpmn:outgoing>Flow_0lqyyad</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_0lqyyad" sourceRef="Activity_0jjg0b7" targetRef="Activity_1hhisiy" />
+    <bpmn:sequenceFlow id="Flow_1rxp8q8" sourceRef="Event_12jf6pt" targetRef="Activity_0jjg0b7" />
     <bpmn:textAnnotation id="TextAnnotation_0smolsh">
       <bpmn:text>Qual atividade deseja realizar</bpmn:text>
     </bpmn:textAnnotation>
@@ -111,15 +109,7 @@
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Lane_00neu57_di" bpmnElement="Lane_00neu57" isHorizontal="true">
-        <dc:Bounds x="188" y="80" width="2103" height="555" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Lane_17djouv_di" bpmnElement="Lane_17djouv" isHorizontal="true">
-        <dc:Bounds x="188" y="635" width="2103" height="340" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="TextAnnotation_0smolsh_di" bpmnElement="TextAnnotation_0smolsh">
-        <dc:Bounds x="1290" y="749" width="100" height="41" />
+        <dc:Bounds x="188" y="80" width="2103" height="895" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_0dtupg4_di" bpmnElement="Activity_0jjg0b7">
@@ -180,10 +170,10 @@
       <bpmndi:BPMNShape id="Activity_0kg61s1_di" bpmnElement="Activity_0fo6mar">
         <dc:Bounds x="1720" y="405" width="100" height="80" />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="Association_0c7k4td_di" bpmnElement="Association_0c7k4td">
-        <di:waypoint x="1235" y="720" />
-        <di:waypoint x="1290" y="756" />
-      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNShape id="TextAnnotation_0smolsh_di" bpmnElement="TextAnnotation_0smolsh">
+        <dc:Bounds x="1290" y="749" width="100" height="41" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_1rxp8q8_di" bpmnElement="Flow_1rxp8q8">
         <di:waypoint x="369" y="855" />
         <di:waypoint x="461" y="855" />
@@ -264,6 +254,10 @@
       <bpmndi:BPMNEdge id="Flow_0xi59nz_di" bpmnElement="Flow_0xi59nz">
         <di:waypoint x="1610" y="285" />
         <di:waypoint x="1610" y="245" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Association_0c7k4td_di" bpmnElement="Association_0c7k4td">
+        <di:waypoint x="1235" y="720" />
+        <di:waypoint x="1290" y="756" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="DataOutputAssociation_00q2wb0_di" bpmnElement="DataOutputAssociation_00q2wb0">
         <di:waypoint x="1660" y="739" />

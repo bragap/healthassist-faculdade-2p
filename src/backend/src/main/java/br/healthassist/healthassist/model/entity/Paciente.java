@@ -14,10 +14,11 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.EqualsAndHashCode;
 
 @Entity
 @Table(name = Paciente.TABLE_NAME)
-
+@EqualsAndHashCode(of = "id")
 public class Paciente {
     public static final String TABLE_NAME = "paciente";
 
@@ -26,20 +27,14 @@ public class Paciente {
     @Column(name = "id", unique = true)
     private Long id;
 
-    @Column(name = "primeiro_nome")
-    private String primeiroNome;
-
-    @Column(name = "ultimo_nome")
-    private String ultimoNome;
-
     @Column(name = "endereco")
     private String endereco;
 
     @Column(name = "data_nasc")
     private Date dataNasc;
 
-    @Column(name = "prioridade")
-    private Integer prioridade;
+    @Column(name = "nome_completo")
+    private String nomeCompleto;
 
     @ManyToOne
     @JoinColumn(name = "id_usuario")
@@ -47,13 +42,11 @@ public class Paciente {
 
     //private List<ArquivosPaciente> = new ArrayList<>();
 
-    public Paciente(Long id, String primeiroNome, String ultimoNome, String endereco, Date dateNasc, Integer prioridade ){
+    public Paciente(Long id, String primeiroNome, String nomeCompleto, String endereco, Date dateNasc){
         this.id = id;
-        this.primeiroNome = primeiroNome;
-        this.ultimoNome = ultimoNome;
         this.endereco = endereco;
         this.dataNasc = dateNasc;
-        this.prioridade = prioridade;
+        this.nomeCompleto = nomeCompleto;
     }
 
     public Paciente(){
@@ -62,23 +55,6 @@ public class Paciente {
 
     public Long getId() {
         return id;
-    }
-
-
-    public String getPrimeiroNome() {
-        return primeiroNome;
-    }
-
-    public void setPrimeiroNome(String primeiroNome) {
-        this.primeiroNome = primeiroNome;
-    }
-
-    public String getUltimoNome() {
-        return ultimoNome;
-    }
-
-    public void setUltimoNome(String ultimoNome) {
-        this.ultimoNome = ultimoNome;
     }
 
     public String getEndereco() {
@@ -97,15 +73,16 @@ public class Paciente {
         this.dataNasc = dataNasc;
     }
 
-    public Integer getPrioridade() {
-        return prioridade;
+    public String getNomeCompleto() {
+        return nomeCompleto;
     }
 
-    public void setPrioridade(Integer prioridade) {
-        this.prioridade = prioridade;
+    public void setNomeCompleto(String nomeCompleto) {
+        this.nomeCompleto = nomeCompleto;
     }
 
 
+/* 
     @Override 
     public boolean equals(Object o){
         if(o == this)
@@ -116,7 +93,7 @@ public class Paciente {
             return false;
         }
         Paciente paciente = (Paciente) o;
-        return Objects.equals(id, paciente.id) && Objects.equals(primeiroNome, this.primeiroNome) && Objects.equals(ultimoNome, ultimoNome);
+        return Objects.equals(id, paciente.id) && Objects.equals(nomeCompleto, paciente.nomeCompleto) && Objects.equals(this.endereco, paciente.endereco);
     }
     
     @Override
@@ -126,5 +103,6 @@ public class Paciente {
         result = prime * result + (( this.id == null ) ? 0 : this.id.hashCode());
         return result;
     }
+*/
 
 }
