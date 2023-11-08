@@ -9,10 +9,12 @@ public interface PacienteService {
 
     Paciente salvarPaciente(Paciente paciente);
     
-    Optional<Paciente> findPacienteById(long id);
+    public Paciente findPacienteById(Long id);
     
     public List<Paciente> findAllPacientes();
 
-    public Paciente updatePaciente(Paciente paciente);
+    public Paciente updatePaciente(Long id, Paciente paciente);
+
+    
     
 }
