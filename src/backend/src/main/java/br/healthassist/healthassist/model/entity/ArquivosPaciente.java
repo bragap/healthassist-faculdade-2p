@@ -49,4 +49,6 @@ public class ArquivosPaciente {
     @Column(name = "motivo_inviabilidade")
     private String motivoInviabiliadade;
 
+    
+
 }
