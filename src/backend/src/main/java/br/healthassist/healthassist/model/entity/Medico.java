@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
 
 import java.time.LocalDate;
 
@@ -25,6 +26,7 @@ public class Medico {
     private String endereco;
 
     @Column(name = "data_nasc")
+    @Convert(converter = Jsr310JpaConverters.LocalDateConverter.class)
     private LocalDate dataNasc;
 
     @Column(name = "codigo_de_registro")

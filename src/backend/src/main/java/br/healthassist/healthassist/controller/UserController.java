@@ -23,7 +23,6 @@ import org.springframework.web.bind.annotation.RestController;
 public class UserController {
 
     private final UsuarioService usuarioService;
-    private final EspecialidadeMedicoService especialidadeMedicoService;
 
     @PostMapping
     public ResponseEntity salvar(@RequestBody UsuarioDto dto){
@@ -39,43 +38,6 @@ public class UserController {
         } catch (Exception e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
-    }
-
-    @PostMapping("/medico")
-    public ResponseEntity cadastrarMedico(@RequestBody MedicoDto dto){
-
-        try {
-            Medico medicoSalvo = converter(dto);
-            return new ResponseEntity(medicoSalvo, HttpStatus.CREATED);
-        } catch (Exception e){
-            return ResponseEntity.badRequest().body(e.getMessage());
-        }
-    }
-
-    private Medico converter(MedicoDto dto){
-
-
-
-        Medico medico = Medico.builder()
-                .endereco(dto.getEndereco())
-                .dataNasc(dto.getData_nasc())
-                .codigoDeRegistro(dto.getCodigo_de_registro())
-                .nomeCompleto(dto.getNome_completo())
-                .build();
-
-        EspecialidadeMedico especialidadeMedico = especialidadeMedicoService
-                .obterPorId(dto.getId_especialidade_medico())
-                .orElseThrow( () -> new RegraNegocioException("Especialidade não encontrada para o id informado;") );
-
-        medico.setEspecialidadeMedico(especialidadeMedico);
-
-        Usuario usuario = usuarioService
-                .obterPorId(dto.getId_usuario())
-                .orElseThrow( () -> new RegraNegocioException("Usuario não encontrado para o id informado."));
-
-        medico.setUsuario(usuario);
-
-        return medico;
     }
 
 }
