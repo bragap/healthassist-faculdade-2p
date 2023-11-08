@@ -1,8 +1,8 @@
 package br.healthassist.healthassist.model.entity;
 
 
-import java.sql.Date;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import jakarta.persistence.Column;
@@ -14,11 +14,19 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
 import lombok.EqualsAndHashCode;
-import java.sql.Timestamp;
+import lombok.NoArgsConstructor;
+
 
 @Entity
 @Table(name = Paciente.TABLE_NAME)
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @EqualsAndHashCode(of = "id")
 public class Paciente {
     public static final String TABLE_NAME = "paciente";
@@ -32,7 +40,7 @@ public class Paciente {
     private String endereco;
 
     @Column(name = "data_nasc")
-    private Date dataNasc;
+    private LocalDate dataNasc;
 
     @Column(name = "nome_completo")
     private String nomeCompleto;
@@ -41,65 +49,10 @@ public class Paciente {
     @JoinColumn(name = "id_usuario")
     private Usuario usuario;
 
-    @Column(name = "data_criacao")
-    private  Timestamp dataCriacao;
 
     
-    @OneToMany(mappedBy = "paciente")
-    private List<ArquivosPaciente> arquivosPaciente= new ArrayList<>();
-
-    public Paciente(Long id , String nomeCompleto, String endereco, Date dateNasc, Timestamp dataCriacao){
-        this.id = id;
-        this.endereco = endereco;
-        this.dataNasc = dateNasc;
-        this.nomeCompleto = nomeCompleto;
-        this.dataCriacao = dataCriacao;
-    }
-
-    public Paciente(){
-
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public String getEndereco() {
-        return endereco;
-    }
-
-    public void setEndereco(String endereco) {
-        this.endereco = endereco;
-    }
-
-    public Date getDataNasc() {
-        return dataNasc;
-    }
-
-    public void setDataNasc(Date dataNasc) {
-        this.dataNasc = dataNasc;
-    }
-
-    public String getNomeCompleto() {
-        return nomeCompleto;
-    }
-
-    public void setNomeCompleto(String nomeCompleto) {
-        this.nomeCompleto = nomeCompleto;
-    }
-
-
-    public List<ArquivosPaciente> getArquivosPaciente() {
-        return arquivosPaciente;
-    }
-
-    public void setArquivosPaciente(List<ArquivosPaciente> arquivosPaciente) {
-        this.arquivosPaciente = arquivosPaciente;
-    }
-
-    public Timestamp getData_criacao() {
-        return dataCriacao;
-    }
+    //@OneToMany(mappedBy = "paciente")
+    //private List<ArquivosPaciente> arquivosPaciente= new ArrayList<>();
 
 
 

@@ -1,4 +1,12 @@
 package br.healthassist.healthassist.service.impl;
 
-public class UsuarioServiceImpl {
+import java.util.Optional;
+
+import br.healthassist.healthassist.service.UsuarioService;
+
+public class UsuarioServiceImpl implements UsuarioService {
+
+
+
+    
 }

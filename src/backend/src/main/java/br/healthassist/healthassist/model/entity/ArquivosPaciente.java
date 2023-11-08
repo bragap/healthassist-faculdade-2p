@@ -10,11 +10,19 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
 import lombok.EqualsAndHashCode;
+import lombok.NoArgsConstructor;
 
 
 @Entity
 @Table(name = "arquivos_paciente")
+@Data
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @EqualsAndHashCode(of = "id")
 public class ArquivosPaciente {
 
@@ -41,16 +49,4 @@ public class ArquivosPaciente {
     @Column(name = "motivo_inviabilidade")
     private String motivoInviabiliadade;
 
-    public ArquivosPaciente(){
-
-    }
-
-    public ArquivosPaciente(Long id, Paciente paciente, String tipoMime, byte[] dadosArquivo, int aprovado, String motivoInviabiliadade){
-        this.id = id;
-        this.paciente = paciente;
-        this.tipoMime = tipoMime;
-        this.dadosArquivo = dadosArquivo;
-        this.aprovado = aprovado;
-        this.motivoInviabiliadade = motivoInviabiliadade;
-    }
 }

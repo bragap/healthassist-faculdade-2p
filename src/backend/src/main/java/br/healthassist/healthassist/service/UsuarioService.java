@@ -1,4 +1,8 @@
 package br.healthassist.healthassist.service;
 
-public class UsuarioService {
+import java.util.Optional;
+
+public interface UsuarioService {
+
+
 }
