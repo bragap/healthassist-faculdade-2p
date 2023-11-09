@@ -26,11 +26,11 @@ public class AvaliarConsultaController {
 
     private final AvaliarConsultaService avaliarConsultaService;
     private final ConsultaService consultaService;
-
+     
     @PostMapping
-    public ResponseEntity salvar(@RequestBody AvaliarConsultaController dto){
+    public ResponseEntity salvar(@RequestBody AvaliarConsultaDto dto){
         try{
-            AvaliarConsulta avaliarConsultaSalva = avaliarConsultaService.salvarPaciente(converterDto(dto));
+            AvaliarConsulta avaliarConsultaSalva = avaliarConsultaService.salvarAvaliarConsulta(converterDto(dto));
             return new ResponseEntity(avaliarConsultaSalva, HttpStatus.CREATED);
         }catch(Exception e){
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -50,15 +50,17 @@ public class AvaliarConsultaController {
 
 
 
-
+   
     private AvaliarConsulta converterDto(AvaliarConsultaDto dto){
+        Consulta consulta = consultaService.findById(dto.getId_consulta());
+
         AvaliarConsulta avaliarConsulta = AvaliarConsulta.builder()
                                                         .titulo(dto.getTitulo())
-                                                        .comentario(dto.getDescricao())
+                                                        .comentario(dto.getComentario())
+                                                        .consulta(consulta)
                                                 .build();
 
-        Consulta consulta = consultaService.findConsultaById(dto.getId_consulta());
-        avaliarConsulta.setConsulta(consulta);
         return avaliarConsulta;
     }
+    
 }

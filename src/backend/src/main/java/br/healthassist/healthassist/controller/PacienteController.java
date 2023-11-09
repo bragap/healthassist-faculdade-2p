@@ -1,6 +1,7 @@
 package br.healthassist.healthassist.controller;
 
 import java.time.LocalDate;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
@@ -80,7 +81,9 @@ public class PacienteController {
     private Paciente converterDto(PacienteDto dto){
         
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
         LocalDate dataNasc = LocalDate.parse(dto.getDataNasc(), dateFormat);
+        
 
 
         Paciente paciente = Paciente.builder()
@@ -90,7 +93,7 @@ public class PacienteController {
                                     .build();
 
 
-        Usuario usuario = usuarioService.obterPorId(dto.getId_usuario())
+        Usuario usuario = usuarioService.findById(dto.getId_usuario())
                                         .orElseThrow(() -> new RegraNegocioException("Usuário não encontrado para o id informado"));
 
         paciente.setUsuario(usuario);

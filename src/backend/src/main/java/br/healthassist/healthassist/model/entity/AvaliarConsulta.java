@@ -38,7 +38,7 @@ public class AvaliarConsulta {
     @Column(name = "titulo")
     private String titulo;
 
-    @Column(name = "cometario")
+    @Column(name = "comentario")
     private String comentario;
 
     @ManyToOne

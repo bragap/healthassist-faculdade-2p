@@ -4,8 +4,7 @@ import lombok.Data;
 
 @Data
 public class AvaliarConsultaDto {
-    
     public String titulo;
-    public String descricao;
+    public String comentario;
     public Long id_consulta;
 }

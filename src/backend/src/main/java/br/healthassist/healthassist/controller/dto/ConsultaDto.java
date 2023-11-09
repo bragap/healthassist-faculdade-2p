@@ -9,9 +9,7 @@ import lombok.Data;
 public class ConsultaDto {
     private Long idMedico;
     private Long idPaciente;
-    private LocalDate data;
-    private LocalTime horarioInicio;
-    private LocalTime horarioFim;
+    private String dataHoraConsulta;
     private String respostaAnamnese;
 
 }
