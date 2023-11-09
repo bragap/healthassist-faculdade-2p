@@ -11,7 +11,7 @@ import java.time.LocalDate;
 public class MedicoDto {
 
     private String endereco;
-    private LocalDate data_nasc;
+    private String data_nasc;
     private String codigo_de_registro;
     private Long id_especialidade_medico;
     private String nome_completo;
