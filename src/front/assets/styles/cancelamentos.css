@@ -1,11 +1,17 @@
 main{
     padding-top: 170px;
+    height: 90%;
     display: flex;
-    text-align: center;
+    justify-content: center;
     flex-wrap: wrap;
-    align-self: center;
+    text-align: center;
     width: 90%;
     margin: 0 auto;
+}
+
+main h2{
+    margin-bottom: 30px;
+    font-size: 2em; 
 }
 
 .aceitar{
@@ -18,36 +24,120 @@ main{
 }
 
 #card-layout{
-    margin-top: 50px;
+    width: 70%;
+    margin: 0 auto;
     display: flex;
-    flex-wrap: wrap;
-    width: 100%;
+    flex-direction: row;
     justify-content: space-around;
-    height: 90vh;
+    flex-wrap: wrap;
+    padding: 10px;
 }
 
 #card-individual{
     border: none;
-    background-color: #048ABF ;
-    color: #fff;
-    border-radius: 10px;
+    color: #000;
     padding: 10px;
     height: 180px;
     margin: 10px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 30%;
+    width: 60%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.175);
+    transition: .3s;
+}
+
+#card-conteudo{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+}
+#card-conteudo p{
+    padding: 5px;
+}
+
+#card-title{
+    display: block;
+    width: 100%;
+    font-size: 1.5em;
+}
+#box-esquerda{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding-bottom: 10px;
+}
+#box-direita{
+    display: flex;
+    width: 40%;
+    align-self: center;
+    padding-bottom: 15px;
 }
 
 
 @media (max-width: 700px){
-     #card-layout{
-        height: 120vh;
-        flex-direction: column;
-        align-items: center;
-     }
+    main h2{
+        font-size: 1.7em;
+       }
+    main{
+        height: 100%;
+        padding-top: 100px;
+    }
+    #box-direita{
+        width: 100%;
+    }
+   .aceitar{
+    width: 100%;
+    font-size: 0.7em;
+   }
+   #card-individual{
+    margin: 20px;
+   }
+   #card-conteudo{
+    font-size: 0.8em;
+   }
      #card-individual{
         width: 90%;
      }
+#box-direita{
+    width: 100%;
+}
+.aceitar{
+    width: 100%;
+}
+
+    }
+
+@media (min-width:950px) and (max-width:1528px){
+    #box-direita{
+        width: 80%;
+    }
+   .aceitar{
+    width: 100%;
+    font-size: 0.9em;
+   }
+   #card-layout{
+    height: 120vh;
+   }
+   
+}
+
+@media (min-width:701px) and (max-width: 949px){
+    main{
+        height: 100%;
+    }
+    #box-direita{
+        width: 80%;
+    }
+   .aceitar{
+    width: 100%;
+    font-size: 0.9em;
+   }
+   #card-individual{
+    margin: 20px;
+   }
+   #card-conteudo{
+    font-size: 0.8em;
+   }
 }

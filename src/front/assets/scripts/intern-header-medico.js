@@ -69,7 +69,6 @@ class InterHeaderMedico extends HTMLElement {
           }
           .nav-list.active {
             transform: translateX(0);
-            
           }
           
           @keyframes navLinkFade {
