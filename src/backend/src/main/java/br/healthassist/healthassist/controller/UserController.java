@@ -1,21 +1,17 @@
 package br.healthassist.healthassist.controller;
 
-import br.healthassist.healthassist.controller.dto.MedicoDto;
 import br.healthassist.healthassist.controller.dto.UsuarioDto;
-import br.healthassist.healthassist.exception.RegraNegocioException;
-import br.healthassist.healthassist.model.entity.EspecialidadeMedico;
-import br.healthassist.healthassist.model.entity.Medico;
+import br.healthassist.healthassist.exception.AutenticacaoException;
 import br.healthassist.healthassist.model.entity.Usuario;
 import br.healthassist.healthassist.model.enums.StatusAutorizacao;
-import br.healthassist.healthassist.service.EspecialidadeMedicoService;
 import br.healthassist.healthassist.service.UsuarioService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/usuario")
@@ -25,7 +21,7 @@ public class UserController {
     private final UsuarioService usuarioService;
 
     @PostMapping
-    public ResponseEntity salvar(@RequestBody UsuarioDto dto){
+    public ResponseEntity cadastrarUsuario(@RequestBody UsuarioDto dto){
         Usuario usuario = Usuario.builder()
                 .apelido(dto.getApelido())
                 .email(dto.getEmail())
@@ -40,4 +36,44 @@ public class UserController {
         }
     }
 
+    @GetMapping
+    public ResponseEntity buscar(){
+
+        try {
+            List<Usuario> usuarioSalvo = usuarioService.findAllUsuario();
+            return new ResponseEntity(usuarioSalvo, HttpStatus.OK);
+        } catch (Exception e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+    @GetMapping("/{id}")
+    public ResponseEntity buscarPorId(@PathVariable("id") Long id){
+
+        Optional<Usuario> usuario = usuarioService.findById(id);
+
+        if(usuario.isEmpty()){
+            return ResponseEntity.badRequest().body("Usuario não encontrado na base de dados");
+        } else {
+            return new ResponseEntity(usuario, HttpStatus.OK);
+        }
+
+    }
+
+    @PostMapping("/login")
+    public ResponseEntity autenticar( @RequestBody UsuarioDto dto ){
+
+        try {
+            Usuario usuarioAutenticado = usuarioService.autenticar(dto.getEmail(), dto.getSenha());
+            Usuario respostaAutenticacao = Usuario.builder()
+                    .apelido(usuarioAutenticado.getApelido())
+                    .email(usuarioAutenticado.getEmail())
+                    .autorizacao(usuarioAutenticado.getAutorizacao())
+                    .build();
+            return new ResponseEntity(respostaAutenticacao, HttpStatus.OK);
+        } catch (AutenticacaoException e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+
+    }
 }
