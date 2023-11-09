@@ -7,7 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 @Entity
 @Table(name = "consulta")
@@ -30,10 +30,17 @@ public class Consulta {
     @JoinColumn(name = "id_paciente")
     private Paciente paciente;
 
-    @Column(name = "data_hora_consulta")
-    private LocalDateTime dataHoraConsulta;
+    @Column(name = "data")
+    private LocalDate data;
+
+    @Column(name = "horario_inicio")
+    private LocalTime horarioInicio;
+
+    @Column(name = "horario_fim")
+    private LocalTime horarioFim;
 
     @Column(name = "resposta_anamnese")
     private String respostaAnamnese;
+
 
 }
