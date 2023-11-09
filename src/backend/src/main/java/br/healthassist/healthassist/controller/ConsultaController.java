@@ -25,6 +25,7 @@ public class ConsultaController {
                                     .paciente()
 
         Paciente paciente = pacienteService.findPacienteById(dto.getIdPaciente());
+        
     }
 
 
