@@ -1,6 +1,6 @@
 package br.healthassist.healthassist.controller;
 
-import br.healthassist.healthassist.service.ConsutaService;
+import br.healthassist.healthassist.service.ConsultaService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequiredArgsConstructor
 public class ConsultaController {
 
-    private final ConsutaService consultaService;
+    private final ConsultaService consultaService;
 
 
 
