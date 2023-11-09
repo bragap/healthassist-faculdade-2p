@@ -43,6 +43,8 @@ public class Paciente {
     @Column(name = "nome_completo")
     private String nomeCompleto;
 
+    @Column(name = "aprovacao")
+    private boolean aprovacao;
     @ManyToOne
     @JoinColumn(name = "id_usuario")
     private Usuario usuario;

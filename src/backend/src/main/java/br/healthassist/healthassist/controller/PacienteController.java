@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import br.healthassist.healthassist.controller.dto.AtualizarStatusDto;
 import br.healthassist.healthassist.controller.dto.PacienteDto;
 import br.healthassist.healthassist.exception.RegraNegocioException;
 import br.healthassist.healthassist.model.entity.Paciente;
@@ -76,7 +77,17 @@ public class PacienteController {
             }catch(Exception e){
                 return ResponseEntity.badRequest().body(e.getMessage());
             }
-        }
+    }
+
+    @PutMapping("/{id}/atualiza-status")
+        public ResponseEntity alterarStatusPaciente(@PathVariable Long id, @RequestBody AtualizarStatusDto dto){
+            try{
+                Paciente paciente = AlterarStatus(id,dto);
+                return new ResponseEntity<>( paciente , HttpStatus.OK);
+            }catch(Exception e){
+                return ResponseEntity.badRequest().body(e.getMessage());
+            }
+    }
     
     private Paciente converterDto(PacienteDto dto){
         
@@ -90,6 +101,7 @@ public class PacienteController {
                                     .endereco(dto.getEndereco())
                                     .dataNasc(dataNasc)
                                     .nomeCompleto(dto.getNomeCompleto())
+                                    .aprovacao(false)
                                     .build();
 
 
@@ -101,7 +113,10 @@ public class PacienteController {
         return paciente;
     }
 
+    private Paciente AlterarStatus(Long id, AtualizarStatusDto dto){
+        Paciente paciente = pacienteService.findPacienteById(id);
+        paciente.setAprovacao(dto.isAprovacao());
 
-
-
+        return paciente;
+    }
 }

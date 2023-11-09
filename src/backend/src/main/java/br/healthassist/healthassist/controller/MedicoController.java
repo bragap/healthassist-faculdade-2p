@@ -54,7 +54,6 @@ public class MedicoController {
     @GetMapping("/{id}")
     public ResponseEntity buscarPorId(@PathVariable("id") Long id){
 
-        // converter em dto
         UsuarioAutenticadoDto usuarioAutenticadoDto;
 
         Optional<Medico> medico = medicoService.finfById(id);
