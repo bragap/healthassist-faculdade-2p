@@ -1,5 +1,6 @@
 package br.healthassist.healthassist.controller;
 
+import br.healthassist.healthassist.controller.dto.UsuarioAutenticadoDto;
 import br.healthassist.healthassist.controller.dto.UsuarioDto;
 import br.healthassist.healthassist.exception.AutenticacaoException;
 import br.healthassist.healthassist.model.entity.Usuario;
@@ -63,14 +64,14 @@ public class UserController {
     @PostMapping("/login")
     public ResponseEntity autenticar( @RequestBody UsuarioDto dto ){
 
+        // converter em dto
+
         try {
             Usuario usuarioAutenticado = usuarioService.autenticar(dto.getEmail(), dto.getSenha());
-            Usuario respostaAutenticacao = Usuario.builder()
-                    .apelido(usuarioAutenticado.getApelido())
-                    .email(usuarioAutenticado.getEmail())
-                    .autorizacao(usuarioAutenticado.getAutorizacao())
-                    .build();
-            return new ResponseEntity(respostaAutenticacao, HttpStatus.OK);
+            UsuarioAutenticadoDto usuarioAutenticadoDto = new UsuarioAutenticadoDto();
+            usuarioAutenticadoDto.setApelido(usuarioAutenticado.getApelido());
+            usuarioAutenticadoDto.setAutorizacao(usuarioAutenticado.getAutorizacao().toString());
+            return new ResponseEntity(usuarioAutenticadoDto, HttpStatus.OK);
         } catch (AutenticacaoException e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }

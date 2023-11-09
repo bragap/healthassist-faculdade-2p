@@ -1,6 +1,7 @@
 package br.healthassist.healthassist.controller;
 
 import br.healthassist.healthassist.controller.dto.MedicoDto;
+import br.healthassist.healthassist.controller.dto.UsuarioAutenticadoDto;
 import br.healthassist.healthassist.exception.RegraNegocioException;
 import br.healthassist.healthassist.model.entity.EspecialidadeMedico;
 import br.healthassist.healthassist.model.entity.Medico;
@@ -52,6 +53,9 @@ public class MedicoController {
 
     @GetMapping("/{id}")
     public ResponseEntity buscarPorId(@PathVariable("id") Long id){
+
+        // converter em dto
+        UsuarioAutenticadoDto usuarioAutenticadoDto;
 
         Optional<Medico> medico = medicoService.finfById(id);
 
