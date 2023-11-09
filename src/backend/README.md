@@ -15,8 +15,8 @@
 | PUT    | /medico/{id}               | Alterar dados do medico                           |
 | GET    | /usuario                   | Informações de todos os usuários                  |
 | GET    | /usuario/{id}              | Informação do usuário por id                      |
-| GET    | /consultas                 | Informações da consulta                           |
-| GET    | /consultas/{id}            | Informações da consulta                           |
+| GET    | /consulta                  | Informações da consulta                           |
+| GET    | /consulta/{id}             | Informações da consulta                           |
 | GET    | /medico                    | Informações de todos os médicos                   |
 | GET    | /medico/{id}               | Informação do médico pelo id                      |
 | GET    | /paciente                  | Informações de todos os pacientes                 |
