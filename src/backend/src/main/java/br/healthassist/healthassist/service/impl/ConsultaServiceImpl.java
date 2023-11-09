@@ -10,6 +10,10 @@ public class ConsultaServiceImpl implements ConsultaService {
 
     private ConsultaRepository consultaRepository;
 
+    public ConsultaServiceImpl(ConsultaRepository consultaRepository) {
+        this.consultaRepository = consultaRepository;
+    }
+
     @Override
     public Consulta salvarConsutla(Consulta consulta) {
         return consultaRepository.save(consulta);
