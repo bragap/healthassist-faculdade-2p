@@ -31,13 +31,14 @@ CREATE TABLE usuario (
 -- Tabela para armazenar informações de médicos
 CREATE TABLE medico (
                         id serial PRIMARY KEY,
+                        id_usuario integer,
+                        id_especialidade_medico integer,
                         endereco character varying(255) COLLATE "pg_catalog"."default",
                         data_nasc date,
                         codigo_de_registro character varying(255) COLLATE "pg_catalog"."default",
                         data_criacao timestamp DEFAULT now(),
-                        id_especialidade_medico integer,
                         nome_completo character varying(100) COLLATE "pg_catalog"."default",
-                        id_usuario integer,
+                        aprovacao bool NULL,
                         UNIQUE (codigo_de_registro),
                         FOREIGN KEY (id_usuario) REFERENCES usuario (id),
                         FOREIGN KEY (id_especialidade_medico) REFERENCES especialidade_medico (id)
@@ -46,11 +47,12 @@ CREATE TABLE medico (
 -- Tabela para armazenar informações de pacientes
 CREATE TABLE paciente (
                           id serial PRIMARY KEY,
+                          id_usuario integer,
                           endereco character varying(255) COLLATE "pg_catalog"."default",
                           data_nasc date,
                           data_criacao timestamp DEFAULT now(),
                           nome_completo character varying(100) COLLATE "pg_catalog"."default",
-                          id_usuario integer,
+                          aprovacao bool NULL,
                           FOREIGN KEY (id_usuario) REFERENCES usuario (id)
 );
 
