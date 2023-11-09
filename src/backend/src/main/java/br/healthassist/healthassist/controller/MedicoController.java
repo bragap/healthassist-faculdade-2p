@@ -66,6 +66,17 @@ public class MedicoController {
 
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity alterarDados(@PathVariable("id") Long id, MedicoDto dto){
+        return medicoService.finfById(id).map( entity -> {
+            Medico medico = converter(dto);
+            medico.setId(entity.getId());
+            // falta aqui
+            return ResponseEntity.ok(medico);
+        }).orElseGet( () ->
+                new ResponseEntity("Medico não encontrado na base de dados", HttpStatus.BAD_REQUEST));
+    }
+
     private Medico converter(MedicoDto dto){
 
         DateTimeFormatter dateFormat = DateTimeFormatter.ofPattern("dd/MM/yyyy");
