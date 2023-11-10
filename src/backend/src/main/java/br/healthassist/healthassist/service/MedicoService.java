@@ -13,4 +13,12 @@ public interface MedicoService {
 
     Optional<Medico> finfById(Long id);
 
+    Medico atualizar(Medico medico);
+
+    void validar(Medico medico);
+
+    public Medico findMedicoById(Long id);
+
+    public Medico updateMedico(Long id, Medico medico);
+
 }
