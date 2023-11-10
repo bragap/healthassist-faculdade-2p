@@ -1,22 +1,18 @@
-const starRating = document.getElementById('star-rating');
-const stars = starRating.querySelectorAll('.star');
-const commentBox = document.getElementById('box-comment');
+// Selecione todos os elementos com a classe "card-consulta"
+const cardConsultas = document.querySelectorAll('.card-consulta');
 
-stars.forEach((star, index) => {
-  star.addEventListener('click', () => {
-    // Define o ícone da estrela clicada como preenchida e as anteriores
-    for (let i = 0; i <= index; i++) {
-      stars[i].innerHTML = '<i class="bi bi-star-fill"></i>';
-    }
-    // Define o ícone das estrelas após o índice selecionado como vazio
-    for (let i = index + 1; i < stars.length; i++) {
-      stars[i].innerHTML = '<i class="bi bi-star"></i>';
+// Selecione a seção de avaliação
+const secaoAvaliacao = document.querySelector('.secao-avaliacao');
+
+// Adicione um ouvinte de evento de clique a cada card de consulta
+cardConsultas.forEach((card) => {
+  card.addEventListener('click', (event) => {
+    // Verifique se o evento foi acionado no elemento de consulta
+    const consultaElement = event.target.closest('[data-consulta-id]');
+    
+    if (consultaElement) {
+      // Exiba a seção de avaliação
+      secaoAvaliacao.style.display = 'block';
     }
   });
-});
-
-// Adicione um evento de mudança ao textarea, se desejar executar alguma ação ao inserir comentários
-commentBox.addEventListener('change', (e) => {
-  const comment = e.target.value;
-  console.log('Comentário inserido:', comment);
 });
