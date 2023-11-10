@@ -43,4 +43,7 @@ public class Medico {
     @JoinColumn(name = "id_usuario")
     private Usuario usuario;
 
+    @Column(name = "aprovacao")
+    private boolean aprovacao;
+
 }
