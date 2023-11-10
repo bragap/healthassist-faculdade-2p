@@ -79,7 +79,7 @@ public class PacienteController {
             }
     }
 
-    @PutMapping("/{id}/atualiza-status")
+    @PutMapping("/{id}/atualizar-status")
         public ResponseEntity alterarStatusPaciente(@PathVariable Long id, @RequestBody AtualizarStatusDto dto){
             try{
                 Paciente paciente = AlterarStatus(id,dto);
