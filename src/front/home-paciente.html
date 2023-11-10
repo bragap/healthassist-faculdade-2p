@@ -23,7 +23,34 @@
       <p>Pesquise por nome ou especialidade</p>
       <div id="input-box">
         <input type="text" placeholder="Nome do médico">
-        <input type="text" placeholder="Dropdown">
+        <select>
+          <option selected>Selecione</option>
+          <option name="clinico_geral" value="clinico geral">
+            Clínico geral
+          </option>
+          <option name="pediatra" value="pediatra">Pediatra</option>
+          <option name="urologista" value="urologista">
+            Urologista
+          </option>
+          <option name="odontologia" value="odontologia">
+            Odontologia
+          </option>
+          <option name="psicologia" value="psicologia">
+            Psicologia
+          </option>
+          <option name="psiquiatria" value="psiquiatria">
+            Psiquiatria
+          </option>
+          <option name="cardiologia" value="cardiologia">
+            Cardiologia
+          </option>
+          <option name="neurologia" value="neurologia">
+            Neurologia
+          </option>
+          <option name="oftalmologia" value="oftalmologia">
+            Oftalmologia
+          </option>
+        </select>
       </div>
       <input type="submit" value="Pesquisar" id="btn-submit">
     </section>
@@ -163,9 +190,9 @@
       </table>
 
 
-     <div id="section-confirm">
-       <button> Marcar consulta </button>
-     </div>
+      <div id="section-confirm">
+        <button> Marcar consulta </button>
+      </div>
 
     </dialog>
   </main>

@@ -1,21 +1,21 @@
 class InterHeaderAdmin extends HTMLElement {
-    constructor() {
-      super();
-  
-      this.mobileMenu = null;
-      this.navList = null;
-      this.navLinks = null;
-      this.activeClass = "active";
-  
-      this.handleClick = this.handleClick.bind(this);
-    }
-  
-  
-  
-    connectedCallback() {
-      const shadowRoot = this.attachShadow({ mode: 'closed' });
-      // HTML do componente
-      shadowRoot.innerHTML = `
+  constructor() {
+    super();
+
+    this.mobileMenu = null;
+    this.navList = null;
+    this.navLinks = null;
+    this.activeClass = "active";
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+
+
+  connectedCallback() {
+    const shadowRoot = this.attachShadow({ mode: 'closed' });
+    // HTML do componente
+    shadowRoot.innerHTML = `
         <style>
         a {
             color: #fff;
@@ -152,28 +152,27 @@ class InterHeaderAdmin extends HTMLElement {
           </nav>
         </header>
       `;
-  
-      this.mobileMenu = shadowRoot.querySelector('.mobile-menu');
-      this.navList = shadowRoot.querySelector('.nav-list');
-      this.navLinks = shadowRoot.querySelectorAll('.nav-list li');
-  
-      this.mobileMenu.addEventListener('click', this.handleClick);
-  
-      this.animateLinks();
-    }
-  
-    animateLinks() {
-      this.navLinks.forEach((link, index) => {
-        link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
-      });
-    }
-  
-    handleClick() {
-      this.navList.classList.toggle(this.activeClass);
-      this.mobileMenu.classList.toggle(this.activeClass);
-    }
-  
+
+    this.mobileMenu = shadowRoot.querySelector('.mobile-menu');
+    this.navList = shadowRoot.querySelector('.nav-list');
+    this.navLinks = shadowRoot.querySelectorAll('.nav-list li');
+
+    this.mobileMenu.addEventListener('click', this.handleClick);
+
+    this.animateLinks();
   }
-  
-  customElements.define('intern-header-admin', InterHeaderAdmin);
-  
+
+  animateLinks() {
+    this.navLinks.forEach((link, index) => {
+      link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+    });
+  }
+
+  handleClick() {
+    this.navList.classList.toggle(this.activeClass);
+    this.mobileMenu.classList.toggle(this.activeClass);
+  }
+
+}
+
+customElements.define('intern-header-admin', InterHeaderAdmin);

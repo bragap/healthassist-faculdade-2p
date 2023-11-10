@@ -8,15 +8,19 @@
     <link href="./assets/styles/home-admin.css" rel="stylesheet" />
     <link rel="stylesheet" href="./assets/styles/global.css" />
     <link rel="icon" href="./assets/images/favicon.ico">
+    <script src="https://unpkg.com/scrollreveal@4"></script>
+    <script>
+        ScrollReveal({ duration: 900 })
+    </script>
 </head>
 
 <body>
     <intern-header-admin></intern-header-admin>
 
     <main>
-        <h2>Confirme o registro de profissionais e pacientes</h2>
+        <h2 class="headline">Confirme o registro de profissionais e pacientes</h2>
 
-        <section id="confirmacoes-layout">
+        <section id="confirmacoes-layout" class="tagline">
             <h3 id="doctors-title">Doutores</h3>
             <div id="card-section">
                 <div id="card-conteudo">
@@ -164,6 +168,10 @@
     </main>
 
     <footer-home></footer-home>
+    <script>
+        ScrollReveal().reveal('.headline')
+        ScrollReveal().reveal('.tagline', { delay: 400 })
+    </script>
     <script src="./assets/scripts/footer-home-geral.js"></script>
     <script src="./assets/scripts/intern-header-admin.js"></script>
 </body>

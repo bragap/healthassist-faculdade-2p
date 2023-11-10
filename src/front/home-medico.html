@@ -8,13 +8,17 @@
     <link rel="stylesheet" href="./assets/styles/global.css" />
     <link rel="stylesheet" href="./assets/styles/global.css"/>
     <link rel="icon" href="./assets/images/favicon.ico">
+    <script src="https://unpkg.com/scrollreveal@4"></script>
+    <script>
+        ScrollReveal({ duration: 900 })
+    </script>
   </head>
   <body>
     <intern-header-medico></intern-header-medico>
 
     <main>
       <h2 class="headline">Próximas Consultas</h2>
-      <div class="card-consultas">
+      <div class="card-consultas tagline">
         <div class="card-consulta">
           <span name="nome_do_paciente" value="nome do paciente"
             >Nome do Paciente</span
@@ -166,7 +170,7 @@
       </div>
 
       <h2 class="headline">Atualizar Consultas</h2>
-      <table>
+      <table class="tagline">
         <thead>
           <tr>
             <th>#</th>
@@ -372,6 +376,11 @@
     </dialog>
 
     <footer-home></footer-home>
+    <script>
+      ScrollReveal().reveal('.headline')
+      ScrollReveal().reveal('.tagline', { delay: 400 })
+
+  </script>
     <script src="./assets/scripts/home-medico.js"></script>
     <script src="./assets/scripts/footer-home-geral.js"></script>
     <script src="./assets/scripts/intern-header-medico.js"></script>
