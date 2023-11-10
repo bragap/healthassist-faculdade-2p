@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.apache.catalina.User;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.healthassist.healthassist.model.entity.Paciente;
@@ -16,6 +17,12 @@ public class PacienteServiceImpl implements PacienteService{
 
     private PacienteRepository pacienteRepository;
 
+
+    @Autowired
+    public PacienteServiceImpl(PacienteRepository pacienteRepository) {
+        this.pacienteRepository = pacienteRepository;
+    }
+
     @Override
     @Transactional
     public Paciente salvarPaciente(Paciente paciente) {
@@ -25,26 +32,33 @@ public class PacienteServiceImpl implements PacienteService{
     
 
     @Override
-    public Paciente findPacienteById(long id){
-        
+    public Paciente findPacienteById(Long id){
         Optional<Paciente> paciente = pacienteRepository.findById(id);
-
-        return paciente.orElseThrow(() -> new RuntimeException(
+        return  paciente.orElseThrow(() -> new RuntimeException(
             "Usuário não encontrado! : "  + id + "Tipo: " + User.class.getName()
         ));
+        
+        
     }   
+    
 
     @Override
     public List<Paciente> findAllPacientes(){
         return pacienteRepository.findAll();
     }
 
+
+
+    
     @Override
     @Transactional
-    public Paciente updatePaciente(Paciente paciente){
-        Paciente newPaciente = findPacienteById(paciente.getId());
+    public Paciente updatePaciente(Long id, Paciente paciente){
+        Paciente newPaciente = findPacienteById(id);
+        newPaciente.setNomeCompleto(paciente.getNomeCompleto());
+        newPaciente.setEndereco(paciente.getEndereco());
+        newPaciente.setDataNasc(paciente.getDataNasc());
+        return pacienteRepository.save(paciente);
     }
-    
 
     
 

@@ -22,18 +22,16 @@ import lombok.NoArgsConstructor;
 
 
 @Entity
-@Table(name = Paciente.TABLE_NAME)
+@Table(name = "paciente")
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(of = "id")
 public class Paciente {
-    public static final String TABLE_NAME = "paciente";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", unique = true)
+    @Column(name = "id")
     private Long id;
 
     @Column(name = "endereco")
@@ -45,6 +43,8 @@ public class Paciente {
     @Column(name = "nome_completo")
     private String nomeCompleto;
 
+    @Column(name = "aprovacao")
+    private boolean aprovacao;
     @ManyToOne
     @JoinColumn(name = "id_usuario")
     private Usuario usuario;

@@ -2,6 +2,9 @@ package br.healthassist.healthassist.model.entity;
 
 
 
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -9,6 +12,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -18,36 +22,28 @@ import lombok.NoArgsConstructor;
 
 
 @Entity
-@Table(name = "arquivos_paciente")
+@Table(name = "avaliar_consulta")
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@EqualsAndHashCode(of = "id")
-public class ArquivosPaciente {
+public class AvaliarConsulta {
+    
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id", unique =  true)
+    @Column(name = "id")
     private Long id;
 
+    @Column(name = "titulo")
+    private String titulo;
+
+    @Column(name = "comentario")
+    private String comentario;
+
     @ManyToOne
-    @JoinColumn(name = "id_usuario", nullable = false, updatable = false)
-    private Paciente paciente;
+    @JoinColumn(name = "id_consulta")
+    private Consulta consulta;
 
-
-    @Column(name = "tipo_mime")
-    private String tipoMime; 
-
-    @Column(name = "dados_arquvio")
-    private byte[] dadosArquivo; // não é string
-
-    @Column(name = "aprovado")
-    private int aprovado;
-    
-    @Column(name = "motivo_inviabilidade")
-    private String motivoInviabiliadade;
-
-    
 
 }
