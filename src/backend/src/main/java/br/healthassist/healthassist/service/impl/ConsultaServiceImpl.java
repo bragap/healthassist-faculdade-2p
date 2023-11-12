@@ -5,9 +5,11 @@ import br.healthassist.healthassist.model.repository.ConsultaRepository;
 import br.healthassist.healthassist.service.ConsultaService;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.apache.catalina.User;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 public class ConsultaServiceImpl implements ConsultaService {
@@ -36,7 +38,21 @@ public class ConsultaServiceImpl implements ConsultaService {
     }
 
     @Override
+    public Consulta findConsultaById(Long id){
+        Optional<Consulta> consulta = consultaRepository.findById(id);
+        return consulta.orElseThrow(() -> new RuntimeException(
+                "Consulta não encontrado! : "  + id + "Tipo: " + User.class.getName()
+        ));
+    }
+
+    @Override
+    @Transactional
     public Consulta updateConsulta(Long id, Consulta consulta) {
-        return null;
+        Consulta newConsulta = findConsultaById(id);
+
+        newConsulta.setDataHoraConsulta(consulta.getDataHoraConsulta());
+        newConsulta.setRespostaAnamnese(consulta.getRespostaAnamnese());
+
+        return consultaRepository.save(newConsulta);
     }
 }

@@ -55,7 +55,6 @@ public class ConsultaController {
     @GetMapping("/{id}")
     public ResponseEntity obterConsultaPorId(@PathVariable Long id){
         try{
-
             Consulta comConsulta = consultaService.findById(id);
             return new ResponseEntity<>(comConsulta , HttpStatus.OK);
 
@@ -70,8 +69,8 @@ public class ConsultaController {
     @PutMapping("/{id}")
     public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody ConsultaDto dto){
         try{
-            // precisa ser revisado
-            return ResponseEntity.ok(dto);
+            Consulta consulta = consultaService.updateConsulta(id, converterDto(dto));
+            return ResponseEntity.ok(consulta);
         } catch (Exception e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }

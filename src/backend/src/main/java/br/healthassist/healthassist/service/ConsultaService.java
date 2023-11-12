@@ -12,5 +12,7 @@ public interface ConsultaService {
     
     Consulta findById(Long id);
 
+    Consulta findConsultaById(Long id);
+
     Consulta updateConsulta(Long id, Consulta consulta);
 }
