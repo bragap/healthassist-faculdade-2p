@@ -5,66 +5,59 @@
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Cadastre-se no HealthAssist</title>
+    <title>Complete seu Perfil</title>
     <link rel="icon" href="./assets/images/favicon.ico">
     <link href="./assets/styles/completar-perfil-paciente.css" rel="stylesheet">
     <link rel="stylesheet" href="./assets/styles/global.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
 <body>
 
     <div class="container">
         <div id="circulo"><img src="./assets/images/logo-v5.png" alt="logo v5"></div>
         <div class="forms animate__animated animate__fadeInDownBig  ">
-            <form method="post" action="">
+            <form method="post" action="/usuario/id/paciente" id="pacienteForm">
 
-                <h2>Complete seu perfil</h2>
+                <h2>Complete seu perfil pessoal</h2>
 
                 <div class="form-grid">
 
                     <div class="form-grid-item">
                         <label class="form-grid-item-label" for="nome">Nome Completo *</label>
-                        <input type="text" class="form-grid-inputs" placeholder="Nome">
+                        <input type="text" class="form-grid-inputs" id="nome_completo" placeholder="Nome">
                     </div>
 
                     <div class="form-grid-item">
                         <label class="form-grid-item-label" for="nome">Endereço *</label>
-                        <input type="text" class="form-grid-inputs" placeholder="Endereço">
+                        <input type="text" class="form-grid-inputs" id="endereco" placeholder="Endereço">
                     </div>
 
                     <div class="form-grid-item">
-                        <label class="form-grid-item-label" for="nome"
-                          >Envie documentos *</label
-                        >
+                        <label class="form-grid-item-label" for="nome">Envie documentos *</label>
                         <div class="input-group mb-3">
-                          <input type="file" class="form-control" id="inputGroupFile" />
-                          <label class="input-group-text" for="inputGroupFile"
-                            >Upload</label
-                          >
-                          <button class="go-button">Enviar</button>
+                            <input type="file" class="form-control" name="nome_arquivo" id="inputGroupFile" onchange="displayFileName(this)" />
+                            <label class="input-group-text" for="inputGroupFile">Upload</label>
+                            <p id="fileNameDisplay">Nenhum arquivo selecionado</p>
                         </div>
-                      </div>
-
+                    </div>
                     <div class="form-grid-item">
                         <label class="form-grid-item-label" for="nome">Data de Nascimento *</label>
-                        <input type="text" class="form-grid-inputs" placeholder="dd/mm/aaaa">
+                        <input type="text" class="form-grid-inputs" id="data_nasc" placeholder="dd/mm/aaaa">
                     </div>
                 </div>
 
+                <button class="btn-cadastrar" type="submit">
+                    Cadastrar
+                </button>
+
             </form>
 
-            <div class="cadastrar">
-                <a href="home-paciente.html">
-                    <button class="btn-cadastrar">
-                        Cadastrar
-                    </button>
-                </a>
-            </div>
 
 
         </div>
     </div>
-
+    <script src="./assets/scripts/cadastrar-perfil-paciente.js"></script>
 </body>
 
 </html>

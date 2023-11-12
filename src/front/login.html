@@ -7,6 +7,7 @@
   <link rel="icon" href="./assets/images/favicon.ico" />
   <link rel="stylesheet" href="./assets/styles/login.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <title>Acesse o HealthAssist</title>
 </head>
 
@@ -17,15 +18,17 @@
     </div>
     <div class="forms-login animate__animated animate__fadeInDownBig">
       <h3>LOGIN</h3>
-      <form method="post" action="" id="forms-login-paciente">
-        <input type="text" placeholder="Username" />
-        <input type="password" placeholder="Password" />
+      <form method="post" action="/usuario/login" id="forms-login-paciente">
+        <div class="form-control">
+          <input type="text" id="dado-login-name" placeholder="Username" />
+          <input type="password" id="dado-login-senha" placeholder="Password" />
+        </div>
         <button id="btn-entrar" type="submit">Entrar</button>
       </form>
 
       <p>Não possui conta? <button id="button-modal">Registre-se</button></p>
       <dialog id="modal">
-        <form action="" method="post" id="form-register">
+        <form action="/usuario" method="post" id="form-register">
           <div class="header-modal">
             <h2>Realize seu cadastro!</h2>
             <button id="btn-close-modal">X</button>
@@ -63,6 +66,7 @@
               <p>Sou paciente</p>
             </div>
           </div>
+          <small class="text-sucess"></small>
           <button type="submit" id="btn-submit">Realizar cadastro</button>
         </form>
       </dialog>

@@ -29,7 +29,7 @@ p {
     color: rgba(0, 0, 0, 0.60);
 }
 
-.card-consultas {
+#card-consultas {
 	width: 100%;
 	display: flex;
     flex-wrap: wrap;
@@ -103,7 +103,7 @@ button {
         padding-top: 160px;
         text-align: center;
     }
-    .card-consultas{
+    #card-consultas{
         flex-direction: column;
     }
     .card-consulta{
