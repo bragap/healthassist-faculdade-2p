@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="./assets/styles/global.css" />
     <link rel="stylesheet" href="./assets/styles/avaliar-consulta.css" />
     <link rel="icon" href="./assets/images/favicon.ico">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>Avaliar Consulta</title>
   </head>
   <body>
@@ -15,55 +16,7 @@
       <h2 class="headline">Consultas anteriores</h2>
       <p>Clique em uma consulta para avaliar</p>
 
-      <div class="card-consultas">
-        <div class="card-consulta" data-consulta-id="1">
-          <span name="nome_do_medico" value="nome do médico"
-            >Nome do Médico</span
-          >
-          <span name="email_do_medico" value="email do médico"
-            >E-mail do Medico</span
-          >
-          <span name="data_da_consulta" value="data da consulta"
-            >Data da consulta</span
-          >
-        </div>
-
-        <div class="card-consulta" data-consulta-id="2">
-          <span name="nome_do_medico" value="nome do médico"
-            >Nome do Médico</span
-          >
-          <span name="email_do_medico" value="email do médico"
-            >E-mail do Medico</span
-          >
-          <span name="data_da_consulta" value="data da consulta"
-            >Data da consulta</span
-          >
-        </div>
-
-        <div class="card-consulta" data-consulta-id="3">
-          <span name="nome_do_medico" value="nome do médico"
-            >Nome do Médico</span
-          >
-          <span name="email_do_medico" value="email do médico"
-            >E-mail do Medico</span
-          >
-          <span name="data_da_consulta" value="data da consulta"
-            >Data da consulta</span
-          >
-        </div>
-
-        <div class="card-consulta" data-consulta-id="4">
-          <span name="nome_do_medico" value="nome do médico"
-            >Nome do Médico</span
-          >
-          <span name="email_do_medico" value="email do médico"
-            >E-mail do Medico</span
-          >
-          <span name="data_da_consulta" value="data da consulta"
-            >Data da consulta</span
-          >
-        </div>
-      </div>
+      <div id="card-consultas"></div>
 
       
       <section class="secao-avaliacao">

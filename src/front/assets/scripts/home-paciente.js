@@ -1,10 +1,19 @@
-// html
+// elementos
 const buttons = document.querySelectorAll("button");
 const modal = document.getElementById("modal");
 const btnCloseModal = document.getElementById("btn-close-modal");
 const htmlConteudo = document.querySelector("html");
 const bodyConteudo = document.querySelector("body");
 
+
+// endpoints
+const url = 'https://jsonplaceholder.typicode.com/users';
+
+
+
+// FUNÇÕES
+
+// abrir modal
 for (const button of buttons) {
     button.addEventListener("click", function () {
     
@@ -15,6 +24,7 @@ for (const button of buttons) {
 
 }
 
+//fechar modal
 btnCloseModal.addEventListener("click", function () {
 
     modal.close();
@@ -22,11 +32,12 @@ btnCloseModal.addEventListener("click", function () {
 
 });
 
+// evita rolagem da página
 const bloquearRolagem = () => {
     htmlConteudo.classList.add("rolagem-bloqueada");
     bodyConteudo.classList.add("rolagem-bloqueada");
 }
-
+// permite rolagem da pagina
 const permitirRolagem = () => {
     htmlConteudo.classList.add("rolagem-permitida");
     bodyConteudo.classList.add("rolagem-permitida");
@@ -34,10 +45,7 @@ const permitirRolagem = () => {
 
 
 
-// Requisição com axios	
-
-const url = 'https://jsonplaceholder.typicode.com/users';
-
+// Pega todos os médicos cadastrados no HealthAssist
 axios.get(url)
      .then( response => {
         const dados = response.data;

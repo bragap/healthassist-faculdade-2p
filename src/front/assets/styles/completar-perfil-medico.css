@@ -284,3 +284,9 @@ td {
     }
   }
   
+
+  #fileNameDisplay{
+    color: #ccc;
+    font-size: 0.9em;
+    display: flex;
+} 
