@@ -11,4 +11,6 @@ public interface ConsultaService {
     List<Consulta> findAll();
     
     Consulta findById(Long id);
+
+    Consulta updateConsulta(Long id, Consulta consulta);
 }

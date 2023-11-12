@@ -34,4 +34,9 @@ public class ConsultaServiceImpl implements ConsultaService {
             "Cosulta não encontrada! : "  + id + "Tipo: " + User.class.getName()
         ));
     }
+
+    @Override
+    public Consulta updateConsulta(Long id, Consulta consulta) {
+        return null;
+    }
 }

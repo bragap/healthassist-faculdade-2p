@@ -1,6 +1,7 @@
 package br.healthassist.healthassist.controller;
 
 import br.healthassist.healthassist.controller.dto.ConsultaDto;
+import br.healthassist.healthassist.controller.dto.MedicoDto;
 import br.healthassist.healthassist.controller.dto.PacienteDto;
 import br.healthassist.healthassist.exception.RegraNegocioException;
 import br.healthassist.healthassist.model.entity.Consulta;
@@ -19,12 +20,7 @@ import java.util.List;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/consulta")
@@ -57,20 +53,29 @@ public class ConsultaController {
     }
 
     @GetMapping("/{id}")
-        public ResponseEntity obterConsultaPorId(@PathVariable Long id){
-            try{
+    public ResponseEntity obterConsultaPorId(@PathVariable Long id){
+        try{
 
-                Consulta comConsulta = consultaService.findById(id);
-                return new ResponseEntity<>(comConsulta , HttpStatus.OK);
+            Consulta comConsulta = consultaService.findById(id);
+            return new ResponseEntity<>(comConsulta , HttpStatus.OK);
 
-            }catch(Exception e){
+        }catch(Exception e){
 
-                return ResponseEntity.badRequest().body(e.getMessage());
-                
-            }
+            return ResponseEntity.badRequest().body(e.getMessage());
+
+        }
 
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity atualizar(@PathVariable("id") Long id, @RequestBody ConsultaDto dto){
+        try{
+            // precisa ser revisado
+            return ResponseEntity.ok(dto);
+        } catch (Exception e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
 
 
 
