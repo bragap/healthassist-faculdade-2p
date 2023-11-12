@@ -12,22 +12,11 @@ main {
 #search-doctor {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
     text-align: center;
 }
 
-#btn-submit {
-    display: flex;
-    justify-content: center;
-    align-self: center;
-    width: 60%;
-    margin-top: 30px;
-    background-color: #0487D9;
-    border: none;
-    color: #fff;
-    padding: 5px;
-
-}
 
 #input-box {
     display: flex;
@@ -35,13 +24,18 @@ main {
     align-self: center;
     width: 60%;
 }
-
+#input-box select{
+    width: 30%;
+    border-radius: 10px;
+    cursor: pointer;
+    outline: none;
+}
 #input-box input {
     padding: 2px;
     margin: 5px;
     border: none;
     border-bottom: 1px solid black;
-    width: 100%;
+    width: 40%;
     background-color: transparent;
 }
 
@@ -56,25 +50,34 @@ main {
     flex-wrap: wrap;
     text-align: center;
     justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
 }
 
 #cards-section {
     margin-top: 50px;
     width: 100%;
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    justify-self: center;
-    justify-content: space-around;
+    justify-content: center;
     padding: 10px;
 }
 
 #card-individual {
-    background-color: #048ABF;
-    color: #fff;
-    padding: 10px;
+    color: #048ABF;
+    padding: 15px;
     border-radius: 10px;
-    margin: 30px;
+    border: 1.8px solid #048abf;
+    border-style:groove;
+    border-right: 5px solid #048ABF;
+    border-bottom: 5px solid #048abf;
+    margin: 50px;
+    width: 15%;
+    height: 17vh;
+}
+#card-individual p {
+    margin: 15px;
+    padding: 10px;
 }
 
 #card-individual button {
@@ -83,10 +86,15 @@ main {
     border-radius: 10px;
     padding: 5px;
     transition: 0.5s;
+    background-color: #048abf;
+    color: #fff;
+    cursor: pointer;
 }
-
+#card-individual h5{
+    font-weight: bold;
+}
 #card-individual button:hover {
-    background-color: #192A3E;
+    background-color: #449bbe;
     color: #fff;
 }
 dialog::backdrop{
@@ -113,30 +121,39 @@ dialog{
   border-radius: 10px;
 }
 
-
-
 #header-modal {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     text-align: center;
     justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+}
+#header-modal h4{
+    display: block;
+    width: 100%;
+    font-weight: bold;
+    font-size: 1.2em;
 }
 
 #btn-close-modal {
     border: none;
     width: 10%;
     font-size: 1.5em;
+    cursor: pointer;
 }
 
 #modal-filter {
     display: flex;
     justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
 }
 
 #modal-filter select {
     padding: 5px;
-    margin: 3px;
+    margin: 5px;
 }
 
 table {
@@ -179,6 +196,7 @@ tr:hover:nth-child(1n + 2) {
     color: #fff;
     padding: 10px;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .rolagem-bloqueada{
@@ -187,4 +205,65 @@ tr:hover:nth-child(1n + 2) {
 
 .rolagem-permitida{
     overflow: auto;
+}
+
+@media (max-width: 1315px){
+    #card-individual{
+        width: 20%;
+        height: 20vh;
+    }
+}
+
+@media (max-width: 1000px){
+    #card-individual{
+        width: 25%;
+    }
+}
+
+@media (max-width:800px){
+    #card-individual{
+        width: 30%;
+    }
+}
+
+@media (max-width: 722px){
+    main {
+        padding-top: 90px;
+    }
+    #card-individual{
+        height: 18vh;
+        width: 50%;
+    }
+    #input-box{
+        flex-direction: column;
+    }
+    #input-box input, #input-box select{
+        width: 100%;
+    }
+    #modal{
+        width: 100%;
+    }
+}
+
+@media (max-width:400px){
+    #card-individual{
+        height: 23vh;
+        width: 60%;
+    }
+}
+
+/*Responsividade do modal*/
+@media (max-width:1050px){
+    #modal-filter{
+        flex-direction: column;
+        text-align: center;
+    }
+    #modal-filter select{
+        width: 50%;
+    }
+}
+@media (max-width: 400px){
+    #modal{
+        height: 80vh;
+    }
 }
