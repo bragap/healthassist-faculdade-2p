@@ -5,121 +5,383 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Área do Profissional</title>
     <link href="./assets/styles/home-medico/home-medico.css" rel="stylesheet" />
+    <link rel="stylesheet" href="./assets/styles/global.css" />
     <link rel="stylesheet" href="./assets/styles/global.css"/>
+    <link rel="icon" href="./assets/images/favicon.ico">
+    <script src="https://unpkg.com/scrollreveal@4"></script>
+    <script>
+        ScrollReveal({ duration: 900 })
+    </script>
   </head>
   <body>
     <intern-header-medico></intern-header-medico>
 
     <main>
-        
-        <h2 class="headline">Próximas Consultas</h2>
-        <div class="card-consultas">
-            <div class="card-consulta"></div>
-            <div class="card-consulta"></div>
-            <div class="card-consulta"></div>
-            <div class="card-consulta"></div>
+      <h2 class="headline">Próximas Consultas</h2>
+      <div class="card-consultas tagline">
+        <div class="card-consulta">
+          <span name="nome_do_paciente" value="nome do paciente"
+            >Nome do Paciente</span
+          >
+          <span name="email_do_paciente" value="email do paciente"
+            >E-mail do Paciente</span
+          >
+          <span name="data_da_consulta" value="data da consulta"
+            >Data da consulta</span
+          >
+          <a href="">
+            <span name="arquivos_do_paciente" value="arquivos do paciente"
+              >Arquivos do paciente</span
+            >
+          </a>
+          <svg
+            width="19"
+            height="20"
+            viewBox="0 0 19 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              width="19"
+              height="20"
+              rx="2"
+              fill="#F7685B"
+              fill-opacity="0.8"
+            />
+            <path
+              d="M5 7H6M6 7H14M6 7V14C6 14.2652 6.10536 14.5196 6.29289 14.7071C6.48043 14.8946 6.73478 15 7 15H12C12.2652 15 12.5196 14.8946 12.7071 14.7071C12.8946 14.5196 13 14.2652 13 14V7M7.5 7V6C7.5 5.73478 7.60536 5.48043 7.79289 5.29289C7.98043 5.10536 8.23478 5 8.5 5H10.5C10.7652 5 11.0196 5.10536 11.2071 5.29289C11.3946 5.48043 11.5 5.73478 11.5 6V7M8.5 9.5V12.5M10.5 9.5V12.5"
+              stroke="white"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
         </div>
-       
-       
-        <h2 class="headline">Atualizar Consultas</h2>
-        <table>
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>Nome Paciente</th>
-                    <th>Idade</th>
-                    <th>Peso</th>
-                    <th>Telefone</th>
-                    <th class="icones-th">
-                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="30" height="30" rx="4" fill="#FFB946"/>
-                            <path d="M12.919 14.9006C13.1627 15.2532 13.0898 14.9594 13.0898 21.9892C13.0898 22.6182 13.8075 22.9783 14.3134 22.602C16.4749 20.9723 16.9068 20.8312 16.9068 20.0689C16.9068 14.9461 16.8471 15.2342 17.0776 14.9006L20.5877 10.1227H9.40892L12.919 14.9006Z" fill="white"/>
-                            <path d="M21.9136 7.63445C21.7882 7.39422 21.5422 7.24487 21.2714 7.24487H8.7252C8.14038 7.24487 7.79628 7.90457 8.13175 8.38391C8.1345 8.38851 8.09367 8.33262 8.74125 9.21395H21.2553C21.8072 8.46288 22.1761 8.13838 21.9136 7.63445Z" fill="white"/>
-                         </svg>
-                        <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="30" height="30" rx="4" fill="#2ED47A"/>
-                            <path d="M14.1597 19.38V10.62H15.8397V19.38H14.1597ZM10.5197 15.8V14.22H19.4797V15.8H10.5197Z" fill="white"/>
-                        </svg>                            
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Maria José</td>
-                    <td>23</td>
-                    <td>55kg</td>
-                    <td>+3 555 68 70</td>
-                    <td class="icon-container">
-                        <input class="cb1" type="checkbox" />
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="20.0001" height="20.0001" rx="2.66667" fill="#34AFF9"/>
-                            <path d="M9.47289 6.05427H5.99398C5.73036 6.05427 5.47754 6.15899 5.29113 6.3454C5.10472 6.53181 5 6.78463 5 7.04825V14.0061C5 14.2697 5.10472 14.5225 5.29113 14.7089C5.47754 14.8953 5.73036 15.0001 5.99398 15.0001H12.9518C13.2154 15.0001 13.4683 14.8953 13.6547 14.7089C13.8411 14.5225 13.9458 14.2697 13.9458 14.0061V10.5272M13.2003 5.30879C13.398 5.11107 13.6662 5 13.9458 5C14.2254 5 14.4936 5.11107 14.6913 5.30879C14.889 5.5065 15.0001 5.77466 15.0001 6.05427C15.0001 6.33388 14.889 6.60204 14.6913 6.79975L9.96988 11.5211L7.98193 12.0181L8.47892 10.0302L13.2003 5.30879Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Otávio Passos</td>
-                    <td>24</td>
-                    <td>83kg</td>
-                    <td>+3 555 68 70</td>
-                    <td class="icon-container">
-                        <input class="cb1" type="checkbox" />
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="20.0001" height="20.0001" rx="2.66667" fill="#34AFF9"/>
-                            <path d="M9.47289 6.05427H5.99398C5.73036 6.05427 5.47754 6.15899 5.29113 6.3454C5.10472 6.53181 5 6.78463 5 7.04825V14.0061C5 14.2697 5.10472 14.5225 5.29113 14.7089C5.47754 14.8953 5.73036 15.0001 5.99398 15.0001H12.9518C13.2154 15.0001 13.4683 14.8953 13.6547 14.7089C13.8411 14.5225 13.9458 14.2697 13.9458 14.0061V10.5272M13.2003 5.30879C13.398 5.11107 13.6662 5 13.9458 5C14.2254 5 14.4936 5.11107 14.6913 5.30879C14.889 5.5065 15.0001 5.77466 15.0001 6.05427C15.0001 6.33388 14.889 6.60204 14.6913 6.79975L9.96988 11.5211L7.98193 12.0181L8.47892 10.0302L13.2003 5.30879Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Iago da Silva</td>
-                    <td>23</td>
-                    <td>55kg</td>
-                    <td>+3 555 68 70</td>
-                    <td class="icon-container">
-                        <input class="cb1" type="checkbox" />
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="20.0001" height="20.0001" rx="2.66667" fill="#34AFF9"/>
-                            <path d="M9.47289 6.05427H5.99398C5.73036 6.05427 5.47754 6.15899 5.29113 6.3454C5.10472 6.53181 5 6.78463 5 7.04825V14.0061C5 14.2697 5.10472 14.5225 5.29113 14.7089C5.47754 14.8953 5.73036 15.0001 5.99398 15.0001H12.9518C13.2154 15.0001 13.4683 14.8953 13.6547 14.7089C13.8411 14.5225 13.9458 14.2697 13.9458 14.0061V10.5272M13.2003 5.30879C13.398 5.11107 13.6662 5 13.9458 5C14.2254 5 14.4936 5.11107 14.6913 5.30879C14.889 5.5065 15.0001 5.77466 15.0001 6.05427C15.0001 6.33388 14.889 6.60204 14.6913 6.79975L9.96988 11.5211L7.98193 12.0181L8.47892 10.0302L13.2003 5.30879Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </td>
-                </tr>
-                <tr>
-                    <td>4</td>
-                    <td>Ana Jordânia</td>
-                    <td>24</td>
-                    <td>83kg</td>
-                    <td>+3 555 68 70</td>
-                    <td class="icon-container">
-                        <input class="cb1" type="checkbox" />
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="20.0001" height="20.0001" rx="2.66667" fill="#34AFF9"/>
-                            <path d="M9.47289 6.05427H5.99398C5.73036 6.05427 5.47754 6.15899 5.29113 6.3454C5.10472 6.53181 5 6.78463 5 7.04825V14.0061C5 14.2697 5.10472 14.5225 5.29113 14.7089C5.47754 14.8953 5.73036 15.0001 5.99398 15.0001H12.9518C13.2154 15.0001 13.4683 14.8953 13.6547 14.7089C13.8411 14.5225 13.9458 14.2697 13.9458 14.0061V10.5272M13.2003 5.30879C13.398 5.11107 13.6662 5 13.9458 5C14.2254 5 14.4936 5.11107 14.6913 5.30879C14.889 5.5065 15.0001 5.77466 15.0001 6.05427C15.0001 6.33388 14.889 6.60204 14.6913 6.79975L9.96988 11.5211L7.98193 12.0181L8.47892 10.0302L13.2003 5.30879Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </td>
-                </tr>
-                <tr>
-                    <td>5</td>
-                    <td>Cordeiro Machado</td>
-                    <td>24</td>
-                    <td>83kg</td>
-                    <td>+3 555 68 70</td>
-                    <td class="icon-container">
-                        <input class="cb1" type="checkbox" />
-                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <rect width="20.0001" height="20.0001" rx="2.66667" fill="#34AFF9"/>
-                            <path d="M9.47289 6.05427H5.99398C5.73036 6.05427 5.47754 6.15899 5.29113 6.3454C5.10472 6.53181 5 6.78463 5 7.04825V14.0061C5 14.2697 5.10472 14.5225 5.29113 14.7089C5.47754 14.8953 5.73036 15.0001 5.99398 15.0001H12.9518C13.2154 15.0001 13.4683 14.8953 13.6547 14.7089C13.8411 14.5225 13.9458 14.2697 13.9458 14.0061V10.5272M13.2003 5.30879C13.398 5.11107 13.6662 5 13.9458 5C14.2254 5 14.4936 5.11107 14.6913 5.30879C14.889 5.5065 15.0001 5.77466 15.0001 6.05427C15.0001 6.33388 14.889 6.60204 14.6913 6.79975L9.96988 11.5211L7.98193 12.0181L8.47892 10.0302L13.2003 5.30879Z" stroke="white" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div class="card-consulta">
+          <span name="nome_do_paciente" value="nome do paciente"
+            >Nome do Paciente</span
+          >
+          <span name="email_do_paciente" value="email do paciente"
+            >E-mail do Paciente</span
+          >
+          <span name="data_da_consulta" value="data da consulta"
+            >Data da consulta</span
+          >
+          <a href="">
+            <span name="arquivos_do_paciente" value="arquivos do paciente"
+              >Arquivos do paciente</span
+            >
+          </a>
+          <svg
+            width="19"
+            height="20"
+            viewBox="0 0 19 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              width="19"
+              height="20"
+              rx="2"
+              fill="#F7685B"
+              fill-opacity="0.8"
+            />
+            <path
+              d="M5 7H6M6 7H14M6 7V14C6 14.2652 6.10536 14.5196 6.29289 14.7071C6.48043 14.8946 6.73478 15 7 15H12C12.2652 15 12.5196 14.8946 12.7071 14.7071C12.8946 14.5196 13 14.2652 13 14V7M7.5 7V6C7.5 5.73478 7.60536 5.48043 7.79289 5.29289C7.98043 5.10536 8.23478 5 8.5 5H10.5C10.7652 5 11.0196 5.10536 11.2071 5.29289C11.3946 5.48043 11.5 5.73478 11.5 6V7M8.5 9.5V12.5M10.5 9.5V12.5"
+              stroke="white"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+        <div class="card-consulta">
+          <span name="nome_do_paciente" value="nome do paciente"
+            >Nome do Paciente</span
+          >
+          <span name="email_do_paciente" value="email do paciente"
+            >E-mail do Paciente</span
+          >
+          <span name="data_da_consulta" value="data da consulta"
+            >Data da consulta</span
+          >
+          <a href="">
+            <span name="arquivos_do_paciente" value="arquivos do paciente"
+              >Arquivos do paciente</span
+            >
+          </a>
+          <svg
+            width="19"
+            height="20"
+            viewBox="0 0 19 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              width="19"
+              height="20"
+              rx="2"
+              fill="#F7685B"
+              fill-opacity="0.8"
+            />
+            <path
+              d="M5 7H6M6 7H14M6 7V14C6 14.2652 6.10536 14.5196 6.29289 14.7071C6.48043 14.8946 6.73478 15 7 15H12C12.2652 15 12.5196 14.8946 12.7071 14.7071C12.8946 14.5196 13 14.2652 13 14V7M7.5 7V6C7.5 5.73478 7.60536 5.48043 7.79289 5.29289C7.98043 5.10536 8.23478 5 8.5 5H10.5C10.7652 5 11.0196 5.10536 11.2071 5.29289C11.3946 5.48043 11.5 5.73478 11.5 6V7M8.5 9.5V12.5M10.5 9.5V12.5"
+              stroke="white"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+        <div class="card-consulta">
+          <span name="nome_do_paciente" value="nome do paciente"
+            >Nome do Paciente</span
+          >
+          <span name="email_do_paciente" value="email do paciente"
+            >E-mail do Paciente</span
+          >
+          <span name="data_da_consulta" value="data da consulta"
+            >Data da consulta</span
+          >
+          <a href="">
+            <span name="arquivos_do_paciente" value="arquivos do paciente"
+              >Arquivos do paciente</span
+            >
+          </a>
+          <svg
+            width="19"
+            height="20"
+            viewBox="0 0 19 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <rect
+              width="19"
+              height="20"
+              rx="2"
+              fill="#F7685B"
+              fill-opacity="0.8"
+            />
+            <path
+              d="M5 7H6M6 7H14M6 7V14C6 14.2652 6.10536 14.5196 6.29289 14.7071C6.48043 14.8946 6.73478 15 7 15H12C12.2652 15 12.5196 14.8946 12.7071 14.7071C12.8946 14.5196 13 14.2652 13 14V7M7.5 7V6C7.5 5.73478 7.60536 5.48043 7.79289 5.29289C7.98043 5.10536 8.23478 5 8.5 5H10.5C10.7652 5 11.0196 5.10536 11.2071 5.29289C11.3946 5.48043 11.5 5.73478 11.5 6V7M8.5 9.5V12.5M10.5 9.5V12.5"
+              stroke="white"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+        </div>
+      </div>
 
+      <h2 class="headline">Atualizar Consultas</h2>
+      <table class="tagline">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Nome Paciente</th>
+            <th>Idade</th>
+            <th>Dia</th>
+            <th>Hora</th>
+            <th class="icones-th">
+              <svg
+                width="30"
+                height="30"
+                viewBox="0 0 30 30"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect width="30" height="30" rx="4" fill="#FFB946" />
+                <path
+                  d="M12.919 14.9006C13.1627 15.2532 13.0898 14.9594 13.0898 21.9892C13.0898 22.6182 13.8075 22.9783 14.3134 22.602C16.4749 20.9723 16.9068 20.8312 16.9068 20.0689C16.9068 14.9461 16.8471 15.2342 17.0776 14.9006L20.5877 10.1227H9.40892L12.919 14.9006Z"
+                  fill="white"
+                />
+                <path
+                  d="M21.9136 7.63445C21.7882 7.39422 21.5422 7.24487 21.2714 7.24487H8.7252C8.14038 7.24487 7.79628 7.90457 8.13175 8.38391C8.1345 8.38851 8.09367 8.33262 8.74125 9.21395H21.2553C21.8072 8.46288 22.1761 8.13838 21.9136 7.63445Z"
+                  fill="white"
+                />
+              </svg>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Maria José</td>
+            <td>23</td>
+            <td>Segunda-feira</td>
+            <td>14:00</td>
+            <td class="icon-container">
+              <svg
+                class="button-modal"
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  width="20.0001"
+                  height="20.0001"
+                  rx="2.66667"
+                  fill="#34AFF9"
+                />
+                <path
+                  d="M9.47289 6.05427H5.99398C5.73036 6.05427 5.47754 6.15899 5.29113 6.3454C5.10472 6.53181 5 6.78463 5 7.04825V14.0061C5 14.2697 5.10472 14.5225 5.29113 14.7089C5.47754 14.8953 5.73036 15.0001 5.99398 15.0001H12.9518C13.2154 15.0001 13.4683 14.8953 13.6547 14.7089C13.8411 14.5225 13.9458 14.2697 13.9458 14.0061V10.5272M13.2003 5.30879C13.398 5.11107 13.6662 5 13.9458 5C14.2254 5 14.4936 5.11107 14.6913 5.30879C14.889 5.5065 15.0001 5.77466 15.0001 6.05427C15.0001 6.33388 14.889 6.60204 14.6913 6.79975L9.96988 11.5211L7.98193 12.0181L8.47892 10.0302L13.2003 5.30879Z"
+                  stroke="white"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Otávio Passos</td>
+            <td>24</td>
+            <td>Quarta-feira</td>
+            <td>14:00</td>
+            <td class="icon-container">
+              <svg
+                class="button-modal"
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  width="20.0001"
+                  height="20.0001"
+                  rx="2.66667"
+                  fill="#34AFF9"
+                />
+                <path
+                  d="M9.47289 6.05427H5.99398C5.73036 6.05427 5.47754 6.15899 5.29113 6.3454C5.10472 6.53181 5 6.78463 5 7.04825V14.0061C5 14.2697 5.10472 14.5225 5.29113 14.7089C5.47754 14.8953 5.73036 15.0001 5.99398 15.0001H12.9518C13.2154 15.0001 13.4683 14.8953 13.6547 14.7089C13.8411 14.5225 13.9458 14.2697 13.9458 14.0061V10.5272M13.2003 5.30879C13.398 5.11107 13.6662 5 13.9458 5C14.2254 5 14.4936 5.11107 14.6913 5.30879C14.889 5.5065 15.0001 5.77466 15.0001 6.05427C15.0001 6.33388 14.889 6.60204 14.6913 6.79975L9.96988 11.5211L7.98193 12.0181L8.47892 10.0302L13.2003 5.30879Z"
+                  stroke="white"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>Iago da Silva</td>
+            <td>23</td>
+            <td>Segunda-feira</td>
+            <td>14:00</td>
+            <td class="icon-container">
+              <svg
+                class="button-modal"
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  width="20.0001"
+                  height="20.0001"
+                  rx="2.66667"
+                  fill="#34AFF9"
+                />
+                <path
+                  d="M9.47289 6.05427H5.99398C5.73036 6.05427 5.47754 6.15899 5.29113 6.3454C5.10472 6.53181 5 6.78463 5 7.04825V14.0061C5 14.2697 5.10472 14.5225 5.29113 14.7089C5.47754 14.8953 5.73036 15.0001 5.99398 15.0001H12.9518C13.2154 15.0001 13.4683 14.8953 13.6547 14.7089C13.8411 14.5225 13.9458 14.2697 13.9458 14.0061V10.5272M13.2003 5.30879C13.398 5.11107 13.6662 5 13.9458 5C14.2254 5 14.4936 5.11107 14.6913 5.30879C14.889 5.5065 15.0001 5.77466 15.0001 6.05427C15.0001 6.33388 14.889 6.60204 14.6913 6.79975L9.96988 11.5211L7.98193 12.0181L8.47892 10.0302L13.2003 5.30879Z"
+                  stroke="white"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>Ana Jordânia</td>
+            <td>24</td>
+            <td>Quarta-feira</td>
+            <td>14:00</td>
+            <td class="icon-container">
+              <svg
+                class="button-modal"
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  width="20.0001"
+                  height="20.0001"
+                  rx="2.66667"
+                  fill="#34AFF9"
+                />
+                <path
+                  d="M9.47289 6.05427H5.99398C5.73036 6.05427 5.47754 6.15899 5.29113 6.3454C5.10472 6.53181 5 6.78463 5 7.04825V14.0061C5 14.2697 5.10472 14.5225 5.29113 14.7089C5.47754 14.8953 5.73036 15.0001 5.99398 15.0001H12.9518C13.2154 15.0001 13.4683 14.8953 13.6547 14.7089C13.8411 14.5225 13.9458 14.2697 13.9458 14.0061V10.5272M13.2003 5.30879C13.398 5.11107 13.6662 5 13.9458 5C14.2254 5 14.4936 5.11107 14.6913 5.30879C14.889 5.5065 15.0001 5.77466 15.0001 6.05427C15.0001 6.33388 14.889 6.60204 14.6913 6.79975L9.96988 11.5211L7.98193 12.0181L8.47892 10.0302L13.2003 5.30879Z"
+                  stroke="white"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>Cordeiro Machado</td>
+            <td>24</td>
+            <td>Quarta-feira</td>
+            <td>14:00</td>
+            <td class="icon-container">
+              <svg
+                class="button-modal"
+                width="20"
+                height="20"
+                viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <rect
+                  width="20.0001"
+                  height="20.0001"
+                  rx="2.66667"
+                  fill="#34AFF9"
+                />
+                <path
+                  d="M9.47289 6.05427H5.99398C5.73036 6.05427 5.47754 6.15899 5.29113 6.3454C5.10472 6.53181 5 6.78463 5 7.04825V14.0061C5 14.2697 5.10472 14.5225 5.29113 14.7089C5.47754 14.8953 5.73036 15.0001 5.99398 15.0001H12.9518C13.2154 15.0001 13.4683 14.8953 13.6547 14.7089C13.8411 14.5225 13.9458 14.2697 13.9458 14.0061V10.5272M13.2003 5.30879C13.398 5.11107 13.6662 5 13.9458 5C14.2254 5 14.4936 5.11107 14.6913 5.30879C14.889 5.5065 15.0001 5.77466 15.0001 6.05427C15.0001 6.33388 14.889 6.60204 14.6913 6.79975L9.96988 11.5211L7.98193 12.0181L8.47892 10.0302L13.2003 5.30879Z"
+                  stroke="white"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                />
+              </svg>
+            </td>
+          </tr>
+        </tbody>
+      </table>
     </main>
 
+    <!-- Modal atualizar prontuário -->
+
+    <dialog id="modal">
+      <form action="" method="post" id="form-prontuario">
+        <div class="header-modal">
+          <h2>Nome do Paciente</h2>
+          <button id="btn-close-modal">X</button>
+        </div>
+
+        <div class="form-control">
+          <input
+            type="text"
+            placeholder="Resultados da anamnese"
+          />
+        </div>
+        <button type="submit" class="btn-cadastrar">
+          Atualizar prontuário
+        </button>
+      </form>
+    </dialog>
+
     <footer-home></footer-home>
+    <script>
+      ScrollReveal().reveal('.headline')
+      ScrollReveal().reveal('.tagline', { delay: 400 })
+
+  </script>
+    <script src="./assets/scripts/home-medico.js"></script>
     <script src="./assets/scripts/footer-home-geral.js"></script>
     <script src="./assets/scripts/intern-header-medico.js"></script>
   </body>

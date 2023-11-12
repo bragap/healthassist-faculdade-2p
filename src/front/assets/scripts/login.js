@@ -33,7 +33,7 @@ const checkInputs = () => {
 
     if (usernameValue === '') {
 
-        errorValidation(username, 'Preencha esse campo');
+        errorValidation(username);
         valid = false;
     } else {
 
@@ -41,7 +41,7 @@ const checkInputs = () => {
     }
     if (emailValue === '') {
 
-        errorValidation(email, 'Preencha esse campo');
+        errorValidation(email);
         valid = false;
 
     } else {
@@ -51,7 +51,7 @@ const checkInputs = () => {
 
     if (passwordValue.length < 8) {
 
-        errorValidation(password, 'A senha deve ter no mínimo 8 caracteres');
+        errorValidation(password);
         valid = false;
 
     } else {
@@ -62,12 +62,12 @@ const checkInputs = () => {
 
     if (password2Value === '') {
 
-        errorValidation(password2, 'Preencha esse campo');
+        errorValidation(password2);
         valid = false;
 
     } else if (passwordValue !== password2Value) {
 
-        errorValidation(password2, 'As senhas não conferem');
+        errorValidation(password2);
         valid = false;
 
     } else {
@@ -81,12 +81,10 @@ const checkInputs = () => {
     
 }
 
-const errorValidation = (input, message) => {
+const errorValidation = (input) => {
 
     const formControl = input.parentElement;
-    const small = formControl.querySelector('small');
 
-    small.innerText = message;
 
     formControl.className = 'form-control error';
 }

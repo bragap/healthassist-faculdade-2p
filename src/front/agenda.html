@@ -2,28 +2,104 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Agenda do Profissional</title>
-    <link rel="icon" href="./assets/images/favicon.ico" />
-    <link rel="stylesheet" href="./assets/styles/global.css" />
-    <link href="./assets/styles/agenda/mobiscroll.javascript.min.css" rel="stylesheet" />
-</head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Agenda do Profissional</title>
+  <link rel="icon" href="./assets/images/favicon.ico" />
+  <link rel="stylesheet" href="./assets/styles/global.css" />
+  <link rel="stylesheet" href="./assets/styles/agenda.css" />
+  <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js'></script>
+  <script src="https://unpkg.com/scrollreveal@4"></script>
+  <script>
+      ScrollReveal({ duration: 900 })
+  </script>
+  <script>
+
+    data = [
+      {
+        title: 'João Ricardo',
+        start: '2023-11-16T10:00:00'
+
+      },
+      {
+        title: 'Roberto Davila',
+        start: '2023-11-16T07:00:00'
+      },
+
+      {
+        title: 'João Costa',
+        start: '2023-11-16T08:00:00'
+      },
+      {
+        title: 'Adalberto da Silva',
+        start: '2023-11-19T09:00:00'
+      },
+      {
+        title: 'João Costa',
+        start: '2023-11-10T07:00:00'
+      },
+      {
+        title: 'Rose Gouveia',
+        start: '2023-11-03T12:00:00'
+      },
+      {
+        title: 'Rose Gouveia',
+        start: '2023-12-01T11:00:00'
+      },
+      {
+        title: 'Rose Gouveia',
+        start: '2023-11-14T10:00:00'
+      },
+      {
+        title: 'Rose Gouveia',
+        start: '2023-11-18T08:00:00'
+      },
+      {
+        title: 'Rose Gouveia',
+        start: '2023-11-22T09:00:00'
+      }
+    ]
+
+    document.addEventListener('DOMContentLoaded', function () {
+      var calendarEl = document.getElementById('calendar');
+
+      var calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        headerToolbar: {
+          left: 'prev,next today',
+          center: 'title',
+          right: 'dayGridMonth,timeGridWeek,timeGridDay'
+        }
+      });
+
+      for (const event of data) {
+        calendar.addEvent(event);
+      }
+
+
+      calendar.render();
+    });
+
+
+  </script>
+
+
+
 
 <body>
 
-    <intern-header-medico></intern-header-medico>
+  <intern-header-medico></intern-header-medico>
 
 
-    <section id="agenda-section">
-        <!-- <div id="demo-remote-api"></div> -->
-        <div class="md-custom-header">
-            <div id="demo-custom-header"></div>
-        </div>
-    </section>
+  <section id="agenda-section">
+    <div id='calendar' class="headline"></div>
+  </section>
 
-    <script src="./assets/scripts/intern-header-medico.js"></script>
-    <script src="./assets/scripts/mobiscroll.javascript.min.js"></script>
+
+  <script>
+    ScrollReveal().reveal('.headline')
+</script>
+  <script src="./assets/scripts/intern-header-medico.js"></script>
 </body>
 
 </html>

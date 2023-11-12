@@ -146,7 +146,7 @@ class InterHeaderPaciente extends HTMLElement {
             </div>
             <ul class="nav-list">
               <li><a href="home-paciente.html">Início</a></li>
-              <li><a href="avaliar-consulta.html">Avaliar consultas</a></li>
+              <li><a href="avaliar-consulta.html">Consultas</a></li>
               <li><a href="#">Perfil</a></li>
               <li><a href="home-geral.html">Sair</a></li>
               </ul>

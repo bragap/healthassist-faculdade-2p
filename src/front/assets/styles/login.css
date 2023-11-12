@@ -21,6 +21,7 @@ body{
     margin-top: 150px;
     width: 500px;
 }
+
 .forms-login img {
     user-select: none;
 }
@@ -92,19 +93,37 @@ body{
     color: grey;
     margin-bottom: 10px;
 }
-.box-usuario, .tipo-usuario {
+.box-usuario{
+    display: flex;
+    justify-content: space-around;
+}
+.tipo-usuario {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: start;
+}
+.tipo-usuario p{
+    margin-left: -15px;
+    font-size: 0.8em;
 }
 
-.tipo-usuario {
-    width: 50%;
+.box-usuario {
+    margin-top: -20px;
 }
-.tipo-usuario input {
-    width: 50px;
+
+.cb1 {
+	accent-color: #2f89c1;
+	font-size: 1em;
+	color: #fff !important;
+	cursor: pointer;
 }
+
+input[type="checkbox"] {
+    width: 1.2em !important;
+	height: 1.2em !important;
+    margin: 0em 1em;
+}
+
 
 #circulo {
     display: flex;
@@ -178,7 +197,14 @@ dialog {
     }
     #modal{
         width: 70%;
-       }
+       }  
+    
+    .box-usuario {
+        flex-direction: column;
+    } 
+    .tipo-usuario {
+        width: 100%;
+    }
 }
   @media (max-width: 400px) {
     body{
@@ -191,9 +217,7 @@ dialog {
     .forms-login input{
         max-width: 220px;
     }
-    .forms-login button{
-        max-width: 200px;
-    }
+
     #modal{
         width: 70%;
        }
@@ -206,20 +230,26 @@ dialog {
 
 .form-control {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: space-around;
     margin-bottom: 10px;
     padding-bottom: 20px;
+    height: 100px;
 }
 
 .form-control label {
-    display: flex;
+    display: block;
+    width: 100%;
     color: #828CAD;
 }
 
 .form-control input {
+    display: flex;
     font-size: 14px;
-    width: 90%;
-    margin: 10px;
+    width: 80%;
+    margin-top: 10px;
     border: none;
     border-bottom: 1.8px solid #2f89c1;
     background-color: transparent;
@@ -233,35 +263,7 @@ dialog {
     border-bottom: 2px solid #DB5A5A;
 }
 
-.form-control.error i .img-error {
-    visibility: visible;
-}
 
-.form-control.success i .img-success {
-    visibility: visible;
-}
-
-.form-control.error small{
-    color: #DB5A5A;
-    visibility: visible;
-}
-
-.form-control i {
-    position: absolute;
-    top: -30px;
-    right: 10px;
-    visibility: hidden;
-}
-
-.form-control small {
-    visibility: hidden;
-    position: absolute;
-    left: 6%;
-    top: 70%;
-    font-size: 14px;
-    color: #DB5A5A
-
-}
 .header-modal{
     display: flex;
     justify-content: space-between;
@@ -290,8 +292,4 @@ dialog {
 #btn-submit:hover {
     background-color: #2f89c1;
     transition: 0.3s;
-}
-
-.img-success, .img-error {
-    width: 15px;
 }

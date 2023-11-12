@@ -1,120 +1,269 @@
 main {
-	margin-top: 15vh !important;
-	width: 70%;
-	margin: 0 auto;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	justify-content: center;
-    gap: 3em;
+
+    width: 90%;
+    margin: 0 auto;
+    padding-top: 250px;
+    padding-bottom: 200px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
 }
 
-h2 {
-	margin: 1.5rem 0 !important;
-}
-
-.box-esquerda {
-    width: 70%;
-}
-
-.box-direita {
-    width: 30%;
-}
-
-.consultas, .agendamento {
+#search-doctor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
     text-align: center;
 }
 
-.box-consultas {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    margin-bottom: 3em;
-    gap: 15px;
-}
 
-.card-consulta {
-    width: 33%;
-    height: 8.375rem;
-    border-radius: 1.0625rem;
-    background-color: #D9D9D9;
-}
-
-.areas-agendamento {
+#input-box {
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 1em;
-    margin: 0em 0em 3em 0em;
+    justify-content: center;
+    align-self: center;
+    width: 60%;
 }
-
-.area-especifica {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+#input-box select{
     width: 30%;
+    border-radius: 10px;
     cursor: pointer;
+    outline: none;
+}
+#input-box input {
+    padding: 2px;
+    margin: 5px;
+    border: none;
+    border-bottom: 1px solid black;
+    width: 40%;
+    background-color: transparent;
 }
 
-.area-especifica img {
-    border-radius: 15px;
+#input-box input:focus {
+    outline: none;
 }
 
-.area-especifica span {
-    margin-top: 10px;
-}
-
-.box-direita {
+#view-doctors {
+    margin-top: 50px;
     display: flex;
-    flex-direction: column;
-    align-items: left;
-    gap: 5px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
 }
 
-form select {
-    margin: 5px 0;
-}
-
-button {
+#cards-section {
+    margin-top: 50px;
     width: 100%;
-	font-size: 1em;
-    padding: 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 10px;
+}
+
+#card-individual {
+    color: #048ABF;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1.8px solid #048abf;
+    border-style:groove;
+    border-right: 5px solid #048ABF;
+    border-bottom: 5px solid #048abf;
+    margin: 50px;
+    width: 15%;
+    height: 17vh;
+}
+#card-individual p {
+    margin: 15px;
+    padding: 10px;
+}
+
+#card-individual button {
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    padding: 5px;
+    transition: 0.5s;
+    background-color: #048abf;
     color: #fff;
-    background: #0487D9;
-    border-radius: 0.25rem !important;
-    border: 0px;
-    margin-top: 0.5em !important;
+    cursor: pointer;
+}
+#card-individual h5{
+    font-weight: bold;
+}
+#card-individual button:hover {
+    background-color: #449bbe;
+    color: #fff;
+}
+dialog::backdrop{
+    background-color: rgb(0 0 0/ .5);
+}
+dialog{
+    box-shadow: 0 0 1em rgb(0 0 0 / .3);
+
+}
+#modal {
+    width: 50%;
+    height: 60%;
+    border: none;
+}
+
+#modal::-webkit-scrollbar{
+    width: 0.5em;
+}
+#modal::-webkit-scrollbar-track{
+    background-color: #F5F5F7;
+}
+#modal::-webkit-scrollbar-thumb{
+  background-color: #0367A6;
+  border-radius: 10px;
+}
+
+#header-modal {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 50px;
+}
+#header-modal h4{
+    display: block;
+    width: 100%;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+
+#btn-close-modal {
+    border: none;
+    width: 10%;
+    font-size: 1.5em;
     cursor: pointer;
 }
 
+#modal-filter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
+}
 
-@media only screen and (max-width: 1425px) {
-    .area-especifica {
-        width: 40%;
+#modal-filter select {
+    padding: 5px;
+    margin: 5px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: auto;
+    text-align: center;
+}
+
+th,
+td {
+    padding: 10px;
+    text-align: center;
+    width: 120px;
+}
+
+th {
+    font-weight: bold;
+}
+
+
+tr:nth-child(even) {
+    background-color: #d2e2f8;
+}
+
+tr:hover:nth-child(1n + 2) {
+    background-color: #048ABF;
+    color: #fff;
+}
+
+#section-confirm{
+    display: flex;
+    justify-content: center;
+    margin-top: 30px
+}
+
+#section-confirm button{
+    border: none;
+    background-color: #048ABF;
+    color: #fff;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.rolagem-bloqueada{
+    overflow: hidden;
+}
+
+.rolagem-permitida{
+    overflow: auto;
+}
+
+@media (max-width: 1315px){
+    #card-individual{
+        width: 20%;
+        height: 20vh;
     }
 }
 
-@media only screen and (max-width: 999px) {
+@media (max-width: 1000px){
+    #card-individual{
+        width: 25%;
+    }
+}
+
+@media (max-width:800px){
+    #card-individual{
+        width: 30%;
+    }
+}
+
+@media (max-width: 722px){
     main {
-        flex-direction: column;
-        gap: 0em;
+        padding-top: 90px;
     }
-    .box-esquerda, .box-direita {
+    #card-individual{
+        height: 18vh;
+        width: 50%;
+    }
+    #input-box{
+        flex-direction: column;
+    }
+    #input-box input, #input-box select{
         width: 100%;
     }
-    form {
-        margin-bottom: 4em !important;
+    #modal{
+        width: 100%;
     }
 }
 
-@media only screen and (max-width: 515px) {
-    .areas-agendamento {
-        justify-content: center;
+@media (max-width:400px){
+    #card-individual{
+        height: 23vh;
+        width: 60%;
     }
-    .area-especifica {
-        width: 100%;
-    }
+}
 
+/*Responsividade do modal*/
+@media (max-width:1050px){
+    #modal-filter{
+        flex-direction: column;
+        text-align: center;
+    }
+    #modal-filter select{
+        width: 50%;
+    }
+}
+@media (max-width: 400px){
+    #modal{
+        height: 80vh;
+    }
 }

@@ -1,21 +1,21 @@
-class InterHeaderMedico extends HTMLElement {
-    constructor() {
-      super();
-  
-      this.mobileMenu = null;
-      this.navList = null;
-      this.navLinks = null;
-      this.activeClass = "active";
-  
-      this.handleClick = this.handleClick.bind(this);
-    }
-  
-  
-  
-    connectedCallback() {
-      const shadowRoot = this.attachShadow({ mode: 'closed' });
-      // HTML do componente
-      shadowRoot.innerHTML = `
+class InterHeaderAdmin extends HTMLElement {
+  constructor() {
+    super();
+
+    this.mobileMenu = null;
+    this.navList = null;
+    this.navLinks = null;
+    this.activeClass = "active";
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+
+
+  connectedCallback() {
+    const shadowRoot = this.attachShadow({ mode: 'closed' });
+    // HTML do componente
+    shadowRoot.innerHTML = `
         <style>
         a {
             color: #fff;
@@ -69,6 +69,7 @@ class InterHeaderMedico extends HTMLElement {
           }
           .nav-list.active {
             transform: translateX(0);
+            
           }
           
           @keyframes navLinkFade {
@@ -136,43 +137,42 @@ class InterHeaderMedico extends HTMLElement {
         </style>
         <header>
           <nav>
-            <a class="logo" href="home-medico.html"><img src="./assets/images/logo-v9.png"></a>
+            <a class="logo" href="home-admin.html"><img src="./assets/images/logo-v9.png"></a>
             <div class="mobile-menu">
               <div class="line1"></div>
               <div class="line2"></div>
               <div class="line3"></div>
             </div>
             <ul class="nav-list">
-              <li><a href="home-medico.html">Início</a></li>
-              <li><a href="agenda.html">Agenda</a></li>
-              <li><a href="#">Perfil</a></li>
+              <li><a href="home-admin.html">Início</a></li>
+              <li><a href="cancelamentos.html">Cancelamentos</a></li>
+              <li><a href="relatorio-avaliacoes.html">Relatórios</a></li>
               <li><a href="home-geral.html">Sair</a></li>
               </ul>
           </nav>
         </header>
       `;
-  
-      this.mobileMenu = shadowRoot.querySelector('.mobile-menu');
-      this.navList = shadowRoot.querySelector('.nav-list');
-      this.navLinks = shadowRoot.querySelectorAll('.nav-list li');
-  
-      this.mobileMenu.addEventListener('click', this.handleClick);
-  
-      this.animateLinks();
-    }
-  
-    animateLinks() {
-      this.navLinks.forEach((link, index) => {
-        link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
-      });
-    }
-  
-    handleClick() {
-      this.navList.classList.toggle(this.activeClass);
-      this.mobileMenu.classList.toggle(this.activeClass);
-    }
-  
+
+    this.mobileMenu = shadowRoot.querySelector('.mobile-menu');
+    this.navList = shadowRoot.querySelector('.nav-list');
+    this.navLinks = shadowRoot.querySelectorAll('.nav-list li');
+
+    this.mobileMenu.addEventListener('click', this.handleClick);
+
+    this.animateLinks();
   }
-  
-  customElements.define('intern-header-medico', InterHeaderMedico);
-  
+
+  animateLinks() {
+    this.navLinks.forEach((link, index) => {
+      link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+    });
+  }
+
+  handleClick() {
+    this.navList.classList.toggle(this.activeClass);
+    this.mobileMenu.classList.toggle(this.activeClass);
+  }
+
+}
+
+customElements.define('intern-header-admin', InterHeaderAdmin);

@@ -1,0 +1,51 @@
+.fc .fc-col-header-cell-cushion {
+    /* needs to be same precedence */
+    padding-top: 5px;
+    /* an override! */
+    padding-bottom: 5px;
+    /* an override! */
+}
+
+#agenda-section {
+    display: flex;
+    justify-content: center;
+    padding-top: 150px;
+    width: 90%;
+    margin: 0 auto;
+    height: 80vh;
+}
+
+#calendar {
+    width: 100%;
+}
+
+@media  (max-width: 749px){
+    .fc-header-toolbar{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .fc-toolbar-chunk{
+        padding: 10px;
+    }
+}
+
+
+:root {
+  
+    --fc-button-text-color: #fff;
+    --fc-button-bg-color: #0487D9;
+    --fc-button-border-color: #0487D9;
+    --fc-button-hover-bg-color: #0367A6;
+    --fc-button-hover-border-color: #0367A6;
+    --fc-button-active-bg-color: #0367A6;
+    --fc-button-active-border-color: #0367A6;
+  
+    --fc-event-bg-color: #3788d8;
+    --fc-event-border-color: #3788d8;
+    --fc-event-text-color: #fff;
+    --fc-event-selected-overlay-color: rgba(0, 0, 0, 0.25);
+  
+
+}

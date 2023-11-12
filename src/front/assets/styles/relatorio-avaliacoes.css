@@ -1,0 +1,58 @@
+main{
+    padding-top: 170px;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-self: center;
+    width: 90%;
+    margin: 0 auto;
+}
+main h2{
+    font-size: 2em;
+}
+
+#lista-relatorios{
+    width: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  
+}
+
+#lista-conteudo{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 10px;
+    height: 200px;
+    border: 1px solid rgba(0, 0, 0, 0.175);
+    border-bottom: 5px solid rgba(0, 0, 0, 0.175);
+    border-right: 5px solid rgba(0, 0, 0, 0.175);
+    border-radius: 10px;    transition: .3s;
+    padding: 10px;
+}
+#lista-conteudo:hover{
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.375);
+}
+#relatorio-titulo{
+    display: block;
+    width: 100%;
+    font-size: 1.5em;
+}
+#box-esquerda p{
+    font-size: 1.1em;
+}
+
+#box-direita p{
+    padding-bottom: 10px;
+}
+
+@media (max-width:700px){
+    main h2{
+        font-size: 1.7em;
+       }
+       main{
+        padding-top: 100px;
+       }
+}
