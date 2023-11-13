@@ -18,7 +18,7 @@
     </div>
     <div class="forms-login animate__animated animate__fadeInDownBig">
       <h3>LOGIN</h3>
-      <form method="post" action="http://localhost:8080/usuario/login" id="forms-login-paciente">
+      <form method="POST" action="http://localhost:8080/usuario/login" id="forms-login-paciente">
         <div class="form-control">
           <input type="text" id="dado-login-name" placeholder="Username" />
           <input type="password" id="dado-login-senha" placeholder="Password" />
@@ -28,7 +28,7 @@
 
       <p>Não possui conta? <button id="button-modal">Registre-se</button></p>
       <dialog id="modal">
-        <form action="http://localhost:8080/usuario" method="post" id="form-register">
+        <form action="http://localhost:8080/usuario" method="POST" id="form-register">
           <div class="header-modal">
             <h2>Realize seu cadastro!</h2>
             <button id="btn-close-modal">X</button>

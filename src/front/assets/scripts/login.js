@@ -22,11 +22,10 @@ let dadosLogin = {};
 let valid = true;
 let validLogin = true;
 let exemplo = {};
-
+let nextUserId = 1;
 
 // endpoints
 const endpointCadastroUsuario = "http://localhost:8080/usuario";
-const endpointExemplo = "https://jsonplaceholder.typicode.com/posts";
 const endpointLogin = "http://localhost:8080/usuario/login";
 
 // FUNÇÕES
@@ -71,7 +70,19 @@ formLogin.addEventListener('submit', (e) => {
 
             })
             .catch((error) => {
-                console.log(error);
+                if (error.response) {
+                    // O servidor retornou um código de status diferente de 2xx
+                    console.log("Data:", error.response.data);
+                    console.log("Status:", error.response.status);
+                    console.log("Headers:", error.response.headers);
+                } else if (error.request) {
+                    // A requisição foi feita, mas não recebeu resposta
+                    console.log("Request:", error.request);
+                } else {
+                    // Ocorreu um erro durante a configuração da requisição
+                    console.log("Error:", error.message);
+                }
+                console.log("Config:", error.config);
             })
     }
 })
@@ -108,19 +119,25 @@ form.addEventListener('submit', (e) => {
 
     checkInputs();
     if (valid) {
-        exemplo = { 
-        title: 'foo',
-        body: 'bar',
-        userId: 1,
-      }
-        axios.post(endpointExemplo, exemplo)
+        axios.post(endpointCadastroUsuario, usuario)
             .then((response) => {
                 console.log(response);
-                console.log(exemplo);
-
+                console.log(usuario);
             }
             ).catch((error) => {
-                console.log(error);
+                if (error.response) {
+                    // O servidor retornou um código de status diferente de 2xx
+                    console.log("Data:", error.response.data);
+                    console.log("Status:", error.response.status);
+                    console.log("Headers:", error.response.headers);
+                } else if (error.request) {
+                    // A requisição foi feita, mas não recebeu resposta
+                    console.log("Request:", error.request);
+                } else {
+                    // Ocorreu um erro durante a configuração da requisição
+                    console.log("Error:", error.message);
+                }
+                console.log("Config:", error.config);
             }
             )
     }
@@ -185,6 +202,7 @@ const checkInputs = () => {
     if (valid) {
 
         usuario = {
+            id: generateUniqueId(),
             apelido: username.value,
             email: email.value,
             senha: password.value,
@@ -193,7 +211,7 @@ const checkInputs = () => {
         console.log(usuario);
 
         formsSucess();
-        form.reset();
+        
     }
 
 }
@@ -235,3 +253,11 @@ btnClose.addEventListener("click", () => {
 buttonModal.addEventListener("click", function () {
     modal.showModal();
 })
+
+
+// Função para gerar IDs únicos para usuários
+function generateUniqueId() {
+    const uniqueId = `${nextUserId}`; 
+    nextUserId++;
+    return uniqueId;
+}
