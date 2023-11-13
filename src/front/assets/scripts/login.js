@@ -21,11 +21,13 @@ let usuario = {};
 let dadosLogin = {};
 let valid = true;
 let validLogin = true;
+let exemplo = {};
 
 
 // endpoints
-const endpointCadastroUsuario = "/usuario";
-const endpointLogin = "/usuario/login";
+const endpointCadastroUsuario = "http://localhost:8080/usuario";
+const endpointExemplo = "https://jsonplaceholder.typicode.com/posts";
+const endpointLogin = "http://localhost:8080/usuario/login";
 
 // FUNÇÕES
 
@@ -45,14 +47,27 @@ formLogin.addEventListener('submit', (e) => {
             .then((response) => {
 
                 const tipoUsuario = response.data.autorizacao;
+                const enderecoUsuario = response.data.endereco;
 
-                if (tipoUsuario === "PACIENTE") {
-                    window.location.href = "/home-paciente";
-                } else if (tipoUsuario === "MEDICO") {
-                    window.location.href = "/home-medico";
+                if (enderecoUsuario === null) {
+                    if (tipoUsuario === "PACIENTE") {
+                        window.location.href = "/completar-perfil-paciente.html";
+                    } else if (tipoUsuario === "MEDICO") {
+                        window.location.href = "/completar-perfil-medico.html";
+                    } else {
+                        window.location.href = "/home-admin.html";
+                    }
+
                 } else {
-                    window.location.href = "/home-admin";
+                    if (tipoUsuario === "PACIENTE") {
+                        window.location.href = "/home-paciente.html";
+                    } else if (tipoUsuario === "MEDICO") {
+                        window.location.href = "/home-medico.html";
+                    } else {
+                        window.location.href = "/home-admin.html";
+                    }
                 }
+
 
             })
             .catch((error) => {
@@ -93,10 +108,15 @@ form.addEventListener('submit', (e) => {
 
     checkInputs();
     if (valid) {
-        axios.post(endpointCadastroUsuario, usuario)
+        exemplo = { 
+        title: 'foo',
+        body: 'bar',
+        userId: 1,
+      }
+        axios.post(endpointExemplo, exemplo)
             .then((response) => {
                 console.log(response);
-                console.log(usuario);
+                console.log(exemplo);
 
             }
             ).catch((error) => {

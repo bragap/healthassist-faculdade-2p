@@ -8,29 +8,33 @@ const secaoAvaliacao = document.querySelector('.secao-avaliacao');
 
 
 // endpoints
-const url = 'https://jsonplaceholder.typicode.com/users';
+const url = 'http://localhost:8080/medico';
+
+const exemplo = 'https://jsonplaceholder.typicode.com/users'
 
 
 
 // FUNÇÕES
 
-axios.get(url)
+axios.get(exemplo)
   .then(response => {
     const dados = response.data;
-
-    const cardConsultas = document.getElementById("card-consultas")
+    console.log(dados, "dados");
+    let listConsults = ""
 
     dados.forEach(doctors => {
-      let listConsults = ""
       listConsults += `
         <div class="card-consulta" data-consulta-id="${doctors.id}">
-        <span name="nome_do_medico" value="${doctors.name}">${doctors.name}</span>
-        <span name="email_do_medico" value="${doctors.email}">${doctors.email}</span>
-        <span name="data_da_consulta" value="${doctors.username}">Data da Consulta: ${doctors.username}</span>
+        <span name="nome_do_medico" id="nome-medico" value="${doctors.id}">Profissional: ${doctors.name}</span>
+        <span name="email_do_medico" value="${doctors.id}">Especialidade: ${doctors.email}</span>
+        <span name="data_da_consulta" value="${doctors.id}">Data da Consulta: ${doctors.username}</span>
+        </div>
         ` ;
-      cardConsultas.innerHTML += listConsults;
-
     });
+    console.log(listConsults, "listConsults")
+
+    const cardConsultas = document.getElementById("card-consultas");
+    cardConsultas.innerHTML = listConsults;
 
     const cards = document.querySelectorAll('.card-consulta');
     cards.forEach(card => {
@@ -41,7 +45,12 @@ axios.get(url)
     })
   })
   .catch(error => {
-    console.error('Ocorreu um erro:', error);
+
+    if (error.response) {
+      console.log(error.response.data);
+      console.log(error.response.status);
+      console.log(error.response.headers);
+    }
   });
 
 

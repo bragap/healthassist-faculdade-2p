@@ -8,7 +8,18 @@ main{
     width: 90%;
     margin: 0 auto;
 }
-
+#painel-doctor{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
+#painel-paciente{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+}
 main h2{
     margin-bottom: 10px;
     font-size: 2em;
