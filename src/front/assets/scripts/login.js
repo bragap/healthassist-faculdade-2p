@@ -39,35 +39,22 @@ formLogin.addEventListener('submit', (e) => {
 
     if (validLogin) {
         dadosLogin = {
-            apelido: usuarioLogin.value,
+            email: usuarioLogin.value,
             senha: senhaLogin.value
         }
         axios.post(endpointLogin, dadosLogin)
             .then((response) => {
-
+                
+                console.log(response.data, "response.data")
                 const tipoUsuario = response.data.autorizacao;
-                const enderecoUsuario = response.data.endereco;
 
-                if (enderecoUsuario === null) {
-                    if (tipoUsuario === "PACIENTE") {
-                        window.location.href = "/completar-perfil-paciente.html";
-                    } else if (tipoUsuario === "MEDICO") {
-                        window.location.href = "/completar-perfil-medico.html";
-                    } else {
-                        window.location.href = "/home-admin.html";
-                    }
-
+                if (tipoUsuario === "PACIENTE") {
+                    window.location.href = "completar-perfil-paciente.html";
+                } else if (tipoUsuario === "MEDICO") {
+                    window.location.href = "completar-perfil-medico.html";
                 } else {
-                    if (tipoUsuario === "PACIENTE") {
-                        window.location.href = "/home-paciente.html";
-                    } else if (tipoUsuario === "MEDICO") {
-                        window.location.href = "/home-medico.html";
-                    } else {
-                        window.location.href = "/home-admin.html";
-                    }
+                    window.location.href = "home-admin.html";
                 }
-
-
             })
             .catch((error) => {
                 if (error.response) {
@@ -211,7 +198,7 @@ const checkInputs = () => {
         console.log(usuario);
 
         formsSucess();
-        
+
     }
 
 }
@@ -257,7 +244,7 @@ buttonModal.addEventListener("click", function () {
 
 // Função para gerar IDs únicos para usuários
 function generateUniqueId() {
-    const uniqueId = `${nextUserId}`; 
+    const uniqueId = `${nextUserId}`;
     nextUserId++;
     return uniqueId;
 }
