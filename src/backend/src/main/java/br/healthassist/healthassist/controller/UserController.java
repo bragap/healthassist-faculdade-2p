@@ -69,6 +69,7 @@ public class UserController {
         try {
             Usuario usuarioAutenticado = usuarioService.autenticar(dto.getEmail(), dto.getSenha());
             UsuarioAutenticadoDto usuarioAutenticadoDto = new UsuarioAutenticadoDto();
+            usuarioAutenticadoDto.setId(usuarioAutenticado.getId());
             usuarioAutenticadoDto.setApelido(usuarioAutenticado.getApelido());
             usuarioAutenticadoDto.setAutorizacao(usuarioAutenticado.getAutorizacao().toString());
             return new ResponseEntity(usuarioAutenticadoDto, HttpStatus.OK);
