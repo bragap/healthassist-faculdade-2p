@@ -6,6 +6,8 @@ let listaAvaliacoes = "";
 // endpoints
 const url = "https://jsonplaceholder.typicode.com/users"
 
+const endpointAvaliarConsulta = "http://localhost:8080/avaliar-consulta"
+
 
 // FUNÇÕES
 
@@ -36,3 +38,13 @@ axios.get(url)
 })
 painel.innerHTML = listaAvaliacoes;
 })
+
+
+// post de avaliação
+axios.post(endpointAvaliarConsulta, {
+
+  
+}
+
+  )
+

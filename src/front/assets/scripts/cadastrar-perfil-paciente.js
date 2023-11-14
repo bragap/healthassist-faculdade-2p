@@ -6,7 +6,7 @@ const dataNascimento = document.querySelector('#data_nasc');
 const form = document.querySelector('#pacienteForm');
 
 // endpoints
-const url = '/usuario/id/paciente';
+const url = 'http://localhost:8080/paciente';
 
 // FUNÇÕES
 
@@ -14,13 +14,18 @@ const url = '/usuario/id/paciente';
 form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    const formData = new FormData();
-    formData.append('nome_completo', nomeCompleto.value);
-    formData.append('endereco', endereco.value);
-    formData.append('arquivo', arquivo);
-    formData.append('data_nasc', dataNascimento.value);
+    const data = {
+        id: 1,
+        endereco: endereco.value,
+        data_nasc: dataNascimento.value,
+        data_criacao: new Date(),
+        nome_completo: nomeCompleto.value,
+        id_usuario: 1
+    }
+   
+    console.log(data)
 
-    axios.post(url, formData)
+    axios.post(url, data)
         .then(function (response) {
             console.log(response);
             alert('Paciente cadastrado com sucesso!');

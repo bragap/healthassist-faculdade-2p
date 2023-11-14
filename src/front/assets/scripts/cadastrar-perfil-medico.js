@@ -11,7 +11,7 @@ const rows = disponibilidadeTable.querySelectorAll('tr');
 const disponibilidade_de_horario = [];
 
 //endpoints
-const url = "/usuario/id/medico";
+const url = "http://localhost:8080/medico";
 
 // FUNÇÕES
 

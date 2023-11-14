@@ -45,12 +45,16 @@ formLogin.addEventListener('submit', (e) => {
         axios.post(endpointLogin, dadosLogin)
             .then((response) => {
                 
+                const dados = response.data;
                 console.log(response.data, "response.data")
-                const tipoUsuario = response.data.autorizacao;
+                const tipoUsuario = dados.autorizacao;
+                const idUsuario = dados.id;
 
                 if (tipoUsuario === "PACIENTE") {
+                  //  window.location.href=`/id=${idUsuario}/completar-perfil-paciente.html}`
                     window.location.href = "completar-perfil-paciente.html";
                 } else if (tipoUsuario === "MEDICO") {
+                  //  window.location.href=`/id=${idUsuario}/completar-perfil-medico.html}`
                     window.location.href = "completar-perfil-medico.html";
                 } else {
                     window.location.href = "home-admin.html";

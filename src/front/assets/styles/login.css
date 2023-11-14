@@ -12,6 +12,7 @@ body{
 .container{
     width: 100vw;
     height: 100vh;
+    padding: 0;
 }
 .forms-login{
     display: flex;
@@ -130,8 +131,8 @@ input[type="checkbox"] {
     align-items: center;
     justify-content: space-between;
     float: left;
-    width: 776px;
-    height: 776px;
+    width: 50vw;
+    height: 100vh;
     shape-outside: circle(50% at 30%);
     clip-path: circle(51% at 5%);
     background: #0367A6;
@@ -162,10 +163,10 @@ dialog {
         justify-content: space-between;
         margin: 0;
     }
-    #circulo{
+    /* #circulo{
         max-width: 800px;
         max-height: 800px;
-    }
+    } */
     .forms-login{
         margin-top: 75px;
         max-width: 320px;
