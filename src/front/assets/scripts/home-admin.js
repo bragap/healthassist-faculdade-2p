@@ -1,5 +1,5 @@
 // elements
-const painelDoutor  = document.querySelector('#painel-doctor');
+const painelDoutor = document.querySelector('#painel-doctor');
 const painelPaciente = document.querySelector('#painel-paciente');
 let listDoctors = "";
 let listPatients = "";
@@ -15,11 +15,11 @@ const url = "https://jsonplaceholder.typicode.com/users"
 
 // get de todos os médicos
 axios.get(url)
-.then(response => {
-    const dados = response.data;
+    .then(response => {
+        const dados = response.data;
 
-    dados.forEach((doctor) => {
-        listDoctors+=`
+        dados.forEach((doctor) => {
+            listDoctors += `
         <div id="card-section">
                     <div id="card-conteudo">
                         <div id="card-esquerda">
@@ -40,19 +40,19 @@ axios.get(url)
                 </div>
 
         `;
-      
-})
-painelDoutor.innerHTML = listDoctors;
-})
-  
+
+        })
+        painelDoutor.innerHTML = listDoctors;
+    })
+
 // get de todos os pacientes
 axios.get(url)
-.then(response => {
-    const dados = response.data;
+    .then(response => {
+        const dados = response.data;
 
-    dados.forEach((doctor) => {
-       
-        listPatients+=`
+        dados.forEach((doctor) => {
+
+            listPatients += `
     <div id="card-section">
         <div id="card-conteudo">
             <div id="card-esquerda">
@@ -69,9 +69,25 @@ axios.get(url)
         </div>
     </div>
         `
-})
-painelPaciente.innerHTML = listPatients;
-})
-  
+        })
+        painelPaciente.innerHTML = listPatients;
+    })
+
+// exibiçao tela de loading
+function showLoading() {
+
+    document.getElementById('loading').style.display = 'flex';
+
+    setTimeout(function () {
+        document.getElementById('loading').style.display = 'none';
+
+    }, 2000);
+}
+function redirectTo(destination) {
+    showLoading();
+    setTimeout(function () {
+        window.location.href = destination;
+    }, 2000);
+}
 
 // PUT, DELETE a serem implementados

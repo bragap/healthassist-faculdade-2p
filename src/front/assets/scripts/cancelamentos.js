@@ -11,12 +11,12 @@ const url = "https://jsonplaceholder.typicode.com/users"
 
 // get de todas os cancelamentos de consultas
 axios.get(url)
-.then(response => {
+  .then(response => {
     const dados = response.data;
 
     dados.forEach((consulta) => {
-       
-        listConsultas+=`
+
+      listConsultas += `
   <div id="card-individual">
     <div id="card-conteudo">
         <div id=card-title> Consulta ${consulta.id} </div>
@@ -34,9 +34,26 @@ axios.get(url)
   </div>
 
         `
-})
-painel.innerHTML = listConsultas;
-})
+    })
+    painel.innerHTML = listConsultas;
+  })
 
 
 // PUT será inserido
+
+// exibiçao tela de loading
+function showLoading() {
+
+  document.getElementById('loading').style.display = 'flex';
+
+  setTimeout(function () {
+    document.getElementById('loading').style.display = 'none';
+
+  }, 2000);
+}
+function redirectTo(destination) {
+  showLoading();
+  setTimeout(function () {
+    window.location.href = destination;
+  }, 2000);
+}

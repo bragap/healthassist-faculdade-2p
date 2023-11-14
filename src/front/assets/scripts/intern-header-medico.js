@@ -145,8 +145,8 @@ class InterHeaderMedico extends HTMLElement {
             <ul class="nav-list">
               <li><a href="home-medico.html">Início</a></li>
               <li><a href="agenda.html">Agenda</a></li>
-              <li><a href="#">Perfil</a></li>
-              <li><a href="home-geral.html">Sair</a></li>
+              <li><a href="perfil-medico.html">Perfil</a></li>
+              <li><a href="#" onclick="redirectTo('home-geral.html')">Sair</a></li>
               </ul>
           </nav>
         </header>

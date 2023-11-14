@@ -11,7 +11,7 @@
   <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js'></script>
   <script src="https://unpkg.com/scrollreveal@4"></script>
   <script>
-      ScrollReveal({ duration: 900 })
+    ScrollReveal({ duration: 900 })
   </script>
   <script>
 
@@ -96,9 +96,34 @@
   </section>
 
 
+
+  <!-- Tela de loading -->
+  <div id="loading">
+    <div class="loader"></div>
+  </div>
+
+
   <script>
+    // exibiçao tela de loading
+    function showLoading() {
+
+      document.getElementById('loading').style.display = 'flex';
+
+      setTimeout(function () {
+        document.getElementById('loading').style.display = 'none';
+
+      }, 2000);
+    }
+    function redirectTo(destination) {
+      showLoading();
+      setTimeout(function () {
+        window.location.href = destination;
+      }, 2000);
+    }
+
     ScrollReveal().reveal('.headline')
-</script>
+  </script>
+
   <script src="./assets/scripts/intern-header-medico.js"></script>
 </body>
 

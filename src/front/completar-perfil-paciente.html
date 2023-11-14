@@ -15,7 +15,9 @@
 <body>
 
     <div class="container">
-        <div id="circulo"><img src="./assets/images/logo-v5.png" alt="logo v5"></div>
+        <div id="circulo" class="animate__animated animate__fadeInDownBig ">
+            <img src="./assets/images/logo-v5.png" alt="logo v5">
+        </div>
         <div class="forms animate__animated animate__fadeInDownBig  ">
             <form method="post" action="/usuario/id/paciente" id="pacienteForm">
 
@@ -36,7 +38,8 @@
                     <div class="form-grid-item">
                         <label class="form-grid-item-label" for="nome">Envie documentos *</label>
                         <div class="input-group mb-3">
-                            <input type="file" class="form-control" name="nome_arquivo" id="inputGroupFile" onchange="displayFileName(this)" />
+                            <input type="file" class="form-control" name="nome_arquivo" id="inputGroupFile"
+                                onchange="displayFileName(this)" />
                             <label class="input-group-text" for="inputGroupFile">Upload</label>
                             <p id="fileNameDisplay">Nenhum arquivo selecionado</p>
                         </div>
@@ -52,11 +55,14 @@
                 </button>
 
             </form>
-
-
-
         </div>
     </div>
+
+    
+  <div id="loading">
+    <div class="loader"></div>
+  </div>
+
     <script src="./assets/scripts/cadastrar-perfil-paciente.js"></script>
 </body>
 

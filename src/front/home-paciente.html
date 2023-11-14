@@ -11,7 +11,7 @@
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="https://unpkg.com/scrollreveal@4"></script>
   <script>
-      ScrollReveal({ duration: 900 })
+    ScrollReveal({ duration: 900 })
   </script>
 </head>
 
@@ -28,7 +28,7 @@
         <input type="text" placeholder="Nome do médico">
         <select id="especialidadeSelect">
           <option selected>Especialidade</option>
-          
+
         </select>
       </div>
     </section>
@@ -40,11 +40,11 @@
       <div id="cards-section"></div>
 
     </section>
-    
+
     <dialog id="modal">
 
       <div id="header-modal">
-        <h4>Nome do médico </h4> 
+        <h4>Nome do médico </h4>
         <p>Especialidade do médico</p>
         <button id="btn-close-modal">X</button>
       </div>
@@ -120,14 +120,21 @@
 
   <!-- Termina conteúdo da página-->
 
+  <!-- Tela de loading -->
+  <div id="loading">
+    <div class="loader"></div>
+  </div>
+
+
+
   <footer-home></footer-home>
   <script>
     ScrollReveal().reveal('.headline')
     ScrollReveal().reveal('.tagline', { delay: 400 })
-</script>
+  </script>
+  <script src="./assets/scripts/home-paciente.js"></script>
   <script src="./assets/scripts/footer-home-geral.js"></script>
   <script src="./assets/scripts/intern-header-paciente.js"></script>
-  <script src="./assets/scripts/home-paciente.js"></script>
 </body>
 
 </html>

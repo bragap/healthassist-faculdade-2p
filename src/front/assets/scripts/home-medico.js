@@ -16,13 +16,13 @@ const url = 'https://jsonplaceholder.typicode.com/users';
 
 // puxar elementos da api das proximas consultas
 axios.get(url)
-.then(response => {
+  .then(response => {
 
     const dados = response.data;
 
     dados.forEach(user => {
-        let listaConsultas = "";
-        listaConsultas += `
+      let listaConsultas = "";
+      listaConsultas += `
         <div class="card-consulta">
             <span name="nome_do_paciente" value="nome do paciente">Nome do Paciente: ${user.name}</span>
             <span name="email_do_paciente" value="email do paciente">E-mail do Paciente: ${user.email}</span>
@@ -38,18 +38,18 @@ axios.get(url)
             </svg>
         </div>
         `;
-        
-        cardPainel.innerHTML += listaConsultas;
 
-     }  )
-})
-.catch(error => {
+      cardPainel.innerHTML += listaConsultas;
+
+    })
+  })
+  .catch(error => {
     console.log(error);
-})
+  })
 
 // puxar elementos da api para atualizar consultas   
 axios.get(url)
-.then(response => {
+  .then(response => {
     const dados = response.data;
 
     dados.forEach(user => {
@@ -78,34 +78,52 @@ axios.get(url)
     // abrir modal
     const buttonModal = document.querySelectorAll('.button-modal');
     buttonModal.forEach(buttonModal => {
-        buttonModal.addEventListener('click', function () {
-          modal.showModal();
-            nomePaciente.innerHTML = buttonModal.getAttribute('value');
-        });
+      buttonModal.addEventListener('click', function () {
+        modal.showModal();
+        nomePaciente.innerHTML = buttonModal.getAttribute('value');
       });
+    });
 
-})
+  })
 
 
 
 // formulario de envio da anamnese
 form.addEventListener('submit', (e) => {
 
-    e.preventDefault();
+  e.preventDefault();
 
 });
 
 const formsSucess = () => {
 
-    const textSucess = document.querySelector(".text-sucess");
+  const textSucess = document.querySelector(".text-sucess");
 
-    textSucess.innerHTML = "Prontuário atualizado com sucesso!";
+  textSucess.innerHTML = "Prontuário atualizado com sucesso!";
 }
 
 //fechar modal
-btnClose.addEventListener("click", () => {  
+btnClose.addEventListener("click", () => {
 
-    modal.close();
-    
-    window.location.reload();
-}   );
+  modal.close();
+
+  window.location.reload();
+});
+
+
+// exibiçao tela de loading
+function showLoading() {
+
+  document.getElementById('loading').style.display = 'flex';
+
+  setTimeout(function () {
+    document.getElementById('loading').style.display = 'none';
+
+  }, 2000);
+}
+function redirectTo(destination) {
+  showLoading();
+  setTimeout(function () {
+    window.location.href = destination;
+  }, 2000);
+}

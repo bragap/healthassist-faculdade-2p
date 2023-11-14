@@ -31,8 +31,8 @@ h2 {
     align-items: center;
     justify-content: space-between;
     float: left;
-    width: 775px;
-    height: 775px;
+    width: 50vw;
+    height: 100vh;
     shape-outside: circle(50% at 30%);
     clip-path: circle(51% at 5%);
     background: #fff;

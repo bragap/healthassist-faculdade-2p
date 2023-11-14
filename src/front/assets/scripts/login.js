@@ -51,14 +51,22 @@ formLogin.addEventListener('submit', (e) => {
                 const idUsuario = dados.id;
 
                 if (tipoUsuario === "PACIENTE") {
-                  //  window.location.href=`/id=${idUsuario}/completar-perfil-paciente.html}`
-                    window.location.href = "completar-perfil-paciente.html";
+                    showLoading();
+                    setTimeout(function () {
+                        //  window.location.href=`/id=${idUsuario}/completar-perfil-paciente.html}`
+                          window.location.href = "completar-perfil-paciente.html";
+                    },1000);
                 } else if (tipoUsuario === "MEDICO") {
+                    showLoading();
+                    setTimeout(function () {
                   //  window.location.href=`/id=${idUsuario}/completar-perfil-medico.html}`
                     window.location.href = "completar-perfil-medico.html";
+                    })
                 } else {
+                    setTimeout(function () {
+                    showLoading();
                     window.location.href = "home-admin.html";
-                }
+                })}
             })
             .catch((error) => {
                 if (error.response) {
@@ -251,4 +259,15 @@ function generateUniqueId() {
     const uniqueId = `${nextUserId}`;
     nextUserId++;
     return uniqueId;
+}
+
+// exibir tela de loading
+function showLoading() {
+
+    document.getElementById('loading').style.display = 'flex';
+
+    setTimeout(function () {
+        document.getElementById('loading').style.display = 'none';
+
+    }, 1000); 
 }

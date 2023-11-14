@@ -147,7 +147,7 @@ class InterHeaderAdmin extends HTMLElement {
               <li><a href="home-admin.html">Início</a></li>
               <li><a href="cancelamentos.html">Cancelamentos</a></li>
               <li><a href="relatorio-avaliacoes.html">Relatórios</a></li>
-              <li><a href="home-geral.html">Sair</a></li>
+              <li><a href="#" onclick="redirectTo('home-geral.html')">Sair</a></li>
               </ul>
           </nav>
         </header>
