@@ -1,12 +1,14 @@
+
 main{
     padding-top: 170px;
-    height: 90%;
     display: flex;
+    height: 100vh;
     justify-content: center;
     flex-wrap: wrap;
     text-align: center;
     width: 90%;
     margin: 0 auto;
+    align-items: start;
 }
 #painel-doctor{
     display: flex;
@@ -28,6 +30,7 @@ main h2{
 #confirmacoes-layout{
     width: 70%;
     margin: 0 auto;
+    margin-top: -350px;
     display: flex;
     flex-direction: row;
     justify-content: space-around;

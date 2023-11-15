@@ -7,10 +7,11 @@ const formLoginPaciente = document.getElementById("form-login-paciente");
 const cardPainel = document.querySelector("#painel-consultas");
 const tablePainel = document.querySelector("#exibe-consultas");
 const nomePaciente = document.getElementById("nome-paciente");
+let consultaId = 0;
+let pacienteId = 0;
+let medicoId = 0;
 
 //endpoints
-const url = 'https://jsonplaceholder.typicode.com/users';
-
 const urlConsultas = "http://localhost:8080/consulta";
 
 // id do usuario
@@ -22,18 +23,19 @@ const idUsuario = localStorage.getItem('idUsuario');
 axios.get(urlConsultas)
   .then(response => {
     const dados = response.data;
-    const dadosFiltrados = dados.filter(consulta => consulta.medico.id == idUsuario);
+    const dadosFiltrados = dados.filter(consulta => consulta.medico.usuario.id == idUsuario);
     let listConsults = ""
 
     if (dadosFiltrados.length === 0) {
-      // Se não houver consultas cadastradas para o paciente, exiba uma mensagem de aviso
+
       const cardConsultas = document.getElementById("card-consultas");
       cardConsultas.innerHTML = "<p>Nenhuma consulta cadastrada.</p>";
-      return; // Encerra a execução da função
+      return;
     }
 
     dadosFiltrados.forEach(user => {
-      listConsults += `
+      if (!user.respostaAnamnese) {
+        listConsults += `
         <div class="card-consulta">
             <span name="nome_do_paciente" value="nome do paciente">Nome do Paciente: ${user.paciente.nomeCompleto}</span>
             <span name="data_da_consulta" value="data da consulta">Data de Nascimento : ${user.paciente.dataNasc}</span>
@@ -49,69 +51,148 @@ axios.get(urlConsultas)
             </svg>
         </div>
         `;
-
-      cardPainel.innerHTML += listConsults;
-
+      }
     })
+    // Adicionar a lista de consultas apenas se houver alguma consulta sem resposta de anamnese
+    if (listConsults !== "") {
+      cardPainel.innerHTML += listConsults;
+    } else {
+      const cardConsultas = document.getElementById("card-consultas");
+      cardConsultas.innerHTML = "<p>Você não possui consultas marcadas.</p>";
+    }
   })
+
   .catch(error => {
     console.log(error);
   })
+
 
 // puxar elementos da api para atualizar consultas   
 axios.get(urlConsultas)
   .then(response => {
     const dados = response.data;
-    const dadosFiltrados = dados.filter(consulta => consulta.medico.id == idUsuario);
-    let listConsults = ""
+    const dadosFiltrados = dados.filter(consulta => consulta.medico.usuario.id == idUsuario);
+    let listConsults = "";
 
     if (dadosFiltrados.length === 0) {
-      // Se não houver consultas cadastradas para o paciente, exiba uma mensagem de aviso
       const cardConsultas = document.getElementById("card-consultas");
-      cardConsultas.innerHTML = "<p>Nenhuma consulta cadastrada.</p>";
-      return; // Encerra a execução da função
+      cardConsultas.innerHTML = "<p>Você não possui consultas marcadas.</p>";
+      return;
     }
 
     dadosFiltrados.forEach(user => {
-      listConsults += `
-      <tr>
-      <td>${user.id}</td>
-      <td>${user.paciente.nomeCompleto}</td>
-      <td>${user.paciente.dataNasc}</td>
-      <td>${user.dataHoraConsulta}</td>
-      <td class="icon-container">
-        <svg value=${user.id} class="button-modal" width="20" height="20" viewBox="0 0 20 20" fill="none"
-          xmlns="http://www.w3.org/2000/svg">
-          <rect width="20.0001" height="20.0001" rx="2.66667" fill="#34AFF9" />
-          <path
-            d="M9.47289 6.05427H5.99398C5.73036 6.05427 5.47754 6.15899 5.29113 6.3454C5.10472 6.53181 5 6.78463 5 7.04825V14.0061C5 14.2697 5.10472 14.5225 5.29113 14.7089C5.47754 14.8953 5.73036 15.0001 5.99398 15.0001H12.9518C13.2154 15.0001 13.4683 14.8953 13.6547 14.7089C13.8411 14.5225 13.9458 14.2697 13.9458 14.0061V10.5272M13.2003 5.30879C13.398 5.11107 13.6662 5 13.9458 5C14.2254 5 14.4936 5.11107 14.6913 5.30879C14.889 5.5065 15.0001 5.77466 15.0001 6.05427C15.0001 6.33388 14.889 6.60204 14.6913 6.79975L9.96988 11.5211L7.98193 12.0181L8.47892 10.0302L13.2003 5.30879Z"
-            stroke="white" stroke-linecap="round" stroke-linejoin="round" />
-        </svg>
-      </td>
-    </tr>
-      `;
-      tablePainel.innerHTML += listConsults;
+      if (!user.respostaAnamnese) {
+        listConsults += `
+          <tr>
+            <td>${user.id}</td>
+            <td>${user.paciente.nomeCompleto}</td>
+            <td>${user.paciente.dataNasc}</td>
+            <td>${user.dataHoraConsulta}</td>
+            <td class="icon-container">
+              <svg data-id=${user.id} data-paciente-id=${user.paciente.id} data-medico-id=${user.medico.id} value=${user.paciente.nomeCompleto} class="button-modal" width="20" height="20" viewBox="0 0 20 20" fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <rect width="20.0001" height="20.0001" rx="2.66667" fill="#34AFF9" />
+                <path
+                  d="M9.47289 6.05427H5.99398C5.73036 6.05427 5.47754 6.15899 5.29113 6.3454C5.10472 6.53181 5 6.78463 5 7.04825V14.0061C5 14.2697 5.10472 14.5225 5.29113 14.7089C5.47754 14.8953 5.73036 15.0001 5.99398 15.0001H12.9518C13.2154 15.0001 13.4683 14.8953 13.6547 14.7089C13.8411 14.5225 13.9458 14.2697 13.9458 14.0061V10.5272M13.2003 5.30879C13.398 5.11107 13.6662 5 13.9458 5C14.2254 5 14.4936 5.11107 14.6913 5.30879C14.889 5.5065 15.0001 5.77466 15.0001 6.05427C15.0001 6.33388 14.889 6.60204 14.6913 6.79975L9.96988 11.5211L7.98193 12.0181L8.47892 10.0302L13.2003 5.30879Z"
+                  stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </td>
+          </tr>
+        `;
+      }
     });
 
+    // Adicionar a lista de consultas apenas se houver alguma consulta sem resposta de anamnese
+    if (listConsults !== "") {
+      tablePainel.innerHTML += listConsults;
+    } else {
+      const card = document.getElementById("card-consultas-2");
+      card.innerHTML = "<p>Você não possui consultas marcadas.</p>";
+    }
     // abrir modal
     const buttonModal = document.querySelectorAll('.button-modal');
     buttonModal.forEach(buttonModal => {
       buttonModal.addEventListener('click', function () {
+        consultaId = buttonModal.getAttribute('data-id');
+        pacienteId = buttonModal.getAttribute('data-paciente-id');
+        medicoId = buttonModal.getAttribute('data-medico-id');
+  
         modal.showModal();
         nomePaciente.innerHTML = buttonModal.getAttribute('value');
       });
     });
 
+
   })
+  .catch(error => {
+    console.log(error);
+  });
+
 
 
 
 // formulario de envio da anamnese
 form.addEventListener('submit', (e) => {
 
+  const now = new Date();
+
+  const formattedDate = `${padZero(now.getDate())}/${padZero(now.getMonth() + 1)}/${now.getFullYear()}`;
+
+
+  const formattedTime = `${padZero(now.getHours())}:${padZero(now.getMinutes())}`;
+
+  const dataHoraConsulta = `${formattedDate} ${formattedTime}`;
+
+  // Função para garantir que o número tenha dois dígitos (p.ex., 1 se torna 01)
+  function padZero(number) {
+    return number.toString().padStart(2, '0');
+  }
+
+  const idMedico = parseInt(medicoId, 10);
+  const idPaciente = parseInt(pacienteId, 10);
+  const idConsulta = parseInt(consultaId, 10);
+
+  const textareaValue = document.getElementById('textarea').value;
+
+  const dados = {
+    idMedico: idMedico,
+    idPaciente: idPaciente,
+    dataHoraConsulta: dataHoraConsulta,
+    respostaAnamnese: textareaValue,
+  }
+
+
   e.preventDefault();
 
+
+  axios.put(`${urlConsultas}/${idConsulta}`, dados)
+    .then(response => {
+      alert("Anamnese cadastrada com sucesso!");
+    })
+
+    .catch(error => {
+      console.error('Erro ao cadastrar anamnese:', error);
+
+      if (error.response) {
+        console.log("Data:", error.response.data);
+        console.log("Status:", error.response.status);
+        console.log("Headers:", error.response.headers);
+
+        // Adicione a linha abaixo para imprimir a mensagem de erro específica do servidor
+        console.log("Response Data:", error.response.data);
+
+      } else if (error.request) {
+        console.log("Request:", error.request);
+      } else {
+        console.log("Error:", error.message);
+      }
+      console.log("Config:", error.config);
+
+      alert('Erro ao cadastrar anamnese. Verifique o console para mais detalhes.');
+    });
+
 });
+
 
 const formsSucess = () => {
 
@@ -125,7 +206,6 @@ btnClose.addEventListener("click", () => {
 
   modal.close();
 
-  window.location.reload();
 });
 
 

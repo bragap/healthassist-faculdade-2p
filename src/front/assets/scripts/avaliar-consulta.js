@@ -5,14 +5,17 @@ const cardConsultas = document.querySelectorAll('.card-consulta');
 const secaoAvaliacao = document.querySelector('.secao-avaliacao');
 
 // elements
+const formAvaliacao = document.getElementById('form-avaliacao');
+const selectElement = document.getElementById("selectAvaliacao");
+const textArea = document.getElementById("box-comment");
 
 // id do usuario
 const idUsuario = localStorage.getItem('idUsuario');
+let consultaId = 0;
 
 // endpoints
-const url = 'http://localhost:8080/medico';
-
 const urlConsultas = "http://localhost:8080/consulta";
+const urlAvaliacao = "http://localhost:8080/avaliar-consulta";
 
 
 // FUNÇÕES
@@ -21,26 +24,28 @@ const urlConsultas = "http://localhost:8080/consulta";
 axios.get(urlConsultas)
   .then(response => {
     const dados = response.data;
-    const dadosFiltrados = dados.filter(consulta => consulta.paciente.id == idUsuario);
+
+    // Filtra as consultas do paciente
+    const dadosFiltrados = dados.filter(consulta => consulta.paciente.usuario.id == idUsuario && !consulta.respostaAnamnese);
     let listConsults = ""
 
-    
+
     if (dadosFiltrados.length === 0) {
       // Se não houver consultas cadastradas para o paciente, exiba uma mensagem de aviso
       const cardConsultas = document.getElementById("card-consultas");
-      cardConsultas.innerHTML = "<p>Nenhuma consulta cadastrada.</p>";
+      cardConsultas.innerHTML = "<p>Nenhuma consulta cadastrada</p>";
       return; // Encerra a execução da função
     }
 
-
-    dadosFiltrados.forEach(doctors => {
+    dadosFiltrados.forEach(consulta => {
       listConsults += `
-        <div class="card-consulta" data-consulta-id="${doctors.id}">
-          <span name="nome_do_medico" id="nome-medico" value="${doctors.id}">Dr. ${doctors.medico.nomeCompleto}</span>
-          <span name="email_do_medico" value="${doctors.id}">Especialidade: ${doctors.medico.especialidadeMedico.especialidade}</span>
-          <span name="data_da_consulta" value="${doctors.id}">Data da Consulta: ${doctors.dataHoraConsulta}</span>
+        <div class="card-consulta" data-consulta-id="${consulta.id}">
+          <span name="nome_do_medico" id="nome-medico" value="${consulta.id}">Dr. ${consulta.medico.nomeCompleto}</span>
+          <span name="email_do_medico" value="${consulta.id}">Especialidade: ${consulta.medico.especialidadeMedico.especialidade}</span>
+          <span name="data_da_consulta" value="${consulta.id}">Data da Consulta: ${consulta.dataHoraConsulta}</span>
         </div>
       `;
+      consultaId = consulta.id;
     })
 
 
@@ -72,16 +77,49 @@ function showLoading() {
   document.getElementById('loading').style.display = 'flex';
 
   setTimeout(function () {
-      document.getElementById('loading').style.display = 'none';
+    document.getElementById('loading').style.display = 'none';
 
   }, 2000);
 }
 function redirectTo(destination) {
   showLoading();
   setTimeout(function () {
-      window.location.href = destination;
+    window.location.href = destination;
   }, 2000);
 }
+
+// enviar avaliação
+
+selectElement.addEventListener("change", function (e) {
+  var titulo = this.options[this.selectedIndex].value;
+  console.log(titulo);
+});
+
+
+formAvaliacao.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const dados = {
+    titulo: selectElement.value,
+    comentario: textArea.value,
+    id_consulta: consultaId
+  }
+  
+  axios.post(urlAvaliacao, dados)
+  .then(response => {
+    console.log(response);
+    alert("Avaliação enviada com sucesso!");
+    redirectTo("home-paciente.html");
+  })
+  .catch(error => {
+    console.log(error);
+    alert("Erro ao enviar avaliação!");
+  })
+
+})
+
+
+
+
 
 
 

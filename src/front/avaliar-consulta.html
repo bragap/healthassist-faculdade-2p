@@ -29,19 +29,20 @@
 
         <p id="consulta-identificacao"></p>
 
-        <div class="form-grid-item">
-          <div class="select-container">
-            <select class="form-select" aria-label="">
-              <option selected>Selecione o tipo de avaliação</option>
-              <option name="atendimento_medico" value="atendimento medico">
+        <form method="post" action="http://localhost:8080	/avaliar-consulta" id="form-avaliacao">
+
+          <div class="form-grid-item">
+            <div class="select-container">
+            <select id="selectAvaliacao" value="" class="form-select" aria-label="">
+              <option selected value="">Selecione o tipo de avaliação</option>
+              <option name="atendimento_medico" value="Atendimento do médico">
                 Atendimento do médico
               </option>
-              <option name="atendimento_da_clinica" value="atendimento da clinica">Atendimento da clínica</option>
-              <option name="criticas_e_sugestoes" value="criticas e sugestoes">Críticas e sugetões</option>
+              <option name="atendimento_da_clinica" value="Atendimento da Clínica">Atendimento da clínica</option>
+              <option name="criticas_e_sugestoes" value="Criticas e Sugestões">Críticas e sugetões</option>
             </select>
           </div>
         </div>
-
 
         <textarea
           name="Comentario"
@@ -49,7 +50,9 @@
           placeholder="Comentário:"
         ></textarea>
         
-        <button>Enviar avaliação</button>
+        <button type="submit">Enviar avaliação</button>
+
+      </form>
 
       </section>
     </main>

@@ -20,6 +20,7 @@
 
   <main>
     <h2 class="headline">Próximas Consultas</h2>
+    <div id="card-consultas"></div>
     <div class="card-consultas tagline">
 
 
@@ -32,6 +33,7 @@
 
 
       <h2 class="headline">Atualizar Consultas</h2>
+      <div id="card-consultas-2"></div>
 
 
 
@@ -67,12 +69,12 @@
   <dialog id="modal">
     <form action="" method="post" id="form-prontuario">
       <div class="header-modal">
-        <h2 id="nome-paciente"> </h2>
+        <h2 id="nome-paciente"></h2>
         <button id="btn-close-modal">X</button>
       </div>
 
       <div class="form-control">
-        <input type="text" placeholder="Resultados da anamnese" />
+        <textarea name="textarea" id="textarea" cols="30" rows="10"></textarea>
       </div>
       <button type="submit" class="btn-cadastrar">
         Atualizar prontuário

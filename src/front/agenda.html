@@ -10,81 +10,11 @@
   <link rel="stylesheet" href="./assets/styles/agenda.css" />
   <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.9/index.global.min.js'></script>
   <script src="https://unpkg.com/scrollreveal@4"></script>
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="./assets/scripts/agenda.js"></script>
   <script>
     ScrollReveal({ duration: 900 })
   </script>
-  <script>
-
-    data = [
-      {
-        title: 'João Ricardo',
-        start: '2023-11-16T10:00:00'
-
-      },
-      {
-        title: 'Roberto Davila',
-        start: '2023-11-16T07:00:00'
-      },
-
-      {
-        title: 'João Costa',
-        start: '2023-11-16T08:00:00'
-      },
-      {
-        title: 'Adalberto da Silva',
-        start: '2023-11-19T09:00:00'
-      },
-      {
-        title: 'João Costa',
-        start: '2023-11-10T07:00:00'
-      },
-      {
-        title: 'Rose Gouveia',
-        start: '2023-11-03T12:00:00'
-      },
-      {
-        title: 'Rose Gouveia',
-        start: '2023-12-01T11:00:00'
-      },
-      {
-        title: 'Rose Gouveia',
-        start: '2023-11-14T10:00:00'
-      },
-      {
-        title: 'Rose Gouveia',
-        start: '2023-11-18T08:00:00'
-      },
-      {
-        title: 'Rose Gouveia',
-        start: '2023-11-22T09:00:00'
-      }
-    ]
-
-    document.addEventListener('DOMContentLoaded', function () {
-      var calendarEl = document.getElementById('calendar');
-
-      var calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'dayGridMonth',
-        headerToolbar: {
-          left: 'prev,next today',
-          center: 'title',
-          right: 'dayGridMonth,timeGridWeek,timeGridDay'
-        }
-      });
-
-      for (const event of data) {
-        calendar.addEvent(event);
-      }
-
-
-      calendar.render();
-    });
-
-
-  </script>
-
-
-
 
 <body>
 
@@ -95,8 +25,6 @@
     <div id='calendar' class="headline"></div>
   </section>
 
-
-
   <!-- Tela de loading -->
   <div id="loading">
     <div class="loader"></div>
@@ -104,22 +32,6 @@
 
 
   <script>
-    // exibiçao tela de loading
-    function showLoading() {
-
-      document.getElementById('loading').style.display = 'flex';
-
-      setTimeout(function () {
-        document.getElementById('loading').style.display = 'none';
-
-      }, 2000);
-    }
-    function redirectTo(destination) {
-      showLoading();
-      setTimeout(function () {
-        window.location.href = destination;
-      }, 2000);
-    }
 
     ScrollReveal().reveal('.headline')
   </script>

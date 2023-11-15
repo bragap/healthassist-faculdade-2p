@@ -4,7 +4,6 @@ let listaAvaliacoes = "";
 
 
 // endpoints
-const url = "https://jsonplaceholder.typicode.com/users"
 
 const endpointAvaliarConsulta = "http://localhost:8080/avaliar-consulta"
 
@@ -13,7 +12,7 @@ const endpointAvaliarConsulta = "http://localhost:8080/avaliar-consulta"
 
 
 // get de todas as avaliações
-axios.get(url)
+axios.get(endpointAvaliarConsulta)
 .then(response => {
     const dados = response.data;
 
@@ -24,29 +23,21 @@ axios.get(url)
   <div id="lista-conteudo">
          <p id="relatorio-titulo">Consulta ${avaliacoes.id} </p>
          <div id="box-esquerda">
-          <p>Avaliação do Tipo:</p>
+          <p>Avaliação do Tipo: ${avaliacoes.titulo}</p>
         </div>
         <div id="box-direita">
           <p>Comentário:</p>
-          <p>O médico teve uma postura excelente durante a consulta, me tratando muito bem, sendo respeitoso, cuidadoso.
-            Nota 10!!</p>
+          <p>${avaliacoes.comentario}</p>
         </div> 
     </div>
             `
- 
         
 })
 painel.innerHTML = listaAvaliacoes;
 })
 
 
-// post de avaliação
-axios.post(endpointAvaliarConsulta, {
 
-  
-}
-
-  )
 
 // exibiçao tela de loading
 function showLoading() {
