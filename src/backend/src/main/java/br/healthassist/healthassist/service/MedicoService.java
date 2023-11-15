@@ -1,5 +1,6 @@
 package br.healthassist.healthassist.service;
 
+import br.healthassist.healthassist.controller.dto.AtualizarStatusDto;
 import br.healthassist.healthassist.model.entity.Medico;
 
 import java.util.List;
@@ -11,9 +12,9 @@ public interface MedicoService {
 
     List<Medico> findAllMedico();
 
-    Optional<Medico> finfById(Long id);
+    Optional<Medico> findById(Long id);
 
-    Medico atualizar(Medico medico);
+    public Medico updateStatusMedico(Long id, AtualizarStatusDto dto);
 
     void validar(Medico medico);
 

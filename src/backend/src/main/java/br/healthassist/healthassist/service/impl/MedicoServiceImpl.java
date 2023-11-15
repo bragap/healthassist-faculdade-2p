@@ -1,11 +1,14 @@
 package br.healthassist.healthassist.service.impl;
 
+import br.healthassist.healthassist.controller.dto.AtualizarStatusDto;
 import br.healthassist.healthassist.exception.RegraNegocioException;
 import br.healthassist.healthassist.model.entity.Medico;
 import br.healthassist.healthassist.model.repository.MedicoRepository;
 import br.healthassist.healthassist.service.MedicoService;
 import lombok.RequiredArgsConstructor;
 import org.apache.catalina.User;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -34,15 +37,13 @@ public class MedicoServiceImpl implements MedicoService {
     }
 
     @Override
-    public Optional<Medico> finfById(Long id) {
+    public Optional<Medico> findById(Long id) {
         return medicoRepository.findById(id);
     }
 
     @Override
-    public Medico atualizar(Medico medico) {
-        Objects.requireNonNull(medico.getId());
-        validar(medico);
-        return medicoRepository.save(medico);
+    public Medico updateStatusMedico(Long id, AtualizarStatusDto dto) {
+        return null;
     }
 
     @Override

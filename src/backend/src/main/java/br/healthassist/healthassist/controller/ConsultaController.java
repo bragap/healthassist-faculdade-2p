@@ -86,7 +86,7 @@ public class ConsultaController {
 
 
         Paciente paciente = pacienteService.findPacienteById(dto.getIdPaciente());
-        Medico medico = medicoService.finfById(dto.getIdMedico())
+        Medico medico = medicoService.findById(dto.getIdMedico())
                                       .orElseThrow(() -> new RegraNegocioException("Médico não encontrado para o id informado"));
 
         return  Consulta.builder()

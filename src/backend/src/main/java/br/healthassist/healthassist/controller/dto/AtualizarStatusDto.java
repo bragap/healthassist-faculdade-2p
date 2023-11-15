@@ -5,6 +5,6 @@ import lombok.Data;
 @Data
 public class AtualizarStatusDto {
 
-    private boolean aprovacao;
+    private String aprovacao;
 
 }

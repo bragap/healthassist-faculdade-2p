@@ -60,6 +60,10 @@ public class PacienteServiceImpl implements PacienteService{
         return pacienteRepository.save(paciente);
     }
 
-    
+    @Override
+    public Optional<Paciente> findById(Long id) {
+        return pacienteRepository.findById(id);
+    }
+
 
 }

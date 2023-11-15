@@ -81,12 +81,21 @@ public class PacienteController {
 
     @PutMapping("/{id}/atualizar-status")
         public ResponseEntity alterarStatusPaciente(@PathVariable Long id, @RequestBody AtualizarStatusDto dto){
-            try{
-                Paciente paciente = AlterarStatus(id,dto);
-                return new ResponseEntity<>( paciente , HttpStatus.OK);
-            }catch(Exception e){
-                return ResponseEntity.badRequest().body(e.getMessage());
-            }
+            return pacienteService.findById(id).map( entity -> {
+                if("true".equalsIgnoreCase(dto.getAprovacao())){
+                    entity.setAprovacao(true);
+                    pacienteService.salvarPaciente(entity);
+                    return ResponseEntity.ok(entity);
+                } else if ("false".equalsIgnoreCase(dto.getAprovacao())) {
+                    entity.setAprovacao(false);
+                    pacienteService.salvarPaciente(entity);
+                    return ResponseEntity.ok(entity);
+                } else {
+                    return ResponseEntity
+                            .badRequest()
+                            .body("Envie um status válido (true/false)");
+                }
+            } ).orElseGet(() -> ResponseEntity.notFound().build());
     }
     
     private Paciente converterDto(PacienteDto dto){
@@ -113,10 +122,4 @@ public class PacienteController {
         return paciente;
     }
 
-    private Paciente AlterarStatus(Long id, AtualizarStatusDto dto){
-        Paciente paciente = pacienteService.findPacienteById(id);
-        paciente.setAprovacao(dto.isAprovacao());
-
-        return paciente;
-    }
 }
