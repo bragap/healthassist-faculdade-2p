@@ -23,15 +23,17 @@ let valid = true;
 let validLogin = true;
 let exemplo = {};
 let nextUserId = 1;
+let idUsuario = 0;
 
 // endpoints
 const endpointCadastroUsuario = "http://localhost:8080/usuario";
 const endpointLogin = "http://localhost:8080/usuario/login";
 
+
 // FUNÇÕES
 
 // formulario de login
-formLogin.addEventListener('submit', (e) => {
+formLogin.addEventListener('submit', async (e) => {
 
     e.preventDefault();
 
@@ -42,49 +44,48 @@ formLogin.addEventListener('submit', (e) => {
             email: usuarioLogin.value,
             senha: senhaLogin.value
         }
-        axios.post(endpointLogin, dadosLogin)
-            .then((response) => {
-                
-                const dados = response.data;
-                console.log(response.data, "response.data")
-                const tipoUsuario = dados.autorizacao;
-                const idUsuario = dados.id;
 
-                if (tipoUsuario === "PACIENTE") {
-                    showLoading();
-                    setTimeout(function () {
-                        //  window.location.href=`/id=${idUsuario}/completar-perfil-paciente.html}`
-                          window.location.href = "completar-perfil-paciente.html";
-                    },1000);
-                } else if (tipoUsuario === "MEDICO") {
-                    showLoading();
-                    setTimeout(function () {
-                  //  window.location.href=`/id=${idUsuario}/completar-perfil-medico.html}`
-                    window.location.href = "completar-perfil-medico.html";
-                    })
-                } else {
-                    setTimeout(function () {
+        try {
+            const response = await axios.post(endpointLogin, dadosLogin);
+            const dados = response.data;
+
+            const tipoUsuario = dados.autorizacao;
+
+            localStorage.setItem('idUsuario', dados.id);
+
+            if (tipoUsuario === "PACIENTE") {
+                showLoading();
+                setTimeout(function () {
+                    window.location.href = `completar-perfil-paciente.html`;
+                }, 1000);
+            } else if (tipoUsuario === "MEDICO") {
+                showLoading();
+                setTimeout(function () {
+                    window.location.href = `completar-perfil-medico.html`;
+                });
+            } else {
+                setTimeout(function () {
                     showLoading();
                     window.location.href = "home-admin.html";
-                })}
-            })
-            .catch((error) => {
-                if (error.response) {
-                    // O servidor retornou um código de status diferente de 2xx
-                    console.log("Data:", error.response.data);
-                    console.log("Status:", error.response.status);
-                    console.log("Headers:", error.response.headers);
-                } else if (error.request) {
-                    // A requisição foi feita, mas não recebeu resposta
-                    console.log("Request:", error.request);
-                } else {
-                    // Ocorreu um erro durante a configuração da requisição
-                    console.log("Error:", error.message);
-                }
-                console.log("Config:", error.config);
-            })
+                });
+            }
+        } catch (error) {
+            console.error('Erro ao fazer login:', error);
+            if (error.response) {
+                console.log("Data:", error.response.data);
+                console.log("Status:", error.response.status);
+                console.log("Headers:", error.response.headers);
+            } else if (error.request) {
+                console.log("Request:", error.request);
+            } else {
+                console.log("Error:", error.message);
+            }
+            console.log("Config:", error.config);
+        }
     }
-})
+});
+
+
 
 // verificar inputs da área de login
 const checkInputsLogin = () => {
@@ -269,5 +270,5 @@ function showLoading() {
     setTimeout(function () {
         document.getElementById('loading').style.display = 'none';
 
-    }, 1000); 
+    }, 1000);
 }

@@ -8,12 +8,32 @@ const form = document.querySelector('#medico-form');
 const codigoRegistro = document.querySelector('#codigo_de_registro');
 const disponibilidadeTable = document.getElementById('disponibilidadeTable');
 const rows = disponibilidadeTable.querySelectorAll('tr');
-const disponibilidade_de_horario = [];
+let disponibilidade_de_horario = [];
 
 //endpoints
 const url = "http://localhost:8080/medico";
 
+//id usuario
+const idUsuario = localStorage.getItem('idUsuario');
+
 // FUNÇÕES
+
+// get das especialidades
+axios.get('http://localhost:8080/especialidade-medico')
+    .then(response => {
+        const dados = response.data;
+        let listEspecialidades = "";
+
+        dados.forEach((especialidade) => {
+            if (especialidade.especialidade != null && especialidade != undefined) {
+                listEspecialidades += `
+            <option id="${especialidade.id}" value="${especialidade.id}">${especialidade.especialidade}</option>
+            `;
+            }
+        })
+        especialidade.innerHTML = listEspecialidades;
+    })
+
 
 // pegar os dados inseridos na disponibilidade de horario
 function enviarDisponibilidade() {
@@ -34,34 +54,47 @@ function enviarDisponibilidade() {
             });
         }
     });
-
 }
 
-// enviar para o backEnd
-form.addEventListener('submit', (e) => {
+// formulario de cadastro de medico
+form.addEventListener('submit', async (e) => {
+
+
     e.preventDefault();
 
-    const formData = new FormData();
-    formData.append('endereco', endereco.value);
-    formData.append('data_nasc', dataNascimento.value);
-    formData.append('codigo_de_registro', codigoRegistro.value);
-    formData.append('nome_completo', nomeCompleto.value);
-    formData.append('especialidade', especialidade.value);
-    formData.append('disponibilidade_de_horario', disponibilidade_de_horario);
-    formData.append('arquivo', arquivo);
+    const especialidadeSelecionada = especialidade ? especialidade.options[especialidade.selectedIndex].value : null;
 
-    axios.post(url, formData)
-        .then(function (response) {
-            console.log(response);
-            alert('Médico cadastrado com sucesso!');
-        })
-        .catch(function (error) {
-            console.log(error);
-            alert('Erro ao cadastrar Médico!');
-        });
-}
-)
+    console.log(especialidadeSelecionada, 'especialidadeSelecionada')
 
+    const dados = {
+        endereco: endereco.value,
+        data_nasc: dataNascimento.value,
+        codigo_de_registro: codigoRegistro.value,
+        id_especialidade_medico: especialidadeSelecionada,
+        nome_completo: nomeCompleto.value,
+        id_usuario: idUsuario
+    }
+
+    try{
+        const response = await axios.post(url, dados);
+        console.log(response);
+        alert('Médico cadastrado com sucesso!');
+    }catch (error) {
+        console.error('Erro ao cadastrar medico:', error);
+        if (error.response) {
+            console.log("Data:", error.response.data);
+            console.log("Status:", error.response.status);
+            console.log("Headers:", error.response.headers);
+        } else if (error.request) {
+            console.log("Request:", error.request);
+        } else {
+            console.log("Error:", error.message);
+        }
+        console.log("Config:", error.config);
+
+        alert('Erro ao cadastrar medico. Verifique o console para mais detalhes.');
+    };
+});
 
 
 //mudar nome do arquivo inserido

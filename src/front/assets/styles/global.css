@@ -210,3 +210,15 @@ table {
     }
   }
 
+#redirect-home{
+    text-decoration: none;
+    align-self: left;
+    text-align: left;
+    margin-top: 10px;
+    font-size: 1.2em;
+    color: #CDB3C0;
+}
+
+#redirect-home:hover{
+  color:#F5F5F7;
+}

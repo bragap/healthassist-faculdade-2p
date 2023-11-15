@@ -6,32 +6,44 @@ const secaoAvaliacao = document.querySelector('.secao-avaliacao');
 
 // elements
 
+// id do usuario
+const idUsuario = localStorage.getItem('idUsuario');
 
 // endpoints
 const url = 'http://localhost:8080/medico';
 
-const exemplo = 'https://jsonplaceholder.typicode.com/users'
-
+const urlConsultas = "http://localhost:8080/consulta";
 
 
 // FUNÇÕES
 
-axios.get(exemplo)
+// resgatar todas as consultas do paciente
+axios.get(urlConsultas)
   .then(response => {
     const dados = response.data;
-    console.log(dados, "dados");
+    const dadosFiltrados = dados.filter(consulta => consulta.paciente.id == idUsuario);
     let listConsults = ""
 
-    dados.forEach(doctors => {
+    
+    if (dadosFiltrados.length === 0) {
+      // Se não houver consultas cadastradas para o paciente, exiba uma mensagem de aviso
+      const cardConsultas = document.getElementById("card-consultas");
+      cardConsultas.innerHTML = "<p>Nenhuma consulta cadastrada.</p>";
+      return; // Encerra a execução da função
+    }
+
+
+    dadosFiltrados.forEach(doctors => {
       listConsults += `
         <div class="card-consulta" data-consulta-id="${doctors.id}">
-        <span name="nome_do_medico" id="nome-medico" value="${doctors.id}">Profissional: ${doctors.name}</span>
-        <span name="email_do_medico" value="${doctors.id}">Especialidade: ${doctors.email}</span>
-        <span name="data_da_consulta" value="${doctors.id}">Data da Consulta: ${doctors.username}</span>
+          <span name="nome_do_medico" id="nome-medico" value="${doctors.id}">Dr. ${doctors.medico.nomeCompleto}</span>
+          <span name="email_do_medico" value="${doctors.id}">Especialidade: ${doctors.medico.especialidadeMedico.especialidade}</span>
+          <span name="data_da_consulta" value="${doctors.id}">Data da Consulta: ${doctors.dataHoraConsulta}</span>
         </div>
-        ` ;
-    });
-    console.log(listConsults, "listConsults")
+      `;
+    })
+
+
 
     const cardConsultas = document.getElementById("card-consultas");
     cardConsultas.innerHTML = listConsults;

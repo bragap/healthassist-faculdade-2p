@@ -93,7 +93,7 @@ flex-direction: column;
     font-size: 1.4em;
 }
 
-.aceitar{
+.aceitar,.aceitar-doctor{
     background-color: rgb(2, 255, 103);
     color: #fff;
     border: none;
@@ -103,7 +103,7 @@ flex-direction: column;
     margin-bottom: 10px;
 }
 
-.rejeitar{
+.rejeitar,.rejeitar-doctor{
     background-color: rgb(252, 45, 45);
     color: #fff;
     border: none;

@@ -11,22 +11,33 @@ const nomePaciente = document.getElementById("nome-paciente");
 //endpoints
 const url = 'https://jsonplaceholder.typicode.com/users';
 
+const urlConsultas = "http://localhost:8080/consulta";
+
+// id do usuario
+const idUsuario = localStorage.getItem('idUsuario');
 
 // FUNÇÕES
 
 // puxar elementos da api das proximas consultas
-axios.get(url)
+axios.get(urlConsultas)
   .then(response => {
-
     const dados = response.data;
+    const dadosFiltrados = dados.filter(consulta => consulta.medico.id == idUsuario);
+    let listConsults = ""
 
-    dados.forEach(user => {
-      let listaConsultas = "";
-      listaConsultas += `
+    if (dadosFiltrados.length === 0) {
+      // Se não houver consultas cadastradas para o paciente, exiba uma mensagem de aviso
+      const cardConsultas = document.getElementById("card-consultas");
+      cardConsultas.innerHTML = "<p>Nenhuma consulta cadastrada.</p>";
+      return; // Encerra a execução da função
+    }
+
+    dadosFiltrados.forEach(user => {
+      listConsults += `
         <div class="card-consulta">
-            <span name="nome_do_paciente" value="nome do paciente">Nome do Paciente: ${user.name}</span>
-            <span name="email_do_paciente" value="email do paciente">E-mail do Paciente: ${user.email}</span>
-            <span name="data_da_consulta" value="data da consulta">Data da consulta : ${user.username}</span>
+            <span name="nome_do_paciente" value="nome do paciente">Nome do Paciente: ${user.paciente.nomeCompleto}</span>
+            <span name="data_da_consulta" value="data da consulta">Data de Nascimento : ${user.paciente.dataNasc}</span>
+            <span name="email_do_paciente" value="email do paciente">Data da Consulta: ${user.dataHoraConsulta}</span>
             <a href="">
               <span name="arquivos_do_paciente" value="arquivos do paciente">Arquivos do paciente</span>
             </a>
@@ -39,7 +50,7 @@ axios.get(url)
         </div>
         `;
 
-      cardPainel.innerHTML += listaConsultas;
+      cardPainel.innerHTML += listConsults;
 
     })
   })
@@ -48,21 +59,28 @@ axios.get(url)
   })
 
 // puxar elementos da api para atualizar consultas   
-axios.get(url)
+axios.get(urlConsultas)
   .then(response => {
     const dados = response.data;
+    const dadosFiltrados = dados.filter(consulta => consulta.medico.id == idUsuario);
+    let listConsults = ""
 
-    dados.forEach(user => {
-      let listaConsultas = "";
-      listaConsultas += `
+    if (dadosFiltrados.length === 0) {
+      // Se não houver consultas cadastradas para o paciente, exiba uma mensagem de aviso
+      const cardConsultas = document.getElementById("card-consultas");
+      cardConsultas.innerHTML = "<p>Nenhuma consulta cadastrada.</p>";
+      return; // Encerra a execução da função
+    }
+
+    dadosFiltrados.forEach(user => {
+      listConsults += `
       <tr>
       <td>${user.id}</td>
-      <td>${user.username}</td>
-      <td>${user.id}</td>
-      <td>Segunda-feira</td>
-      <td>14:00</td>
+      <td>${user.paciente.nomeCompleto}</td>
+      <td>${user.paciente.dataNasc}</td>
+      <td>${user.dataHoraConsulta}</td>
       <td class="icon-container">
-        <svg value=${user.username} class="button-modal" width="20" height="20" viewBox="0 0 20 20" fill="none"
+        <svg value=${user.id} class="button-modal" width="20" height="20" viewBox="0 0 20 20" fill="none"
           xmlns="http://www.w3.org/2000/svg">
           <rect width="20.0001" height="20.0001" rx="2.66667" fill="#34AFF9" />
           <path
@@ -72,7 +90,7 @@ axios.get(url)
       </td>
     </tr>
       `;
-      tablePainel.innerHTML += listaConsultas;
+      tablePainel.innerHTML += listConsults;
     });
 
     // abrir modal

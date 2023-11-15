@@ -1,41 +1,96 @@
 // elementos
 const nomeCompleto = document.querySelector('#nome_completo');
 const endereco = document.querySelector('#endereco');
-const arquivo = document.querySelector('#inputGroupFile').files[0];
 const dataNascimento = document.querySelector('#data_nasc');
 const form = document.querySelector('#pacienteForm');
 
 // endpoints
 const url = 'http://localhost:8080/paciente';
 
+// id usuario
+const idUsuario = localStorage.getItem('idUsuario');
+
+
 // FUNÇÕES
 
+
+// ENVIAR ARQUIVO PRO BACKEND
+
+// function getFormData() {
+
+//     const formData = new FormData();
+
+//     // Adicione o JSON do pacienteDto como uma parte separada
+//     const pacienteDto = {
+//         endereco: endereco.value,
+//         dataNasc: dataNascimento.value,
+//         nomeCompleto: nomeCompleto.value,
+//         id_usuario: window.idUsuario
+//     };
+
+//     formData.append('dto', JSON.stringify(pacienteDto));
+
+//     const inputFile = document.querySelector('#inputGroupFile');
+//     if (inputFile.files.length > 0) {
+//         formData.append('file', inputFile.files[0]);
+//     }
+
+//     console.log(formData)
+//     return formData;
+// }
+
+
 // formulario de cadastro de paciente
-form.addEventListener('submit', (e) => {
+form.addEventListener('submit', async (e) => {
+    
+
     e.preventDefault();
 
-    const data = {
-        id: 1,
-        endereco: endereco.value,
-        data_nasc: dataNascimento.value,
-        data_criacao: new Date(),
-        nome_completo: nomeCompleto.value,
-        id_usuario: 1
-    }
-   
-    console.log(data)
+    // const formData = getFormData();
 
-    axios.post(url, data)
-        .then(function (response) {
-            console.log(response);
-            alert('Paciente cadastrado com sucesso!');
-        })
-        .catch(function (error) {
-            console.log(error);
-            alert('Erro ao cadastrar paciente!');
-        });
-}
-)
+    //  dados.append('dto', JSON.stringify(pacienteDto));
+
+    const dados = {
+        endereco: endereco.value,
+        dataNasc: dataNascimento.value,
+        nomeCompleto: nomeCompleto.value,
+        id_usuario: idUsuario
+    }
+
+
+    try {
+        // Use o axios para enviar o FormData para o backend
+        // const response = await axios.post(url, formData, {
+        //     headers: {
+        //         'Content-Type': 'multipart/form-data', // Certifique-se de definir o tipo de conteúdo como 'multipart/form-data'
+        //     },
+        // });
+        const response = await axios.post(url, dados);
+        console.log(response.status)
+        if (response.status >= 200 && response.status < 300) {
+            showLoading();
+            setTimeout(function () {
+                window.location.href = 'home-paciente.html';
+            }, 2000);
+        } else {
+            console.log('Cadastro não foi bem-sucedido. Código de status:', response.status);
+        }
+    } catch (error) {
+        console.error('Erro ao cadastrar paciente:', error);
+        if (error.response) {
+            console.log("Data:", error.response.data);
+            console.log("Status:", error.response.status);
+            console.log("Headers:", error.response.headers);
+        } else if (error.request) {
+            console.log("Request:", error.request);
+        } else {
+            console.log("Error:", error.message);
+        }
+        console.log("Config:", error.config);
+
+        alert('Erro ao cadastrar paciente. Verifique o console para mais detalhes.');
+    };
+});
 
 // exibir nome do arquivo de upload
 function displayFileName(input) {
@@ -45,4 +100,15 @@ function displayFileName(input) {
     } else {
         fileNameDisplay.textContent = 'Nenhum arquivo selecionado';
     }
+}
+
+// exibir tela de loading
+function showLoading() {
+
+    document.getElementById('loading').style.display = 'flex';
+
+    setTimeout(function () {
+        document.getElementById('loading').style.display = 'none';
+
+    }, 2000);
 }

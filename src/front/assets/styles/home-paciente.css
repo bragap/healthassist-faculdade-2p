@@ -1,9 +1,8 @@
 main {
 
     width: 90%;
+    height: 100vh;
     margin: 0 auto;
-    padding-top: 250px;
-    padding-bottom: 200px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -178,6 +177,8 @@ td {
 
 th {
     font-weight: bold;
+    background-color: #048ABF;
+    color: #fff;
 }
 
 
