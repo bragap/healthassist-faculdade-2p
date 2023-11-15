@@ -9,6 +9,8 @@ class FooterHome extends HTMLElement {
         this.root.innerHTML = `	
         <style>
         footer{
+            position: absolut;
+            bottom: 0;
             margin-top: 120px;
             width: 100%;
             background-color: #0367a6;

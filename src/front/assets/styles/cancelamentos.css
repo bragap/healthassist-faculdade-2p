@@ -1,6 +1,6 @@
 main{
     padding-top: 170px;
-    height: 90%;
+    height: 100vh;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;

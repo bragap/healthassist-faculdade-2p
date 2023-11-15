@@ -1,47 +1,3 @@
-data = [
-    {
-        title: 'João Ricardo',
-        start: '2023-11-16T10:00:00'
-
-    },
-    {
-        title: 'Roberto Davila',
-        start: '2023-11-16T07:00:00'
-    },
-
-    {
-        title: 'João Costa',
-        start: '2023-11-16T08:00:00'
-    },
-    {
-        title: 'Adalberto da Silva',
-        start: '2023-11-19T09:00:00'
-    },
-    {
-        title: 'João Costa',
-        start: '2023-11-10T07:00:00'
-    },
-    {
-        title: 'Rose Gouveia',
-        start: '2023-11-03T12:00:00'
-    },
-    {
-        title: 'Rose Gouveia',
-        start: '2023-12-01T11:00:00'
-    },
-    {
-        title: 'Rose Gouveia',
-        start: '2023-11-14T10:00:00'
-    },
-    {
-        title: 'Rose Gouveia',
-        start: '2023-11-18T08:00:00'
-    },
-    {
-        title: 'Rose Gouveia',
-        start: '2023-11-22T09:00:00'
-    }
-]
 
 // id do usuario
 const idUsuario = localStorage.getItem('idUsuario');
@@ -80,7 +36,6 @@ axios.get(url)
                     calendar.addEvent(event);
                 }
                 calendar.render();
-            console.log(consultasParaFullCalendar)
         });
     })
     .catch(error => {

@@ -1,6 +1,7 @@
 main{
     padding-top: 170px;
     display: flex;
+    height: 100vh;
     text-align: center;
     justify-content: center;
     flex-wrap: wrap;
@@ -14,9 +15,10 @@ main h2{
 
 #lista-relatorios{
     width: 100%;
-    padding: 20px;
+    margin-top: -400px;
     display: flex;
     flex-direction: column;
+    justify-content: start;
   
 }
 

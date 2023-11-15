@@ -42,13 +42,11 @@ axios.get(urlConsultas)
         <div class="card-consulta" data-consulta-id="${consulta.id}">
           <span name="nome_do_medico" id="nome-medico" value="${consulta.id}">Dr. ${consulta.medico.nomeCompleto}</span>
           <span name="email_do_medico" value="${consulta.id}">Especialidade: ${consulta.medico.especialidadeMedico.especialidade}</span>
-          <span name="data_da_consulta" value="${consulta.id}">Data da Consulta: ${consulta.dataHoraConsulta}</span>
+          <span name="data_da_consulta" value="${consulta.id}">Data/Hora da Consulta: ${formatarData(consulta.dataHoraConsulta)}</span>
         </div>
       `;
       consultaId = consulta.id;
     })
-
-
 
     const cardConsultas = document.getElementById("card-consultas");
     cardConsultas.innerHTML = listConsults;
@@ -117,6 +115,22 @@ formAvaliacao.addEventListener('submit', (e) => {
 
 })
 
+
+// formatar data pro padrão DD/MM/AAAA HH:MM
+function formatarData(data) {
+  const dataObj = new Date(data);
+  const dia = padZero(dataObj.getDate());
+  const mes = padZero(dataObj.getMonth() + 1);
+  const ano = dataObj.getFullYear();
+  const horas = padZero(dataObj.getHours());
+  const minutos = padZero(dataObj.getMinutes());
+
+  return `${dia}/${mes}/${ano} ${horas}:${minutos}`;
+}
+
+function padZero(numero) {
+  return numero.toString().padStart(2, '0');
+}
 
 
 
