@@ -26,7 +26,7 @@ axios.get(urlConsultas)
     const dados = response.data;
 
     // Filtra as consultas do paciente
-    const dadosFiltrados = dados.filter(consulta => consulta.paciente.usuario.id == idUsuario && !consulta.respostaAnamnese);
+    const dadosFiltrados = dados.filter(consulta => consulta.paciente.usuario.id == idUsuario);
     let listConsults = ""
 
 
