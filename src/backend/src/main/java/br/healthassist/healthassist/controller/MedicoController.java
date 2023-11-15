@@ -55,7 +55,7 @@ public class MedicoController {
     @GetMapping("/{id}")
     public ResponseEntity buscarPorId(@PathVariable("id") Long id) {
 
-        Optional<Medico> medico = medicoService.finfById(id);
+        Optional<Medico> medico = medicoService.findById(id);
 
         if (medico.isEmpty()) {
             return ResponseEntity.badRequest().body("Medico não encontrado na base de dados");
@@ -77,12 +77,19 @@ public class MedicoController {
 
     @PutMapping("/{id}/atualizar-status")
     public ResponseEntity atualizarStatus(@PathVariable("id") Long id, @RequestBody AtualizarStatusDto dto) {
-        try{
-            Medico medico = AlterarStatus(id,dto);
-            return new ResponseEntity( medico , HttpStatus.OK);
-        }catch(Exception e){
-            return ResponseEntity.badRequest().body(e.getMessage());
-        }
+        return medicoService.findById(id).map(entity -> {
+            if ("true".equalsIgnoreCase(dto.getAprovacao())) {
+                entity.setAprovacao(true);
+                medicoService.salvarMedico(entity);
+                return ResponseEntity.ok(entity);
+            } else if ("false".equalsIgnoreCase(dto.getAprovacao())) {
+                entity.setAprovacao(false);
+                medicoService.salvarMedico(entity);
+                return ResponseEntity.ok(entity);
+            } else {
+                return ResponseEntity.badRequest().body("Envie um status válido (true/false)");
+            }
+        }).orElseGet(() -> ResponseEntity.notFound().build());
     }
 
     private Medico converter(MedicoDto dto) {
@@ -109,13 +116,6 @@ public class MedicoController {
                 .orElseThrow(() -> new RegraNegocioException("Usuario não encontrado para o id informado."));
 
         medico.setUsuario(usuario);
-
-        return medico;
-    }
-
-    private Medico AlterarStatus(Long id, AtualizarStatusDto dto){
-        Medico medico = medicoService.findMedicoById(id);
-        medico.setAprovacao(dto.isAprovacao());
 
         return medico;
     }
