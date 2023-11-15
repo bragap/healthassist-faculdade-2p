@@ -59,13 +59,15 @@
     <form action="" method="post" id="form-prontuario">
       <div class="header-modal">
         <h2 id="nome-paciente"></h2>
-        <button id="btn-close-modal">X</button>
+        <p id="btn-close-modal">X</p>
       </div>
 
       <div class="form-control">
         <textarea name="textarea" id="textarea" cols="30" rows="10"></textarea>
       </div>
-      <button type="submit" class="btn-cadastrar">
+      <p id="error-message"></p>
+      <p id="sucess-message"></p>
+      <button type="submit" class="btn-cadastrar" id="btn-anamnese">
         Atualizar prontuário
       </button>
     </form>

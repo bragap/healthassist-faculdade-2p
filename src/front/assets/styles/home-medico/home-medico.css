@@ -261,3 +261,17 @@ dialog {
 input[type="text"] {
     outline: none;
 }
+
+#sucess-message{
+    color:#0fee1a;
+    width: 100%;
+    background-color: #a1ffcb;
+    text-align: center;
+}
+
+#error-message{
+    width: 100%;
+    text-align: center;
+    background-color: pink;
+    color:rgb(255, 65, 65);
+}

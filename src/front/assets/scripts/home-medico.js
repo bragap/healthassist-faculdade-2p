@@ -7,6 +7,8 @@ const formLoginPaciente = document.getElementById("form-login-paciente");
 const cardPainel = document.querySelector("#painel-consultas");
 const tablePainel = document.querySelector("#exibe-consultas");
 const nomePaciente = document.getElementById("nome-paciente");
+const errorMessage = document.getElementById("error-message");
+const sucessMessage = document.getElementById("sucess-message");
 let consultaId = 0;
 let pacienteId = 0;
 let medicoId = 0;
@@ -121,7 +123,10 @@ axios.get(urlConsultas)
         nomePaciente.innerHTML = buttonModal.getAttribute('value');
       });
     });
-
+    //fechar modal
+    btnClose.addEventListener("click", () => {
+      modal.close();
+    });
 
   })
   .catch(error => {
@@ -133,6 +138,8 @@ axios.get(urlConsultas)
 
 // formulario de envio da anamnese
 form.addEventListener('submit', (e) => {
+
+  e.preventDefault();
 
   const now = new Date();
 
@@ -154,6 +161,14 @@ form.addEventListener('submit', (e) => {
 
   const textareaValue = document.getElementById('textarea').value;
 
+  // Verificar se o campo de anamnese está vazio
+  if (textareaValue.trim() === '') {
+    errorMessage.innerHTML = "O campo de anamnese não pode estar vazio.Redirecionando para a Homepage";
+      redirectTo('home-medico.html');
+      return;
+   
+  }
+
   const dados = {
     idMedico: idMedico,
     idPaciente: idPaciente,
@@ -162,12 +177,10 @@ form.addEventListener('submit', (e) => {
   }
 
 
-  e.preventDefault();
-
 
   axios.put(`${urlConsultas}/${idConsulta}`, dados)
     .then(response => {
-      alert("Anamnese cadastrada com sucesso!");
+      sucessMessage.innerHTML = "Anamnese enviada com sucesso!";
     })
 
     .catch(error => {
@@ -194,20 +207,6 @@ form.addEventListener('submit', (e) => {
 });
 
 
-const formsSucess = () => {
-
-  const textSucess = document.querySelector(".text-sucess");
-
-  textSucess.innerHTML = "Prontuário atualizado com sucesso!";
-}
-
-//fechar modal
-btnClose.addEventListener("click", () => {
-
-  modal.close();
-
-});
-
 
 // exibiçao tela de loading
 function showLoading() {
@@ -225,7 +224,6 @@ function redirectTo(destination) {
     window.location.href = destination;
   }, 2000);
 }
-
 
 
 // formatar data pro padrão DD/MM/AAAA HH:MM
