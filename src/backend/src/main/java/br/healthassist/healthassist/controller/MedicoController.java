@@ -1,13 +1,13 @@
 package br.healthassist.healthassist.controller;
 
 import br.healthassist.healthassist.controller.dto.AtualizarStatusDto;
+import br.healthassist.healthassist.controller.dto.EspecialidadeDto;
 import br.healthassist.healthassist.controller.dto.MedicoDto;
-import br.healthassist.healthassist.controller.dto.UsuarioAutenticadoDto;
 import br.healthassist.healthassist.exception.RegraNegocioException;
-import br.healthassist.healthassist.model.entity.EspecialidadeMedico;
+import br.healthassist.healthassist.model.entity.Especialidade;
 import br.healthassist.healthassist.model.entity.Medico;
 import br.healthassist.healthassist.model.entity.Usuario;
-import br.healthassist.healthassist.service.EspecialidadeMedicoService;
+import br.healthassist.healthassist.service.EspecialidadeService;
 import br.healthassist.healthassist.service.MedicoService;
 import br.healthassist.healthassist.service.UsuarioService;
 import lombok.RequiredArgsConstructor;
@@ -15,10 +15,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -28,7 +27,7 @@ import java.util.Optional;
 public class MedicoController {
 
     private final UsuarioService usuarioService;
-    private final EspecialidadeMedicoService especialidadeMedicoService;
+    private final EspecialidadeService especialidadeService;
     private final MedicoService medicoService;
 
     @PostMapping
@@ -105,11 +104,17 @@ public class MedicoController {
                 .aprovacao(false)
                 .build();
 
-        EspecialidadeMedico especialidadeMedico = especialidadeMedicoService
-                .findById(dto.getId_especialidade_medico())
-                .orElseThrow(() -> new RegraNegocioException("Especialidade não encontrada para o id informado;"));
+        List<EspecialidadeDto> especialidadesDto = dto.getEspecialidades();
+        List<Especialidade> especialidades = new ArrayList<>();
 
-        medico.setEspecialidadeMedico(especialidadeMedico);
+        for (EspecialidadeDto especialidadeDto : especialidadesDto) {
+            Especialidade especialidade = especialidadeService
+                    .findByNome(especialidadeDto.getNome());
+
+            especialidades.add(especialidade);
+        }
+
+        medico.setEspecialidades(especialidades);
 
         Usuario usuario = usuarioService
                 .findById(dto.getId_usuario())

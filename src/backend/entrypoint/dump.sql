@@ -8,14 +8,14 @@ END $$;
 
 -- Tabela para armazenar os dias da semana
 CREATE TABLE dia_da_semana (
-                               id serial PRIMARY KEY,
-                               nome_dia character varying(20) check (nome_dia in ('SEGUNDA','TERCA','QUARTA','QUINTA','SEXTA','SABADO','DOMINGO')) not null
+                           id serial PRIMARY KEY,
+                           nome_dia character varying(20) check (nome_dia in ('SEGUNDA','TERCA','QUARTA','QUINTA','SEXTA','SABADO','DOMINGO')) not null
 );
 
 -- Tabela para armazenar especialidades médicas
-CREATE TABLE especialidade_medico (
-                                      id serial PRIMARY KEY,
-                                      especialidade character varying(50) COLLATE "pg_catalog"."default"
+CREATE TABLE especialidade (
+                          id serial PRIMARY KEY,
+                          especialidade character varying(50) COLLATE "pg_catalog"."default"
 );
 
 -- Tabela para armazenar informações de usuários
@@ -32,7 +32,6 @@ CREATE TABLE usuario (
 CREATE TABLE medico (
                         id serial PRIMARY KEY,
                         id_usuario integer,
-                        id_especialidade_medico integer,
                         endereco character varying(255) COLLATE "pg_catalog"."default",
                         data_nasc date,
                         codigo_de_registro character varying(255) COLLATE "pg_catalog"."default",
@@ -40,8 +39,16 @@ CREATE TABLE medico (
                         nome_completo character varying(100) COLLATE "pg_catalog"."default",
                         aprovacao bool NULL,
                         UNIQUE (codigo_de_registro),
-                        FOREIGN KEY (id_usuario) REFERENCES usuario (id),
-                        FOREIGN KEY (id_especialidade_medico) REFERENCES especialidade_medico (id)
+                        FOREIGN KEY (id_usuario) REFERENCES usuario (id)
+);
+
+-- Tabela relação medico-especialidade
+create table medico_especialidade (
+                      id_medico int not null,
+                      id_especialidade int not null,
+                      primary key (id_medico, id_especialidade),
+                      foreign key (id_medico) references medico(id),
+                      foreign key (id_especialidade) references especialidade(id)
 );
 
 -- Tabela para armazenar informações de pacientes

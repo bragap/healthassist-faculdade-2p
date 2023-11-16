@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
 
 import java.time.LocalDate;
+import java.util.List;
 
 @Entity
 @Table(name = "medico")
@@ -32,10 +33,6 @@ public class Medico {
     @Column(name = "codigo_de_registro")
     private String codigoDeRegistro;
 
-    @ManyToOne
-    @JoinColumn(name = "id_especialidade_medico")
-    private EspecialidadeMedico especialidadeMedico;
-
     @Column(name = "nome_completo")
     private String nomeCompleto;
 
@@ -45,5 +42,12 @@ public class Medico {
 
     @Column(name = "aprovacao")
     private boolean aprovacao;
+
+    @ManyToMany
+    @JoinTable(
+            name = "medico_especialidade",
+            joinColumns = @JoinColumn(name = "id_medico"),
+            inverseJoinColumns = @JoinColumn(name = "id_especialidade"))
+    private List<Especialidade> especialidades;
 
 }
