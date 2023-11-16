@@ -13,10 +13,13 @@ Veja o link [Heflo - Types of Process Performance Metrics](https://www.heflo.com
 
 _Usar o seguinte modelo:_
 
-| **Indicador** | **Objetivos** | **Descrição** | **Fonte dados** | **Perspectiva** |
-| ---           | ---           | ---           | ---             | ---             |
-| Percentual de reclamações | Avaliar quantitativamente as reclamações | Percentual de reclamações em relação ao total atendimento | Tabela reclamações | Aprendizado e Crescimento |
-| Taxa de Requisições abertas | Melhorar a prestação de serviços medindo a porcentagem de requisições | Mede % de requisições atendidas na semana | Tabela solicitações | Processos internos |
-| Taxa de entrega de material | Manter controle sobre os materiais que estão sendo entregues | Mede % de material entregue dentro do mês | Tabela Pedidos | Clientes |
+| **Indicador** | **Objetivos** | **Descrição** | **Fonte de Dados** | **Perspectiva** |
+| --- | --- | --- | --- | --- |
+| Percentual de Pacientes Cadastrados | Avaliar o número de novos pacientes cadastrados | Calcular o percentual de cadastros de novos pacientes em relação ao total de novos acessos ao website mensalmente | Tabela Paciente | Perspectiva de Crescimento |
+| Taxa Média de Consultas Diárias por Médico | Analisar quais os profissionais estão prestando mais consultas | Quantificar de forma aproximada o número de atendimentos diários de cada profissional de saúde dentro do mês | Tabela Consulta | Processos Internos |
+| Número de Novos Médicos Cadastrados na Clínica | Analisar o crescimento da clínica em referência ao número de novos Médicos | Quantificar o crescimento da clínica através da inscrição de novos profissionais de saúde Trimestralmente | Tabela Médico | Perspectiva de Crescimento |
+| Índice de Satisfação do Paciente | Manter controle sobre a qualidade dos serviços prestados | Quantificar em porcentagem o número de más avaliações das consultas em relação a todas as realizadas | Tabela Avaliar Consulta | Perspectiva sobre o Consumidor |
+| Taxa Média de Consultas por Cliente | Analisar a fidelidade dos clientes com a Plataforma | Quantificar de forma aproximada o número médio de consultas marcadas semestralmente por cada cliente cadastrado | Tabela Consulta | Perspectiva sobre o Consumidor |
+
 
 Obs.: todas as informações para gerar os indicadores devem estar no diagrama de classes e no DER.
