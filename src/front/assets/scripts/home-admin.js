@@ -1,6 +1,8 @@
 // elements
 const painelDoutor = document.querySelector('#painel-doctor');
 const painelPaciente = document.querySelector('#painel-paciente');
+const sucessMessage = document.querySelector('#sucess-message');
+const sucessMessage2 = document.querySelector('#sucess-message-2');
 let listDoctors = "";
 let listPatients = "";
 
@@ -21,7 +23,7 @@ function verificarAprovacaoTotal(dados, tipo) {
         const mensagem = tipo === 'medico' ? "Nenhum médico para ser aprovado." : "Nenhum paciente para ser aprovado.";
         mensagemElement.innerHTML = `<p>${mensagem}</p>`;
     } else {
-        mensagemElement.innerHTML = ''; 
+        mensagemElement.innerHTML = '';
     }
 }
 
@@ -34,7 +36,7 @@ function verificarAprovacaoTotalPacientes(dados, tipo) {
         const mensagem = tipo === 'medico' ? "Nenhum médico para ser aprovado." : "Nenhum paciente para ser aprovado.";
         mensagemElement.innerHTML = `<p>${mensagem}</p>`;
     } else {
-        mensagemElement.innerHTML = ''; 
+        mensagemElement.innerHTML = '';
     }
 }
 
@@ -44,9 +46,9 @@ axios.get(urlDoutor)
         const dados = response.data;
 
         dados.forEach((doctor) => {
-            if(doctor.aprovacao === true){
-               
-                    verificarAprovacaoTotal(dados, 'medico');
+            if (doctor.aprovacao === true) {
+
+                verificarAprovacaoTotal(dados, 'medico');
             } else {
 
                 listDoctors += `
@@ -69,13 +71,13 @@ axios.get(urlDoutor)
                     </div>
     
             `;
-    
+
             }
-    
+
             painelDoutor.innerHTML = listDoctors;
             // Adicionar event listeners aos novos botões
             adicionarEventListenersBotoesMedicos();
-            })
+        })
     })
     .catch(error => {
         console.error('Error fetching doctor data:', error);
@@ -83,12 +85,14 @@ axios.get(urlDoutor)
 
 // aprovar médico
 function handleAprovarMedico(medicoId) {
-    
+
     axios.put(`${urlDoutor}/${medicoId}/atualizar-status`, { "aprovacao": true })
         .then(response => {
-            alert("Médico aprovado!");
+            sucessMessage.innerHTML = `<p>Médico aprovado!</p>`;
             console.log('Doctor approved successfully');
+            setTimeout(function () {
             atualizarListaMedicos();
+            },2000);
         })
         .catch(error => {
             console.error('Error approving doctor:', error);
@@ -107,42 +111,6 @@ function handleRejeitarMedico(medicoId) {
         });
 }
 
-// // Função para atualizar a lista de médicos
-// function atualizarListaMedicos() {
-//     axios.get(urlDoutor)
-//         .then(response => {
-//             const dados = response.data;
-//             let updatedListDoctors = "";
-
-//             dados.forEach((doctor) => {
-//                 updatedListDoctors += `
-//                     <div id="card-section">
-//                         <div id="card-conteudo">
-//                             <div id="card-esquerda">
-//                                 <p id="nome-usuario">${doctor.nomeCompleto}</p>
-//                                 <p>Data de Nascimento: ${doctor.dataNasc}</p>
-//                                 <p>Código de registro: ${doctor.codigoDeRegistro}</p>
-//                                 <p>Especialidade: ${doctor.especialidadeMedico.especialidade}</p>
-//                                 <p>Aprovação: ${doctor.aprovacao}</p>
-//                                 <p id="id-medico">${doctor.id}</p>
-//                             </div>
-//                             <div id="card-direita">
-//                                 <button class="aceitar-doctor">ACEITAR</button>
-//                                 <button class="rejeitar-doctor">REJEITAR</button>
-//                             </div>
-//                         </div>
-//                     </div>`;
-//             });
-
-//             painelDoutor.innerHTML = updatedListDoctors;
-
-//             // Adicionar event listeners aos novos botões
-//             adicionarEventListenersBotoesMedicos();
-//         })
-//         .catch(error => {
-//             console.error('Error fetching updated doctor list:', error);
-//         });
-// }
 
 // evento nos botões de médicos
 function adicionarEventListenersBotoesMedicos() {
@@ -170,11 +138,11 @@ axios.get(urlPaciente)
 
         dados.forEach((paciente) => {
 
-            if(paciente.aprovacao === true){
+            if (paciente.aprovacao === true) {
 
                 verificarAprovacaoTotalPacientes(dados, 'paciente');
             } else {
-                
+
                 listPatients += `
         <div id="card-section">
             <div id="card-conteudo">
@@ -194,13 +162,13 @@ axios.get(urlPaciente)
         </div>
             `
             }
-    
+
             verificarAprovacaoTotal(dados, 'paciente');
-    
+
             painelPaciente.innerHTML = listPatients;
-    
+
             adicionarEventListenersBotoes();
-            })
+        })
 
     })
     .catch(error => {
@@ -212,10 +180,11 @@ axios.get(urlPaciente)
 function handleAprovarPaciente(pacienteId) {
     axios.put(`${urlPaciente}/${pacienteId}/atualizar-status`, { id: pacienteId, aprovacao: true })
         .then(response => {
-            alert("Paciente aprovado!");
+            sucessMessage2.innerHTML = `<p>Paciente aprovado!</p>`;
             console.log('Patient approved successfully');
+            setTimeout(function () {
             atualizarListaPacientes();
-
+            },2000);
         })
         .catch(error => {
             console.error('Error approving patient:', error);
@@ -228,7 +197,6 @@ function handleRejeitarPaciente(pacienteId) {
         .then(response => {
             console.log('Patient rejected successfully');
             atualizarListaPacientes();
-
         })
         .catch(error => {
             console.error('Error rejecting patient:', error);
@@ -253,45 +221,6 @@ function redirectTo(destination) {
         window.location.href = destination;
     }, 2000);
 }
-
-// // Função para atualizar a lista de pacientes
-// function atualizarListaPacientes() {
-//     // Refazer a requisição GET para obter a lista atualizada de pacientes
-//     axios.get(urlPaciente)
-//         .then(response => {
-//             const dados = response.data;
-//             let updatedListPatients = "";
-
-//             dados.forEach((paciente) => {
-//                 updatedListPatients += `
-//                     <div id="card-section">
-//                     <div id="card-conteudo">
-//                             <div id="card-esquerda">
-//                                 <p id="nome-usuario">Nome do paciente: ${paciente.nomeCompleto}</p>
-//                                 <p>Data de nascimento: ${paciente.dataNasc}</p>
-//                                 <p>Endereço: ${paciente.endereco}</p>
-//                                 <p>Aprovação: ${paciente.aprovacao}</p>
-//                                 <p id="id-paciente">${paciente.id}</p>
-//                             </div>
-//                             <div id="card-direita">
-//                                 <button class="aceitar">ACEITAR</button>
-//                                 <button class="rejeitar">REJEITAR</button>
-//                             </div>
-//                         </div>
-//                     </div>
-//                 `;
-//             });
-
-//             // Atualizar o conteúdo HTML com a lista de pacientes atualizada
-//             painelPaciente.innerHTML = updatedListPatients;
-
-//             // Adicionar event listeners aos novos botões, se necessário
-//             adicionarEventListenersBotoes();
-//         })
-//         .catch(error => {
-//             console.error('Error fetching updated patient list:', error);
-//         });
-// }
 
 // evento nos botões
 function adicionarEventListenersBotoes() {

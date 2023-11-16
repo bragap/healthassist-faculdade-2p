@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
     <h3>Suas informações pessoais</h3>
               <p>Nome completo: <span>${dados.nomeCompleto}</span></p>
               <p>Usuário:  <span>${dados.usuario.apelido}</span></p>
-              <p>Data de Nascimento:  <span>${dados.dataNasc}</span></p>
+              <p>Data de Nascimento:  <span>${formatarDataNasc(dados.dataNasc)}</span></p>
               <p>Email:  <span>${dados.usuario.email}</span></p>
               <p>Endereço:  <span>${dados.endereco}</span> </p>
     `
@@ -48,3 +48,19 @@ function redirectTo(destination) {
         window.location.href = destination;
     }, 2000);
 }
+
+
+
+//formatar data de nascimento
+function formatarDataNasc(data) {
+    const dataObj = new Date(data);
+    const dia = padZero(dataObj.getDate());
+    const mes = padZero(dataObj.getMonth() + 1);
+    const ano = dataObj.getFullYear();
+  
+    return `${dia}/${mes}/${ano}`;
+  }
+  
+  function padZero(numero) {
+    return numero.toString().padStart(2, '0');
+  }

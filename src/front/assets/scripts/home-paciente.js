@@ -286,10 +286,9 @@ function renderDoctors(data) {
 
             // Defina o conteúdo do cabeçalho do modal com as informações do médico específico
             headerModal.innerHTML = `
-                <h4>${nomeMedico}</h4>
+            <button id="btn-close-modal">X</button>
+                <h4>Dr. ${nomeMedico}</h4>
                 <p>${especialidadeMedico}</p>
-                <p>${idMedico}</p>
-                <button id="btn-close-modal">X</button>
             `;
 
             modal.showModal();

@@ -35,36 +35,34 @@ axios.get('http://localhost:8080/especialidade-medico')
     })
 
 
-// pegar os dados inseridos na disponibilidade de horario
-function enviarDisponibilidade() {
+// // pegar os dados inseridos na disponibilidade de horario
+// function enviarDisponibilidade() {
 
-    rows.forEach(row => {
-        const inputs = row.querySelectorAll('.inputs-dias'); // Captura os inputs de cada linha
-        const checkBox = row.querySelector('.cb1'); // Captura o checkbox
+//     rows.forEach(row => {
+//         const inputs = row.querySelectorAll('.inputs-dias'); // Captura os inputs de cada linha
+//         const checkBox = row.querySelector('.cb1'); // Captura o checkbox
 
-        if (checkBox.checked) { // Verifica se o checkbox está marcado
-            const dia = checkBox.getAttribute('name');
-            const horaInicio = inputs[0].value; // Captura o valor do primeiro input
-            const horaFim = inputs[1].value; // Captura o valor do segundo input
+//         if (checkBox.checked) { // Verifica se o checkbox está marcado
+//             const dia = checkBox.getAttribute('name');
+//             const horaInicio = inputs[0].value; // Captura o valor do primeiro input
+//             const horaFim = inputs[1].value; // Captura o valor do segundo input
 
-            disponibilidade_de_horario.push({
-                dia_da_semana: dia,
-                hora_inicio: horaInicio,
-                hora_fim: horaFim
-            });
-        }
-    });
-}
+//             disponibilidade_de_horario.push({
+//                 dia_da_semana: dia,
+//                 hora_inicio: horaInicio,
+//                 hora_fim: horaFim
+//             });
+//         }
+//     });
+// }
 
 // formulario de cadastro de medico
-form.addEventListener('submit', async (e) => {
-
-
+form.addEventListener('submit', (e) => {
     e.preventDefault();
+    
 
     const especialidadeSelecionada = especialidade ? especialidade.options[especialidade.selectedIndex].value : null;
 
-    console.log(especialidadeSelecionada, 'especialidadeSelecionada')
 
     const dados = {
         endereco: endereco.value,
@@ -75,27 +73,32 @@ form.addEventListener('submit', async (e) => {
         id_usuario: idUsuario
     }
 
-    try{
-        const response = await axios.post(url, dados);
-        console.log(response);
-        alert('Médico cadastrado com sucesso!');
-    }catch (error) {
-        console.error('Erro ao cadastrar medico:', error);
-        if (error.response) {
-            console.log("Data:", error.response.data);
-            console.log("Status:", error.response.status);
-            console.log("Headers:", error.response.headers);
-        } else if (error.request) {
-            console.log("Request:", error.request);
-        } else {
-            console.log("Error:", error.message);
-        }
-        console.log("Config:", error.config);
+    axios.post(url, dados)
+        .then(response => {
+            console.log(response.status)
+            if (response.status >= 200 && response.status < 300) {
+                showLoading();
+                window.location.href = 'home-medico.html';
+            } else {
+                console.log('Cadastro não foi bem-sucedido. Código de status:', response.status);
+            }
+        })
+        .catch(error)
+    console.error('Erro ao cadastrar médico:', error);
+    if (error.response) {
+        console.log("Data:", error.response.data);
+        console.log("Status:", error.response.status);
+        console.log("Headers:", error.response.headers);
+    } else if (error.request) {
+        console.log("Request:", error.request);
+    } else {
+        console.log("Error:", error.message);
+    }
+    console.log("Config:", error.config);
 
-        alert('Erro ao cadastrar medico. Verifique o console para mais detalhes.');
-    };
-});
-
+    alert('Erro ao cadastrar médico. Verifique o console para mais detalhes.');
+}
+);
 
 //mudar nome do arquivo inserido
 function displayFileName(input) {
@@ -106,3 +109,15 @@ function displayFileName(input) {
         fileNameDisplay.textContent = 'Nenhum arquivo selecionado';
     }
 }
+
+// exibir tela de loading
+function showLoading() {
+
+    document.getElementById('loading').style.display = 'flex';
+
+    setTimeout(function () {
+        document.getElementById('loading').style.display = 'none';
+
+    }, 4000);
+}
+

@@ -29,7 +29,14 @@ h2 {
 p {
     color: rgba(0, 0, 0, 0.60);
 }
-
+#card-prox-consultas{
+    width: 100%;
+	display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+	margin-bottom: 2em;
+    color:#048ABF;
+}
 #card-consultas {
 	width: 100%;
 	display: flex;

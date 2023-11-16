@@ -41,8 +41,8 @@ const idUsuario = localStorage.getItem('idUsuario');
 
 
 // formulario de cadastro de paciente
-form.addEventListener('submit', async (e) => {
-    
+form.addEventListener('submit', (e) => {
+
 
     e.preventDefault();
 
@@ -58,39 +58,39 @@ form.addEventListener('submit', async (e) => {
     }
 
 
-    try {
-        // Use o axios para enviar o FormData para o backend
-        // const response = await axios.post(url, formData, {
-        //     headers: {
-        //         'Content-Type': 'multipart/form-data', // Certifique-se de definir o tipo de conteúdo como 'multipart/form-data'
-        //     },
-        // });
-        const response = await axios.post(url, dados);
-        console.log(response.status)
-        if (response.status >= 200 && response.status < 300) {
-            showLoading();
-            setTimeout(function () {
-                window.location.href = 'home-paciente.html';
-            }, 2000);
-        } else {
-            console.log('Cadastro não foi bem-sucedido. Código de status:', response.status);
-        }
-    } catch (error) {
-        console.error('Erro ao cadastrar paciente:', error);
-        if (error.response) {
-            console.log("Data:", error.response.data);
-            console.log("Status:", error.response.status);
-            console.log("Headers:", error.response.headers);
-        } else if (error.request) {
-            console.log("Request:", error.request);
-        } else {
-            console.log("Error:", error.message);
-        }
-        console.log("Config:", error.config);
 
-        alert('Erro ao cadastrar paciente. Verifique o console para mais detalhes.');
-    };
-});
+    // Use o axios para enviar o FormData para o backend
+    // const response = await axios.post(url, formData, {
+    //     headers: {
+    //         'Content-Type': 'multipart/form-data', // Certifique-se de definir o tipo de conteúdo como 'multipart/form-data'
+    //     },
+    // });
+    axios.post(url, dados)
+        .then(response => {
+            console.log(response.status)
+            if (response.status >= 200 && response.status < 300) {
+                showLoading();
+                window.location.href = 'home-paciente.html';
+            } else {
+                console.log('Cadastro não foi bem-sucedido. Código de status:', response.status);
+            }
+        })
+        .catch(error)
+    console.error('Erro ao cadastrar paciente:', error);
+    if (error.response) {
+        console.log("Data:", error.response.data);
+        console.log("Status:", error.response.status);
+        console.log("Headers:", error.response.headers);
+    } else if (error.request) {
+        console.log("Request:", error.request);
+    } else {
+        console.log("Error:", error.message);
+    }
+    console.log("Config:", error.config);
+
+    alert('Erro ao cadastrar paciente. Verifique o console para mais detalhes.');
+}
+);
 
 // exibir nome do arquivo de upload
 function displayFileName(input) {
@@ -110,5 +110,6 @@ function showLoading() {
     setTimeout(function () {
         document.getElementById('loading').style.display = 'none';
 
-    }, 2000);
+    }, 4000);
 }
+

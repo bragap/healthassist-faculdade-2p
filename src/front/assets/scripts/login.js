@@ -15,6 +15,7 @@ const autorizacaoPaciente = document.getElementById("tipo_paciente");
 const usuarioLogin = document.getElementById("dado-login-name");
 const senhaLogin = document.getElementById("dado-login-senha");
 const formLogin = document.getElementById("forms-login-paciente");
+const errorMessage = document.getElementById("error-message");
 
 // variaveis
 let usuario = {};
@@ -32,18 +33,21 @@ const endpointLogin = "http://localhost:8080/usuario/login";
 
 // FUNÇÕES
 
-// formulario de login
+// Formulário de login
 formLogin.addEventListener('submit', async (e) => {
-
     e.preventDefault();
 
     checkInputsLogin();
 
-    if (validLogin) {
-        dadosLogin = {
+    if (!validLogin) {
+        displayErrorMessage("Preencha os campos corretamente");
+    } else {
+        clearErrorMessage();
+
+        const dadosLogin = {
             email: usuarioLogin.value,
             senha: senhaLogin.value
-        }
+        };
 
         try {
             const response = await axios.post(endpointLogin, dadosLogin);
@@ -53,38 +57,71 @@ formLogin.addEventListener('submit', async (e) => {
 
             localStorage.setItem('idUsuario', dados.id);
 
-            if (tipoUsuario === "PACIENTE") {
-                showLoading();
-                setTimeout(function () {
-                    window.location.href = `completar-perfil-paciente.html`;
-                }, 1000);
-            } else if (tipoUsuario === "MEDICO") {
-                showLoading();
-                setTimeout(function () {
-                    window.location.href = `completar-perfil-medico.html`;
-                });
-            } else {
-                setTimeout(function () {
-                    showLoading();
-                    window.location.href = "home-admin.html";
-                });
-            }
+            showLoading();
+
+            setTimeout(() => {
+                redirectToProfilePage(tipoUsuario);
+            }, 2000);
+
         } catch (error) {
-            console.error('Erro ao fazer login:', error);
-            if (error.response) {
-                console.log("Data:", error.response.data);
-                console.log("Status:", error.response.status);
-                console.log("Headers:", error.response.headers);
-            } else if (error.request) {
-                console.log("Request:", error.request);
-            } else {
-                console.log("Error:", error.message);
-            }
-            console.log("Config:", error.config);
+            handleLoginError(error);
         }
     }
 });
 
+// Função para exibir mensagem de erro
+function displayErrorMessage(message) {
+    errorMessage.innerHTML = message;
+}
+
+// Função para limpar mensagem de erro
+function clearErrorMessage() {
+    errorMessage.innerHTML = "";
+}
+
+// Função para lidar com erros de login
+function handleLoginError(error) {
+    console.error('Erro ao fazer login:', error);
+
+    if (error.response) {
+        console.log("Data:", error.response.data);
+        console.log("Status:", error.response.status);
+        console.log("Headers:", error.response.headers);
+    } else if (error.request) {
+        console.log("Request:", error.request);
+    } else {
+        console.log("Error:", error.message);
+    }
+
+    console.log("Config:", error.config);
+}
+
+// Função para redirecionar para a página de perfil com base no tipo de usuário
+function redirectToProfilePage(tipoUsuario) {
+    const tipo = tipoUsuario.toLowerCase();
+    const idUsuario = localStorage.getItem('idUsuario');
+    showLoading();
+    axios.get(`http://localhost:8080/${tipo}`)
+        .then((response) => {
+            const dados = response.data;
+            const usuario = dados.find((usuario) => usuario.usuario.id == idUsuario);
+
+            if (usuario) {
+                if (tipoUsuario === "PACIENTE") {
+                    window.location.href = `home-paciente.html`;
+                } else if (tipoUsuario === "MEDICO"){
+                    window.location.href = `home-medico.html`;
+                }
+            } else {
+                if (tipoUsuario === "PACIENTE") {
+                    window.location.href = `completar-perfil-paciente.html`;
+                } else if (tipoUsuario === 'MEDICO'){
+                    window.location.href = `completar-perfil-medico.html`;
+                }
+            }
+        })
+
+}
 
 
 // verificar inputs da área de login
@@ -270,5 +307,5 @@ function showLoading() {
     setTimeout(function () {
         document.getElementById('loading').style.display = 'none';
 
-    }, 1000);
+    }, 2000);
 }

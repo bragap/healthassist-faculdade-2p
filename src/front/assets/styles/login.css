@@ -8,7 +8,10 @@ body{
 #modal {
     padding: 2em;
 }
-
+#error-message{
+    font-size: 0.8em;
+    color: rgb(250, 83, 83);
+}
 .container{
     width: 100vw;
     height: 100vh;

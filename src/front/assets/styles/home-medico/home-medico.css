@@ -1,7 +1,8 @@
 main {
 	width: 70%;
-    height: 100vh;
+    height: 150vh;
 	margin: 0 auto;
+    margin-top: -250px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -234,10 +235,18 @@ dialog {
     box-shadow:  0 0 1em rgb (0 0 0 /.3);
     width: 30%;
 }
-
+#nome-paciente{
+    font-weight: bold;
+}
+#att{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    align-self: center;
+}
 .header-modal {
 	display: flex;
 	justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .form-control {
@@ -274,4 +283,11 @@ input[type="text"] {
     text-align: center;
     background-color: pink;
     color:rgb(255, 65, 65);
+}
+
+@media (max-width:800px) {
+    main{
+        text-align: center;
+        margin-top: -150px;
+    }
 }

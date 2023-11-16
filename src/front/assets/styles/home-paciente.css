@@ -111,7 +111,7 @@ dialog{
 }
 #modal {
     width: 50%;
-    height: 60%;
+    height: 75%;
     border: none;
 }
 
@@ -130,9 +130,9 @@ dialog{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    text-align: center;
-    justify-content: space-between;
+    justify-content: end;
     align-items: center;
+    text-align: center;
     margin-bottom: 50px;
 }
 #header-modal h4{
@@ -141,12 +141,16 @@ dialog{
     font-weight: bold;
     font-size: 1.2em;
 }
-
+#header-modal p{
+    display: block;
+    width: 100%;
+}
 #btn-close-modal {
     border: none;
-    width: 10%;
     font-size: 1.5em;
     cursor: pointer;
+    background-color: transparent;
+    align-self: start;
 }
 
 #modal-filter {

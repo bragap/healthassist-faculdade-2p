@@ -148,7 +148,7 @@ class InterHeaderPaciente extends HTMLElement {
               <li><a href="home-paciente.html">Início</a></li>
               <li><a href="avaliar-consulta.html">Consultas</a></li>
               <li><a href="perfil-paciente.html">Perfil</a></li>
-              <li><a href="#" onclick="redirectTo('home-geral.html')">Sair</a></li>
+              <li><a href="#" class="btn-out" onclick="redirectTo('home-geral.html')">Sair</a></li>
               </ul>
           </nav>
         </header>
@@ -157,9 +157,11 @@ class InterHeaderPaciente extends HTMLElement {
       this.mobileMenu = shadowRoot.querySelector('.mobile-menu');
       this.navList = shadowRoot.querySelector('.nav-list');
       this.navLinks = shadowRoot.querySelectorAll('.nav-list li');
+      this.btnOut = shadowRoot.querySelector('.btn-out');
   
       this.mobileMenu.addEventListener('click', this.handleClick);
-  
+      this.btnOut.addEventListener('click', this.limparLocalStorage);
+
       this.animateLinks();
     }
   
@@ -172,6 +174,10 @@ class InterHeaderPaciente extends HTMLElement {
     handleClick() {
       this.navList.classList.toggle(this.activeClass);
       this.mobileMenu.classList.toggle(this.activeClass);
+    }
+
+    limparLocalStorage(){
+      localStorage.clear();
     }
   
   }

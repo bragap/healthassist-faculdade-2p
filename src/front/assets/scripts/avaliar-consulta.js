@@ -1,5 +1,6 @@
 // Selecione todos os elementos com a classe "card-consulta"
 const cardConsultas = document.querySelectorAll('.card-consulta');
+const painelConsultas = document.getElementById('card-prox-consultas');
 
 // Selecione a seção de avaliação
 const secaoAvaliacao = document.querySelector('.secao-avaliacao');
@@ -26,15 +27,26 @@ axios.get(urlConsultas)
     const dados = response.data;
 
     // Filtra as consultas do paciente
-    const dadosFiltrados = dados.filter(consulta => consulta.paciente.usuario.id == idUsuario);
+    const dadosFiltrados = dados.filter(consulta => 
+      consulta.paciente.usuario.id == idUsuario
+      && new Date(consulta.dataHoraConsulta) < new Date() );
     let listConsults = ""
+    let listAllConsults = "";
 
+    const todasConsultas = dados.filter(consulta => consulta.paciente.usuario.id == idUsuario
+      && new Date(consulta.dataHoraConsulta) > new Date());
 
     if (dadosFiltrados.length === 0) {
-      // Se não houver consultas cadastradas para o paciente, exiba uma mensagem de aviso
       const cardConsultas = document.getElementById("card-consultas");
       cardConsultas.innerHTML = "<p>Nenhuma consulta cadastrada</p>";
-      return; // Encerra a execução da função
+      return;
+    }
+
+    if(todasConsultas.length === 0){
+      const painelConsultas = document.getElementById("card-prox-consultas");
+      painelConsultas.innerHTML = "<p>Nenhuma consulta cadastrada</p>";
+      return;
+
     }
 
     dadosFiltrados.forEach(consulta => {
@@ -48,8 +60,18 @@ axios.get(urlConsultas)
       consultaId = consulta.id;
     })
 
+    todasConsultas.forEach(consulta =>{
+      listAllConsults += `
+      <div class="card-consulta" data-consulta-id="${consulta.id}">
+      <span name="nome_do_medico" id="nome-medico" value="${consulta.id}">Dr. ${consulta.medico.nomeCompleto}</span>
+      <span name="email_do_medico" value="${consulta.id}">Especialidade: ${consulta.medico.especialidadeMedico.especialidade}</span>
+      <span name="data_da_consulta" value="${consulta.id}">Data/Hora da Consulta: ${formatarData(consulta.dataHoraConsulta)}</span>
+    </div>`;
+    })
+
     const cardConsultas = document.getElementById("card-consultas");
     cardConsultas.innerHTML = listConsults;
+    painelConsultas.innerHTML = listAllConsults;
 
     const cards = document.querySelectorAll('.card-consulta');
     cards.forEach(card => {

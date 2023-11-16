@@ -40,7 +40,7 @@ axios.get(urlConsultas)
         listConsults += `
         <div class="card-consulta">
             <span name="nome_do_paciente" value="nome do paciente">Nome do Paciente: ${user.paciente.nomeCompleto}</span>
-            <span name="data_da_consulta" value="data da consulta">Data de Nascimento : ${user.paciente.dataNasc}</span>
+            <span name="data_da_consulta" value="data da consulta">Data de Nascimento : ${formatarDataNasc(user.paciente.dataNasc)}</span>
             <span name="email_do_paciente" value="email do paciente">Data/Hora da Consulta: ${formatarData(user.dataHoraConsulta)}</span>
             <a href="">
               <span name="arquivos_do_paciente" value="arquivos do paciente">Arquivos do paciente</span>
@@ -88,7 +88,7 @@ axios.get(urlConsultas)
           <tr>
             <td>${user.id}</td>
             <td>${user.paciente.nomeCompleto}</td>
-            <td>${user.paciente.dataNasc}</td>
+            <td>${formatarDataNasc(user.paciente.dataNasc)}</td>
             <td>${formatarData(user.dataHoraConsulta)}</td>
             <td class="icon-container">
               <svg data-id=${user.id} data-paciente-id=${user.paciente.id} data-medico-id=${user.medico.id} value=${user.paciente.nomeCompleto} class="button-modal" width="20" height="20" viewBox="0 0 20 20" fill="none"
@@ -132,8 +132,6 @@ axios.get(urlConsultas)
   .catch(error => {
     console.log(error);
   });
-
-
 
 
 // formulario de envio da anamnese
@@ -235,7 +233,21 @@ function formatarData(data) {
   const horas = padZero(dataObj.getHours());
   const minutos = padZero(dataObj.getMinutes());
 
-  return `${dia}/${mes}/${ano} ${horas}:${minutos}`;
+  return `${dia}/${mes}/${ano} ${horas}:${minutos}h`;
+}
+
+function padZero(numero) {
+  return numero.toString().padStart(2, '0');
+}
+
+//formatar data de nascimento
+function formatarDataNasc(data) {
+  const dataObj = new Date(data);
+  const dia = padZero(dataObj.getDate());
+  const mes = padZero(dataObj.getMonth() + 1);
+  const ano = dataObj.getFullYear();
+
+  return `${dia}/${mes}/${ano}`;
 }
 
 function padZero(numero) {
