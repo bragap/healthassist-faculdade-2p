@@ -17,14 +17,25 @@ const selectHorario = document.querySelector('select[name="horario"]');
 
 // endpoints
 const url = 'http://localhost:8080/medico';
-const endpointCadastroEspecialidades = "http://localhost:8080/especialidade-medico";
 const urlMarcarConsulta = "http://localhost:8080/consulta";
+const endpointCadastroEspecialidades = "http://localhost:8080/especialidade-medico";
 
 // id usuario
 const idUsuario = localStorage.getItem('idUsuario');
+const tipoUsuario = localStorage.getItem('tipoUsuario');
 
 // FUNÇÕES
+// Função para verificar a autorização do usuário
+function checkAuthorization() {
 
+    if (tipoUsuario !== "PACIENTE") {
+        alert("Você nao possui acesso a essa pagina!")
+        // Redireciona para a página de login ou exibe mensagem de erro
+        window.location.href = "login.html";
+    }
+}
+
+checkAuthorization();
 
 // exibir conteudo Table
 

@@ -13,10 +13,14 @@ let disponibilidade_de_horario = [];
 //endpoints
 const url = "http://localhost:8080/medico";
 
+
 //id usuario
 const idUsuario = localStorage.getItem('idUsuario');
+const tipoUsuario = localStorage.getItem('tipoUsuario');
 
 // FUNÇÕES
+
+
 
 // get das especialidades
 axios.get('http://localhost:8080/especialidade-medico')
@@ -59,7 +63,7 @@ axios.get('http://localhost:8080/especialidade-medico')
 // formulario de cadastro de medico
 form.addEventListener('submit', (e) => {
     e.preventDefault();
-    
+
 
     const especialidadeSelecionada = especialidade ? especialidade.options[especialidade.selectedIndex].value : null;
 

@@ -8,9 +8,14 @@ body{
 #modal {
     padding: 2em;
 }
-#error-message{
+#text-error{
     font-size: 0.8em;
+    width: 30%;
+    justify-content: center;
     color: rgb(250, 83, 83);
+}.text-sucess{
+    font-size: 0.8em;
+    font-weight: bold;
 }
 .container{
     width: 100vw;
@@ -21,6 +26,7 @@ body{
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     text-align: center;
     margin-top: 150px;
     width: 500px;
@@ -44,7 +50,7 @@ body{
   outline: none;
 }
  #btn-entrar{
-    width: 300px;
+    width: 350px;
     height: 30px;
     margin: 32px;
     border: none;

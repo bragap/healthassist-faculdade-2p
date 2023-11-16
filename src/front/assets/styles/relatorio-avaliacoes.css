@@ -1,13 +1,12 @@
 main{
     padding-top: 170px;
     display: flex;
-    height: 150vh;
+    height: 200vh;
     text-align: center;
     justify-content: center;
     flex-wrap: wrap;
     width: 90%;
     margin: 0 auto;
-    align-items: start;
 }
 main h2{
     font-size: 2em;

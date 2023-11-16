@@ -18,8 +18,21 @@ const urlConsultas = "http://localhost:8080/consulta";
 
 // id do usuario
 const idUsuario = localStorage.getItem('idUsuario');
+const tipoUsuario = localStorage.getItem('tipoUsuario');
 
 // FUNÇÕES
+
+// Função para verificar a autorização do usuário
+function checkAuthorization() {
+
+  if (tipoUsuario !== "MEDICO") {
+      alert("Você nao possui acesso a essa pagina!")
+      // Redireciona para a página de login ou exibe mensagem de erro
+      redirectTo('login.html');
+  }
+}
+
+checkAuthorization();
 
 // puxar elementos da api das proximas consultas
 axios.get(urlConsultas)
@@ -250,6 +263,3 @@ function formatarDataNasc(data) {
   return `${dia}/${mes}/${ano}`;
 }
 
-function padZero(numero) {
-  return numero.toString().padStart(2, '0');
-}

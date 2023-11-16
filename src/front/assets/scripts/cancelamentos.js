@@ -8,6 +8,24 @@ const url = ""
 
 // FUNÇÕES
 
+//tipo usuario
+const tipoUsuario = localStorage.getItem('tipoUsuario');
+
+// FUNÇÕES
+
+// Função para verificar a autorização do usuário
+function checkAuthorization() {
+
+    if (tipoUsuario === "MEDICO" || tipoUsuario === "PACIENTE") {
+        alert("Você nao possui acesso a essa pagina!")
+        // Redireciona para a página de login ou exibe mensagem de erro
+        redirectTo('login.html');
+    }
+}
+
+checkAuthorization();
+
+
 
 // get de todas os cancelamentos de consultas
 axios.get(url)

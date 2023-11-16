@@ -13,6 +13,12 @@ const textArea = document.getElementById("box-comment");
 // id do usuario
 const idUsuario = localStorage.getItem('idUsuario');
 let consultaId = 0;
+const tipoUsuario = localStorage.getItem('tipoUsuario');
+
+
+// dados das avaliações
+let avaliacoes = [];
+
 
 // endpoints
 const urlConsultas = "http://localhost:8080/consulta";
@@ -21,20 +27,41 @@ const urlAvaliacao = "http://localhost:8080/avaliar-consulta";
 
 // FUNÇÕES
 
+
+// Função para verificar a autorização do usuário
+function checkAuthorization() {
+
+  if (tipoUsuario !== "PACIENTE") {
+      alert("Você nao possui acesso a essa pagina!")
+      // Redireciona para a página de login ou exibe mensagem de erro
+      redirectTo('login.html');
+  }
+}
+
+checkAuthorization();
+
+
 // resgatar todas as consultas do paciente
 axios.get(urlConsultas)
   .then(response => {
     const dados = response.data;
+    const consultaId = dados.id;
+
+    axios.get(urlAvaliacao)
+    .then(response => {
+      avaliacoes = response.data;
+      console.log(avaliacoes);
+    })
 
     // Filtra as consultas do paciente
     const dadosFiltrados = dados.filter(consulta => 
       consulta.paciente.usuario.id == idUsuario
-      && new Date(consulta.dataHoraConsulta) < new Date() );
+      && new Date(consulta.dataHoraConsulta) < new Date() && avaliacoes.id != consulta.id);
     let listConsults = ""
     let listAllConsults = "";
 
     const todasConsultas = dados.filter(consulta => consulta.paciente.usuario.id == idUsuario
-      && new Date(consulta.dataHoraConsulta) > new Date());
+      && new Date(consulta.dataHoraConsulta) > new Date() && avaliacoes.id != consulta.id);
 
     if (dadosFiltrados.length === 0) {
       const cardConsultas = document.getElementById("card-consultas");
@@ -42,12 +69,6 @@ axios.get(urlConsultas)
       return;
     }
 
-    if(todasConsultas.length === 0){
-      const painelConsultas = document.getElementById("card-prox-consultas");
-      painelConsultas.innerHTML = "<p>Nenhuma consulta cadastrada</p>";
-      return;
-
-    }
 
     dadosFiltrados.forEach(consulta => {
       listConsults += `
@@ -57,7 +78,6 @@ axios.get(urlConsultas)
           <span name="data_da_consulta" value="${consulta.id}">Data/Hora da Consulta: ${formatarData(consulta.dataHoraConsulta)}</span>
         </div>
       `;
-      consultaId = consulta.id;
     })
 
     todasConsultas.forEach(consulta =>{

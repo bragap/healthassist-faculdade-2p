@@ -1,15 +1,30 @@
-
-// id do usuario
-const idUsuario = localStorage.getItem('idUsuario');
-
 // endpoints
 const url = "http://localhost:8080/consulta";
 
+// id do usuario
+const idUsuario = localStorage.getItem('idUsuario');
+const tipoUsuario = localStorage.getItem('tipoUsuario');
 
 //elements
 let consultasJson = [];
 let consultasParaFullCalendar = [];
 
+// FUNÇÕES
+
+// Função para verificar a autorização do usuário
+function checkAuthorization() {
+
+    if (tipoUsuario !== "MEDICO") {
+        alert("Você nao possui acesso a essa pagina!")
+        // redirectTo('login.html');
+        window.location.href='login.html';
+    }
+}
+
+checkAuthorization();
+
+
+document.addEventListener('DOMContentLoaded', function () {
 axios.get(url)
     .then(response => {
         consultasJson = response.data;
@@ -43,7 +58,7 @@ axios.get(url)
         console.log(error)
     })
 
-
+});
 
 
 

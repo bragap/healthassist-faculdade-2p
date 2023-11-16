@@ -9,9 +9,11 @@ const url = 'http://localhost:8080/paciente';
 
 // id usuario
 const idUsuario = localStorage.getItem('idUsuario');
+const tipoUsuario = localStorage.getItem('tipoUsuario');
 
 
 // FUNÇÕES
+
 
 
 // ENVIAR ARQUIVO PRO BACKEND

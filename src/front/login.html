@@ -8,10 +8,61 @@
   <link rel="stylesheet" href="./assets/styles/login.css" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
   <title>Acesse o HealthAssist</title>
 </head>
 
 <body>
+  <!-- <script>
+    $(document).ready(function () {
+
+      const dados = [
+        { especialidade: "Clínico Geral" },
+        { especialidade: "Dermatologista" },
+        { especialidade: "Endocrinologista" },
+        { especialidade: "Otorrinolarinogologista" },
+        { especialidade: "Ginecologista" },
+        { especialidade: "Pediatra" },
+        { especialidade: "Urologista" },
+        { especialidade: "Odontologia" },
+        { especialidade: "Psicologia" },
+        { especialidade: "Psiquiatria" },
+        { especialidade: "Cardiologia" },
+        { especialidade: "Neurologia" },
+        { especialidade: "Oftalmologia" }
+      ];
+      console.log(dados.length, 'dados');
+
+      enviarRequisicoes(dados, 0);
+    });
+
+    function enviarRequisicoes(dados, indice) {
+
+      if (indice < dados.length) {
+        const dado = dados[indice];
+
+        $.ajax({
+          type: 'POST',
+          url: "http://localhost:8080/especialidade-medico",
+          contentType: 'application/json',
+          data: JSON.stringify(dado),
+          success: function (data) {
+            console.log('Especialidade populada com sucesso:', data);
+            enviarRequisicoes(dados, indice + 1); // Chama a próxima requisição
+          },
+          error: function (error) {
+            console.error('Erro ao popular a especialidade:', error);
+          }
+        });
+      } else {
+        console.log('Todas as especialidades foram populadas com sucesso');
+      }
+    }
+
+
+  </script> -->
+
   <div class="container">
     <div id="circulo" class="animate__animated animate__fadeInDownBig">
       <img src="./assets/images/logo-v8.png" alt="logo v8" />
@@ -23,7 +74,7 @@
           <input type="text" id="dado-login-name" placeholder="Email" />
           <input type="password" id="dado-login-senha" placeholder="Password" />
         </div>
-        <p id="error-message"></p>
+        <small id="text-error"></small>
         <button id="btn-entrar" type="submit">Entrar</button>
       </form>
 
@@ -68,6 +119,7 @@
             </div>
           </div>
           <small class="text-sucess"></small>
+          
           <button type="submit" id="btn-submit">Realizar cadastro</button>
         </form>
       </dialog>

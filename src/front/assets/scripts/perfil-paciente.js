@@ -3,11 +3,24 @@ const painelUser = document.getElementsByClassName('dados-user')[0];
 
 // id usuario
 const idUsuario = localStorage.getItem('idUsuario');
+const tipoUsuario = localStorage.getItem('tipoUsuario');
 
 // endpoint
 const url = `http://localhost:8080/paciente/${idUsuario}`;
 
 // FUNÇÕES
+
+// Função para verificar a autorização do usuário
+function checkAuthorization() {
+
+    if (tipoUsuario !== "PACIENTE") {
+        alert("Você nao possui acesso a essa pagina!")
+        // Redireciona para a página de login ou exibe mensagem de erro
+        redirectTo('login.html');
+    }
+}
+
+checkAuthorization();
 
 // get dos dados
 document.addEventListener('DOMContentLoaded', function() {
@@ -15,7 +28,7 @@ document.addEventListener('DOMContentLoaded', function() {
  axios.get(url)
 .then(response => {
  
-    const dados = response.data;
+    const dados = response.data.filter(paciente => paciente.usuario.id == idUsuario)[0];
 
     // dados do paciente
     let str = "";

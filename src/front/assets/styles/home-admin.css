@@ -103,19 +103,21 @@ flex-direction: column;
     background-color: rgb(2, 255, 103);
     color: #fff;
     border: none;
+    border-radius: 10px;
     padding: 2px 15px;
     cursor: pointer;
-    height: 80px;
+    height: 50px;
     margin-bottom: 10px;
 }
 
 .rejeitar,.rejeitar-doctor{
     background-color: rgb(252, 45, 45);
     color: #fff;
+    border-radius: 10px;
     border: none;
     padding: 2px 15px;
     cursor: pointer;
-    height: 80px;
+    height: 50px;
 }
 
 @media (max-width:580px){

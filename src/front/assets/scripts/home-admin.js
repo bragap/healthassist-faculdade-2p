@@ -10,8 +10,22 @@ let listPatients = "";
 const urlPaciente = "http://localhost:8080/paciente"
 const urlDoutor = "http://localhost:8080/medico"
 
+//tipo usuario
+const tipoUsuario = localStorage.getItem('tipoUsuario');
 
 // FUNÇÕES
+
+// Função para verificar a autorização do usuário
+function checkAuthorization() {
+
+    if (tipoUsuario === "MEDICO" || tipoUsuario === "PACIENTE") {
+        alert("Você nao possui acesso a essa pagina!")
+        // Redireciona para a página de login ou exibe mensagem de erro
+        redirectTo('login.html');
+    }
+}
+
+checkAuthorization();
 
 // VERIFICA SE ESTAO APROVADOS - medicos
 function verificarAprovacaoTotal(dados, tipo) {

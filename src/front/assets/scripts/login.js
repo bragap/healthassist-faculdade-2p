@@ -16,6 +16,7 @@ const usuarioLogin = document.getElementById("dado-login-name");
 const senhaLogin = document.getElementById("dado-login-senha");
 const formLogin = document.getElementById("forms-login-paciente");
 const errorMessage = document.getElementById("error-message");
+const textError = document.getElementById("text-error");
 
 // variaveis
 let usuario = {};
@@ -29,6 +30,8 @@ let idUsuario = 0;
 // endpoints
 const endpointCadastroUsuario = "http://localhost:8080/usuario";
 const endpointLogin = "http://localhost:8080/usuario/login";
+const endpointCadastroEspecialidades = "http://localhost:8080/especialidade-medico";
+
 
 
 // FUNÇÕES
@@ -39,9 +42,9 @@ formLogin.addEventListener('submit', async (e) => {
 
     checkInputsLogin();
 
-    if (!validLogin) {
-        displayErrorMessage("Preencha os campos corretamente");
-    } else {
+    if (validLogin) {
+      
+    } 
         clearErrorMessage();
 
         const dadosLogin = {
@@ -56,6 +59,7 @@ formLogin.addEventListener('submit', async (e) => {
             const tipoUsuario = dados.autorizacao;
 
             localStorage.setItem('idUsuario', dados.id);
+            localStorage.setItem('tipoUsuario', tipoUsuario);
 
             showLoading();
 
@@ -64,19 +68,23 @@ formLogin.addEventListener('submit', async (e) => {
             }, 2000);
 
         } catch (error) {
+            displayErrorMessage(error.response.data);
+            errorValidation(usuarioLogin);
             handleLoginError(error);
         }
-    }
-});
+    });
+
+    
+
 
 // Função para exibir mensagem de erro
 function displayErrorMessage(message) {
-    errorMessage.innerHTML = message;
+    textError.innerHTML = message;
 }
 
 // Função para limpar mensagem de erro
 function clearErrorMessage() {
-    errorMessage.innerHTML = "";
+    textError.innerHTML = "";
 }
 
 // Função para lidar com erros de login
@@ -160,11 +168,17 @@ form.addEventListener('submit', (e) => {
             .then((response) => {
                 console.log(response);
                 console.log(usuario);
+                formsSucess();
             }
             ).catch((error) => {
+                
                 if (error.response) {
+                    const textSucess = document.querySelector(".text-sucess");
+
+                    textSucess.innerHTML = error.response.data;
                     // O servidor retornou um código de status diferente de 2xx
                     console.log("Data:", error.response.data);
+                    errorValidation(email);
                     console.log("Status:", error.response.status);
                     console.log("Headers:", error.response.headers);
                 } else if (error.request) {
@@ -247,7 +261,7 @@ const checkInputs = () => {
         }
         console.log(usuario);
 
-        formsSucess();
+       
 
     }
 
@@ -309,3 +323,82 @@ function showLoading() {
 
     }, 2000);
 }
+
+
+// // populando minha rota de especialidades
+
+// const dados = [
+//     {
+//     "id": 1,
+//     "especialidade": "Clínico Geral"
+//     },
+//     {
+//     "id": 2,
+//     "especialidade": "Dermatologista"
+//     },
+//     {
+//     "id": 3,
+//     "especialidade": "Endocrinologista"
+//     },
+//     {
+//     "id": 4,
+//     "especialidade": "Otorrinolarinogologista"
+//     },
+//     {
+//     "id": 5,
+//     "especialidade": "Ginecologista"
+//     },
+//     {
+//     "id": 6,
+//     "especialidade": "Pediatra"
+//     },
+//     {
+//     "id": 7,
+//     "especialidade": "Urologista"
+//     },
+//     {
+//     "id": 8,
+//     "especialidade": "Odontologia"
+//     },
+//     {
+//     "id": 9,
+//     "especialidade": "Psicologia"
+//     },
+//     {
+//     "id": 10,
+//     "especialidade": "Psiquiatria"
+//     },
+//     {
+//     "id": 11,
+//     "especialidade": "Cardiologia"
+//     },
+//     {
+//     "id": 12,
+//     "especialidade": "Neurologia"
+//     },
+//     {
+//     "id": 13,
+//     "especialidade": "Oftalmologia"
+//     }
+//     ]
+
+//     async function popularBancoDeDados() {
+//         try {
+
+//             const resposta = await axios.post(endpointCadastroEspecialidades, {especialidades : dados});
+            
+//             // localStorage.setItem('dados_p', dados.id);
+
+//             console.log('Resposta da chamada POST:', resposta.data);
+//         } catch (erro) {
+//             console.error('Erro ao fazer a chamada POST:', erro.message);
+//         }
+//     }
+
+
+//     if (!localStorage.getItem('dados_populados')) {
+
+//         await popularBancoDeDados();
+
+//     localStorage.setItem('dados_populados', 'true');
+// }
