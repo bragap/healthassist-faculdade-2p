@@ -14,7 +14,15 @@ const tipoUsuario = localStorage.getItem('tipoUsuario');
 
 // FUNÇÕES
 
+// Função para verificar a autorização do usuário
+function checkAuthorization() {
 
+    if (tipoUsuario !== "PACIENTE") {
+        redirectTo('home-medico.html');
+    }
+  }
+  
+checkAuthorization();
 
 // ENVIAR ARQUIVO PRO BACKEND
 

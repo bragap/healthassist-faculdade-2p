@@ -18,7 +18,6 @@ function checkAuthorization() {
 
     if (tipoUsuario === "MEDICO" || tipoUsuario === "PACIENTE") {
         alert("Você nao possui acesso a essa pagina!")
-        // Redireciona para a página de login ou exibe mensagem de erro
         redirectTo('login.html');
     }
 }

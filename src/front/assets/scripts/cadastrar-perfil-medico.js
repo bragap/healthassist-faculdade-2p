@@ -20,6 +20,17 @@ const tipoUsuario = localStorage.getItem('tipoUsuario');
 
 // FUNÇÕES
 
+// Função para verificar a autorização do usuário
+function checkAuthorization() {
+
+    if (tipoUsuario !== "MEDICO") {
+        alert("Você nao possui acesso a essa pagina!")
+        redirectTo('home-paciente.html');
+    }
+  }
+  
+checkAuthorization();
+
 
 
 // get das especialidades

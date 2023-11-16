@@ -30,8 +30,7 @@ function checkAuthorization() {
 
     if (tipoUsuario !== "PACIENTE") {
         alert("Você nao possui acesso a essa pagina!")
-        // Redireciona para a página de login ou exibe mensagem de erro
-        window.location.href = "login.html";
+        window.location.href = "home-medico.html";
     }
 }
 

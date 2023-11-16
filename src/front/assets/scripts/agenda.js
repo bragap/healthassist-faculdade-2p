@@ -15,9 +15,8 @@ let consultasParaFullCalendar = [];
 function checkAuthorization() {
 
     if (tipoUsuario !== "MEDICO") {
-        alert("Você nao possui acesso a essa pagina!")
-        // redirectTo('login.html');
-        window.location.href='login.html';
+        //redirectTo('home-paciente.html');
+        window.location.href='home-paciente.html';
     }
 }
 
