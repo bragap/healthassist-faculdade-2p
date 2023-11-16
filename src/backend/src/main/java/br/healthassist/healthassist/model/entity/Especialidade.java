@@ -7,12 +7,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "especialidade_medico")
+@Table(name = "especialidade")
 @Data
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class EspecialidadeMedico {
+public class Especialidade {
 
     @Id
     @Column(name = "id")
@@ -20,6 +20,6 @@ public class EspecialidadeMedico {
     private Long id;
 
     @Column(name = "especialidade")
-    private String especialidade;
+    private String nome;
 
 }

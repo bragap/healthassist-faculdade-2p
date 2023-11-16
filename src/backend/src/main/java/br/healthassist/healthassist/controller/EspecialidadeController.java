@@ -1,9 +1,8 @@
 package br.healthassist.healthassist.controller;
 
-import br.healthassist.healthassist.controller.dto.EspecialidadeMedicoDto;
-import br.healthassist.healthassist.model.entity.EspecialidadeMedico;
-import br.healthassist.healthassist.model.entity.Medico;
-import br.healthassist.healthassist.service.EspecialidadeMedicoService;
+import br.healthassist.healthassist.controller.dto.EspecialidadeDto;
+import br.healthassist.healthassist.model.entity.Especialidade;
+import br.healthassist.healthassist.service.EspecialidadeService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,16 +16,16 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class EspecialidadeController {
 
-    private final EspecialidadeMedicoService especialidadeMedicoService;
+    private final EspecialidadeService especialidadeService;
 
     @PostMapping
-    public ResponseEntity cadastrarEspecialidade(@RequestBody EspecialidadeMedicoDto dto){
+    public ResponseEntity cadastrarEspecialidade(@RequestBody EspecialidadeDto dto){
 
-        EspecialidadeMedico especialidadeMedico = EspecialidadeMedico.builder()
-                .especialidade(dto.getEspecialidade()).build();
+        Especialidade especialidadeMedico = Especialidade.builder()
+                .nome(dto.getNome()).build();
 
         try {
-            EspecialidadeMedico especialidadeMedicoSalvo = especialidadeMedicoService.salvarEspecialidade(especialidadeMedico);
+            Especialidade especialidadeMedicoSalvo = especialidadeService.salvarEspecialidade(especialidadeMedico);
             return new ResponseEntity(especialidadeMedicoSalvo, HttpStatus.CREATED);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -38,7 +37,7 @@ public class EspecialidadeController {
     public ResponseEntity buscar(){
 
         try {
-            List<EspecialidadeMedico> especialidadeMedicoList = especialidadeMedicoService.findAllEspecialidade();
+            List<Especialidade> especialidadeMedicoList = especialidadeService.findAllEspecialidade();
             return new ResponseEntity(especialidadeMedicoList, HttpStatus.OK);
         } catch (Exception e){
             return ResponseEntity.badRequest().body(e.getMessage());
@@ -49,7 +48,7 @@ public class EspecialidadeController {
     @GetMapping("/{id}")
     public ResponseEntity buscarPorId(@PathVariable("id") Long id){
 
-        Optional<EspecialidadeMedico> especialidadeMedico = especialidadeMedicoService.findById(id);
+        Optional<Especialidade> especialidadeMedico = especialidadeService.findById(id);
 
         if(especialidadeMedico.isEmpty()){
             return ResponseEntity.badRequest().body("Especialidade não encontrado na base de dados");

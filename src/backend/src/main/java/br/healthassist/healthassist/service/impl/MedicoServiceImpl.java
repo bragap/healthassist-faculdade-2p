@@ -61,10 +61,6 @@ public class MedicoServiceImpl implements MedicoService {
             throw new RegraNegocioException("Informe um código de registro válido");
         }
 
-        if(medico.getEspecialidadeMedico() == null){
-            throw new RegraNegocioException("Informe um especilidade válido");
-        }
-
         if(medico.getNomeCompleto() == null){
             throw new RegraNegocioException("Informe um nome completo válido");
         }
