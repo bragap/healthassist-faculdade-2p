@@ -51,45 +51,6 @@
 
 
 
-**Enviar as dúvidas encontradas a secretária**
-
-| **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
-| ---             | ---              | ---            | ---               |
-| Titulo | Caixa de texto |    -            |        -           |
-| Descrição | Caixa de texto |    -            |        -           |
-
-| **Comandos**         |  **Destino**                   | **Tipo** |
-| ---                  | ---                            | ---               |
-| Enviar |  Envia o ticket de ajuda para análise pela secretária  | Confirm |
-| Cancelar |  Cancela envio do ticket  | Cancel |
-
-
-**Analisar as dúvidas**
-
-| **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
-| ---             | ---              | ---            | ---               |
-| Visualizar dados | Caixa de texto  |               |           -        |
-
-| **Comandos**         |  **Destino**                   | **Tipo** |
-| ---                  | ---                            | ---               |
-| Responder |  É direcinado para uma página de para realizar a reposta do ticket | Confirm |
-| Cancelar |  Não reponde ao ticket momentaneamente   | Cancel |
-
-
-
-**Enviar ao cliente uma resposta**
-
-| **Campo**       | **Tipo**         | **Restrições** | **Valor default** |
-| ---             | ---              | ---            | ---               |
-| Titulo | Caixa de texto |    -            |        -           |
-| Descrição | Caixa de texto |    -            |        -           |
-
-| **Comandos**         |  **Destino**                   | **Tipo** |
-| ---                  | ---                            | ---               |
-| Enviar |  Retonar uma resposta ao cliente  | Confirm |
-| Cancelar |  Cancela envio do ticket  | Cancel |
-
-
 
 **Validar os dados inseridos**
 
