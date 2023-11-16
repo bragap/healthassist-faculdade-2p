@@ -24,6 +24,7 @@ axios.get(url)
                 var calendarEl = document.getElementById('calendar');
         
                 var calendar = new FullCalendar.Calendar(calendarEl, {
+                    locale: 'pt-br',
                     initialView: 'dayGridMonth',
                     headerToolbar: {
                         left: 'prev,next today',
