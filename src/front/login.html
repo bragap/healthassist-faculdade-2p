@@ -14,54 +14,48 @@
 </head>
 
 <body>
-  <!-- <script>
-    $(document).ready(function () {
+  <script>
+    const especialidades = [
+      { "nome": "Clínico Geral" },
+      { "nome": "Dermatologista" },
+      { "nome": "Endocrinologista" },
+      { "nome": "Otorrinolarinogologista" },
+      { "nome": "Ginecologista" },
+      { "nome": "Pediatra" },
+      { "nome": "Urologista" },
+      { "nome": "Odontologia" },
+      { "nome": "Psicologia" },
+      { "nome": "Psiquiatria" },
+      { "nome": "Cardiologia" },
+      { "nome": "Neurologia" },
+      { "nome": "Oftalmologia" }
+    ];
+    document.addEventListener('DOMContentLoaded', function () {
+  // Adicione isso para limpar o localStorage quando a página é recarregada
+  window.addEventListener('beforeunload', function () {
+    localStorage.setItem('serverRestarted', 'false');
+  });
 
-      const dados = [
-        { especialidade: "Clínico Geral" },
-        { especialidade: "Dermatologista" },
-        { especialidade: "Endocrinologista" },
-        { especialidade: "Otorrinolarinogologista" },
-        { especialidade: "Ginecologista" },
-        { especialidade: "Pediatra" },
-        { especialidade: "Urologista" },
-        { especialidade: "Odontologia" },
-        { especialidade: "Psicologia" },
-        { especialidade: "Psiquiatria" },
-        { especialidade: "Cardiologia" },
-        { especialidade: "Neurologia" },
-        { especialidade: "Oftalmologia" }
-      ];
-      console.log(dados.length, 'dados');
+  // Limpa o localStorage quando a página é recarregada
+  if (localStorage.getItem('serverRestarted') === 'true') {
+    localStorage.clear();
+    localStorage.setItem('serverRestarted', 'false'); // Define novamente para evitar limpar repetidamente
+  }
 
-      enviarRequisicoes(dados, 0);
-    });
-
-    function enviarRequisicoes(dados, indice) {
-
-      if (indice < dados.length) {
-        const dado = dados[indice];
-
-        $.ajax({
-          type: 'POST',
-          url: "http://localhost:8080/especialidade-medico",
-          contentType: 'application/json',
-          data: JSON.stringify(dado),
-          success: function (data) {
-            console.log('Especialidade populada com sucesso:', data);
-            enviarRequisicoes(dados, indice + 1); // Chama a próxima requisição
-          },
-          error: function (error) {
-            console.error('Erro ao popular a especialidade:', error);
-          }
-        });
-      } else {
-        console.log('Todas as especialidades foram populadas com sucesso');
-      }
-    }
+  if (!localStorage.getItem('dadosIniciaisCadastrados')) {
+    axios.post('http://localhost:8080/especialidade-medico', especialidades)
+      .then(function (response) {
+        console.log(response.data);
+        localStorage.setItem('dadosIniciaisCadastrados', 'true');
+      })
+      .catch(function (error) {
+        console.error('Erro ao cadastrar dados iniciais:', error);
+      });
+  }
+});
 
 
-  </script> -->
+  </script>
 
   <div class="container">
     <div id="circulo" class="animate__animated animate__fadeInDownBig">
@@ -119,7 +113,7 @@
             </div>
           </div>
           <small class="text-sucess"></small>
-          
+
           <button type="submit" id="btn-submit">Realizar cadastro</button>
         </form>
       </dialog>
