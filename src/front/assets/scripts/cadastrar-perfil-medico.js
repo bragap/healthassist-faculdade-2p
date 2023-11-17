@@ -27,8 +27,8 @@ function checkAuthorization() {
         alert("Você nao possui acesso a essa pagina!")
         redirectTo('home-paciente.html');
     }
-  }
-  
+}
+
 checkAuthorization();
 
 
@@ -40,9 +40,9 @@ axios.get('http://localhost:8080/especialidade-medico')
         let listEspecialidades = "";
 
         dados.forEach((especialidade) => {
-            if (especialidade.especialidade != null && especialidade != undefined) {
+            if (especialidade.nome != null && especialidade != undefined) {
                 listEspecialidades += `
-            <option id="${especialidade.id}" value="${especialidade.id}">${especialidade.especialidade}</option>
+            <option id="${especialidade.id}" value="${especialidade.nome}">${especialidade.nome}</option>
             `;
             }
         })
@@ -99,7 +99,7 @@ form.addEventListener('submit', (e) => {
             }
         })
         .catch(error)
-    console.error('Erro ao cadastrar médico:', error);
+    console.log('Erro ao cadastrar médico:', error);
     if (error.response) {
         console.log("Data:", error.response.data);
         console.log("Status:", error.response.status);

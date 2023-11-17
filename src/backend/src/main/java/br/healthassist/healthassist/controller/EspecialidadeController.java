@@ -8,7 +8,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -20,28 +19,22 @@ public class EspecialidadeController {
     private final EspecialidadeService especialidadeService;
 
     @PostMapping
-    public ResponseEntity cadastrarEspecialidade(@RequestBody List<EspecialidadeDto> especialidades) {
+    public ResponseEntity cadastrarEspecialidade(@RequestBody EspecialidadeDto dto) {
+
+        Especialidade especialidadeMedico = Especialidade.builder()
+                .nome(dto.getNome()).build();
+
         try {
-            List<Especialidade> especialidadeSalvas = new ArrayList<>();
-
-            for (EspecialidadeDto dto : especialidades) {
-                Especialidade especialidadeMedico = Especialidade.builder()
-                        .nome(dto.getNome())
-                        .build();
-
-                Especialidade especialidadeMedicoSalvo = especialidadeService.salvarEspecialidade(especialidadeMedico);
-                especialidadeSalvas.add(especialidadeMedicoSalvo);
-            }
-
-            return new ResponseEntity(especialidadeSalvas, HttpStatus.CREATED);
+            Especialidade especialidadeMedicoSalvo = especialidadeService.salvarEspecialidade(especialidadeMedico);
+            return new ResponseEntity(especialidadeMedicoSalvo, HttpStatus.CREATED);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
+
     }
 
     @GetMapping
     public ResponseEntity buscar() {
-
         try {
             List<Especialidade> especialidadeMedicoList = especialidadeService.findAllEspecialidade();
             return new ResponseEntity(especialidadeMedicoList, HttpStatus.OK);
@@ -52,16 +45,16 @@ public class EspecialidadeController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity buscarPorId(@PathVariable("id") Long id) {
+    public ResponseEntity buscarPorId(@PathVariable("id") Long id){
 
         Optional<Especialidade> especialidadeMedico = especialidadeService.findById(id);
 
-        if (especialidadeMedico.isEmpty()) {
+        if(especialidadeMedico.isEmpty()){
             return ResponseEntity.badRequest().body("Especialidade não encontrado na base de dados");
         } else {
             return new ResponseEntity(especialidadeMedico, HttpStatus.OK);
-        }
+   }
 
-    }
+}
 
 }
