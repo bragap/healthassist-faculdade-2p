@@ -76,14 +76,13 @@ form.addEventListener('submit', (e) => {
     e.preventDefault();
 
 
-    const especialidadeSelecionada = especialidade ? especialidade.options[especialidade.selectedIndex].value : null;
-
+    const especialidadesSelecionadas = Array.from(especialidade.selectedOptions).map(option => ({ nome: option.value }));
 
     const dados = {
         endereco: endereco.value,
         data_nasc: dataNascimento.value,
         codigo_de_registro: codigoRegistro.value,
-        id_especialidade_medico: especialidadeSelecionada,
+        especialidades: especialidadesSelecionadas,
         nome_completo: nomeCompleto.value,
         id_usuario: idUsuario
     }
@@ -98,22 +97,22 @@ form.addEventListener('submit', (e) => {
                 console.log('Cadastro não foi bem-sucedido. Código de status:', response.status);
             }
         })
-        .catch(error)
-    console.log('Erro ao cadastrar médico:', error);
-    if (error.response) {
-        console.log("Data:", error.response.data);
-        console.log("Status:", error.response.status);
-        console.log("Headers:", error.response.headers);
-    } else if (error.request) {
-        console.log("Request:", error.request);
-    } else {
-        console.log("Error:", error.message);
-    }
-    console.log("Config:", error.config);
+        .catch(error => {
+            console.log('Erro ao cadastrar médico:', error);
+            if (error.response) {
+                console.log("Data:", error.response.data);
+                console.log("Status:", error.response.status);
+                console.log("Headers:", error.response.headers);
+            } else if (error.request) {
+                console.log("Request:", error.request);
+            } else {
+                console.log("Error:", error.message);
+            }
+            console.log("Config:", error.config);
 
-    alert('Erro ao cadastrar médico. Verifique o console para mais detalhes.');
-}
-);
+            alert('Erro ao cadastrar médico. Verifique o console para mais detalhes.');
+        });
+});
 
 //mudar nome do arquivo inserido
 function displayFileName(input) {
