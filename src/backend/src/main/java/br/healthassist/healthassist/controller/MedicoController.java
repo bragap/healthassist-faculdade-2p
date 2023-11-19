@@ -63,7 +63,8 @@ public class MedicoController {
         }
 
     }
-@PutMapping("/{id}")
+
+    @PutMapping("/{id}")
     public ResponseEntity alterarDados(@PathVariable("id") Long id, @RequestBody MedicoDto dto) {
         try{
             Medico medico = medicoService.updateMedico( id, converter(dto));
@@ -102,7 +103,8 @@ public class MedicoController {
                 .nomeCompleto(dto.getNome_completo())
                 .aprovacao(false)
                 .build();
- List<EspecialidadeDto> especialidadesDto = dto.getEspecialidades();
+
+        List<EspecialidadeDto> especialidadesDto = dto.getEspecialidades();
         List<Especialidade> especialidades = new ArrayList<>();
 
         for (EspecialidadeDto especialidadeDto : especialidadesDto) {
@@ -121,6 +123,6 @@ public class MedicoController {
         medico.setUsuario(usuario);
 
         return medico;
-}
+    }
 
 }

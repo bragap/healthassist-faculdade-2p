@@ -148,7 +148,7 @@ class InterHeaderPaciente extends HTMLElement {
               <li><a href="home-paciente.html">Início</a></li>
               <li><a href="avaliar-consulta.html">Consultas</a></li>
               <li><a href="perfil-paciente.html">Perfil</a></li>
-              <li><a href="#" class="btn-out" onclick="redirectTo('home-geral.html')">Sair</a></li>
+              <li><a href="#" class="btn-out" onclick="redirectTo('index.html')">Sair</a></li>
               </ul>
           </nav>
         </header>
@@ -177,7 +177,9 @@ class InterHeaderPaciente extends HTMLElement {
     }
 
     limparLocalStorage(){
-      localStorage.clear();
+      localStorage.setItem('idUsuario', 0);
+      localStorage.setItem('tipoUsuario', "");
+      localStorage.setItem('idPaciente', 0);
     }
   
   }

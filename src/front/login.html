@@ -9,53 +9,44 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-
   <title>Acesse o HealthAssist</title>
+  <script>
+
+    const especialidades = [
+        { "nome": "Clinico Geral" },
+        { "nome": "Dermatologista" },
+        { "nome": "Endocrinologista" },
+        { "nome": "Otorrinolarinogologista" },
+        { "nome": "Ginecologista" },
+        { "nome": "Pediatra" },
+        { "nome": "Urologista" },
+        { "nome": "Psiquiatra" },
+        { "nome": "Cardiologista" },
+        { "nome": "Neurologista" },
+        { "nome": "Oftalmologista" }
+    ];
+    document.addEventListener('DOMContentLoaded', function () {
+      
+      if (!localStorage.getItem('dadosIniciaisCadastrados')) {
+        especialidades.forEach(function(especialidade) {
+            axios.post('http://localhost:8080/especialidade-medico', especialidade)
+                .then(function (response) {
+                    console.log(response.data);
+                    localStorage.setItem('dadosIniciaisCadastrados', 'true');
+                })
+                .catch(function (error) {
+                    console.error('Erro ao cadastrar dados iniciais:', error);
+                });
+        });
+    } else {
+        console.log("Dados iniciais já cadastrados");
+    }
+});
+  
+  </script>
 </head>
 
 <body>
-  <script>
-    const especialidades = [
-      { "nome": "Clínico Geral" },
-      { "nome": "Dermatologista" },
-      { "nome": "Endocrinologista" },
-      { "nome": "Otorrinolarinogologista" },
-      { "nome": "Ginecologista" },
-      { "nome": "Pediatra" },
-      { "nome": "Urologista" },
-      { "nome": "Odontologia" },
-      { "nome": "Psicologia" },
-      { "nome": "Psiquiatria" },
-      { "nome": "Cardiologia" },
-      { "nome": "Neurologia" },
-      { "nome": "Oftalmologia" }
-    ];
-    document.addEventListener('DOMContentLoaded', function () {
-  // Adicione isso para limpar o localStorage quando a página é recarregada
-  window.addEventListener('beforeunload', function () {
-    localStorage.setItem('serverRestarted', 'false');
-  });
-
-  // Limpa o localStorage quando a página é recarregada
-  if (localStorage.getItem('serverRestarted') === 'true') {
-    localStorage.clear();
-    localStorage.setItem('serverRestarted', 'false'); // Define novamente para evitar limpar repetidamente
-  }
-
-  if (!localStorage.getItem('dadosIniciaisCadastrados')) {
-    axios.post('http://localhost:8080/especialidade-medico', especialidades)
-      .then(function (response) {
-        console.log(response.data);
-        localStorage.setItem('dadosIniciaisCadastrados', 'true');
-      })
-      .catch(function (error) {
-        console.error('Erro ao cadastrar dados iniciais:', error);
-      });
-  }
-});
-
-
-  </script>
 
   <div class="container">
     <div id="circulo" class="animate__animated animate__fadeInDownBig">

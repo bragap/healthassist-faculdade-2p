@@ -297,7 +297,6 @@ btnClose.addEventListener("click", () => {
 
     modal.close();
 
-    window.location.reload();
 });
 
 // abrir modal
@@ -325,80 +324,3 @@ function showLoading() {
 }
 
 
-// // populando minha rota de especialidades
-
-// const dados = [
-//     {
-//     "id": 1,
-//     "especialidade": "Clínico Geral"
-//     },
-//     {
-//     "id": 2,
-//     "especialidade": "Dermatologista"
-//     },
-//     {
-//     "id": 3,
-//     "especialidade": "Endocrinologista"
-//     },
-//     {
-//     "id": 4,
-//     "especialidade": "Otorrinolarinogologista"
-//     },
-//     {
-//     "id": 5,
-//     "especialidade": "Ginecologista"
-//     },
-//     {
-//     "id": 6,
-//     "especialidade": "Pediatra"
-//     },
-//     {
-//     "id": 7,
-//     "especialidade": "Urologista"
-//     },
-//     {
-//     "id": 8,
-//     "especialidade": "Odontologia"
-//     },
-//     {
-//     "id": 9,
-//     "especialidade": "Psicologia"
-//     },
-//     {
-//     "id": 10,
-//     "especialidade": "Psiquiatria"
-//     },
-//     {
-//     "id": 11,
-//     "especialidade": "Cardiologia"
-//     },
-//     {
-//     "id": 12,
-//     "especialidade": "Neurologia"
-//     },
-//     {
-//     "id": 13,
-//     "especialidade": "Oftalmologia"
-//     }
-//     ]
-
-//     async function popularBancoDeDados() {
-//         try {
-
-//             const resposta = await axios.post(endpointCadastroEspecialidades, {especialidades : dados});
-            
-//             // localStorage.setItem('dados_p', dados.id);
-
-//             console.log('Resposta da chamada POST:', resposta.data);
-//         } catch (erro) {
-//             console.error('Erro ao fazer a chamada POST:', erro.message);
-//         }
-//     }
-
-
-//     if (!localStorage.getItem('dados_populados')) {
-
-//         await popularBancoDeDados();
-
-//     localStorage.setItem('dados_populados', 'true');
-// }

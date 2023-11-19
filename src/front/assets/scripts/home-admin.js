@@ -19,9 +19,7 @@ const tipoUsuario = localStorage.getItem('tipoUsuario');
 function checkAuthorization() {
 
     if (tipoUsuario === "MEDICO" || tipoUsuario === "PACIENTE") {
-        alert("Você nao possui acesso a essa pagina!")
-        // Redireciona para a página de login ou exibe mensagem de erro
-        redirectTo('login.html');
+        redirectTo('error.html');
     }
 }
 
@@ -72,7 +70,7 @@ axios.get(urlDoutor)
                                 <p id="nome-usuario">${doctor.nomeCompleto}</p>
                                 <p>Data de Nascimento: ${doctor.dataNasc}</p>
                                 <p>Código de registro: ${doctor.codigoDeRegistro}</p>
-                                <p>Especialidade: ${doctor.especialidadeMedico.especialidade}</p>
+                                <p>Especialidade: ${doctor.especialidades.nome}</p>
                                 <p>Aprovação: ${doctor.aprovacao}</p>
                                 <p id="id-medico">${doctor.id}</p>
                             </div>

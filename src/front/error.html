@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <title>Você não tem permissão!</title>
+    <link rel="stylesheet" href="./assets/styles/erro.css">
+    <link rel="stylesheet" href="./assets/styles/global.css">
+    <link rel="icon" href="./assets/images/favicon.ico">
+    <script src="https://unpkg.com/scrollreveal@4"></script>
+
+</head>
+
+<body>
+    <img src="../front/assets/images/404.svg" class= "headline" alt ="erro">
+    <h2 class= "tagline">Volte para sua Homepage</h2>
+    <button id="btn-home" class= "tagline">Clique aqui</button>
+
+    <!-- Tela de loading -->
+    <div id="loading">
+        <div class="loader"></div>
+    </div>
+   
+    <footer-home></footer-home>
+    <script src="./assets/scripts/error.js"></script>
+    <script src="./assets/scripts/footer-home-geral.js"></script>
+    <script src="./assets/scripts/home-header.js"></script>
+    <script>
+        ScrollReveal().reveal('.headline')
+        ScrollReveal().reveal('.tagline', { delay: 400 })
+    </script>
+</body>
+</body>
+
+</html>

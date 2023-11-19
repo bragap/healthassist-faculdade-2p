@@ -26,8 +26,7 @@ const tipoUsuario = localStorage.getItem('tipoUsuario');
 function checkAuthorization() {
 
   if (tipoUsuario !== "MEDICO") {
-      alert("Você nao possui acesso a essa pagina!")
-      redirectTo('home-paciente.html');
+      redirectTo('error.html');
   }
 }
 

@@ -138,7 +138,7 @@ class HomeHeader extends HTMLElement {
       </style>
       <header>
         <nav>
-          <a class="logo" href="home-geral.html"><img src="./assets/images/logo-v1.png"></a>
+          <a class="logo" href="index.html"><img src="./assets/images/logo-v1.png"></a>
           <div class="mobile-menu">
             <div class="line1"></div>
             <div class="line2"></div>

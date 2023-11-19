@@ -12,8 +12,7 @@ const url = "http://localhost:8080/medico";
 function checkAuthorization() {
 
     if (tipoUsuario !== "MEDICO") {
-        alert("Você nao possui acesso a essa pagina!")
-        redirectTo('home-paciente.html');
+        redirectTo('error.html');
     }
 }
 
@@ -36,7 +35,7 @@ document.addEventListener('DOMContentLoaded', function () {
        <p>Email:  <span>${dados.usuario.email}</span></p>
        <p>Endereço:  <span>${dados.endereco}</span> </p>
        <p>Código de registro:  <span>${dados.codigoDeRegistro}</span> </p>
-       <p>Especialidade:  <span>${dados.especialidadeMedico.especialidade}</span> </p>
+       <p>Especialidade:  <span>${dados.especialidades.nome}</span> </p>
        `
             painelDoctor.innerHTML = str;
         })

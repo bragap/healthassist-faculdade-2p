@@ -19,18 +19,20 @@ const selectHorario = document.querySelector('select[name="horario"]');
 const url = 'http://localhost:8080/medico';
 const urlMarcarConsulta = "http://localhost:8080/consulta";
 const endpointCadastroEspecialidades = "http://localhost:8080/especialidade-medico";
+const urlPaciente = "http://localhost:8080/paciente";
 
 // id usuario
 const idUsuario = localStorage.getItem('idUsuario');
 const tipoUsuario = localStorage.getItem('tipoUsuario');
+let idPaciente = '';
 
 // FUNÇÕES
+
 // Função para verificar a autorização do usuário
 function checkAuthorization() {
 
     if (tipoUsuario !== "PACIENTE") {
-        alert("Você nao possui acesso a essa pagina!")
-        window.location.href = "home-medico.html";
+        window.location.href = "error.html";
     }
 }
 
@@ -43,6 +45,25 @@ function obterDiaDaSemana(data) {
     const diaSemana = new Date(data).getDay();
     return diasSemana[diaSemana];
 }
+
+// resgatar id do paciente
+document.addEventListener("DOMContentLoaded", async function () {
+
+    try {
+        const response = await axios.get(urlPaciente);
+        const dados = response.data;
+
+        const paciente = dados.filter(p => p.usuario.id == idUsuario);
+
+        idPaciente = paciente[0].id;
+        localStorage.setItem('idPaciente', idPaciente);
+
+    } catch (error) {
+        console.error('Ocorreu um erro:', error);
+    }
+
+
+})
 
 document.addEventListener("DOMContentLoaded", function () {
 
@@ -255,14 +276,17 @@ especialidadesSelect.addEventListener("change", function () {
         getAndRenderDoctors();
     }
     else {
-        const filteredData = dados.filter(user => {
-
-            return user.especialidadeMedico.especialidade === selectedEspecialidade;
-        });
-
+        const filteredData = filterDoctorsByEspecialidade(dados, selectedEspecialidade);
         renderDoctors(filteredData);
-    }
-});
+        }
+    })
+
+// Função para filtrar médicos por especialidade
+function filterDoctorsByEspecialidade(doctors, selectedEspecialidade) {
+    return doctors.filter(user => {
+        return user.especialidades.some(espec => espec.nome === selectedEspecialidade);
+    });
+}
 
 // Função para renderizar os médicos no HTML
 function renderDoctors(data) {
@@ -276,8 +300,8 @@ function renderDoctors(data) {
             let listDoctors = `
             <div id="card-individual">
                 <h5>Dr. ${user.nomeCompleto}</h5>
-                <p>${user.especialidadeMedico.especialidade}</p>
-                <button type="button" id="btn-open-modal" data-nome="${user.nomeCompleto}" data-especialidade="${user.especialidadeMedico.especialidade}" data-id="${user.id}">Agende uma consulta!</button>
+                <p>${user.especialidades.map(espec => espec.nome).join(', ')}</p>
+                <button type="button" id="btn-open-modal" data-nome="${user.nomeCompleto}" data-especialidade="${user.especialidades.map(espec => espec.nome).join(', ')}" data-id="${user.id}">Agende uma consulta!</button>
             </div>
         `;
             cardDoctor.innerHTML += listDoctors;
@@ -291,14 +315,19 @@ function renderDoctors(data) {
     for (const button of buttonsOpenModal) {
         button.addEventListener("click", function () {
             const nomeMedico = this.getAttribute("data-nome");
-            const especialidadeMedico = this.getAttribute("data-especialidade");
+
+            const especialidadesMedico = this.getAttribute("data-especialidade").split(',').map(espec => ({ nome: espec }));
+
             idMedico = this.getAttribute("data-id");
+
+            const especialidadesList = especialidadesMedico.map(espec => `<p>${espec.nome}</p>`).join('');
+
 
             // Defina o conteúdo do cabeçalho do modal com as informações do médico específico
             headerModal.innerHTML = `
             <button id="btn-close-modal">X</button>
                 <h4>Dr. ${nomeMedico}</h4>
-                <p>${especialidadeMedico}</p>
+               <p>${especialidadesList}</p>
             `;
 
             modal.showModal();
@@ -328,13 +357,13 @@ function fillEspecialidadesSelect() {
             const dados = response.data;
 
             dados.forEach(especialidade => {
-                if (especialidade.especialidade === "Clínico geral" || especialidade.especialidade === null) {
+                if (especialidade.nome === "Clínico geral" || especialidade.nome === null) {
                     return
                 } else {
                     let listEspecialidades = "";
                     listEspecialidades += `
-                <option name="clinico_geral" value="${especialidade.especialidade}">
-                    ${especialidade.especialidade}
+                <option name="clinico_geral" value="${especialidade.nome}">
+                    ${especialidade.nome}
                   </option>
                 `;
                     select.innerHTML += listEspecialidades;
@@ -366,15 +395,19 @@ function redirectTo(destination) {
     }, 2000);
 }
 
+
 // marcar consulta
 const btnMarcarConsulta = document.getElementById("btn-marcar-consulta");
 
 btnMarcarConsulta.addEventListener("click", function () {
+    console.log(idUsuario, "id paciente")
+    console.log(idMedico, "id medico")
+    console.log(idPaciente, "id paciente")
     let respostaAnamnese = "";
 
     const dados = {
         idMedico: idMedico,
-        idPaciente: idUsuario,
+        idPaciente: idPaciente,
         dataHoraConsulta: dataHoraEscolhida,
         anamnese: respostaAnamnese,
     }
@@ -387,8 +420,24 @@ btnMarcarConsulta.addEventListener("click", function () {
 
         })
         .catch(error => {
-            console.error('Ocorreu um erro:', error);
-            alert("Erro ao marcar consulta!");
+            console.error('Erro ao cadastrar anamnese:', error);
+
+            if (error.response) {
+                console.log("Data:", error.response.data);
+                console.log("Status:", error.response.status);
+                console.log("Headers:", error.response.headers);
+
+                // Adicione a linha abaixo para imprimir a mensagem de erro específica do servidor
+                console.log("Response Data:", error.response.data);
+
+            } else if (error.request) {
+                console.log("Request:", error.request);
+            } else {
+                console.log("Error:", error.message);
+            }
+            console.log("Config:", error.config);
+
+            alert('Erro ao cadastrar anamnese. Verifique o console para mais detalhes.');
         });
 
 

@@ -3,10 +3,11 @@ const painelUser = document.getElementsByClassName('dados-user')[0];
 
 // id usuario
 const idUsuario = localStorage.getItem('idUsuario');
+const idPaciente = localStorage.getItem('idPaciente');
 const tipoUsuario = localStorage.getItem('tipoUsuario');
 
 // endpoint
-const url = `http://localhost:8080/paciente/${idUsuario}`;
+const url = `http://localhost:8080/paciente`;
 
 // FUNÇÕES
 
@@ -14,8 +15,7 @@ const url = `http://localhost:8080/paciente/${idUsuario}`;
 function checkAuthorization() {
 
     if (tipoUsuario !== "PACIENTE") {
-        alert("Você nao possui acesso a essa pagina!")
-        redirectTo('home-medico.html');
+        redirectTo('error.html');
     }
 }
 

@@ -18,7 +18,7 @@ const tipoUsuario = localStorage.getItem('tipoUsuario');
 function checkAuthorization() {
 
     if (tipoUsuario !== "PACIENTE") {
-        redirectTo('home-medico.html');
+        redirectTo('error.html');
     }
   }
   
@@ -42,84 +42,62 @@ checkAuthorization();
 
 //     const inputFile = document.querySelector('#inputGroupFile');
 //     if (inputFile.files.length > 0) {
-//         formData.append('file', inputFile.files[0]);
-//     }
+    //         formData.append('file', inputFile.files[0]);    
+    //     }
+    
+    //     console.log(formData)
+    //     return formData;
+    // }
+    
+    // exibir tela de loading
+    function showLoading() {
+    
+        document.getElementById('loading').style.display = 'flex';
+    
+        setTimeout(function () {
+            document.getElementById('loading').style.display = 'none';
+    
+        }, 4000);
+    }
+    
 
-//     console.log(formData)
-//     return formData;
-// }
+    // exibir nome do arquivo de upload
+    function displayFileName(input) {
+        const fileNameDisplay = document.getElementById('fileNameDisplay');
+        if (input.files.length > 0) {
+            fileNameDisplay.textContent = input.files[0].name; // Exibe o nome do arquivo selecionado
+        } else {
+            fileNameDisplay.textContent = 'Nenhum arquivo selecionado';
+        }    
+    }    
+   
+    // ...
 
-
-// formulario de cadastro de paciente
-form.addEventListener('submit', (e) => {
-
-
+form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
-    // const formData = getFormData();
-
-    //  dados.append('dto', JSON.stringify(pacienteDto));
-
-    const dados = {
+    const dadosCadastro = {
         endereco: endereco.value,
         dataNasc: dataNascimento.value,
         nomeCompleto: nomeCompleto.value,
         id_usuario: idUsuario
     }
 
+    try {
+        const response = await axios.post(url, dadosCadastro);
+        const dados = response.data;
 
+        console.log(dados);
+        const idPaciente = dados.id;
 
-    // Use o axios para enviar o FormData para o backend
-    // const response = await axios.post(url, formData, {
-    //     headers: {
-    //         'Content-Type': 'multipart/form-data', // Certifique-se de definir o tipo de conteúdo como 'multipart/form-data'
-    //     },
-    // });
-    axios.post(url, dados)
-        .then(response => {
-            console.log(response.status)
-            if (response.status >= 200 && response.status < 300) {
-                showLoading();
-                window.location.href = 'home-paciente.html';
-            } else {
-                console.log('Cadastro não foi bem-sucedido. Código de status:', response.status);
-            }
-        })
-        .catch(error)
-    console.error('Erro ao cadastrar paciente:', error);
-    if (error.response) {
-        console.log("Data:", error.response.data);
-        console.log("Status:", error.response.status);
-        console.log("Headers:", error.response.headers);
-    } else if (error.request) {
-        console.log("Request:", error.request);
-    } else {
-        console.log("Error:", error.message);
+        localStorage.setItem('idPaciente', idPaciente);
+
+        showLoading();
+        window.location.href = 'home-paciente.html';
+      
+
+    } catch (error) {
+        console.error('Erro ao cadastrar paciente:', error);
+        alert('Erro ao cadastrar paciente. Verifique o console para mais detalhes.');
     }
-    console.log("Config:", error.config);
-
-    alert('Erro ao cadastrar paciente. Verifique o console para mais detalhes.');
-}
-);
-
-// exibir nome do arquivo de upload
-function displayFileName(input) {
-    const fileNameDisplay = document.getElementById('fileNameDisplay');
-    if (input.files.length > 0) {
-        fileNameDisplay.textContent = input.files[0].name; // Exibe o nome do arquivo selecionado
-    } else {
-        fileNameDisplay.textContent = 'Nenhum arquivo selecionado';
-    }
-}
-
-// exibir tela de loading
-function showLoading() {
-
-    document.getElementById('loading').style.display = 'flex';
-
-    setTimeout(function () {
-        document.getElementById('loading').style.display = 'none';
-
-    }, 4000);
-}
-
+});

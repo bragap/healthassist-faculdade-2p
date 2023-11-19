@@ -37,7 +37,7 @@ p {
 	margin-bottom: 2em;
     color:#048ABF;
 }
-#card-consultas {
+#card-consultas-ante {
 	width: 100%;
 	display: flex;
     justify-content: space-around;
@@ -47,7 +47,7 @@ p {
 
 }
 
-.card-consulta {
+.card-consulta, .card-consulta-2 {
 	display: flex;
     flex-wrap: wrap;
     width: 30%;
@@ -60,10 +60,11 @@ p {
     justify-content: space-between;
     transition: .3s;
 }
-.card-consulta:hover{
+
+.card-consulta:hover, .card-consulta-2:hover{
     box-shadow: 0 10px 50px rgba(0, 0, 0, 0.375);
 }
-.card-consulta span{
+.card-consulta span, .card-consulta-2 span {
     padding: 15px;
     word-wrap: break-word;
 }
@@ -112,7 +113,7 @@ button {
         padding-top: 160px;
         text-align: center;
     }
-    #card-consultas{
+    #card-consultas-ante{
         flex-direction: column;
     }
     .card-consulta{

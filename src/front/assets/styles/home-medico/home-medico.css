@@ -2,10 +2,9 @@ main {
 	width: 70%;
     height: 200vh;
 	margin: 0 auto;
-    margin-top: -250px;
+    padding-top: 170px;
 	display: flex;
 	align-items: center;
-	justify-content: center;
     flex-direction: column;
 }
 
@@ -237,16 +236,19 @@ dialog {
 }
 #nome-paciente{
     font-weight: bold;
+    width: 80%;
 }
 #att{
     margin-top: 5px;
     margin-bottom: 5px;
     align-self: center;
+
 }
 .header-modal {
 	display: flex;
 	justify-content: space-between;
     flex-wrap: wrap;
+
 }
 
 .form-control {

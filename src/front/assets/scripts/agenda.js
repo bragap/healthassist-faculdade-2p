@@ -15,8 +15,7 @@ let consultasParaFullCalendar = [];
 function checkAuthorization() {
 
     if (tipoUsuario !== "MEDICO") {
-        //redirectTo('home-paciente.html');
-        window.location.href='home-paciente.html';
+        window.location.href='error.html';
     }
 }
 
@@ -27,6 +26,21 @@ document.addEventListener('DOMContentLoaded', function () {
 axios.get(url)
     .then(response => {
         consultasJson = response.data;
+        if(consultasJson === null){
+            var calendarEl = document.getElementById('calendar');
+        
+            var calendar = new FullCalendar.Calendar(calendarEl, {
+                locale: 'pt-br',
+                initialView: 'dayGridMonth',
+                headerToolbar: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'dayGridMonth,timeGridWeek,timeGridDay'
+                }
+            });
+    
+            calendar.render();
+        }else {
         consultasJson.forEach(consulta => {
             if (consulta.medico.usuario.id == idUsuario && !consulta.respostaAnamnese) {
                 consultasParaFullCalendar.push({
@@ -52,7 +66,7 @@ axios.get(url)
                 }
                 calendar.render();
         });
-    })
+    }})
     .catch(error => {
         console.log(error)
     })

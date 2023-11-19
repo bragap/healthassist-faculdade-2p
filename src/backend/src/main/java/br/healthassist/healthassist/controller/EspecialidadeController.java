@@ -19,7 +19,7 @@ public class EspecialidadeController {
     private final EspecialidadeService especialidadeService;
 
     @PostMapping
-    public ResponseEntity cadastrarEspecialidade(@RequestBody EspecialidadeDto dto) {
+    public ResponseEntity cadastrarEspecialidade(@RequestBody EspecialidadeDto dto){
 
         Especialidade especialidadeMedico = Especialidade.builder()
                 .nome(dto.getNome()).build();
@@ -34,11 +34,12 @@ public class EspecialidadeController {
     }
 
     @GetMapping
-    public ResponseEntity buscar() {
+    public ResponseEntity buscar(){
+
         try {
             List<Especialidade> especialidadeMedicoList = especialidadeService.findAllEspecialidade();
             return new ResponseEntity(especialidadeMedicoList, HttpStatus.OK);
-        } catch (Exception e) {
+        } catch (Exception e){
             return ResponseEntity.badRequest().body(e.getMessage());
         }
 
@@ -53,8 +54,8 @@ public class EspecialidadeController {
             return ResponseEntity.badRequest().body("Especialidade não encontrado na base de dados");
         } else {
             return new ResponseEntity(especialidadeMedico, HttpStatus.OK);
-   }
+        }
 
-}
+    }
 
 }
