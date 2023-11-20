@@ -24,7 +24,7 @@ CREATE TABLE usuario (
                          apelido character varying(50) NOT NULL,
                          email character varying(50) NOT NULL,
                          senha character varying(50) NOT NULL,
-                         autorizacao character varying(20) check (autorizacao in ('MEDICO','PACIENTE','ADMINISTRADOR')) not null,
+                         autorizacao character varying(20) check (autorizacao in ('MEDICO','PACIENTE','ADMINISTRADOR')),
                          data_criacao timestamp DEFAULT now()
 );
 
