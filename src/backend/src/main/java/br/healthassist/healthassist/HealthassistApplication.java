@@ -21,6 +21,7 @@ public class HealthassistApplication {
 		CorsConfiguration config = new CorsConfiguration();
 		config.setAllowCredentials(true);
 		config.addAllowedOrigin("http://127.0.0.1:5500");
+		config.addAllowedOrigin("http://localhost:63343");
 		config.addAllowedHeader("*");
 		config.addAllowedMethod("*");
 		source.registerCorsConfiguration("/**", config);
