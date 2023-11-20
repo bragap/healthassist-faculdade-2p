@@ -5,15 +5,9 @@ package br.healthassist.healthassist.model.entity;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToMany;
-import jakarta.persistence.Table;
+
+import br.healthassist.healthassist.model.enums.StatusAprovacao;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -44,7 +38,9 @@ public class Paciente {
     private String nomeCompleto;
 
     @Column(name = "aprovacao")
-    private boolean aprovacao;
+    @Enumerated(EnumType.STRING)
+    private StatusAprovacao aprovacao;
+
     @ManyToOne
     @JoinColumn(name = "id_usuario")
     private Usuario usuario;

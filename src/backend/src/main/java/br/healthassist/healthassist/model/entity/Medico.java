@@ -1,5 +1,6 @@
 package br.healthassist.healthassist.model.entity;
 
+import br.healthassist.healthassist.model.enums.StatusAprovacao;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -41,7 +42,8 @@ public class Medico {
     private Usuario usuario;
 
     @Column(name = "aprovacao")
-    private boolean aprovacao;
+    @Enumerated(EnumType.STRING)
+    private StatusAprovacao aprovacao;
 
     @ManyToMany
     @JoinTable(

@@ -5,6 +5,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
 
+import br.healthassist.healthassist.model.enums.StatusAprovacao;
 import org.springframework.cglib.core.Local;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
@@ -82,18 +83,16 @@ public class PacienteController {
     @PutMapping("/{id}/atualizar-status")
         public ResponseEntity alterarStatusPaciente(@PathVariable Long id, @RequestBody AtualizarStatusDto dto){
             return pacienteService.findById(id).map( entity -> {
-                if("true".equalsIgnoreCase(dto.getAprovacao())){
-                    entity.setAprovacao(true);
+                StatusAprovacao statusSelecionado = StatusAprovacao.valueOf(dto.getAprovacao());
+                if (dto.getAprovacao() == null) {
+                    return ResponseEntity.badRequest().body("Não foi possivel atualizar o status de Aprovação, envie um Status válido");
+                }
+                try {
+                    entity.setAprovacao(statusSelecionado);
                     pacienteService.salvarPaciente(entity);
                     return ResponseEntity.ok(entity);
-                } else if ("false".equalsIgnoreCase(dto.getAprovacao())) {
-                    entity.setAprovacao(false);
-                    pacienteService.salvarPaciente(entity);
-                    return ResponseEntity.ok(entity);
-                } else {
-                    return ResponseEntity
-                            .badRequest()
-                            .body("Envie um status válido (true/false)");
+                } catch (RegraNegocioException e){
+                    return ResponseEntity.badRequest().body(e.getMessage());
                 }
             } ).orElseGet(() -> ResponseEntity.notFound().build());
     }
@@ -110,7 +109,7 @@ public class PacienteController {
                                     .endereco(dto.getEndereco())
                                     .dataNasc(dataNasc)
                                     .nomeCompleto(dto.getNomeCompleto())
-                                    .aprovacao(false)
+                                    .aprovacao(StatusAprovacao.ANALISE)
                                     .build();
 
 

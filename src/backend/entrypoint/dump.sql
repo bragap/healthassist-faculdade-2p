@@ -37,7 +37,7 @@ CREATE TABLE medico (
                         codigo_de_registro character varying(255) COLLATE "pg_catalog"."default",
                         data_criacao timestamp DEFAULT now(),
                         nome_completo character varying(100) COLLATE "pg_catalog"."default",
-                        aprovacao bool NULL,
+                        aprovacao character varying(20) check (aprovacao in ('APROVADO','REPROVADO','ANALISE')) not null,
                         UNIQUE (codigo_de_registro),
                         FOREIGN KEY (id_usuario) REFERENCES usuario (id)
 );
@@ -59,7 +59,7 @@ CREATE TABLE paciente (
                           data_nasc date,
                           data_criacao timestamp DEFAULT now(),
                           nome_completo character varying(100) COLLATE "pg_catalog"."default",
-                          aprovacao bool NULL,
+                          aprovacao character varying(20) check (aprovacao in ('APROVADO','REPROVADO','ANALISE')) not null,
                           FOREIGN KEY (id_usuario) REFERENCES usuario (id)
 );
 

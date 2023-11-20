@@ -7,6 +7,7 @@ import br.healthassist.healthassist.exception.RegraNegocioException;
 import br.healthassist.healthassist.model.entity.Especialidade;
 import br.healthassist.healthassist.model.entity.Medico;
 import br.healthassist.healthassist.model.entity.Usuario;
+import br.healthassist.healthassist.model.enums.StatusAprovacao;
 import br.healthassist.healthassist.service.EspecialidadeService;
 import br.healthassist.healthassist.service.MedicoService;
 import br.healthassist.healthassist.service.UsuarioService;
@@ -77,16 +78,16 @@ public class MedicoController {
     @PutMapping("/{id}/atualizar-status")
     public ResponseEntity atualizarStatus(@PathVariable("id") Long id, @RequestBody AtualizarStatusDto dto) {
         return medicoService.findById(id).map(entity -> {
-            if ("true".equalsIgnoreCase(dto.getAprovacao())) {
-                entity.setAprovacao(true);
+            StatusAprovacao statusSelecionado = StatusAprovacao.valueOf(dto.getAprovacao());
+            if (dto.getAprovacao() == null) {
+                return ResponseEntity.badRequest().body("Não foi possivel atualizar o status de Aprovação, envie um Status válido");
+            }
+            try {
+                entity.setAprovacao(statusSelecionado);
                 medicoService.salvarMedico(entity);
                 return ResponseEntity.ok(entity);
-            } else if ("false".equalsIgnoreCase(dto.getAprovacao())) {
-                entity.setAprovacao(false);
-                medicoService.salvarMedico(entity);
-                return ResponseEntity.ok(entity);
-            } else {
-                return ResponseEntity.badRequest().body("Envie um status válido (true/false)");
+            } catch (RegraNegocioException e){
+                return ResponseEntity.badRequest().body(e.getMessage());
             }
         }).orElseGet(() -> ResponseEntity.notFound().build());
     }
@@ -101,7 +102,7 @@ public class MedicoController {
                 .dataNasc(dataNasc)
                 .codigoDeRegistro(dto.getCodigo_de_registro())
                 .nomeCompleto(dto.getNome_completo())
-                .aprovacao(false)
+                .aprovacao(StatusAprovacao.ANALISE)
                 .build();
 
         List<EspecialidadeDto> especialidadesDto = dto.getEspecialidades();
