@@ -43,22 +43,22 @@ formLogin.addEventListener('submit', async (e) => {
     checkInputsLogin();
 
     if (validLogin) {
-      
-    } 
-        clearErrorMessage();
 
-        const dadosLogin = {
-            email: usuarioLogin.value,
-            senha: senhaLogin.value
-        };
+    }
+    clearErrorMessage();
 
-        try {
-            const response = await axios.post(endpointLogin, dadosLogin);
-            const dados = response.data;
+    const dadosLogin = {
+        email: usuarioLogin.value,
+        senha: senhaLogin.value
+    };
+
+    try {
+        const response = await axios.post(endpointLogin, dadosLogin);
+        const dados = response.data;
 
 
-            console.log(dados);
-            const tipoUsuario = dados.autorizacao;
+        console.log(dados);
+        const tipoUsuario = dados.autorizacao;
 
             localStorage.setItem('idUsuario', dados.id);
             localStorage.setItem('tipoUsuario', tipoUsuario);
@@ -68,14 +68,14 @@ formLogin.addEventListener('submit', async (e) => {
                 redirectToProfilePage(tipoUsuario);
             }, 2000);
 
-        } catch (error) {
-            displayErrorMessage(error.response.data);
-            errorValidation(usuarioLogin);
-            handleLoginError(error);
-        }
-    });
+    } catch (error) {
+        displayErrorMessage(error.response.data);
+        errorValidation(usuarioLogin);
+        handleLoginError(error);
+    }
+});
 
-    
+
 
 
 // Função para exibir mensagem de erro
@@ -145,6 +145,7 @@ function redirectToProfilePage(tipoUsuario) {
                         window.location.href = `completar-perfil-medico.html`;
                     }
                 }
+
             }
         })
 
@@ -190,7 +191,7 @@ form.addEventListener('submit', (e) => {
                 formsSucess();
             }
             ).catch((error) => {
-                
+
                 if (error.response) {
                     const textSucess = document.querySelector(".text-sucess");
 
@@ -279,7 +280,7 @@ const checkInputs = () => {
         }
         console.log(usuario);
 
-       
+
 
     }
 
