@@ -3,30 +3,30 @@ package br.healthassist.healthassist.service.impl;
 import java.util.List;
 import java.util.Optional;
 
-import br.healthassist.healthassist.model.entity.ArquivosPaciente;
-import br.healthassist.healthassist.model.repository.ArquivosPacienteRepository;
-import br.healthassist.healthassist.service.ArquivosPacienteService;
+import br.healthassist.healthassist.model.entity.ArquivoPaciente;
+import br.healthassist.healthassist.model.repository.ArquivoPacienteRepository;
+import br.healthassist.healthassist.service.ArquivoPacienteService;
 import jakarta.transaction.Transactional;
+import org.springframework.stereotype.Service;
 
-public class ArquivoPacienteServiceImpl implements ArquivosPacienteService {
-    
+@Service
+public class ArquivoPacienteServiceImpl implements ArquivoPacienteService {
 
-    private ArquivosPacienteRepository arquivosPacienteRepository;
-
+    private ArquivoPacienteRepository arquivosPacienteRepository;
 
     @Override
     @Transactional
-    public ArquivosPaciente salvarArquivoPaciente(ArquivosPaciente arquivoPacienteServiceImpl) {
+    public ArquivoPaciente salvarArquivoPaciente(ArquivoPaciente arquivoPacienteServiceImpl) {
         return arquivosPacienteRepository.save(arquivoPacienteServiceImpl);
     }
 
     @Override
-    public List<ArquivosPaciente> findAllArquivosPaciente(){
+    public List<ArquivoPaciente> findAllArquivosPaciente(){
         return arquivosPacienteRepository.findAll();
     }
 
     @Override
-    public Optional<ArquivosPaciente> findArquivosPacienteById(long id){
+    public Optional<ArquivoPaciente> findArquivosPacienteById(long id){
         return arquivosPacienteRepository.findById(id);
     }
 
