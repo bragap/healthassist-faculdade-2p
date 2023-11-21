@@ -26,8 +26,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
             const dados = response.data.filter(medico => medico.usuario.id == idUsuario)[0];
 
+       
             let str = '';
             str += `
+
        <h3>Suas informações pessoais</h3>
        <p>Nome completo: <span>${dados.nomeCompleto}</span></p>
        <p>Usuário:  <span>${dados.usuario.apelido}</span></p>
@@ -35,12 +37,11 @@ document.addEventListener('DOMContentLoaded', function () {
        <p>Email:  <span>${dados.usuario.email}</span></p>
        <p>Endereço:  <span>${dados.endereco}</span> </p>
        <p>Código de registro:  <span>${dados.codigoDeRegistro}</span> </p>
-       <p>Especialidade:  <span>${dados.especialidades.nome}</span> </p>
+       <p>Especialidade:  <span>${dados.especialidades.map((e) => e.nome).join(', ')}</span> </p>
        `
             painelDoctor.innerHTML = str;
         })
         .catch(error => {
-
             console.log(error);
         });
 });
@@ -75,3 +76,4 @@ function formatarDataNasc(data) {
 function padZero(numero) {
     return numero.toString().padStart(2, '0');
 }
+

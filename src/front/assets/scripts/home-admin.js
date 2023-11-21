@@ -103,8 +103,8 @@ function handleAprovarMedico(medicoId) {
             sucessMessage.innerHTML = `<p>Médico aprovado!</p>`;
             console.log('Doctor approved successfully');
             setTimeout(function () {
-            atualizarListaMedicos();
-            },2000);
+                atualizarListaMedicos();
+            }, 2000);
         })
         .catch(error => {
             console.error('Error approving doctor:', error);
@@ -113,7 +113,7 @@ function handleAprovarMedico(medicoId) {
 
 // rejeitar médico
 function handleRejeitarMedico(medicoId) {
-    axios.put(`${urlDoutor}/${medicoId}/atualizar-status`, { "aprovacao": "RECUSADO" })
+    axios.put(`${urlDoutor}/${medicoId}/atualizar-status`, { "aprovacao": "REPROVADO" })
         .then(response => {
             console.log('Doctor rejected successfully');
             atualizarListaMedicos();
@@ -195,8 +195,8 @@ function handleAprovarPaciente(pacienteId) {
             sucessMessage2.innerHTML = `<p>Paciente aprovado!</p>`;
             console.log('Patient approved successfully');
             setTimeout(function () {
-            atualizarListaPacientes();
-            },2000);
+                atualizarListaPacientes();
+            }, 2000);
         })
         .catch(error => {
             console.error('Error approving patient:', error);
@@ -205,7 +205,7 @@ function handleAprovarPaciente(pacienteId) {
 
 //rejeitar paciente
 function handleRejeitarPaciente(pacienteId) {
-    axios.put(`${urlPaciente}/${pacienteId}/atualizar-status`, { id: pacienteId, aprovacao: "RECUSADO" })
+    axios.put(`${urlPaciente}/${pacienteId}/atualizar-status`, { id: pacienteId, aprovacao: "REPROVADO" })
         .then(response => {
             console.log('Patient rejected successfully');
             atualizarListaPacientes();

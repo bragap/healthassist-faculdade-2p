@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <title>Você não foi aceito!</title>
+    <link rel="stylesheet" href="./assets/styles/erro.css">
+    <link rel="stylesheet" href="./assets/styles/global.css">
+    <link rel="icon" href="./assets/images/favicon.ico">
+    <script src="https://unpkg.com/scrollreveal@4"></script>
+
+</head>
+
+<body>
+    <img src="../front/assets/images/NotEnter.svg" class= "headline" alt ="erro">
+    <h2 class= "tagline"> Seus documentos não foram aceitos no nosso sistema!</h2>
+    <button id="btn-aprove" class= "tagline">Realize um novo cadastro!</button>
+
+    <!-- Tela de loading -->
+    <div id="loading">
+        <div class="loader"></div>
+    </div>
+   
+   
+    <script src="./assets/scripts/aprove.js"></script>
+    <script src="./assets/scripts/home-header.js"></script>
+    <script>
+        ScrollReveal().reveal('.headline')
+        ScrollReveal().reveal('.tagline', { delay: 400 })
+    </script>
+</body>
+</body>
+
+</html>

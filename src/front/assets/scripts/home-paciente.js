@@ -301,7 +301,7 @@ function renderDoctors(data) {
             let listDoctors = `
             <div id="card-individual">
                 <h5>Dr. ${user.nomeCompleto}</h5>
-                <p id="especialidade-medico">${user.especialidades.map(espec => espec.nome).join(' ')}</p>
+                <div>${user.especialidades.map(espec => `<span class="tag">${espec.nome}</span>`).join('')}</div>
                 <button type="button" id="btn-open-modal" data-nome="${user.nomeCompleto}" data-especialidade="${user.especialidades.map(espec => espec.nome).join(', ')}" data-id="${user.id}">Agende uma consulta!</button>
             </div>
         `;

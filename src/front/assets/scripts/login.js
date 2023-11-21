@@ -64,7 +64,6 @@ formLogin.addEventListener('submit', async (e) => {
             localStorage.setItem('tipoUsuario', tipoUsuario);
          
             showLoading();
-
             setTimeout(() => {
                 redirectToProfilePage(tipoUsuario);
             }, 2000);
@@ -114,19 +113,37 @@ function redirectToProfilePage(tipoUsuario) {
     axios.get(`http://localhost:8080/${tipo}`)
         .then((response) => {
             const dados = response.data;
+            console.log(dados,"dados")
             const usuario = dados.find((usuario) => usuario.usuario.id == idUsuario);
+            console.log(usuario,"usuario")
 
-            if (usuario) {
-                if (tipoUsuario === "PACIENTE") {
-                    window.location.href = `home-paciente.html`;
-                } else if (tipoUsuario === "MEDICO"){
-                    window.location.href = `home-medico.html`;
-                }
+            const aprovacao = usuario.aprovacao;
+
+            console.log(aprovacao, "aprovacao");
+
+            if(aprovacao === "ANALISE"){
+                showLoading();
+                setTimeout(() => {
+                    window.location.href = `aguardando-aprovacao.html`;
+                }, 2000);
+            } else if(aprovacao === "REPROVADO"){
+                showLoading();
+                setTimeout(() => {
+                    window.location.href = `reprovado.html`;
+                }, 2000);
             } else {
-                if (tipoUsuario === "PACIENTE") {
-                    window.location.href = `completar-perfil-paciente.html`;
-                } else if (tipoUsuario === 'MEDICO'){
-                    window.location.href = `completar-perfil-medico.html`;
+                if (usuario) {
+                    if (tipoUsuario === "PACIENTE") {
+                        window.location.href = `home-paciente.html`;
+                    } else if (tipoUsuario === "MEDICO"){
+                        window.location.href = `home-medico.html`;
+                    }
+                } else {
+                    if (tipoUsuario === "PACIENTE") {
+                        window.location.href = `completar-perfil-paciente.html`;
+                    } else if (tipoUsuario === 'MEDICO'){
+                        window.location.href = `completar-perfil-medico.html`;
+                    }
                 }
             }
         })
@@ -255,7 +272,6 @@ const checkInputs = () => {
     if (valid) {
 
         usuario = {
-            id: generateUniqueId(),
             apelido: username.value,
             email: email.value,
             senha: password.value,
@@ -306,13 +322,6 @@ buttonModal.addEventListener("click", function () {
     modal.showModal();
 })
 
-
-// Função para gerar IDs únicos para usuários
-function generateUniqueId() {
-    const uniqueId = `${nextUserId}`;
-    nextUserId++;
-    return uniqueId;
-}
 
 // exibir tela de loading
 function showLoading() {

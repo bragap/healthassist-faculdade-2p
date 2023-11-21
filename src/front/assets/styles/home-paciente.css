@@ -16,12 +16,17 @@ main {
     text-align: center;
 }
 
+#search-doctor p{
+    margin-top: 20px;
+}
+
 
 #input-box {
     display: flex;
     justify-content: center;
     align-self: center;
     width: 60%;
+    margin-top: 20px;
 }
 #input-box select{
     width: 30%;
@@ -64,6 +69,8 @@ main {
 }
 
 #card-individual {
+    display: flex;
+    flex-direction: column;
     color: #048ABF;
     padding: 15px;
     border-radius: 10px;
@@ -74,19 +81,21 @@ main {
     margin: 50px;
     width: 30%;
     transition: .3s;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
 }
 #card-individual:hover{
     box-shadow: 0 10px 50px rgba(0, 0, 0, 0.375);
 }
-#card-individual p {
-    margin: 15px;
+#card-individual div {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
     padding: 10px;
-    word-wrap: break-word;
 }
 
 #card-individual button {
-    display: flex;
-    align-self: end;
     width: 100%;
     border: none;
     border-radius: 10px;
@@ -98,8 +107,10 @@ main {
     text-align: center;
     justify-content: center;
 }
+
 #card-individual h5{
     font-weight: bold;
+    color: #048ABF;
 }
 #card-individual button:hover {
     background-color: #449bbe;
@@ -282,5 +293,13 @@ tr:hover:nth-child(1n + 2) {
     #modal{
         height: 80vh;
     }
+}
+
+.tag{
+    background-color: #449bbe;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 50px;
+    color: #fff;
 }
 
