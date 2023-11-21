@@ -2,12 +2,14 @@
 const tipoUsuario = localStorage.getItem('tipoUsuario');
 
 // elements
-const button = document.querySelector('#btn-reprove');
+const button = document.querySelector('#btn-aprove');
 
 // função que redireciona o usuario pra sua home
 button.addEventListener('click', function () {
 
-       redirectTo('index.html');
+   console.log(tipoUsuario )
+    
+   redirectTo('index.html');
 
 })
 
