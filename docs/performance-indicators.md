@@ -15,7 +15,7 @@ _Usar o seguinte modelo:_
 
 | **Indicador** | **Objetivos** | **Descrição** | **Fonte de Dados** | **Perspectiva** |
 | --- | --- | --- | --- | --- |
-| Percentual de Pacientes Cadastrados | Avaliar o número de novos pacientes cadastrados | Calcular o percentual de cadastros de novos pacientes em relação ao total de novos acessos ao website mensalmente | Tabela Paciente | Aprendizado e Crescimento |
+| Percentual de Pacientes Cadastrados | Avaliar o número de novos pacientes cadastrados | Quantificar a quantidade de novos pacientes cadastrados no website mensalmente | Tabela Paciente | Aprendizado e Crescimento |
 | Taxa Média de Consultas Diárias por Médico | Analisar quais os profissionais estão prestando mais consultas | Quantificar de forma aproximada o número de atendimentos diários de cada profissional de saúde dentro do mês | Tabela Consulta | Processos Internos |
 | Número de Novos Médicos Cadastrados na Clínica | Analisar o crescimento da clínica em referência ao número de novos Médicos | Quantificar o crescimento da clínica através da inscrição de novos profissionais de saúde Trimestralmente | Tabela Médico | Aprendizado e Crescimento |
 | Índice de Satisfação do Paciente | Manter controle sobre a qualidade dos serviços prestados | Quantificar em porcentagem o número de más avaliações das consultas em relação a todas as realizadas | Tabela Avaliar Consulta | Cliente |
