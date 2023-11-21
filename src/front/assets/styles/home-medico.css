@@ -1,8 +1,8 @@
 main {
 	width: 70%;
-    height: 200vh;
 	margin: 0 auto;
-    padding-top: 170px;
+    padding-top: 200px;
+    min-height: 100vh;
 	display: flex;
 	align-items: center;
     flex-direction: column;
@@ -16,8 +16,13 @@ main {
 h2 {
 	margin: 1.5rem 0 !important;
 }
+#card-consultas-anteriores{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
 
-.card-consultas {
+.card-consultas, .card-consulta-anteriores {
 	width: 100%;
 	display: flex;
     flex-direction: column;
@@ -291,5 +296,14 @@ input[type="text"] {
     main{
         text-align: center;
         margin-top: -150px;
+    }
+}
+@media (max-width:900px){
+    #card-consultas-anteriores{
+        flex-direction: column;
+        align-items: center;
+    }
+    .card-consulta{
+        width: 100%;
     }
 }

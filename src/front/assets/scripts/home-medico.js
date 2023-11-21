@@ -26,13 +26,14 @@ const tipoUsuario = localStorage.getItem('tipoUsuario');
 function checkAuthorization() {
 
   if (tipoUsuario !== "MEDICO") {
-      redirectTo('error.html');
+    redirectTo('error.html');
   }
 }
 
 checkAuthorization();
 
 // puxar elementos da api das proximas consultas
+
 axios.get(urlConsultas)
   .then(response => {
     const dados = response.data;
@@ -81,10 +82,13 @@ axios.get(urlConsultas)
 
 
 // puxar elementos da api para atualizar consultas   
+
 axios.get(urlConsultas)
   .then(response => {
     const dados = response.data;
+
     const dadosFiltrados = dados.filter(consulta => consulta.medico.usuario.id == idUsuario);
+
     let listConsults = "";
 
     if (dadosFiltrados.length === 0) {
@@ -145,6 +149,50 @@ axios.get(urlConsultas)
   });
 
 
+// puxar elementos da api para consultas que ja terminaram
+
+axios.get(urlConsultas)
+  .then(response => {
+    const dados = response.data;
+
+    const dadosFiltrados = dados.filter(consulta => consulta.medico.usuario.id == idUsuario);
+
+    let listConsults = "";
+
+    console.log(dadosFiltrados, "dados filtrados")
+
+
+    dadosFiltrados.forEach(user => {
+        listConsults += `
+      <div class="card-consulta">
+      <span name="nome_do_paciente" value="nome do paciente">Nome do Paciente: ${user.paciente.nomeCompleto}</span>
+      <span name="data_da_consulta" value="data da consulta">Data de Nascimento : ${formatarDataNasc(user.paciente.dataNasc)}</span>
+      <span name="email_do_paciente" value="email do paciente">Data/Hora da Consulta: ${formatarData(user.dataHoraConsulta)}</span>
+      <a href="">
+        <span name="arquivos_do_paciente" value="arquivos do paciente">Arquivos do paciente</span>
+      </a>
+      <svg width="19" height="20" viewBox="0 0 19 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="19" height="20" rx="2" fill="#F7685B" fill-opacity="0.8" />
+        <path
+          d="M5 7H6M6 7H14M6 7V14C6 14.2652 6.10536 14.5196 6.29289 14.7071C6.48043 14.8946 6.73478 15 7 15H12C12.2652 15 12.5196 14.8946 12.7071 14.7071C12.8946 14.5196 13 14.2652 13 14V7M7.5 7V6C7.5 5.73478 7.60536 5.48043 7.79289 5.29289C7.98043 5.10536 8.23478 5 8.5 5H10.5C10.7652 5 11.0196 5.10536 11.2071 5.29289C11.3946 5.48043 11.5 5.73478 11.5 6V7M8.5 9.5V12.5M10.5 9.5V12.5"
+          stroke="white" stroke-linecap="round" stroke-linejoin="round" />
+      </svg>
+  </div>
+  `;
+    });
+
+
+    const card = document.getElementById("card-consultas-anteriores");
+    card.innerHTML += listConsults;
+
+
+  })
+  .catch(error => {
+    console.log(error);
+  });
+
+
+
 // formulario de envio da anamnese
 form.addEventListener('submit', (e) => {
 
@@ -173,9 +221,9 @@ form.addEventListener('submit', (e) => {
   // Verificar se o campo de anamnese está vazio
   if (textareaValue.trim() === '') {
     errorMessage.innerHTML = "O campo de anamnese não pode estar vazio.Redirecionando para a Homepage";
-      redirectTo('home-medico.html');
-      return;
-   
+    redirectTo('home-medico.html');
+    return;
+
   }
 
   const dados = {

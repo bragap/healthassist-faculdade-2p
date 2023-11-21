@@ -1,7 +1,7 @@
 main {
     width: 90%;
-    padding-top: 220px;
-    height: 150vh;
+    padding-top: 200px;
+    min-height: 100vh;
     margin: 0 auto;
     display: flex;
     justify-content: start;
@@ -60,6 +60,7 @@ main {
     flex-wrap: wrap;
     justify-content: center;
     padding: 10px;
+   
 }
 
 #card-individual {
@@ -71,7 +72,7 @@ main {
     border-right: 5px solid #048ABF;
     border-bottom: 5px solid #048abf;
     margin: 50px;
-    width: 15%;
+    width: 30%;
     transition: .3s;
 }
 #card-individual:hover{
@@ -94,6 +95,8 @@ main {
     background-color: #048abf;
     color: #fff;
     cursor: pointer;
+    text-align: center;
+    justify-content: center;
 }
 #card-individual h5{
     font-weight: bold;
@@ -280,3 +283,4 @@ tr:hover:nth-child(1n + 2) {
         height: 80vh;
     }
 }
+

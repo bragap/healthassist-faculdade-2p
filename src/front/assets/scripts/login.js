@@ -56,11 +56,13 @@ formLogin.addEventListener('submit', async (e) => {
             const response = await axios.post(endpointLogin, dadosLogin);
             const dados = response.data;
 
+
+            console.log(dados);
             const tipoUsuario = dados.autorizacao;
 
             localStorage.setItem('idUsuario', dados.id);
             localStorage.setItem('tipoUsuario', tipoUsuario);
-
+         
             showLoading();
 
             setTimeout(() => {

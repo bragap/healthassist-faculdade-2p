@@ -98,7 +98,7 @@ axios.get(urlDoutor)
 // aprovar médico
 function handleAprovarMedico(medicoId) {
 
-    axios.put(`${urlDoutor}/${medicoId}/atualizar-status`, { "aprovacao": true })
+    axios.put(`${urlDoutor}/${medicoId}/atualizar-status`, { "aprovacao": "APROVADO" })
         .then(response => {
             sucessMessage.innerHTML = `<p>Médico aprovado!</p>`;
             console.log('Doctor approved successfully');
@@ -113,7 +113,7 @@ function handleAprovarMedico(medicoId) {
 
 // rejeitar médico
 function handleRejeitarMedico(medicoId) {
-    axios.put(`${urlDoutor}/${medicoId}/atualizar-status`, { "aprovacao": false })
+    axios.put(`${urlDoutor}/${medicoId}/atualizar-status`, { "aprovacao": "RECUSADO" })
         .then(response => {
             console.log('Doctor rejected successfully');
             atualizarListaMedicos();
@@ -190,7 +190,7 @@ axios.get(urlPaciente)
 
 // aprovar paciente
 function handleAprovarPaciente(pacienteId) {
-    axios.put(`${urlPaciente}/${pacienteId}/atualizar-status`, { id: pacienteId, aprovacao: true })
+    axios.put(`${urlPaciente}/${pacienteId}/atualizar-status`, { id: pacienteId, aprovacao: "APROVADO" })
         .then(response => {
             sucessMessage2.innerHTML = `<p>Paciente aprovado!</p>`;
             console.log('Patient approved successfully');
@@ -205,7 +205,7 @@ function handleAprovarPaciente(pacienteId) {
 
 //rejeitar paciente
 function handleRejeitarPaciente(pacienteId) {
-    axios.put(`${urlPaciente}/${pacienteId}/atualizar-status`, { id: pacienteId, aprovacao: false })
+    axios.put(`${urlPaciente}/${pacienteId}/atualizar-status`, { id: pacienteId, aprovacao: "RECUSADO" })
         .then(response => {
             console.log('Patient rejected successfully');
             atualizarListaPacientes();

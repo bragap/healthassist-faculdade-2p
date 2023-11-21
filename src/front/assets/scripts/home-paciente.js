@@ -112,8 +112,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     obterProximosDiasDaSemana();
-
 })
+
 
 //exibir filtro no modal
 document.addEventListener("DOMContentLoaded", function () {
@@ -253,6 +253,7 @@ function getAndRenderDoctors() {
         });
 }
 
+
 // Adicione um evento de input ao campo de pesquisa
 const searchInput = document.getElementById("search-doctor-name");
 searchInput.addEventListener("input", function () {
@@ -278,8 +279,8 @@ especialidadesSelect.addEventListener("change", function () {
     else {
         const filteredData = filterDoctorsByEspecialidade(dados, selectedEspecialidade);
         renderDoctors(filteredData);
-        }
-    })
+    }
+})
 
 // Função para filtrar médicos por especialidade
 function filterDoctorsByEspecialidade(doctors, selectedEspecialidade) {
@@ -300,7 +301,7 @@ function renderDoctors(data) {
             let listDoctors = `
             <div id="card-individual">
                 <h5>Dr. ${user.nomeCompleto}</h5>
-                <p>${user.especialidades.map(espec => espec.nome).join(', ')}</p>
+                <p id="especialidade-medico">${user.especialidades.map(espec => espec.nome).join(' ')}</p>
                 <button type="button" id="btn-open-modal" data-nome="${user.nomeCompleto}" data-especialidade="${user.especialidades.map(espec => espec.nome).join(', ')}" data-id="${user.id}">Agende uma consulta!</button>
             </div>
         `;
@@ -426,8 +427,6 @@ btnMarcarConsulta.addEventListener("click", function () {
                 console.log("Data:", error.response.data);
                 console.log("Status:", error.response.status);
                 console.log("Headers:", error.response.headers);
-
-                // Adicione a linha abaixo para imprimir a mensagem de erro específica do servidor
                 console.log("Response Data:", error.response.data);
 
             } else if (error.request) {

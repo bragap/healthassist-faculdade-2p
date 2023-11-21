@@ -48,7 +48,6 @@ axios.get(url)
                     start: consulta.dataHoraConsulta
                 })
             }
-            console.log(consultasJson)
                 var calendarEl = document.getElementById('calendar');
         
                 var calendar = new FullCalendar.Calendar(calendarEl, {
