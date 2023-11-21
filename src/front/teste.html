@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload de Arquivo</title>
+</head>
+<body>
+
+<form action="http://localhost:8080/api/arquivos" method="post" enctype="multipart/form-data">
+    <label for="file">Selecione um arquivo:</label>
+    <input type="file" name="file" id="file" required>
+
+    <br>
+
+    <label for="idMedico">ID do Médico:</label>
+    <input type="text" name="idMedico" id="idMedico" required>
+
+    <br>
+
+    <button type="submit">Enviar</button>
+
+    <br>
+
+    <h1>Download de Arquivo</h1>
+
+    <a href="http://localhost:8080/api/arquivos/2" download="nome-do-arquivo">Baixar Arquivo</a>
+
+</form>
+
+</body>
+</html>

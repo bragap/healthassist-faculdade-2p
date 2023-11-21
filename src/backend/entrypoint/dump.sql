@@ -102,9 +102,9 @@ CREATE TABLE arquivos_medico (
                                  nome_arquivo varchar(255),
                                  tipo_mime varchar(100),
                                  dados_arquivo bytea,
-                                 aprovado smallint,
                                  motivo_inviabilidade varchar(255),
                                  id serial PRIMARY KEY,
+                                 aprovacao character varying(20) check (aprovacao in ('APROVADO','REPROVADO','ANALISE')) not null,
                                  FOREIGN KEY (id_medico) REFERENCES medico (id)
 );
 
@@ -114,9 +114,9 @@ CREATE TABLE arquivos_paciente (
                                    nome_arquivo varchar(255),
                                    tipo_mime varchar(100),
                                    dados_arquivo bytea,
-                                   aprovado smallint,
                                    motivo_inviabilidade varchar(255),
                                    id serial PRIMARY KEY,
+                                   aprovacao character varying(20) check (aprovacao in ('APROVADO','REPROVADO','ANALISE')) not null,
                                    FOREIGN KEY (id_paciente) REFERENCES paciente (id)
 );
 
