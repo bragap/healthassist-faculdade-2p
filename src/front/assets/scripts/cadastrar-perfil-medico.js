@@ -118,6 +118,8 @@ form.addEventListener('submit', async (e) => {
 
         localStorage.setItem('idMedico', idMedico);
 
+        localStorage.getItem('tipoUsuario', tipoUsuario);
+
         showLoading();
         setTimeout(() => {
             redirectToProfilePage(tipoUsuario);

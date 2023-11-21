@@ -77,7 +77,7 @@ form.addEventListener('submit', async (e) => {
 
 
     } catch(error ) {
-        console.error('Erro ao cadastrar médico:', error);
+        console.error('Erro ao cadastrar paciente:', error);
         if (error.response) {
             console.log("Data:", error.response.data);
             console.log("Status:", error.response.status);
@@ -89,15 +89,19 @@ form.addEventListener('submit', async (e) => {
         }        
         console.log("Config:", error.config);
 
-        alert('Erro ao cadastrar médico. Verifique o console para mais detalhes.');
+        alert('Erro ao cadastrar paciente. Verifique o console para mais detalhes.');
     }});        
 
 
 // Função para redirecionar para a página de perfil com base no tipo de usuário
 function redirectToProfilePage(tipoUsuario) {
+
     const tipo = tipoUsuario.toLowerCase();
+
     const idUsuario = localStorage.getItem('idUsuario');
+
     showLoading();
+    
     axios.get(`http://localhost:8080/${tipo}`)
         .then((response) => {
             const dados = response.data;
