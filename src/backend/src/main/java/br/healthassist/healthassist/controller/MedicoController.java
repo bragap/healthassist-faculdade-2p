@@ -4,10 +4,12 @@ import br.healthassist.healthassist.controller.dto.AtualizarStatusDto;
 import br.healthassist.healthassist.controller.dto.EspecialidadeDto;
 import br.healthassist.healthassist.controller.dto.MedicoDto;
 import br.healthassist.healthassist.exception.RegraNegocioException;
+import br.healthassist.healthassist.model.entity.ArquivoMedico;
 import br.healthassist.healthassist.model.entity.Especialidade;
 import br.healthassist.healthassist.model.entity.Medico;
 import br.healthassist.healthassist.model.entity.Usuario;
 import br.healthassist.healthassist.model.enums.StatusAprovacao;
+import br.healthassist.healthassist.service.ArquivoMedicoService;
 import br.healthassist.healthassist.service.EspecialidadeService;
 import br.healthassist.healthassist.service.MedicoService;
 import br.healthassist.healthassist.service.UsuarioService;
@@ -15,6 +17,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
@@ -30,12 +33,25 @@ public class MedicoController {
     private final UsuarioService usuarioService;
     private final EspecialidadeService especialidadeService;
     private final MedicoService medicoService;
+    private final ArquivoMedicoService arquivoMedicoService;
 
     @PostMapping
-    public ResponseEntity cadastrarMedico(@RequestBody MedicoDto dto) {
+    public ResponseEntity cadastrarMedico(@RequestBody MedicoDto dto, @RequestParam("file") MultipartFile file) {
 
         try {
             Medico medicoSalvo = medicoService.salvarMedico(converter(dto));
+
+            ArquivoMedico arquivoMedico = ArquivoMedico.builder()
+                    .idMedico(medicoSalvo)
+                    .nomeArquivo(file.getOriginalFilename())
+                    .tipoMime(file.getContentType())
+                    .aprovacao(StatusAprovacao.ANALISE)
+                    .build();
+
+            arquivoMedico.setDadosArquivo(file.getBytes());
+
+            arquivoMedicoService.salvarArquivo(arquivoMedico);
+
             return new ResponseEntity(medicoSalvo, HttpStatus.CREATED);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());
