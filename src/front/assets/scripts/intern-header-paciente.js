@@ -177,9 +177,7 @@ class InterHeaderPaciente extends HTMLElement {
     }
 
     limparLocalStorage(){
-      localStorage.setItem('idUsuario', 0);
-      localStorage.setItem('tipoUsuario', "");
-      localStorage.setItem('idPaciente', 0);
+      localStorage.clear();
     }
   
   }

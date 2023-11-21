@@ -20,58 +20,33 @@ function checkAuthorization() {
     if (tipoUsuario !== "PACIENTE") {
         redirectTo('error.html');
     }
-  }
-  
+}
+
 checkAuthorization();
 
-// ENVIAR ARQUIVO PRO BACKEND
+// exibir tela de loading
+function showLoading() {
 
-// function getFormData() {
+    document.getElementById('loading').style.display = 'flex';
 
-//     const formData = new FormData();
+    setTimeout(function () {
+        document.getElementById('loading').style.display = 'none';
 
-//     // Adicione o JSON do pacienteDto como uma parte separada
-//     const pacienteDto = {
-//         endereco: endereco.value,
-//         dataNasc: dataNascimento.value,
-//         nomeCompleto: nomeCompleto.value,
-//         id_usuario: window.idUsuario
-//     };
+    }, 4000);
+}
 
-//     formData.append('dto', JSON.stringify(pacienteDto));
 
-//     const inputFile = document.querySelector('#inputGroupFile');
-//     if (inputFile.files.length > 0) {
-    //         formData.append('file', inputFile.files[0]);    
-    //     }
-    
-    //     console.log(formData)
-    //     return formData;
-    // }
-    
-    // exibir tela de loading
-    function showLoading() {
-    
-        document.getElementById('loading').style.display = 'flex';
-    
-        setTimeout(function () {
-            document.getElementById('loading').style.display = 'none';
-    
-        }, 4000);
+// exibir nome do arquivo de upload
+function displayFileName(input) {
+    const fileNameDisplay = document.getElementById('fileNameDisplay');
+    if (input.files.length > 0) {
+        fileNameDisplay.textContent = input.files[0].name; // Exibe o nome do arquivo selecionado
+    } else {
+        fileNameDisplay.textContent = 'Nenhum arquivo selecionado';
     }
-    
+}
 
-    // exibir nome do arquivo de upload
-    function displayFileName(input) {
-        const fileNameDisplay = document.getElementById('fileNameDisplay');
-        if (input.files.length > 0) {
-            fileNameDisplay.textContent = input.files[0].name; // Exibe o nome do arquivo selecionado
-        } else {
-            fileNameDisplay.textContent = 'Nenhum arquivo selecionado';
-        }    
-    }    
-   
-    // ...
+// ...
 
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -88,16 +63,75 @@ form.addEventListener('submit', async (e) => {
         const dados = response.data;
 
         console.log(dados);
+        
         const idPaciente = dados.id;
-
+        
         localStorage.setItem('idPaciente', idPaciente);
 
-        showLoading();
-        window.location.href = 'home-paciente.html';
-      
+        localStorage.getItem('tipoUsuario', tipoUsuario);
 
-    } catch (error) {
-        console.error('Erro ao cadastrar paciente:', error);
-        alert('Erro ao cadastrar paciente. Verifique o console para mais detalhes.');
-    }
-});
+        showLoading();
+        setTimeout(() => {
+            redirectToProfilePage(tipoUsuario);
+        }, 2000);
+
+
+    } catch(error ) {
+        console.error('Erro ao cadastrar médico:', error);
+        if (error.response) {
+            console.log("Data:", error.response.data);
+            console.log("Status:", error.response.status);
+            console.log("Headers:", error.response.headers);
+        } else if (error.request) {
+            console.log("Request:", error.request);
+        } else {
+            console.log("Error:", error.message);
+        }        
+        console.log("Config:", error.config);
+
+        alert('Erro ao cadastrar médico. Verifique o console para mais detalhes.');
+    }});        
+
+
+// Função para redirecionar para a página de perfil com base no tipo de usuário
+function redirectToProfilePage(tipoUsuario) {
+    const tipo = tipoUsuario.toLowerCase();
+    const idUsuario = localStorage.getItem('idUsuario');
+    showLoading();
+    axios.get(`http://localhost:8080/${tipo}`)
+        .then((response) => {
+            const dados = response.data;
+
+            const usuario = dados.find((usuario) => usuario.usuario.id == idUsuario);
+
+            if (usuario) {
+
+                const aprovacao = usuario.aprovacao;
+
+                localStorage.setItem('aprovacao', aprovacao);
+
+
+                if (aprovacao === "ANALISE") {
+                    showLoading();
+                    setTimeout(() => {
+                        window.location.href = `aguardando-aprovacao.html`;
+                    }, 2000);
+
+
+                } else if (aprovacao === "REPROVADO") {
+                    showLoading();
+                    setTimeout(() => {
+                        window.location.href = `reprovado.html`;
+                    }, 2000);
+
+                } else if (aprovacao === "APROVADO") {
+
+                    window.location.href = `home-${tipo}.html`
+                }
+
+            } else {
+                window.location.href = `completar-perfil-${tipo}.html`;
+            }
+        })
+
+}

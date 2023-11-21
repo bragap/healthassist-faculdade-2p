@@ -60,13 +60,13 @@ formLogin.addEventListener('submit', async (e) => {
         console.log(dados);
         const tipoUsuario = dados.autorizacao;
 
-            localStorage.setItem('idUsuario', dados.id);
-            localStorage.setItem('tipoUsuario', tipoUsuario);
-         
-            showLoading();
-            setTimeout(() => {
-                redirectToProfilePage(tipoUsuario);
-            }, 2000);
+        localStorage.setItem('idUsuario', dados.id);
+        localStorage.setItem('tipoUsuario', tipoUsuario);
+
+        showLoading();
+        setTimeout(() => {
+            redirectToProfilePage(tipoUsuario);
+        }, 2000);
 
     } catch (error) {
         displayErrorMessage(error.response.data);
@@ -113,39 +113,35 @@ function redirectToProfilePage(tipoUsuario) {
     axios.get(`http://localhost:8080/${tipo}`)
         .then((response) => {
             const dados = response.data;
-            console.log(dados,"dados")
+
             const usuario = dados.find((usuario) => usuario.usuario.id == idUsuario);
-            console.log(usuario,"usuario")
 
-            const aprovacao = usuario.aprovacao;
+            if (usuario) {
 
-            console.log(aprovacao, "aprovacao");
+                const aprovacao = usuario.aprovacao;
 
-            if(aprovacao === "ANALISE"){
-                showLoading();
-                setTimeout(() => {
-                    window.location.href = `aguardando-aprovacao.html`;
-                }, 2000);
-            } else if(aprovacao === "REPROVADO"){
-                showLoading();
-                setTimeout(() => {
-                    window.location.href = `reprovado.html`;
-                }, 2000);
-            } else {
-                if (usuario) {
-                    if (tipoUsuario === "PACIENTE") {
-                        window.location.href = `home-paciente.html`;
-                    } else if (tipoUsuario === "MEDICO"){
-                        window.location.href = `home-medico.html`;
-                    }
-                } else {
-                    if (tipoUsuario === "PACIENTE") {
-                        window.location.href = `completar-perfil-paciente.html`;
-                    } else if (tipoUsuario === 'MEDICO'){
-                        window.location.href = `completar-perfil-medico.html`;
-                    }
+                localStorage.setItem('aprovacao', aprovacao);
+
+                if (aprovacao === "ANALISE") {
+                    showLoading();
+                    setTimeout(() => {
+                        window.location.href = `aguardando-aprovacao.html`;
+                    }, 2000);
+
+
+                } else if (aprovacao === "REPROVADO") {
+                    showLoading();
+                    setTimeout(() => {
+                        window.location.href = `reprovado.html`;
+                    }, 2000);
+
+                } else if (aprovacao === "APROVADO") {
+
+                    window.location.href = `home-${tipo}.html`
                 }
 
+            } else {
+                window.location.href = `completar-perfil-${tipo}.html`;
             }
         })
 

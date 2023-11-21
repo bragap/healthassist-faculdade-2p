@@ -176,9 +176,7 @@ class InterHeaderMedico extends HTMLElement {
     }
 
     limparLocalStorage(){
-      localStorage.setItem('idUsuario', 0);
-      localStorage.setItem('tipoUsuario', "");
-      localStorage.setItem('idMedico', 0);
+      localStorage.clear();
     }
   
   }
