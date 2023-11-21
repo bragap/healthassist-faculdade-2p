@@ -113,7 +113,7 @@ function handleAprovarMedico(medicoId) {
 
 // rejeitar médico
 function handleRejeitarMedico(medicoId) {
-    axios.put(`${urlDoutor}/${medicoId}/atualizar-status`, { "aprovacao": "RECUSADO" })
+    axios.put(`${urlDoutor}/${medicoId}/atualizar-status`, { "aprovacao": "REPROVADO" })
         .then(response => {
             console.log('Doctor rejected successfully');
             atualizarListaMedicos();
@@ -205,7 +205,7 @@ function handleAprovarPaciente(pacienteId) {
 
 //rejeitar paciente
 function handleRejeitarPaciente(pacienteId) {
-    axios.put(`${urlPaciente}/${pacienteId}/atualizar-status`, { id: pacienteId, aprovacao: "RECUSADO" })
+    axios.put(`${urlPaciente}/${pacienteId}/atualizar-status`, { id: pacienteId, aprovacao: "REPROVADO" })
         .then(response => {
             console.log('Patient rejected successfully');
             atualizarListaPacientes();

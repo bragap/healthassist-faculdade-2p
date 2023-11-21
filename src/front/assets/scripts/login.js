@@ -43,40 +43,40 @@ formLogin.addEventListener('submit', async (e) => {
     checkInputsLogin();
 
     if (validLogin) {
-      
-    } 
-        clearErrorMessage();
 
-        const dadosLogin = {
-            email: usuarioLogin.value,
-            senha: senhaLogin.value
-        };
+    }
+    clearErrorMessage();
 
-        try {
-            const response = await axios.post(endpointLogin, dadosLogin);
-            const dados = response.data;
+    const dadosLogin = {
+        email: usuarioLogin.value,
+        senha: senhaLogin.value
+    };
+
+    try {
+        const response = await axios.post(endpointLogin, dadosLogin);
+        const dados = response.data;
 
 
-            console.log(dados);
-            const tipoUsuario = dados.autorizacao;
+        console.log(dados);
+        const tipoUsuario = dados.autorizacao;
 
-            localStorage.setItem('idUsuario', dados.id);
-            localStorage.setItem('tipoUsuario', tipoUsuario);
-         
-            showLoading();
+        localStorage.setItem('idUsuario', dados.id);
+        localStorage.setItem('tipoUsuario', tipoUsuario);
 
-            setTimeout(() => {
-                redirectToProfilePage(tipoUsuario);
-            }, 2000);
+        showLoading();
 
-        } catch (error) {
-            displayErrorMessage(error.response.data);
-            errorValidation(usuarioLogin);
-            handleLoginError(error);
-        }
-    });
+        setTimeout(() => {
+            redirectToProfilePage(tipoUsuario);
+        }, 2000);
 
-    
+    } catch (error) {
+        displayErrorMessage(error.response.data);
+        errorValidation(usuarioLogin);
+        handleLoginError(error);
+    }
+});
+
+
 
 
 // Função para exibir mensagem de erro
@@ -116,18 +116,47 @@ function redirectToProfilePage(tipoUsuario) {
             const dados = response.data;
             const usuario = dados.find((usuario) => usuario.usuario.id == idUsuario);
 
-            if (usuario) {
-                if (tipoUsuario === "PACIENTE") {
-                    window.location.href = `home-paciente.html`;
-                } else if (tipoUsuario === "MEDICO"){
-                    window.location.href = `home-medico.html`;
-                }
+            const aprovacao = usuario.aprovacao;
+
+
+            if (aprovacao === "PENDENTE") {
+                showLoading();
+                setTimeout(() => {
+                    window.location.href = `aguardando-aprovacao.html`;
+                }, 2000);
+            }
+            else if (aprovacao === "REPROVADO") {
+                showLoading();
+                setTimeout(() => {
+                    window.location.href = `reprovado.html`;
+                }, 2000);
             } else {
-                if (tipoUsuario === "PACIENTE") {
-                    window.location.href = `completar-perfil-paciente.html`;
-                } else if (tipoUsuario === 'MEDICO'){
-                    window.location.href = `completar-perfil-medico.html`;
+                if (usuario) {
+                    if (tipoUsuario === "PACIENTE") {
+                        showLoading();
+                        setTimeout(() => {
+                            window.location.href = `home-paciente.html`;
+                        }, 2000);
+                    } else if (tipoUsuario === "MEDICO") {
+                        showLoading();
+                        setTimeout(() => {
+                            window.location.href = `home-medico.html`;
+                        }, 2000);
+                    }
+                } else {
+                    if (tipoUsuario === "PACIENTE") {
+                        showLoading();
+                        setTimeout(() => {
+                            window.location.href = `completar-perfil-paciente.html`;
+                        }, 2000);
+                    } else if (tipoUsuario === 'MEDICO') {
+                        showLoading();
+                        setTimeout(() => {
+                            window.location.href = `completar-perfil-medico.html`;
+                        }, 2000);
+                    }
                 }
+
             }
         })
 
@@ -173,7 +202,7 @@ form.addEventListener('submit', (e) => {
                 formsSucess();
             }
             ).catch((error) => {
-                
+
                 if (error.response) {
                     const textSucess = document.querySelector(".text-sucess");
 
@@ -263,7 +292,7 @@ const checkInputs = () => {
         }
         console.log(usuario);
 
-       
+
 
     }
 
