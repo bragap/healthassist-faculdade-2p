@@ -88,12 +88,12 @@ CREATE TABLE avaliar_consulta (
 -- Tabela para armazenar disponibilidade de horários
 CREATE TABLE disponibilidade_de_horario (
                                             id_medico integer,
-                                            horario_incio time,
+                                            horario_inicio time,
                                             horario_fim time,
-                                            dia_da_semana integer,
+                                            id_dia_semana integer,
                                             id serial PRIMARY KEY,
                                             FOREIGN KEY (id_medico) REFERENCES medico (id),
-                                            FOREIGN KEY (dia_da_semana) REFERENCES dia_da_semana (id)
+                                            FOREIGN KEY (id_dia_semana) REFERENCES dia_da_semana (id)
 );
 
 -- Tabela para armazenar arquivos médicos
@@ -351,6 +351,13 @@ INSERT INTO avaliar_consulta (id_consulta, titulo, comentario) VALUES
            (48, 'Críticas e Sugestões', 'Sugiro uma área de espera para casos de emergência.'),
            (49, 'Atendimento do Médico', 'Consulta eficiente, médico competente.'),
            (50, 'Críticas e Sugestões', 'Gostaria de sugerir mais opções de horários para agendamento.');
+
+-- POVOAMENTO TABELA DIA DA SEMANA
+
+insert into dia_da_semana (nome_dia) values
+           ('DOMINGO'),('SEGUNDA'),('TERCA'),('QUARTA'),('QUINTA'),('SEXTA'),('SABADO');
+
+--
 
 -- Atualizar a tabela usuario com valores de autorizacao
 UPDATE usuario

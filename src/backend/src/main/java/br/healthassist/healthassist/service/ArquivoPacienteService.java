@@ -8,7 +8,7 @@ import br.healthassist.healthassist.model.entity.ArquivoPaciente;
 
 public interface ArquivoPacienteService {
 
-    ArquivoPaciente salvarArquivoPaciente(ArquivoPaciente arquivosPaciente);
+    void salvarArquivoPaciente(ArquivoPaciente arquivosPaciente);
 
     List<ArquivoPaciente> findAllArquivosPaciente();
     
