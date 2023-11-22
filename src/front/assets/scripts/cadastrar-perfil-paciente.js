@@ -3,6 +3,7 @@ const nomeCompleto = document.querySelector('#nome_completo');
 const endereco = document.querySelector('#endereco');
 const dataNascimento = document.querySelector('#data_nasc');
 const form = document.querySelector('#pacienteForm');
+const file = document.querySelector('#inputGroupFile').files[0];
 
 // endpoints
 const url = 'http://localhost:8080/paciente';
@@ -55,17 +56,19 @@ form.addEventListener('submit', async (e) => {
         endereco: endereco.value,
         dataNasc: dataNascimento.value,
         nomeCompleto: nomeCompleto.value,
-        id_usuario: idUsuario
-    }
+        id_usuario: idUsuario,
+        file: file ? await convertFileToByteArray(file) : null
+    };
 
+    
     try {
         const response = await axios.post(url, dadosCadastro);
         const dados = response.data;
 
         console.log(dados);
-        
+
         const idPaciente = dados.id;
-        
+
         localStorage.setItem('idPaciente', idPaciente);
 
         localStorage.getItem('tipoUsuario', tipoUsuario);
@@ -76,7 +79,7 @@ form.addEventListener('submit', async (e) => {
         }, 2000);
 
 
-    } catch(error ) {
+    } catch (error) {
         console.error('Erro ao cadastrar paciente:', error);
         if (error.response) {
             console.log("Data:", error.response.data);
@@ -86,11 +89,12 @@ form.addEventListener('submit', async (e) => {
             console.log("Request:", error.request);
         } else {
             console.log("Error:", error.message);
-        }        
+        }
         console.log("Config:", error.config);
 
         alert('Erro ao cadastrar paciente. Verifique o console para mais detalhes.');
-    }});        
+    }
+});
 
 
 // Função para redirecionar para a página de perfil com base no tipo de usuário
@@ -101,7 +105,7 @@ function redirectToProfilePage(tipoUsuario) {
     const idUsuario = localStorage.getItem('idUsuario');
 
     showLoading();
-    
+
     axios.get(`http://localhost:8080/${tipo}`)
         .then((response) => {
             const dados = response.data;

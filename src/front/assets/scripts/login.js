@@ -172,6 +172,11 @@ const checkInputsLogin = () => {
     }
 }
 
+const textErrorModal = document.getElementById("text-error-modal");
+const displayErrorMessageModal = (message) => {
+    textErrorModal.innerHTML = message;
+}
+
 
 // formulario de cadastro
 form.addEventListener('submit', (e) => {
@@ -187,24 +192,13 @@ form.addEventListener('submit', (e) => {
                 formsSucess();
             }
             ).catch((error) => {
+                displayErrorMessageModal(error.response.data);
+                errorValidation(email);
+                errorValidation(username);
+                errorValidation(password);
+                errorValidation(password2);
+                handleLoginError(error);
 
-                if (error.response) {
-                    const textSucess = document.querySelector(".text-sucess");
-
-                    textSucess.innerHTML = error.response.data;
-                    // O servidor retornou um código de status diferente de 2xx
-                    console.log("Data:", error.response.data);
-                    errorValidation(email);
-                    console.log("Status:", error.response.status);
-                    console.log("Headers:", error.response.headers);
-                } else if (error.request) {
-                    // A requisição foi feita, mas não recebeu resposta
-                    console.log("Request:", error.request);
-                } else {
-                    // Ocorreu um erro durante a configuração da requisição
-                    console.log("Error:", error.message);
-                }
-                console.log("Config:", error.config);
             }
             )
     }
@@ -237,7 +231,7 @@ const checkInputs = () => {
         successValidation(email);
     }
 
-    if (passwordValue.length < 8) {
+    if (passwordValue === '') {
 
         errorValidation(password);
         valid = false;
@@ -274,8 +268,6 @@ const checkInputs = () => {
             senha: password.value,
             autorizacao: autorizacaoPaciente.checked ? "PACIENTE" : "MEDICO"
         }
-        console.log(usuario);
-
 
 
     }
@@ -331,4 +323,17 @@ function showLoading() {
     }, 2000);
 }
 
+// nao deixa o usuario selecionar os 2 checkboxes
+const disable = () => {
 
+    const item = document.querySelectorAll(".cb1");
+
+    if (item[0].checked === true) {
+        item[1].disabled = true;
+    } else if (item[1].checked === true) {
+        item[0].disabled = true;
+    } else {
+        item[0].disabled = false;
+        item[1].disabled = false;
+    }
+}
