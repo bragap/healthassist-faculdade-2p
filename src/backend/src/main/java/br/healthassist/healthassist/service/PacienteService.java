@@ -17,5 +17,7 @@ public interface PacienteService {
     public Paciente updatePaciente(Long id, Paciente paciente);
 
     Optional<Paciente> findById(Long id);
+
+     List<Integer> getPacientesByMonth();
     
 }
