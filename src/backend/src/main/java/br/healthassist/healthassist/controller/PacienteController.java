@@ -27,29 +27,14 @@ import org.springframework.web.multipart.MultipartFile;
 @RequestMapping("/paciente")
 @RequiredArgsConstructor
 public class PacienteController {
-    
 
     private final PacienteService pacienteService;
     private final UsuarioService usuarioService;
-    private final ArquivoPacienteService arquivoPacienteService;
-    
 
     @PostMapping
-    public ResponseEntity salvar(@RequestBody PacienteDto dto, @RequestParam("file") MultipartFile file){
+    public ResponseEntity salvar(@RequestBody PacienteDto dto){
         try{
             Paciente pacienteSalvo = pacienteService.salvarPaciente(converterDto(dto));
-
-            ArquivoPaciente arquivoPaciente = ArquivoPaciente.builder()
-                    .idPaciente(pacienteSalvo)
-                    .nomeArquivo(file.getOriginalFilename())
-                    .tipoMime(file.getContentType())
-                    .aprovacao(StatusAprovacao.ANALISE)
-                    .build();
-
-            arquivoPaciente.setDadosArquivo(file.getBytes());
-
-            arquivoPacienteService.salvarArquivoPaciente(arquivoPaciente);
-
             return new ResponseEntity(pacienteSalvo, HttpStatus.CREATED);
         }catch(Exception e){
             return ResponseEntity.badRequest().body(e.getMessage());

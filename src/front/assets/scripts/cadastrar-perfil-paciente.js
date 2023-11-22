@@ -6,6 +6,7 @@ const form = document.querySelector('#pacienteForm');
 
 // endpoints
 const url = 'http://localhost:8080/paciente';
+const urlArquivo = "http://localhost:8080/api/paciente/arquivo";
 
 // id usuario
 const idUsuario = localStorage.getItem('idUsuario');
@@ -51,6 +52,8 @@ function displayFileName(input) {
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
+    const file = document.getElementById('inputGroupFile').files[0];
+
     const dadosCadastro = {
         endereco: endereco.value,
         dataNasc: dataNascimento.value,
@@ -58,14 +61,28 @@ form.addEventListener('submit', async (e) => {
         id_usuario: idUsuario
     }
 
+    const formData = new FormData();
+    formData.append('file', file);
+
     try {
-        const response = await axios.post(url, dadosCadastro);
+        const response = await axios.post(url, dadosCadastro, {
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
         const dados = response.data;
 
         console.log(dados);
         
         const idPaciente = dados.id;
-        
+
+        // post file
+        await axios.post(`${urlArquivo}/${idPaciente}`, formData, {
+            headers: {
+                "Content-Type": "multipart/form-data"
+            }
+        });
+
         localStorage.setItem('idPaciente', idPaciente);
 
         localStorage.getItem('tipoUsuario', tipoUsuario);
