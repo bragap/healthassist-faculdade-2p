@@ -12,6 +12,7 @@ let disponibilidade_de_horario = [];
 
 //endpoints
 const url = "http://localhost:8080/medico";
+const urlArquivo = "http://localhost:8080/api/medico/arquivo";
 
 
 //id usuario
@@ -99,6 +100,7 @@ form.addEventListener('submit', async (e) => {
 
     const especialidadesSelecionadas = especialidade ? Array.from(especialidade.selectedOptions).map(option => ({ "nome": option.value })) : [];
 
+    const file = document.getElementById('inputGroupFile').files[0];
 
     const dadosCadastro = {
         endereco: endereco.value,
@@ -107,14 +109,29 @@ form.addEventListener('submit', async (e) => {
         especialidades: especialidadesSelecionadas.map(option => ({ "nome": option.value })),
         nome_completo: nomeCompleto.value,
         id_usuario: idUsuario
-    }        
+    }
+
+    const formData = new FormData();
+    formData.append('file', file);
 
     try{
-        const response = await axios.post(url, dadosCadastro);
+        const response = await axios.post(url, dadosCadastro, {
+            headers: {
+                "Content-Type": "application/json"
+            }
+        });
+
         const dados = response.data;
 
         console.log(dados)
         const idMedico = dados.id;
+
+        // post file
+        await axios.post(`${urlArquivo}/${idMedico}`, formData, {
+            headers: {
+                "Content-Type": "multipart/form-data"
+            }
+        });
     
         localStorage.setItem('idMedico', idMedico);
 
