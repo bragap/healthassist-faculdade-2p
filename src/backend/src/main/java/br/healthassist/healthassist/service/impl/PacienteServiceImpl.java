@@ -79,9 +79,9 @@ public class PacienteServiceImpl implements PacienteService{
             resultIntArray[i] = Integer.parseInt(resultStringArray[i]);
         }
 
-        List<Integer> resultadosInteirosLista = Arrays.asList(Arrays.stream(resultIntArray).boxed().toArray(Integer[]::new));
+        List<Integer> resultIntList = Arrays.asList(Arrays.stream(resultIntArray).boxed().toArray(Integer[]::new));
         
-        return resultadosInteirosLista;
+        return resultIntList;
     }
 
 

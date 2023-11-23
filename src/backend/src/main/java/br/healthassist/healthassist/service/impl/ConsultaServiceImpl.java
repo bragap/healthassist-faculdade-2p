@@ -4,6 +4,7 @@ import br.healthassist.healthassist.model.entity.Consulta;
 import br.healthassist.healthassist.model.repository.ConsultaRepository;
 import br.healthassist.healthassist.service.ConsultaService;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -54,5 +55,20 @@ public class ConsultaServiceImpl implements ConsultaService {
         newConsulta.setRespostaAnamnese(consulta.getRespostaAnamnese());
 
         return consultaRepository.save(newConsulta);
+    }
+
+    public List<Integer> getConsultasByMonth(){
+        String numberOfConsultasByMonth = consultaRepository.findNumberConsultasByMonth();
+        
+        String[] resultStringArray = numberOfConsultasByMonth.split(",");
+        int[] resultIntArray = new int[resultStringArray.length];
+
+        for(int i = 0; i < resultStringArray.length; i++){
+            resultIntArray[i] = Integer.parseInt(resultStringArray[i]);
+        }
+
+        List<Integer> resultIntList = Arrays.asList(Arrays.stream(resultIntArray).boxed().toArray(Integer[]::new));
+
+        return resultIntList;
     }
 }
