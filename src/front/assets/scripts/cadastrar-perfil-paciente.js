@@ -34,7 +34,7 @@ function showLoading() {
     setTimeout(function () {
         document.getElementById('loading').style.display = 'none';
 
-    }, 4000);
+    }, 2000);
 }
 
 
@@ -72,9 +72,6 @@ form.addEventListener('submit', async (e) => {
             }
         });
         const dados = response.data;
-
-        console.log(dados);
-
         const idPaciente = dados.id;
 
         // post file
@@ -86,16 +83,12 @@ form.addEventListener('submit', async (e) => {
 
         localStorage.setItem('idPaciente', idPaciente);
 
-        localStorage.getItem('tipoUsuario', tipoUsuario);
-
         showLoading();
-        setTimeout(() => {
-            redirectToProfilePage(tipoUsuario);
-        }, 2000);
-
-
+        window.location.href = 'aguardando-aprovacao.html';
+        
     } catch (error) {
-        console.error('Erro ao cadastrar paciente:', error);
+        window.location.href = 'aguardando-aprovacao.html';
+
         if (error.response) {
             console.log("Data:", error.response.data);
             console.log("Status:", error.response.status);
@@ -106,55 +99,7 @@ form.addEventListener('submit', async (e) => {
             console.log("Error:", error.message);
         }
         console.log("Config:", error.config);
-
-        alert('Erro ao cadastrar paciente. Verifique o console para mais detalhes.');
     }
 });
 
 
-// Função para redirecionar para a página de perfil com base no tipo de usuário
-function redirectToProfilePage(tipoUsuario) {
-
-    const tipo = tipoUsuario.toLowerCase();
-
-    const idUsuario = localStorage.getItem('idUsuario');
-
-    showLoading();
-
-    axios.get(`http://localhost:8080/${tipo}`)
-        .then((response) => {
-            const dados = response.data;
-
-            const usuario = dados.find((usuario) => usuario.usuario.id == idUsuario);
-
-            if (usuario) {
-
-                const aprovacao = usuario.aprovacao;
-
-                localStorage.setItem('aprovacao', aprovacao);
-
-
-                if (aprovacao === "ANALISE") {
-                    showLoading();
-                    setTimeout(() => {
-                        window.location.href = `aguardando-aprovacao.html`;
-                    }, 2000);
-
-
-                } else if (aprovacao === "REPROVADO") {
-                    showLoading();
-                    setTimeout(() => {
-                        window.location.href = `reprovado.html`;
-                    }, 2000);
-
-                } else if (aprovacao === "APROVADO") {
-
-                    window.location.href = `home-${tipo}.html`
-                }
-
-            } else {
-                window.location.href = `completar-perfil-${tipo}.html`;
-            }
-        })
-
-}

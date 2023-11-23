@@ -54,23 +54,22 @@ formLogin.addEventListener('submit', async (e) => {
 
     try {
         const response = await axios.post(endpointLogin, dadosLogin);
-        const dados = response.data;
-
+        const dados = response && response.data;
 
         console.log(dados);
-        const tipoUsuario = dados.autorizacao;
+
+        const tipoUsuario = dados.autorizacao.toLowerCase();
 
         localStorage.setItem('idUsuario', dados.id);
-        localStorage.setItem('tipoUsuario', tipoUsuario);
+        localStorage.setItem('tipoUsuario', dados.autorizacao);
 
         showLoading();
-        setTimeout(() => {
-            redirectToProfilePage(tipoUsuario);
-        }, 2000);
+        redirectToProfilePage(tipoUsuario);
 
     } catch (error) {
-        displayErrorMessage(error.response.data);
+        // displayErrorMessage(error.response.data);
         errorValidation(usuarioLogin);
+        errorValidation(senhaLogin);
         handleLoginError(error);
     }
 });
@@ -106,47 +105,60 @@ function handleLoginError(error) {
 }
 
 // Função para redirecionar para a página de perfil com base no tipo de usuário
-function redirectToProfilePage(tipoUsuario) {
+const redirectToProfilePage = async (tipoUsuario) => {
     const tipo = tipoUsuario.toLowerCase();
     const idUsuario = localStorage.getItem('idUsuario');
     showLoading();
-    axios.get(`http://localhost:8080/${tipo}`)
-        .then((response) => {
-            const dados = response.data;
 
-            const usuario = dados.find((usuario) => usuario.usuario.id == idUsuario);
+    try {
+        const response = await axios.get(`http://localhost:8080/${tipo}`);
+        const dados = response && response.data;
 
-            if (usuario) {
+        const usuario = dados.find((usuario) => usuario.usuario.id == idUsuario);
+        
+        if (usuario) {
+            const aprovacao = usuario.aprovacao;
+            localStorage.setItem('aprovacao', aprovacao);
 
-                const aprovacao = usuario.aprovacao;
-
-                localStorage.setItem('aprovacao', aprovacao);
-
-                if (aprovacao === "ANALISE") {
-                    showLoading();
-                    setTimeout(() => {
-                        window.location.href = `aguardando-aprovacao.html`;
-                    }, 2000);
+            if (aprovacao === "ANALISE") {
+                showLoading();
+                localStorage.clear();
+                setTimeout(() => {
+                    window.location.href = `aguardando-aprovacao.html`;
+                }, 2000);
 
 
-                } else if (aprovacao === "REPROVADO") {
-                    showLoading();
-                    setTimeout(() => {
-                        window.location.href = `reprovado.html`;
-                    }, 2000);
+            } else if (aprovacao === "REPROVADO") {
+                showLoading();
+                localStorage.clear();
+                setTimeout(() => {
+                    window.location.href = `reprovado.html`;
+                }, 2000);
 
-                } else if (aprovacao === "APROVADO") {
+            } else if (aprovacao === "APROVADO") {
 
-                    window.location.href = `home-${tipo}.html`
-                }
-
-            } else {
-                window.location.href = `completar-perfil-${tipo}.html`;
+                window.location.href = `home-${tipo}.html`
             }
-        })
 
+        } else {
+            window.location.href = `completar-perfil-${tipo}.html`;
+        }
+    } catch (error) {
+        console.error('Erro ao fazer login:', error);
+
+        if (error.response) {
+            console.log("Data:", error.response.data);
+            console.log("Status:", error.response.status);
+            console.log("Headers:", error.response.headers);
+        } else if (error.request) {
+            console.log("Request:", error.request);
+        } else {
+            console.log("Error:", error.message);
+        }
+
+        console.log("Config:", error.config);
+    }
 }
-
 
 // verificar inputs da área de login
 const checkInputsLogin = () => {
