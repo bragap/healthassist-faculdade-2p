@@ -157,12 +157,11 @@ axios.get(urlConsultas)
 
     const dadosFiltrados = dados.filter(consulta => consulta.medico.usuario.id == idUsuario);
 
+    const dadosFiltrados2 = dadosFiltrados.filter(consulta => consulta.respostaAnamnese);
+
     let listConsults = "";
 
-    console.log(dadosFiltrados, "dados filtrados")
-
-
-    dadosFiltrados.forEach(user => {
+    dadosFiltrados2.forEach(user => {
         listConsults += `
       <div class="card-consulta">
       <span name="nome_do_paciente" value="nome do paciente">Nome do Paciente: ${user.paciente.nomeCompleto}</span>

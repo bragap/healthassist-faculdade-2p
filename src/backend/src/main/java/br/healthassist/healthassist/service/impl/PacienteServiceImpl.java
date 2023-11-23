@@ -37,7 +37,7 @@ public class PacienteServiceImpl implements PacienteService{
     public Paciente findPacienteById(Long id){
         Optional<Paciente> paciente = pacienteRepository.findById(id);
         return  paciente.orElseThrow(() -> new RuntimeException(
-            "Usuário não encontrado! : "  + id + "Tipo: " + User.class.getName()
+            "Paciente não encontrado! : "  + id + "Tipo: " + User.class.getName()
         ));
         
         

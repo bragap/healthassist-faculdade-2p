@@ -8,6 +8,7 @@ const button = document.querySelector('#btn-home');
 button.addEventListener('click', function () {
 
    console.log(tipoUsuario )
+   localStorage.clear(); 
 
     if(tipoUsuario === "MEDICO"){
        redirectTo('home-medico.html');

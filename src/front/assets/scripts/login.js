@@ -54,23 +54,22 @@ formLogin.addEventListener('submit', async (e) => {
 
     try {
         const response = await axios.post(endpointLogin, dadosLogin);
-        const dados = response.data;
-
+        const dados = response && response.data;
 
         console.log(dados);
-        const tipoUsuario = dados.autorizacao;
+
+        const tipoUsuario = dados.autorizacao.toLowerCase();
 
         localStorage.setItem('idUsuario', dados.id);
-        localStorage.setItem('tipoUsuario', tipoUsuario);
+        localStorage.setItem('tipoUsuario', dados.autorizacao);
 
         showLoading();
-        setTimeout(() => {
-            redirectToProfilePage(tipoUsuario);
-        }, 2000);
+        redirectToProfilePage(tipoUsuario);
 
     } catch (error) {
-        displayErrorMessage(error.response.data);
+        // displayErrorMessage(error.response.data);
         errorValidation(usuarioLogin);
+        errorValidation(senhaLogin);
         handleLoginError(error);
     }
 });
@@ -106,47 +105,60 @@ function handleLoginError(error) {
 }
 
 // Função para redirecionar para a página de perfil com base no tipo de usuário
-function redirectToProfilePage(tipoUsuario) {
+const redirectToProfilePage = async (tipoUsuario) => {
     const tipo = tipoUsuario.toLowerCase();
     const idUsuario = localStorage.getItem('idUsuario');
     showLoading();
-    axios.get(`http://localhost:8080/${tipo}`)
-        .then((response) => {
-            const dados = response.data;
 
-            const usuario = dados.find((usuario) => usuario.usuario.id == idUsuario);
+    try {
+        const response = await axios.get(`http://localhost:8080/${tipo}`);
+        const dados = response && response.data;
 
-            if (usuario) {
+        const usuario = dados.find((usuario) => usuario.usuario.id == idUsuario);
+        
+        if (usuario) {
+            const aprovacao = usuario.aprovacao;
+            localStorage.setItem('aprovacao', aprovacao);
 
-                const aprovacao = usuario.aprovacao;
-
-                localStorage.setItem('aprovacao', aprovacao);
-
-                if (aprovacao === "ANALISE") {
-                    showLoading();
-                    setTimeout(() => {
-                        window.location.href = `aguardando-aprovacao.html`;
-                    }, 2000);
+            if (aprovacao === "ANALISE") {
+                showLoading();
+                localStorage.clear();
+                setTimeout(() => {
+                    window.location.href = `aguardando-aprovacao.html`;
+                }, 2000);
 
 
-                } else if (aprovacao === "REPROVADO") {
-                    showLoading();
-                    setTimeout(() => {
-                        window.location.href = `reprovado.html`;
-                    }, 2000);
+            } else if (aprovacao === "REPROVADO") {
+                showLoading();
+                localStorage.clear();
+                setTimeout(() => {
+                    window.location.href = `reprovado.html`;
+                }, 2000);
 
-                } else if (aprovacao === "APROVADO") {
+            } else if (aprovacao === "APROVADO") {
 
-                    window.location.href = `home-${tipo}.html`
-                }
-
-            } else {
-                window.location.href = `completar-perfil-${tipo}.html`;
+                window.location.href = `home-${tipo}.html`
             }
-        })
 
+        } else {
+            window.location.href = `completar-perfil-${tipo}.html`;
+        }
+    } catch (error) {
+        console.error('Erro ao fazer login:', error);
+
+        if (error.response) {
+            console.log("Data:", error.response.data);
+            console.log("Status:", error.response.status);
+            console.log("Headers:", error.response.headers);
+        } else if (error.request) {
+            console.log("Request:", error.request);
+        } else {
+            console.log("Error:", error.message);
+        }
+
+        console.log("Config:", error.config);
+    }
 }
-
 
 // verificar inputs da área de login
 const checkInputsLogin = () => {
@@ -172,6 +184,11 @@ const checkInputsLogin = () => {
     }
 }
 
+const textErrorModal = document.getElementById("text-error-modal");
+const displayErrorMessageModal = (message) => {
+    textErrorModal.innerHTML = message;
+}
+
 
 // formulario de cadastro
 form.addEventListener('submit', (e) => {
@@ -187,24 +204,13 @@ form.addEventListener('submit', (e) => {
                 formsSucess();
             }
             ).catch((error) => {
+                displayErrorMessageModal(error.response.data);
+                errorValidation(email);
+                errorValidation(username);
+                errorValidation(password);
+                errorValidation(password2);
+                handleLoginError(error);
 
-                if (error.response) {
-                    const textSucess = document.querySelector(".text-sucess");
-
-                    textSucess.innerHTML = error.response.data;
-                    // O servidor retornou um código de status diferente de 2xx
-                    console.log("Data:", error.response.data);
-                    errorValidation(email);
-                    console.log("Status:", error.response.status);
-                    console.log("Headers:", error.response.headers);
-                } else if (error.request) {
-                    // A requisição foi feita, mas não recebeu resposta
-                    console.log("Request:", error.request);
-                } else {
-                    // Ocorreu um erro durante a configuração da requisição
-                    console.log("Error:", error.message);
-                }
-                console.log("Config:", error.config);
             }
             )
     }
@@ -237,7 +243,7 @@ const checkInputs = () => {
         successValidation(email);
     }
 
-    if (passwordValue.length < 8) {
+    if (passwordValue === '') {
 
         errorValidation(password);
         valid = false;
@@ -274,8 +280,6 @@ const checkInputs = () => {
             senha: password.value,
             autorizacao: autorizacaoPaciente.checked ? "PACIENTE" : "MEDICO"
         }
-        console.log(usuario);
-
 
 
     }
@@ -331,4 +335,17 @@ function showLoading() {
     }, 2000);
 }
 
+// nao deixa o usuario selecionar os 2 checkboxes
+const disable = () => {
 
+    const item = document.querySelectorAll(".cb1");
+
+    if (item[0].checked === true) {
+        item[1].disabled = true;
+    } else if (item[1].checked === true) {
+        item[0].disabled = true;
+    } else {
+        item[0].disabled = false;
+        item[1].disabled = false;
+    }
+}

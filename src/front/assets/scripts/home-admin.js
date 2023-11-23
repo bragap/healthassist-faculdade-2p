@@ -27,8 +27,7 @@ checkAuthorization();
 
 // VERIFICA SE ESTAO APROVADOS - medicos
 function verificarAprovacaoTotal(dados, tipo) {
-    const todosAprovados = dados.every(item => item.aprovacao === true);
-
+    const todosAprovados = dados.every(item => item.aprovacao === "APROVADO");
     const mensagemElement = document.getElementById('mensagem');
 
     if (todosAprovados) {
@@ -40,10 +39,8 @@ function verificarAprovacaoTotal(dados, tipo) {
 }
 
 function verificarAprovacaoTotalPacientes(dados, tipo) {
-    const todosAprovados = dados.every(item => item.aprovacao === true);
-
+    const todosAprovados = dados.every(item => item.aprovacao === "APROVADO");
     const mensagemElement = document.getElementById('mensagem-2');
-
     if (todosAprovados) {
         const mensagem = tipo === 'medico' ? "Nenhum médico para ser aprovado." : "Nenhum paciente para ser aprovado.";
         mensagemElement.innerHTML = `<p>${mensagem}</p>`;
@@ -53,26 +50,26 @@ function verificarAprovacaoTotalPacientes(dados, tipo) {
 }
 
 
-axios.get(urlDoutor)
-    .then(response => {
-        const dados = response.data;
+document.addEventListener('DOMContentLoaded', function () {
+    axios.get(urlDoutor)
+        .then(response => {
+            const dados = response.data;
 
-        dados.forEach((doctor) => {
-            if (doctor.aprovacao === true) {
+            dados.forEach((doctor) => {
+                if (doctor.aprovacao === "APROVADO") {
+                    verificarAprovacaoTotal(dados, 'medico');
+                } else {
 
-                verificarAprovacaoTotal(dados, 'medico');
-            } else {
-
-                listDoctors += `
+                    listDoctors += `
             <div id="card-section">
                         <div id="card-conteudo">
                             <div id="card-esquerda">
-                                <p id="nome-usuario">${doctor.nomeCompleto}</p>
+                                <p id="nome-usuario">Dr. ${doctor.nomeCompleto}</p>
                                 <p>Data de Nascimento: ${doctor.dataNasc}</p>
                                 <p>Código de registro: ${doctor.codigoDeRegistro}</p>
-                                <p>Especialidade: ${doctor.especialidades.nome}</p>
+                                <p>Especialidade: ${doctor.especialidades.map((m) => m.nome).join(', ')}</p>
                                 <p>Aprovação: ${doctor.aprovacao}</p>
-                                <p id="id-medico">${doctor.id}</p>
+                                <p id="id-medico">Id do médico: ${doctor.id}</p>
                             </div>
                             <div id="card-direita">
         
@@ -84,22 +81,31 @@ axios.get(urlDoutor)
     
             `;
 
-            }
+                }
 
-            painelDoutor.innerHTML = listDoctors;
-            // Adicionar event listeners aos novos botões
-            adicionarEventListenersBotoesMedicos();
+                painelDoutor.innerHTML = listDoctors;
+
+                verificarAprovacaoTotal(dados, 'medico');
+
+                adicionarEventListenersBotoesMedicos();
+            })
         })
-    })
-    .catch(error => {
-        console.error('Error fetching doctor data:', error);
-    });
+        .catch(error => {
+            console.error('Error fetching doctor data:', error);
+        });
+
+})
 
 // aprovar médico
 function handleAprovarMedico(medicoId) {
 
-    axios.put(`${urlDoutor}/${medicoId}/atualizar-status`, { "aprovacao": "APROVADO" })
+
+    const medicoIdCorreto = medicoId.split(':')[1].trim();
+
+
+    axios.put(`${urlDoutor}/${medicoIdCorreto}/atualizar-status`, { id: medicoIdCorreto, "aprovacao": "APROVADO" })
         .then(response => {
+            console.log('Resposta do servidor:', response.data);
             sucessMessage.innerHTML = `<p>Médico aprovado!</p>`;
             localStorage.setItem('aprovacao', 'APROVADO');
             console.log('Doctor approved successfully');
@@ -108,19 +114,26 @@ function handleAprovarMedico(medicoId) {
             }, 2000);
         })
         .catch(error => {
+            console.log('Resposta do servidor:', error.response.data)
             console.error('Error approving doctor:', error);
         });
 }
 
 // rejeitar médico
 function handleRejeitarMedico(medicoId) {
-    axios.put(`${urlDoutor}/${medicoId}/atualizar-status`, { "aprovacao": "REPROVADO" })
+
+    const medicoIdCorreto = medicoId.split(':')[1].trim();
+
+
+    axios.put(`${urlDoutor}/${medicoIdCorreto}/atualizar-status`, { id: medicoIdCorreto, "aprovacao": "REPROVADO" })
         .then(response => {
+            console.log('Resposta do servidor:', response.data);
             localStorage.setItem('aprovacao', 'REPROVADO');
             console.log('Doctor rejected successfully');
             atualizarListaMedicos();
         })
         .catch(error => {
+            console.log('Resposta do servidor:', error.response.data)
             console.error('Error rejecting doctor:', error);
         });
 }
@@ -144,24 +157,25 @@ function adicionarEventListenersBotoesMedicos() {
     });
 }
 
+document.addEventListener('DOMContentLoaded', function () {
 
-// get de todos os pacientes
-axios.get(urlPaciente)
-    .then(response => {
-        const dados = response.data;
+    // get de todos os pacientes
+    axios.get(urlPaciente)
+        .then(response => {
+            const dados = response.data;
 
-        dados.forEach((paciente) => {
+            dados.forEach((paciente) => {
 
-            if (paciente.aprovacao === true) {
+                if (paciente.aprovacao === "APROVADO") {
 
-                verificarAprovacaoTotalPacientes(dados, 'paciente');
-            } else {
+                    verificarAprovacaoTotalPacientes(dados, 'paciente');
+                } else {
 
-                listPatients += `
+                    listPatients += `
         <div id="card-section">
             <div id="card-conteudo">
                 <div id="card-esquerda">
-                    <p id="nome-usuario">Nome do paciente: ${paciente.nomeCompleto}</p>
+                    <p id="nome-usuario">Paciente: ${paciente.nomeCompleto}</p>
                     <p>Data de nascimento: ${paciente.dataNasc}</p>
                     <p>Endereço: ${paciente.endereco}</p>
                     <p>Aprovação: ${paciente.aprovacao}</p>
@@ -175,19 +189,22 @@ axios.get(urlPaciente)
             </div>
         </div>
             `
-            }
+                }
 
-            verificarAprovacaoTotal(dados, 'paciente');
+                verificarAprovacaoTotal(dados, 'paciente');
 
-            painelPaciente.innerHTML = listPatients;
+                painelPaciente.innerHTML = listPatients;
 
-            adicionarEventListenersBotoes();
+                adicionarEventListenersBotoes();
+            })
+
         })
+        .catch(error => {
+            console.error('Error fetching data:', error);
+        });
 
-    })
-    .catch(error => {
-        console.error('Error fetching data:', error);
-    });
+});
+
 
 
 // aprovar paciente
@@ -202,20 +219,24 @@ function handleAprovarPaciente(pacienteId) {
             }, 2000);
         })
         .catch(error => {
+            console.log('Resposta do servidor:', error.response.data)
             console.error('Error approving patient:', error);
         });
 }
 
-//rejeitar paciente
 function handleRejeitarPaciente(pacienteId) {
     axios.put(`${urlPaciente}/${pacienteId}/atualizar-status`, { id: pacienteId, aprovacao: "REPROVADO" })
         .then(response => {
-            console.log('Patient rejected successfully');
+            sucessMessage2.innerHTML = `<p>Paciente REPROVADO!</p>`;
+            console.log('Patient approved successfully');
             localStorage.setItem('aprovacao', 'REPROVADO');
-            atualizarListaPacientes();
+            setTimeout(function () {
+                atualizarListaPacientes();
+            }, 2000);
         })
         .catch(error => {
-            console.error('Error rejecting patient:', error);
+            console.log('Resposta do servidor:', error.response.data)
+            console.error('Error approving patient:', error);
         });
 }
 
