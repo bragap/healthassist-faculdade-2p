@@ -68,8 +68,9 @@ main h2{
 #box-esquerda{
     display: flex;
     flex-direction: column;
-    text-align: left;
-    padding-bottom: 10px;
+    text-align:  center;
+    justify-content: center;
+    align-items: center;
 }
 #box-direita{
     display: flex;

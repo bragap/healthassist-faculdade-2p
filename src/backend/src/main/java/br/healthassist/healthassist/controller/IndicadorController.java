@@ -32,7 +32,7 @@ public class IndicadorController {
     private final TaxaHorarioConsultaService taxaHorarioConsultaService;
 
 
-    @GetMapping("/cadastro-pacientes-mensal")
+    @GetMapping("/quantidade-pacientes")
     public ResponseEntity pacientePorMes(){
         try{
             List<Integer> pacientes =  pacienteService.getPacientesByMonth();
@@ -43,7 +43,7 @@ public class IndicadorController {
     }
 
     @GetMapping("/media-consultas-medicos")
-    public ResponseEntity mediaConsultasMedicos(){
+    public ResponseEntity resultadoConsultasMedicos(){
         try{
         List<ResultadoConsultaMedicos> consutasMedicos =  resultadoConsultaMedicosService.obterResultados();
             return new ResponseEntity<>(consutasMedicos, HttpStatus.OK);
@@ -52,7 +52,7 @@ public class IndicadorController {
         }
     }
 
-    @GetMapping("/cadastro-medicos-mensal")
+    @GetMapping("/quantidade-medicos")
     public ResponseEntity medicosPorMes(){
         try{
             List<Integer> medicos =  medicoService.getMedicosByMonth();
@@ -62,7 +62,7 @@ public class IndicadorController {
         }
     }
 
-    @GetMapping("/taxa-avaliacoes-por-cosultas")
+    @GetMapping("/avaliacoes-por-cosulta")
     public ResponseEntity avalicoesPorConsulta(){
         try{
             List<Integer> consultasPorMes = consultaService.getConsultasByMonth();
