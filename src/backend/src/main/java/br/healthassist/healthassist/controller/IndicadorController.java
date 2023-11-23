@@ -10,11 +10,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.healthassist.healthassist.model.entity.Indicators.ResultadoConsultaMedicos;
+import br.healthassist.healthassist.model.entity.Indicators.TaxaHorarioConsulta;
 import br.healthassist.healthassist.service.AvaliarConsultaService;
 import br.healthassist.healthassist.service.ConsultaService;
 import br.healthassist.healthassist.service.MedicoService;
 import br.healthassist.healthassist.service.PacienteService;
 import br.healthassist.healthassist.service.Indicators.ResultadoConsultaMedicosService;
+import br.healthassist.healthassist.service.Indicators.TaxaHorarioConsultaService;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -27,6 +29,8 @@ public class IndicadorController {
     private final MedicoService medicoService;
     private final AvaliarConsultaService avaliacoesPorConsultasService;
     private final ConsultaService consultaService;
+    private final TaxaHorarioConsultaService taxaHorarioConsultaService;
+
 
     @GetMapping("/cadastro-pacientes-mensal")
     public ResponseEntity pacientePorMes(){
@@ -82,10 +86,20 @@ public class IndicadorController {
         }
     }
 
-    @GetMapping("/consultas-prestadas-mensais")
+    @GetMapping("/consultas-prestadas-mensal")
     public ResponseEntity consultasPrestadasMensais(){
         try{
             List<Integer> consultasPorMes =  consultaService.getConsultasByMonth();
+            return new ResponseEntity<>(consultasPorMes, HttpStatus.OK);
+        }catch(Exception e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
+
+    @GetMapping("/taxa-horario-consulta")
+    public ResponseEntity taxaHorarioConsulta(){
+        try{
+            List<TaxaHorarioConsulta> consultasPorMes =  taxaHorarioConsultaService.obterResultados();
             return new ResponseEntity<>(consultasPorMes, HttpStatus.OK);
         }catch(Exception e){
             return ResponseEntity.badRequest().body(e.getMessage());
