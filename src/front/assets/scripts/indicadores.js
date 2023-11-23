@@ -11,12 +11,12 @@ let listConsultas4 = "";
 let listConsultas5 = "";
 
 // endpoints
-const urlQtdePacientes = "http://localhost:8080/indicadores/cadastro-pacientes-mensal";
+const urlQtdePacientes = "http://localhost:8080/indicadores/quantidade-pacientes";
 const urlMediaConsultasMedico = "http://localhost:8080/indicadores/media-consultas-medicos";
-const urlQtdeMedicos = "http://localhost:8080/indicadores/cadastro-medicos-mensal";
-const urlAvaliacoes = "http://localhost:8080/indicadores/taxa-avaliacoes-por-cosultas";
-const urlConsultasRealizadas = "http://localhost:8080/indicadores/consultas-prestadas-mensais"
-const url6 = ""
+const urlQtdeMedicos = "http://localhost:8080/indicadores/quantidade-medicos";
+const urlAvaliacoes = "http://localhost:8080/indicadores/avaliacoes-por-cosulta";
+const urlConsultasRealizadas = "http://localhost:8080/indicadores/consultas-prestadas-mensal"
+const urlTaxaConsulta = "http://localhost:8080/indicadores/taxa-horario-consulta"
 const urlMedicos = "http://localhost:8080/medico";
 
 
@@ -43,7 +43,7 @@ checkAuthorization();
 // graficos:
 document.addEventListener('DOMContentLoaded', function () {
   // meses do ano
-  const meses = ["Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro", "Dezembro", "Novembro"];
+  const meses = ["Dezembro","Janeiro", "Fevereiro", "Março", "Abril", "Maio", "Junho", "Julho", "Agosto", "Setembro", "Outubro", "Novembro"];
 
 
   const ctx1 = document.getElementById('chart1').getContext('2d');
@@ -138,7 +138,19 @@ document.addEventListener('DOMContentLoaded', function () {
     })
     .catch(error => console.error(error));
 
+ // Ind 6: Taxa Horário Consulta
+ axios.get(urlTaxaConsulta)
+ .then(response => {
+   const dados = response.data;
 
+   const chartData = dados.map(data => ({
+     label: `${data.hora}:00`,
+     value: data.quantidade_consultas
+   }));
+
+   renderChart(ctx6, 'bar', chartData.map(data => data.label), chartData.map(data => data.value), 'Quantidade de Consultas por Hora');
+ })
+ .catch(error => console.error(error));
 
 
 
