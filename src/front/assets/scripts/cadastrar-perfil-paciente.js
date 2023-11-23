@@ -76,7 +76,14 @@ form.addEventListener('submit', async (e) => {
         console.log(dados);
 
         const idPaciente = dados.id;
-        
+
+        // post file
+        await axios.post(`${urlArquivo}/${idPaciente}`, formData, {
+            headers: {
+                "Content-Type": "multipart/form-data"
+            }
+        });
+
         localStorage.setItem('idPaciente', idPaciente);
 
         localStorage.getItem('tipoUsuario', tipoUsuario);
