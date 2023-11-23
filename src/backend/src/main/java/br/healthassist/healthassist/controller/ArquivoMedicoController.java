@@ -14,15 +14,15 @@ import org.springframework.web.multipart.MultipartFile;
 import java.io.IOException;
 
 @RestController
-@RequestMapping("/api/arquivos")
+@RequestMapping("/api/medico/arquivo")
 @RequiredArgsConstructor
 public class ArquivoMedicoController {
 
     private final ArquivoMedicoService arquivoMedicoService;
     private final MedicoService medicoService;
 
-    @PostMapping
-    public ResponseEntity uploadArquivo(@RequestParam("file") MultipartFile file, @RequestParam("idMedico") Long idMedico){
+    @PostMapping("/{id}")
+    public ResponseEntity uploadArquivo(@RequestParam("file") MultipartFile file, @PathVariable("id") Long idMedico){
 
         try{
 

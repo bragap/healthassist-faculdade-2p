@@ -8,7 +8,7 @@ const button = document.querySelector('#btn-reprove');
 button.addEventListener('click', function () {
 
    console.log(tipoUsuario )
-    
+   localStorage.clear(); 
    redirectTo('index.html');
 
 })

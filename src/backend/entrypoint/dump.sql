@@ -88,12 +88,12 @@ CREATE TABLE avaliar_consulta (
 -- Tabela para armazenar disponibilidade de horários
 CREATE TABLE disponibilidade_de_horario (
                                             id_medico integer,
-                                            horario_incio time,
+                                            horario_inicio time,
                                             horario_fim time,
-                                            dia_da_semana integer,
+                                            id_dia_semana integer,
                                             id serial PRIMARY KEY,
                                             FOREIGN KEY (id_medico) REFERENCES medico (id),
-                                            FOREIGN KEY (dia_da_semana) REFERENCES dia_da_semana (id)
+                                            FOREIGN KEY (id_dia_semana) REFERENCES dia_da_semana (id)
 );
 
 -- Tabela para armazenar arquivos médicos
@@ -351,6 +351,42 @@ INSERT INTO avaliar_consulta (id_consulta, titulo, comentario) VALUES
            (48, 'Críticas e Sugestões', 'Sugiro uma área de espera para casos de emergência.'),
            (49, 'Atendimento do Médico', 'Consulta eficiente, médico competente.'),
            (50, 'Críticas e Sugestões', 'Gostaria de sugerir mais opções de horários para agendamento.');
+
+-- POVOAMENTO TABELA DIA DA SEMANA
+
+insert into dia_da_semana (nome_dia) values
+           ('DOMINGO'),('SEGUNDA'),('TERCA'),('QUARTA'),('QUINTA'),('SEXTA'),('SABADO');
+
+-- POVOAMENTO TABELA MEDICO ESPECILIDADE
+
+INSERT INTO public.medico_especialidade VALUES (1, 7);
+INSERT INTO public.medico_especialidade VALUES (1, 9);
+INSERT INTO public.medico_especialidade VALUES (1, 10);
+INSERT INTO public.medico_especialidade VALUES (2, 7);
+INSERT INTO public.medico_especialidade VALUES (2, 1);
+INSERT INTO public.medico_especialidade VALUES (2, 2);
+INSERT INTO public.medico_especialidade VALUES (3, 7);
+INSERT INTO public.medico_especialidade VALUES (3, 3);
+INSERT INTO public.medico_especialidade VALUES (3, 1);
+INSERT INTO public.medico_especialidade VALUES (4, 5);
+INSERT INTO public.medico_especialidade VALUES (4, 1);
+INSERT INTO public.medico_especialidade VALUES (4, 3);
+INSERT INTO public.medico_especialidade VALUES (4, 8);
+INSERT INTO public.medico_especialidade VALUES (5, 1);
+INSERT INTO public.medico_especialidade VALUES (5, 4);
+INSERT INTO public.medico_especialidade VALUES (5, 2);
+INSERT INTO public.medico_especialidade VALUES (6, 1);
+INSERT INTO public.medico_especialidade VALUES (6, 9);
+INSERT INTO public.medico_especialidade VALUES (6, 10);
+INSERT INTO public.medico_especialidade VALUES (7, 2);
+INSERT INTO public.medico_especialidade VALUES (7, 1);
+INSERT INTO public.medico_especialidade VALUES (7, 10);
+INSERT INTO public.medico_especialidade VALUES (8, 1);
+INSERT INTO public.medico_especialidade VALUES (8, 10);
+INSERT INTO public.medico_especialidade VALUES (9, 1);
+INSERT INTO public.medico_especialidade VALUES (9, 4);
+INSERT INTO public.medico_especialidade VALUES (10, 1);
+INSERT INTO public.medico_especialidade VALUES (10, 10);
 
 -- Atualizar a tabela usuario com valores de autorizacao
 UPDATE usuario

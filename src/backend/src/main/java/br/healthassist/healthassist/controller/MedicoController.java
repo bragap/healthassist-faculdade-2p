@@ -33,25 +33,12 @@ public class MedicoController {
     private final UsuarioService usuarioService;
     private final EspecialidadeService especialidadeService;
     private final MedicoService medicoService;
-    private final ArquivoMedicoService arquivoMedicoService;
 
     @PostMapping
-    public ResponseEntity cadastrarMedico(@RequestBody MedicoDto dto, @RequestParam("file") MultipartFile file) {
+    public ResponseEntity cadastrarMedico(@RequestBody MedicoDto dto) {
 
         try {
             Medico medicoSalvo = medicoService.salvarMedico(converter(dto));
-
-            ArquivoMedico arquivoMedico = ArquivoMedico.builder()
-                    .idMedico(medicoSalvo)
-                    .nomeArquivo(file.getOriginalFilename())
-                    .tipoMime(file.getContentType())
-                    .aprovacao(StatusAprovacao.ANALISE)
-                    .build();
-
-            arquivoMedico.setDadosArquivo(file.getBytes());
-
-            arquivoMedicoService.salvarArquivo(arquivoMedico);
-
             return new ResponseEntity(medicoSalvo, HttpStatus.CREATED);
         } catch (Exception e) {
             return ResponseEntity.badRequest().body(e.getMessage());

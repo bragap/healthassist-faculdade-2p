@@ -61,15 +61,15 @@
           </div>
           <div class="box-usuario">
             <div class="tipo-usuario">
-              <input class="cb1" type="checkbox" name="tipo_medico" id="tipo_medico" value="MEDICO" />
+              <input class="cb1" type="checkbox" name="tipo_medico" id="tipo_medico" value="MEDICO" onclick="disable()"/>
               <p>Sou médico</p>
             </div>
             <div class="tipo-usuario">
-              <input class="cb1" type="checkbox" name="tipo_paciente" id="tipo_paciente" value="PACIENTE" />
+              <input class="cb1" type="checkbox" name="tipo_paciente" id="tipo_paciente" value="PACIENTE" onclick="disable()"/>
               <p>Sou paciente</p>
             </div>
           </div>
-          <small class="text-sucess"></small>
+          <small id="text-error-modal"></small>
 
           <button type="submit" id="btn-submit">Realizar cadastro</button>
         </form>

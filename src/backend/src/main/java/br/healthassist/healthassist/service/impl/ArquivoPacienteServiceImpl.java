@@ -14,10 +14,13 @@ public class ArquivoPacienteServiceImpl implements ArquivoPacienteService {
 
     private ArquivoPacienteRepository arquivosPacienteRepository;
 
+    public ArquivoPacienteServiceImpl(ArquivoPacienteRepository arquivoPacienteRepository){
+        this.arquivosPacienteRepository = arquivoPacienteRepository;
+    }
+
     @Override
-    @Transactional
-    public ArquivoPaciente salvarArquivoPaciente(ArquivoPaciente arquivoPacienteServiceImpl) {
-        return arquivosPacienteRepository.save(arquivoPacienteServiceImpl);
+    public void salvarArquivoPaciente(ArquivoPaciente arquivoPaciente) {
+        arquivosPacienteRepository.save(arquivoPaciente);
     }
 
     @Override
