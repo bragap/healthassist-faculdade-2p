@@ -12,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -86,4 +87,21 @@ public class MedicoServiceImpl implements MedicoService {
 
         return medicoRepository.save(newMedico);
     }
+
+    @Override
+    public List<Integer> getMedicosByMonth(){
+        String numberOfMedicosByMonth = medicoRepository.findNumberOfMedicosByMonth();
+        
+        String[] resultStringArray = numberOfMedicosByMonth.split(",");
+        int[] resultIntArray = new int[resultStringArray.length];
+
+        for(int i = 0; i < resultStringArray.length; i++){
+            resultIntArray[i] = Integer.parseInt(resultStringArray[i]);
+        }
+
+        List<Integer> resultadosInteirosLista = Arrays.asList(Arrays.stream(resultIntArray).boxed().toArray(Integer[]::new));
+        
+        return resultadosInteirosLista;
+    }
+
 }

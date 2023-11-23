@@ -22,4 +22,6 @@ public interface MedicoService {
 
     public Medico updateMedico(Long id, Medico medico);
 
+    List<Integer> getMedicosByMonth();
+
 }
