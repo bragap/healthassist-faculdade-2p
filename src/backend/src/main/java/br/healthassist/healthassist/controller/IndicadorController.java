@@ -28,7 +28,7 @@ public class IndicadorController {
     private final AvaliarConsultaService avaliacoesPorConsultasService;
     private final ConsultaService consultaService;
 
-    @GetMapping("/quantidade-pacientes")
+    @GetMapping("/cadastro-pacientes-mensal")
     public ResponseEntity pacientePorMes(){
         try{
             List<Integer> pacientes =  pacienteService.getPacientesByMonth();
@@ -39,7 +39,7 @@ public class IndicadorController {
     }
 
     @GetMapping("/media-consultas-medicos")
-    public ResponseEntity resultadoConsultasMedicos(){
+    public ResponseEntity mediaConsultasMedicos(){
         try{
         List<ResultadoConsultaMedicos> consutasMedicos =  resultadoConsultaMedicosService.obterResultados();
             return new ResponseEntity<>(consutasMedicos, HttpStatus.OK);
@@ -48,7 +48,7 @@ public class IndicadorController {
         }
     }
 
-    @GetMapping("/quantidade-medicos")
+    @GetMapping("/cadastro-medicos-mensal")
     public ResponseEntity medicosPorMes(){
         try{
             List<Integer> medicos =  medicoService.getMedicosByMonth();
@@ -58,7 +58,7 @@ public class IndicadorController {
         }
     }
 
-    @GetMapping("/avaliacoes-por-cosulta")
+    @GetMapping("/taxa-avaliacoes-por-cosultas")
     public ResponseEntity avalicoesPorConsulta(){
         try{
             List<Integer> consultasPorMes = consultaService.getConsultasByMonth();
@@ -82,5 +82,14 @@ public class IndicadorController {
         }
     }
 
+    @GetMapping("/consultas-prestadas-mensais")
+    public ResponseEntity consultasPrestadasMensais(){
+        try{
+            List<Integer> consultasPorMes =  consultaService.getConsultasByMonth();
+            return new ResponseEntity<>(consultasPorMes, HttpStatus.OK);
+        }catch(Exception e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
 
 }

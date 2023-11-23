@@ -41,7 +41,7 @@ public class AvaliarConsultaServiceImpl implements br.healthassist.healthassist.
     }
 
     @Override
-    public List<Integer> getAvaliacoesByMonth(){
+    public List<Integer> getAvaliacoesByMonth(){ //ultimos 12 meses
         String numberOfAvaliacoesByMonth = avaliarConsultaRepository.findNumberOfAvaliacoesByMonth();
         
         String[] resultStringArray = numberOfAvaliacoesByMonth.split(",");
