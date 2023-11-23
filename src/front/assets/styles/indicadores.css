@@ -2,7 +2,7 @@ main{
     padding-top: 170px;
     min-height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     flex-wrap: wrap;
     text-align: center;
     width: 90%;
@@ -23,8 +23,9 @@ main h2{
     width: 100%;
 }
 
-#card-layout{
+#ind-1, #ind-2, #ind-3, #ind-4,#ind-5{
     width: 80%;
+    margin: 0 auto;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
