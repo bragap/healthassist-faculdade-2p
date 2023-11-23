@@ -11,10 +11,10 @@ let listConsultas4 = "";
 let listConsultas5 = "";
 
 // endpoints
-const urlQtdePacientes = "http://localhost:8080/indicadores/quantidade-pacientes";
-const urlMediaConsultasMedico = "http://localhost:8080/indicadores/media-consultas-medicos";
-const urlQtdeMedicos = "http://localhost:8080/indicadores/quantidade-medicos";
-const urlAvaliacoes = "http://localhost:8080/indicadores/avaliacoes-por-cosulta";
+const urlQtdePacientes = "http://localhost:8080/indicadores/cadastro-pacientes-mensal";
+const urlMediaConsultasMedico = "http://localhost:8080/indicadores/media-consultas-medico";
+const urlQtdeMedicos = "http://localhost:8080/indicadores/cadastro-medicos-mensal";
+const urlAvaliacoes = "http://localhost:8080/indicadores/taxa-avaliacoes-por-cosultas";
 const urlConsultasRealizadas = "http://localhost:8080/indicadores/consultas-prestadas-mensal"
 const urlTaxaConsulta = "http://localhost:8080/indicadores/taxa-horario-consulta"
 const urlMedicos = "http://localhost:8080/medico";
