@@ -4,6 +4,7 @@ const endereco = document.querySelector('#endereco');
 const dataNascimento = document.querySelector('#data_nasc');
 const form = document.querySelector('#pacienteForm');
 const file = document.querySelector('#inputGroupFile').files[0];
+const btnSubmit = document.querySelector('.btn-cadastrar');
 
 // endpoints
 const url = 'http://localhost:8080/paciente';
@@ -34,7 +35,7 @@ function showLoading() {
     setTimeout(function () {
         document.getElementById('loading').style.display = 'none';
 
-    }, 2000);
+    }, 500);
 }
 
 
@@ -50,6 +51,7 @@ function displayFileName(input) {
 
 // ...
 
+
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
 
@@ -64,6 +66,9 @@ form.addEventListener('submit', async (e) => {
 
     const formData = new FormData();
     formData.append('file', file);
+
+    showLoading();
+    window.location.href = 'aguardando-aprovacao.html';
 
     try {
         const response = await axios.post(url, dadosCadastro, {
@@ -83,11 +88,9 @@ form.addEventListener('submit', async (e) => {
 
         localStorage.setItem('idPaciente', idPaciente);
 
-        showLoading();
-        window.location.href = 'aguardando-aprovacao.html';
-        
+
     } catch (error) {
-        window.location.href = 'aguardando-aprovacao.html';
+        redirecionarAoClicar();
 
         if (error.response) {
             console.log("Data:", error.response.data);

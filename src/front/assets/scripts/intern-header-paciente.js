@@ -179,6 +179,10 @@ class InterHeaderPaciente extends HTMLElement {
     limparLocalStorage(){
       localStorage.clear();
     }
+
+    redirectTo(path) {
+      window.location.href = path;
+    }
   
   }
   

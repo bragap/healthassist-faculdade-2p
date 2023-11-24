@@ -31,8 +31,6 @@ function checkAuthorization() {
 
 checkAuthorization();
 
-
-
 // get das especialidades
 document.addEventListener('DOMContentLoaded', function () {
     axios.get('http://localhost:8080/especialidade-medico')
@@ -117,6 +115,9 @@ form.addEventListener('submit', async (e) => {
     const formData = new FormData();
     formData.append('file', file);
 
+    showLoading();
+    window.location.href = 'aguardando-aprovacao.html';
+
     try {
         const response = await axios.post(url, dadosCadastro, {
             headers: {
@@ -135,13 +136,11 @@ form.addEventListener('submit', async (e) => {
         });
 
         localStorage.setItem('idMedico', idMedico);
-        
-        showLoading();
-        window.location.href = 'aguardando-aprovacao.html';
+
 
     } catch (error) {
 
-       window.location.href = "aguardando-aprovacao.html";
+        window.location.href = "aguardando-aprovacao.html";
 
         if (error.response) {
             console.log("Data:", error.response.data);
