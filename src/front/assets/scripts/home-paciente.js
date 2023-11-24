@@ -294,10 +294,12 @@ function renderDoctors(data) {
     const cardDoctor = document.getElementById("cards-section");
     cardDoctor.innerHTML = "";
 
-    if (data.length === 0) {
+    const dados = data.filter(d => d.aprovacao != "REPROVADO" && d.aprovacao != "ANALISE")
+
+    if (dados.length === 0) {
         cardDoctor.innerHTML = "<p>Nenhum médico encontrado</p>";
     } else {
-        data.forEach(user => {
+        dados.forEach(user => {
             let listDoctors = `
             <div id="card-individual">
                 <h5>Dr. ${user.nomeCompleto}</h5>

@@ -20,8 +20,6 @@ const urlTaxaConsulta = "http://localhost:8080/indicadores/taxa-horario-consulta
 const urlMedicos = "http://localhost:8080/medico";
 
 
-
-
 // FUNÇÕES
 
 //tipo usuario
