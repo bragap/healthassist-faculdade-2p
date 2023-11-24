@@ -11,3 +11,11 @@ Veja o link [Heflo - Types of Process Performance Metrics](https://www.heflo.com
 | Número de Consultas Mensais | Analisar o crescimento da empresa | Quantificar de forma aproximada o crescimento da clínica com base no número de consultas mensais realizadas pela mesma | Tabela Consulta | Aprendizado e Crescimento  |
 | Taxa de Resposta das Avaliações de Atendimento | Quantificar os feedbacks recebidos dos pacientes a fim de aprimorar os serviços | Percentual de pacientes que completam a avaliação de atendimento em relação ao total de pacientes atendidos mensalmente | Tabela Avaliar Consulta | Aprendizado e Crescimento |
 | Percentual de horários mais requisitados | Analisar os horários mais requisitados pelo público | Quantificar o percentual do numero de consultas em uma determinada hora, em relação ao total de consultas, através dos dados obtidos nos último ano  | Tabela Disponibilidade de Horário | Processos Internos |
+
+*Rotas*
+1 - /indicadores/cadastro-pacientes-mensal
+2 - /indicadores/media-consultas-medico
+3 - /indicadores/cadastro-medicos-mensal 
+4 - /indicadores/taxa-avaliacoes-por-cosultas
+5 - /indicadores/consultas-prestadas-mensal
+6 - /indicadores/taxa-horario-consulta
