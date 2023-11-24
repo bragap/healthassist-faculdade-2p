@@ -13,4 +13,6 @@ public interface AvaliarConsultaService {
 
     Optional<AvaliarConsulta> findAvaliarConsultaById(Long id);
 
+    List<Integer> getAvaliacoesByMonth();
+
 }

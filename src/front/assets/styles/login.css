@@ -8,12 +8,16 @@ body{
 #modal {
     padding: 2em;
 }
-#text-error{
+
+#text-error, #text-error-modal{
     font-size: 0.8em;
     width: 30%;
     justify-content: center;
     color: rgb(250, 83, 83);
-}.text-sucess{
+}
+
+
+.text-sucess{
     font-size: 0.8em;
     font-weight: bold;
 }

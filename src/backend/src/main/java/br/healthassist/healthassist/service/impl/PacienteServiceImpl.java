@@ -1,5 +1,7 @@
 package br.healthassist.healthassist.service.impl;
 
+import java.lang.reflect.Array;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -63,6 +65,23 @@ public class PacienteServiceImpl implements PacienteService{
     @Override
     public Optional<Paciente> findById(Long id) {
         return pacienteRepository.findById(id);
+    }
+
+    @Override
+    public List<Integer> getPacientesByMonth(){
+        
+        String numberOfPatientsByMonth = pacienteRepository.findNumberOfPatientsByMonth();
+        
+        String[] resultStringArray = numberOfPatientsByMonth.split(",");
+        int[] resultIntArray = new int[resultStringArray.length];
+
+        for(int i = 0; i < resultStringArray.length; i++){
+            resultIntArray[i] = Integer.parseInt(resultStringArray[i]);
+        }
+
+        List<Integer> resultIntList = Arrays.asList(Arrays.stream(resultIntArray).boxed().toArray(Integer[]::new));
+        
+        return resultIntList;
     }
 
 

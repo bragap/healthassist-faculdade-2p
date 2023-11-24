@@ -1,5 +1,6 @@
 package br.healthassist.healthassist.service.impl;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -38,6 +39,24 @@ public class AvaliarConsultaServiceImpl implements br.healthassist.healthassist.
     public Optional<AvaliarConsulta> findAvaliarConsultaById(Long id){
         return avaliarConsultaRepository.findById(id);
     }
+
+    @Override
+    public List<Integer> getAvaliacoesByMonth(){ //ultimos 12 meses
+        String numberOfAvaliacoesByMonth = avaliarConsultaRepository.findNumberOfAvaliacoesByMonth();
+        
+        String[] resultStringArray = numberOfAvaliacoesByMonth.split(",");
+        int[] resultIntArray = new int[resultStringArray.length];
+
+        for(int i = 0; i < resultStringArray.length; i++){
+            resultIntArray[i] = Integer.parseInt(resultStringArray[i]);
+        }
+
+        List<Integer> resultIntList = Arrays.asList(Arrays.stream(resultIntArray).boxed().toArray(Integer[]::new));
+
+        return resultIntList;
+    }
+
+    
 
 
 

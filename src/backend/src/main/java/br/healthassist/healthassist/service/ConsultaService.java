@@ -15,4 +15,6 @@ public interface ConsultaService {
     Consulta findConsultaById(Long id);
 
     Consulta updateConsulta(Long id, Consulta consulta);
+
+    List<Integer> getConsultasByMonth();
 }

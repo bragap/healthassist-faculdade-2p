@@ -50,6 +50,16 @@ public class PacienteController {
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
+
+    @GetMapping("/byMonth")
+    public ResponseEntity pacientePorMes(){
+        try{
+            List<Integer> pacientes =  pacienteService.getPacientesByMonth();
+            return new ResponseEntity<>(pacientes, HttpStatus.OK);
+        }catch(Exception e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
+    }
     
     @GetMapping("/{id}")
         public ResponseEntity obterPacientePorId(@PathVariable Long id){

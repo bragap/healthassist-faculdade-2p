@@ -10,6 +10,7 @@
   <link rel="icon" href="./assets/images/favicon.ico">
   <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="https://unpkg.com/scrollreveal@4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
     ScrollReveal({ duration: 900 })
   </script>
@@ -19,23 +20,34 @@
   <intern-header-admin></intern-header-admin>
 
   <main>
-    <h2 class="headline">Indicadores de desempenho</h2>
-    
-    
-    <section id="card-layout" class="tagline"> </section>
-
-
+    <div id="ind-1"></div>
+    <div id="ind-2"></div>
+    <div id="ind-3"></div>
+    <div id="ind-4"></div>
+    <div id="ind-5"></div>
+    <h2 class="headline">Pacientes cadastrados em cada um dos últimos 12 meses</h2>
+    <canvas id="chart1" width="300" height="50"></canvas>
+    <h2 class="headline">Taxa Média de Consultas Mensais por Médico</h2>
+    <canvas id="chart2" width="300" height="50"></canvas>
+    <h2 class="headline">Número de Médicos Cadastrados na Clínica</h2>
+    <canvas id="chart3" width="300" height="50"></canvas>
+    <h2 class="headline">Percentual de Avaliações Enviadas</h2>
+    <canvas id="chart4" width="300" height="50"></canvas>
+    <h2 class="headline">Quantidade de Consultas Realizadas</h2>
+    <canvas id="chart5" width="300" height="50"></canvas>
+    <h2 class="headline">Taxa Horário Consulta</h2>
+    <canvas id="chart6" width="300" height="50"></canvas>
   </main>
 
 
-  
+
 
   <!-- Tela de loading -->
   <div id="loading">
     <div class="loader"></div>
   </div>
 
-  
+
   <footer-home></footer-home>
   <script>
     ScrollReveal().reveal('.headline')
