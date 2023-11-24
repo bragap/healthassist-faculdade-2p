@@ -166,7 +166,7 @@ axios.get(urlConsultas)
       <div class="card-consulta">
       <span name="nome_do_paciente" value="nome do paciente">Nome do Paciente: ${user.paciente.nomeCompleto}</span>
       <span name="data_da_consulta" value="data da consulta">Data de Nascimento : ${formatarDataNasc(user.paciente.dataNasc)}</span>
-      <span name="email_do_paciente" value="email do paciente">Data/Hora da Consulta: ${formatarData(user.dataHoraConsulta)}</span>
+      <span name="email_do_paciente" value="email do paciente">Término da Consulta: ${formatarData(user.dataHoraConsulta)}</span>
       <a href="">
         <span name="arquivos_do_paciente" value="arquivos do paciente">Arquivos do paciente</span>
       </a>
