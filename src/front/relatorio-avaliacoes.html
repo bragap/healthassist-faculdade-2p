@@ -8,48 +8,38 @@
   <link href="./assets/styles/relatorio-avaliacoes.css" rel="stylesheet" />
   <link rel="stylesheet" href="./assets/styles/global.css" />
   <link rel="icon" href="./assets/images/favicon.ico">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/scrollreveal@4"></script>
+  <script>
+    ScrollReveal({ duration: 900 })
+  </script>
 </head>
 
 <body>
   <intern-header-admin></intern-header-admin>
 
   <main>
-    <h2> Relatório das avaliações da clínica </h2>
-    <section id="lista-relatorios">
-      <div id="lista-conteudo">
-        <p id="relatorio-titulo">Consulta 4</p>
-        <div id="box-esquerda">
-          <p>Avaliação do Médico</p>
-        </div>
-        <div id="box-direita">
-          <p>Comentário:</p>
-<p>O médico teve uma postura excelente durante a consulta, me tratando muito bem, sendo respeitoso, cuidadoso. Nota 10!!</p>        </div>
-      </div>
-      
-      <div id="lista-conteudo">
-        <p id="relatorio-titulo">Consulta 4</p>
-        <div id="box-esquerda">
-          <p>Avaliação do Médico</p>
-        </div>
-        <div id="box-direita">
-          <p>Comentário:</p>
-<p>O médico teve uma postura excelente durante a consulta, me tratando muito bem, sendo respeitoso, cuidadoso. Nota 10!!</p>        </div>
-      </div>
+    <h2 class="headline"> Relatório das avaliações da clínica </h2>
 
-      <div id="lista-conteudo">
-        <p id="relatorio-titulo">Consulta 4</p>
-        <div id="box-esquerda">
-          <p>Avaliação do Médico</p>
-        </div>
-        <div id="box-direita">
-          <p>Comentário:</p>
-<p>O médico teve uma postura excelente durante a consulta, me tratando muito bem, sendo respeitoso, cuidadoso. Nota 10!!</p>        </div>
-      </div>
-    </section>
+    <section id="lista-relatorios" class="tagline"></section>
 
   </main>
 
+  
+
+  <!-- Tela de loading -->
+  <div id="loading">
+    <div class="loader"></div>
+  </div>
+
+
+  
   <footer-home></footer-home>
+  <script>
+    ScrollReveal().reveal('.headline')
+    ScrollReveal().reveal('.tagline', { delay: 400 })
+  </script>
+  <script src="./assets/scripts/avaliacoes.js"></script>
   <script src="./assets/scripts/footer-home-geral.js"></script>
   <script src="./assets/scripts/intern-header-admin.js"></script>
 </body>

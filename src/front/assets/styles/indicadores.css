@@ -1,0 +1,93 @@
+main{
+    padding-top: 50px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    text-align: center;
+    width: 80%;
+    margin: 0 auto;
+}
+
+main h2{
+    margin: 50px;
+    font-size: 2em; 
+}
+
+#ind-1, #ind-2, #ind-3, #ind-4,#ind-5{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 10px;
+}
+
+
+
+
+@media (max-width: 700px){
+    main h2{
+        font-size: 1.7em;
+       }
+    main{
+        height: 100%;
+        padding-top: 100px;
+    }
+    #box-direita{
+        width: 100%;
+    }
+   .aceitar{
+    width: 100%;
+    font-size: 0.7em;
+   }
+   #card-individual{
+    margin: 20px;
+   }
+   #card-conteudo{
+    font-size: 0.8em;
+   }
+     #card-individual{
+        width: 90%;
+     }
+#box-direita{
+    width: 100%;
+}
+.aceitar{
+    width: 100%;
+}
+
+    }
+
+@media (min-width:950px) and (max-width:1528px){
+    #box-direita{
+        width: 80%;
+    }
+   .aceitar{
+    width: 100%;
+    font-size: 0.9em;
+   }
+   #card-layout{
+    height: 120vh;
+   }
+   
+}
+
+@media (min-width:701px) and (max-width: 949px){
+    main{
+        height: 100%;
+    }
+    #box-direita{
+        width: 80%;
+    }
+   .aceitar{
+    width: 100%;
+    font-size: 0.9em;
+   }
+   #card-individual{
+    margin: 20px;
+   }
+   #card-conteudo{
+    font-size: 0.8em;
+   }
+}

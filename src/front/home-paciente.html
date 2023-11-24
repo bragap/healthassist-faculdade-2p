@@ -8,8 +8,11 @@
   <link rel="icon" href="./assets/images/favicon.ico" />
   <link href="./assets/styles/home-paciente.css" rel="stylesheet" />
   <link rel="stylesheet" href="./assets/styles/global.css" />
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/scrollreveal@4"></script>
+  <script>
+    ScrollReveal({ duration: 900 })
+  </script>
 </head>
 
 <body>
@@ -18,164 +21,57 @@
   <!-- Inicia conteúdo da página-->
 
   <main>
-    <section id="search-doctor">
+    <section id="search-doctor" class="headline">
       <h2>Selecione o melhor médico para você</h2>
-      <p>Pesquise por nome ou especialidade</p>
+      <p>Filtre por nome ou especialidade</p>
       <div id="input-box">
-        <input type="text" placeholder="Nome do médico">
-        <input type="text" placeholder="Dropdown">
+        <input type="text" id="search-doctor-name" placeholder="Nome do médico">
+        <select id="especialidadeSelect">
+          <option value="default">Especialidade</option>
+
+        </select>
       </div>
-      <input type="submit" value="Pesquisar" id="btn-submit">
     </section>
 
 
-    <section id="view-doctors">
 
-      <div id="cards-section">
-        <div id="card-individual">
-          <h5>Nome do médico</h5>
-          <p>Área</p>
-          <button type="button" id="btn-open-modal">Agende uma consulta!</button>
-        </div>
-        <div id="card-individual">
-          <h5>Nome do médico</h5>
-          <p>Área</p>
-          <button type="button" id="btn-open-modal">Agende uma consulta!</button>
-        </div>
-        <div id="card-individual">
-          <h5>Nome do médico</h5>
-          <p>Área</p>
-          <button type="button" id="btn-open-modal">Agende uma consulta!</button>
-        </div>
-        <div id="card-individual">
-          <h5>Nome do médico</h5>
-          <p>Área</p>
-          <button type="button" id="btn-open-modal">Agende uma consulta!</button>
-        </div>
-        <div id="card-individual">
-          <h5>Nome do médico</h5>
-          <p>Área</p>
-          <button type="button" id="btn-open-modal">Agende uma consulta!</button>
-        </div>
-        <div id="card-individual">
-          <h5>Nome do médico</h5>
-          <p>Área</p>
-          <button type="button" id="btn-open-modal">Agende uma consulta!</button>
-        </div>
-        <div id="card-individual">
-          <h5>Nome do médico</h5>
-          <p>Área</p>
-          <button type="button" id="btn-open-modal">Agende uma consulta!</button>
-        </div>
-        <div id="card-individual">
-          <h5>Nome do médico</h5>
-          <p>Área</p>
-          <button type="button" id="btn-open-modal">Agende uma consulta!</button>
-        </div>
-        <div id="card-individual">
-          <h5>Nome do médico</h5>
-          <p>Área</p>
-          <button type="button" id="btn-open-modal">Agende uma consulta!</button>
-        </div>
-        <div id="card-individual">
-          <h5>Nome do médico</h5>
-          <p>Área</p>
-          <button type="button" id="btn-open-modal">Agende uma consulta!</button>
-        </div>
-        <div id="card-individual">
-          <h5>Nome do médico</h5>
-          <p>Área</p>
-          <button type="button" id="btn-open-modal">Agende uma consulta!</button>
-        </div>
-        <div id="card-individual">
-          <h5>Nome do médico</h5>
-          <p>Área</p>
-          <button type="button" id="btn-open-modal">Agende uma consulta!</button>
-        </div>
-      </div>
+    <section id="view-doctors" class="tagline">
+
+      <div id="cards-section"></div>
 
     </section>
+
     <dialog id="modal">
 
-      <div id="header-modal">
-        <h4>Nome do médico </h4> <button id="btn-close-modal">X</button>
-        <p>Especialidade do médico</p>
+      <div id="header-modal"></div>
+      <div id="modal-filter"></div>
+      <table id="table"></table>
+
+
+      <div id="section-confirm">
+        <button id="btn-marcar-consulta"> Marcar consulta </button>
       </div>
-      <div id="modal-filter">
-        <select name="dia">
-          <option value="">Selecione o dia</option>
-          <option value="SEGUNDA">Segunda-feira</option>
-          <option value="TERÇA">Terça-feira</option>
-          <option value="QUARTA">Quarta-feira</option>
-          <option value="QUINTA">Quinta-feira</option>
-          <option value="SEXTA">Sexta-feira</option>
-          <option value="SABADO">Sábado</option>
-          <option value="DOMINGO">Domingo</option>
-        </select>
-        <select name="horario">
-          <option value="">Escolha o horário</option>
-          <option value="13:00">13:00</option>
-          <option value="14:00">14:00</option>
-          <option value="15:00">15:00</option>
-          <option value="16:00">16:00</option>
-          <option value="17:00">17:00</option>
-          <option value="18:00">18:00</option>
-        </select>
-
-      </div>
-
-      <table>
-        <tr>
-          <th>Horário</th>
-          <th>Dia da semana</th>
-          <th>Selecione</th>
-        </tr>
-        <tr>
-          <td>14:00</td>
-          <td>Segunda-feira</td>
-          <td><input type="checkbox" name="" id=""></td>
-        </tr>
-        <tr>
-          <td>15:00</td>
-          <td>Segunda-feira</td>
-          <td><input type="checkbox" name="" id=""></td>
-        </tr>
-        <tr>
-          <td>16:00</td>
-          <td>Segunda-feira</td>
-          <td><input type="checkbox" name="" id=""></td>
-        </tr>
-        <tr>
-          <td>17:00</td>
-          <td>Segunda-feira</td>
-          <td><input type="checkbox" name="" id=""></td>
-        </tr>
-        <tr>
-          <td>18:00</td>
-          <td>Segunda-feira</td>
-          <td><input type="checkbox" name="" id=""></td>
-        </tr>
-        <tr>
-          <td>13:00</td>
-          <td>Terça-feira</td>
-          <td><input type="checkbox" name="" id=""></td>
-        </tr>
-      </table>
-
-
-     <div id="section-confirm">
-       <button> Marcar consulta </button>
-     </div>
 
     </dialog>
   </main>
 
   <!-- Termina conteúdo da página-->
 
+  <!-- Tela de loading -->
+  <div id="loading">
+    <div class="loader"></div>
+  </div>
+
+
+
   <footer-home></footer-home>
+  <script>
+    ScrollReveal().reveal('.headline')
+    ScrollReveal().reveal('.tagline', { delay: 400 })
+  </script>
+  <script src="./assets/scripts/home-paciente.js"></script>
   <script src="./assets/scripts/footer-home-geral.js"></script>
   <script src="./assets/scripts/intern-header-paciente.js"></script>
-  <script src="./assets/scripts/home-paciente.js"></script>
 </body>
 
 </html>

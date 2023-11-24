@@ -1,15 +1,19 @@
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css");
 
 main {
-	margin-top: 17vh !important;
-	width: 70%;
+	width: 80%;
+    padding-top: 200px;
 	margin: 0 auto;
+    min-height: 100vh;
 	display: flex;
 	flex-direction: column;
-	align-items: center;
-	justify-content: center;
-}
+    justify-content: start;
+    align-items: center;
 
+}
+main p {
+    margin-bottom: 70px;
+}
 section {
 	padding: 3em;
 	background-color: #FAFAFA;
@@ -27,73 +31,65 @@ h2 {
 p {
     color: rgba(0, 0, 0, 0.60);
 }
-
-.card-consultas {
+#card-prox-consultas{
+    width: 100%;
+	display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+	margin-bottom: 2em;
+    color:#048ABF;
+}
+#card-consultas-ante {
 	width: 100%;
 	display: flex;
-	align-items: center;
-	justify-content: space-between;
-	gap: 10px;
+    justify-content: space-around;
+    flex-wrap: wrap;
 	margin-bottom: 2em;
+    color:#048ABF;
+
 }
 
-.card-consulta {
+.card-consulta, .card-consulta-2 {
 	display: flex;
-	flex-direction: column;
-	justify-content: end;
-	padding: 30px;
-	gap: 5px;
-	width: 25%;
-	height: 8rem;
-	border-radius: 1.0625rem;
-	background: #D9D9D9;
-    cursor: pointer;
+    flex-wrap: wrap;
+    width: 30%;
+    margin: 15px;
+    border: 2px solid #048ABF;
+    border-right: 5px solid #048ABF;
+    border-bottom: 5px solid #048ABF;
+    border-radius: 10px;
+    cursor:pointer;
+    justify-content: space-between;
+    transition: .3s;
 }
 
-.card-consulta span {
-	font-size: 12px;
-	
+.card-consulta:hover, .card-consulta-2:hover{
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.375);
+}
+.card-consulta span, .card-consulta-2 span {
+    padding: 15px;
+    word-wrap: break-word;
 }
 
-.card-consulta svg {
-	position: relative;
-	left: 90%;
-	margin-top: -1.525em;
-	cursor: pointer;
+
+#nome-medico{
+    font-weight: bold;
+    align-self:center;
 }
 
-/* Estilos para o container que envolve o select */
-.select-container {
-    position: relative;
-    display: inline-block;
-}
 
 /* Estilização para o select */
 .form-select {
-    width: 100%;
+    width: 30%;
     border-radius: 5px;
     border-width: 0px;
     padding: 10px 25px;
     border-radius: 5px; /* Bordas arredondadas */
-    appearance: none; /* Removendo estilos padrão */
-    -webkit-appearance: none; /* Removendo estilos padrão para navegadores Webkit */
-    -moz-appearance: none; /* Removendo estilos padrão para navegadores Firefox */
-    background-color: #FFFFFF; /* Cor de fundo */
     cursor: pointer; /* Estilo de cursor ao passar o mouse */
     outline: none; /* Removendo destaque ao selecionar */
     margin-bottom: 30px;
 }
 
-/* Estilização para a seta (ícone) do select */
-.select-arrow {
-    position: absolute;
-    right: 5px; /* Posicionando à direita */
-    top: 20px; /* Centralizando verticalmente */
-    transform: translateY(-50%); /* Ajustando a centralização vertical */
-    font-size: 12px; /* Tamanho da fonte do ícone da seta */
-    color: #777; /* Cor da seta */
-    pointer-events: none; /* Fazendo com que o ícone da seta não responda a eventos de clique */
-}
 
 #box-comment {
     width: 100%;
@@ -112,3 +108,29 @@ button {
     margin-top: 0.5em !important;
     cursor: pointer;
 }
+
+/*Responsividade dos cards*/
+@media (max-width: 500px){
+    main {
+        padding-top: 160px;
+        text-align: center;
+    }
+    #card-consultas-ante{
+        flex-direction: column;
+    }
+    .card-consulta{
+        width: 50%;
+    }
+
+    .select-container select{
+        width: 100%;
+    }
+   
+    .secao-avaliacao h2{
+        font-size: 1.7em;
+    }
+    .secao-avaliacao button {
+        width: 100%;
+    }
+}
+

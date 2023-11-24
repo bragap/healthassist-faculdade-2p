@@ -1,21 +1,21 @@
 class InterHeaderAdmin extends HTMLElement {
-    constructor() {
-      super();
-  
-      this.mobileMenu = null;
-      this.navList = null;
-      this.navLinks = null;
-      this.activeClass = "active";
-  
-      this.handleClick = this.handleClick.bind(this);
-    }
-  
-  
-  
-    connectedCallback() {
-      const shadowRoot = this.attachShadow({ mode: 'closed' });
-      // HTML do componente
-      shadowRoot.innerHTML = `
+  constructor() {
+    super();
+
+    this.mobileMenu = null;
+    this.navList = null;
+    this.navLinks = null;
+    this.activeClass = "active";
+
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+
+
+  connectedCallback() {
+    const shadowRoot = this.attachShadow({ mode: 'closed' });
+    // HTML do componente
+    shadowRoot.innerHTML = `
         <style>
         a {
             color: #fff;
@@ -145,35 +145,42 @@ class InterHeaderAdmin extends HTMLElement {
             </div>
             <ul class="nav-list">
               <li><a href="home-admin.html">Início</a></li>
-              <li><a href="cancelamentos.html">Cancelamentos</a></li>
-              <li><a href="relatorio-avaliacoes.html">Relatórios</a></li>
-              <li><a href="home-geral.html">Sair</a></li>
+              <li><a href="indicadores.html">Indicadores</a></li>
+              <li><a href="relatorio-avaliacoes.html">Avaliações</a></li>
+              <li><a href="#" class="btn-out" onclick="redirectTo('index.html')">Sair</a></li>
               </ul>
           </nav>
         </header>
       `;
-  
-      this.mobileMenu = shadowRoot.querySelector('.mobile-menu');
-      this.navList = shadowRoot.querySelector('.nav-list');
-      this.navLinks = shadowRoot.querySelectorAll('.nav-list li');
-  
-      this.mobileMenu.addEventListener('click', this.handleClick);
-  
-      this.animateLinks();
-    }
-  
-    animateLinks() {
-      this.navLinks.forEach((link, index) => {
-        link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
-      });
-    }
-  
-    handleClick() {
-      this.navList.classList.toggle(this.activeClass);
-      this.mobileMenu.classList.toggle(this.activeClass);
-    }
-  
+
+    this.mobileMenu = shadowRoot.querySelector('.mobile-menu');
+    this.navList = shadowRoot.querySelector('.nav-list');
+    this.navLinks = shadowRoot.querySelectorAll('.nav-list li');
+    this.btnOut = shadowRoot.querySelector('.btn-out');
+
+    this.mobileMenu.addEventListener('click', this.handleClick);
+
+    this.animateLinks();
+
+    this.btnOut.addEventListener('click', this.limparLocalStorage)
   }
-  
-  customElements.define('intern-header-admin', InterHeaderAdmin);
-  
+
+  animateLinks() {
+    this.navLinks.forEach((link, index) => {
+      link.style.animation = `navLinkFade 0.5s ease forwards ${index / 7 + 0.3}s`;
+    });
+  }
+
+  handleClick() {
+    this.navList.classList.toggle(this.activeClass);
+    this.mobileMenu.classList.toggle(this.activeClass);
+  }
+  limparLocalStorage() {
+    localStorage.clear();
+  }
+  redirectTo(path) {
+    window.location.href = path;
+  }
+}
+
+customElements.define('intern-header-admin', InterHeaderAdmin);

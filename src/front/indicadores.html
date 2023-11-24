@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Área do Profissional</title>
+  <link href="./assets/styles/indicadores.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/styles/global.css" />
+  <link rel="icon" href="./assets/images/favicon.ico">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/scrollreveal@4"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    ScrollReveal({ duration: 900 })
+  </script>
+</head>
+
+<body>
+  <intern-header-admin></intern-header-admin>
+
+  <main>
+    <div id="ind-1"></div>
+    <div id="ind-2"></div>
+    <div id="ind-3"></div>
+    <div id="ind-4"></div>
+    <div id="ind-5"></div>
+    <h2 class="headline">Pacientes cadastrados em cada um dos últimos 12 meses</h2>
+    <canvas id="chart1" width="300" height="50"></canvas>
+    <h2 class="headline">Taxa Média de Consultas Mensais por Médico</h2>
+    <canvas id="chart2" width="300" height="50"></canvas>
+    <h2 class="headline">Número de Médicos Cadastrados na Clínica</h2>
+    <canvas id="chart3" width="300" height="50"></canvas>
+    <h2 class="headline">Percentual de Avaliações Enviadas</h2>
+    <canvas id="chart4" width="300" height="50"></canvas>
+    <h2 class="headline">Quantidade de Consultas Realizadas</h2>
+    <canvas id="chart5" width="300" height="50"></canvas>
+    <h2 class="headline">Taxa Horário Consulta</h2>
+    <canvas id="chart6" width="300" height="50"></canvas>
+  </main>
+
+
+
+
+  <!-- Tela de loading -->
+  <div id="loading">
+    <div class="loader"></div>
+  </div>
+
+
+  <footer-home></footer-home>
+  <script>
+    ScrollReveal().reveal('.headline')
+    ScrollReveal().reveal('.tagline', { delay: 400 })
+  </script>
+  <script src="./assets/scripts/indicadores.js"></script>
+  <script src="./assets/scripts/footer-home-geral.js"></script>
+  <script src="./assets/scripts/intern-header-admin.js"></script>
+</body>
+
+</html>

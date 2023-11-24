@@ -1,0 +1,29 @@
+body {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin: 0;
+    font-family: "Poppins";
+    background-color: #0367A6;
+    color: #fff;
+}
+
+img {
+    width: 100%;
+    height: 80vh;
+}
+
+button {
+    background: none;
+    border: none;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 1.2em;
+    color:#fff;
+  
+}
+
+h2{
+    padding: 20px;
+    margin: 20px;
+}

@@ -1,3 +1,7 @@
+body{
+    height: 100vh;
+}
+
 .fc .fc-col-header-cell-cushion {
     /* needs to be same precedence */
     padding-top: 5px;

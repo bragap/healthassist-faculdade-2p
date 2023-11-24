@@ -1,0 +1,309 @@
+main {
+	width: 70%;
+	margin: 0 auto;
+    padding-top: 200px;
+    min-height: 100vh;
+	display: flex;
+	align-items: center;
+    flex-direction: column;
+}
+
+#painel-consultas{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+h2 {
+	margin: 1.5rem 0 !important;
+}
+#card-consultas-anteriores{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card-consultas, .card-consulta-anteriores {
+	width: 100%;
+	display: flex;
+    flex-direction: column;
+	margin-bottom: 2em;
+    text-align: center;
+}
+
+.card-consulta {
+	display: flex;
+	flex-direction: column;
+    justify-content: center;
+	padding: 30px;
+    margin: 10px;
+	gap: 5px;
+	width: 25%;
+	height: 8rem;
+	border-radius: 1.0625rem;
+	border: 1px solid #D9D9D9;
+    border-bottom: 5px solid #D9D9D9;
+    border-right: 5px solid #D9D9D9;
+    transition: .3s;
+}
+
+.card-consulta:hover{
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.375);
+}
+
+.card-consulta span, .card-consulta a {
+	font-size: 16px;
+    word-wrap: break-word;
+    text-align: left;
+}
+
+.card-consulta svg {
+align-self: flex-end;
+cursor: pointer;
+}
+
+/* Estilos da tabela */
+table {
+	width: 100%;
+	border-collapse: collapse;
+	margin-bottom: 3.75em !important;
+}
+
+
+th {
+	background-color: #f5f5f5;
+	padding: 1em !important;
+	text-align: left;
+	font-weight: 700 !important;
+}
+
+.icones-th, .icon-container svg:hover {
+	cursor: pointer;
+}
+
+
+/* Estilos dos ícones */
+.icon {
+	width: 20px;
+	height: 20px;
+	margin-right: 5px;
+}
+
+.icon:last-child {
+	margin-right: 0;
+}
+
+/* Adicionando estilo zebra à tabela */
+tbody tr:nth-child(odd) {
+	background-color: #f9f9f9;
+}
+
+td {
+	padding: 1em !important;
+	text-align: left;
+}
+
+
+.cb1 {
+	accent-color: #2ED47A;
+	font-size: 1em;
+	color: #fff !important;
+	cursor: pointer;
+}
+  
+
+input[type="checkbox"] {
+    width: 1.1em !important;
+	height: 1.1em !important;
+}
+
+
+/* Modal */
+
+#modal {
+    padding: 2em;
+}
+
+.container{
+    width: 100vw;
+    height: 100vh;
+}
+.forms-login{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: 150px;
+    width: 500px;
+}
+.forms-login img {
+    user-select: none;
+}
+.forms-login input, .forms-login textarea{
+    width: 350px;
+    height: 30px;
+    margin: 16px;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 1.8px solid #2f89c1;
+    padding: 5px;
+    background-color: transparent;
+}
+.forms-login input:focus,
+.forms-login textarea:focus {
+  outline: none;
+}
+ #btn-entrar{
+    width: 300px;
+    height: 30px;
+    margin: 32px;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    background: #0367A6;
+    color: #F2F2F2 ;
+    cursor: pointer;
+    user-select: none;
+}
+#button-modal{
+    border: none;
+    text-decoration: underline;
+    font-size: 0.92em;
+    margin-left: -4px;
+    background: #fff;
+}
+#button-modal:hover{
+    background-color: #fff;
+    color: #000;
+    cursor: pointer;
+}
+
+.forms-login img{
+    margin-top: -20px;
+    height: 200px;
+    user-select: none;
+}
+#btn-entrar:hover{
+    background-color: #2f89c1;
+    color: #F2F2F2;
+}
+.forms-login h3 {
+    font-size: 2rem;
+    color:  #0367A6;
+    user-select: none;
+}
+.forms-login p{
+    user-select: none;
+}
+.forms-login a{
+    color: #0367A6;
+    text-decoration: none;
+    user-select: none;
+}
+.forms-login a:hover{
+    text-decoration: underline;
+}
+.forms-login .a-doutor{
+    color: grey;
+    margin-bottom: 10px;
+}
+.box-usuario, .tipo-usuario {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+}
+
+.box-usuario {
+    margin-top: -20px;
+}
+
+.cb1 {
+	accent-color: #2ED47A;
+	font-size: 1em;
+	color: #fff !important;
+	cursor: pointer;
+}
+
+input[type="checkbox"] {
+    width: 1.2em !important;
+	height: 1.2em !important;
+    margin: 0em 1em;
+}
+
+dialog::backdrop{
+    background-color: rgb( 0 0 0/ .5);
+}
+dialog {
+    border: none;
+    border-radius: .5rem;
+    box-shadow:  0 0 1em rgb (0 0 0 /.3);
+    width: 30%;
+}
+#nome-paciente{
+    font-weight: bold;
+    width: 80%;
+}
+#att{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    align-self: center;
+
+}
+.header-modal {
+	display: flex;
+	justify-content: space-between;
+    flex-wrap: wrap;
+
+}
+
+.form-control {
+	display: flex;
+	flex-direction: column;
+}
+
+.form-control input {
+	height: 200px;
+	padding: 15px;
+}
+
+#btn-close-modal{
+    background: none;
+    cursor: pointer;
+    border: none;
+    font-size: 30px;
+    outline: none;
+}   
+
+input[type="text"] {
+    outline: none;
+}
+
+#sucess-message{
+    color:#0fee1a;
+    width: 100%;
+    background-color: #a1ffcb;
+    text-align: center;
+}
+
+#error-message{
+    width: 100%;
+    text-align: center;
+    background-color: pink;
+    color:rgb(255, 65, 65);
+}
+
+@media (max-width:800px) {
+    main{
+        text-align: center;
+        margin-top: -150px;
+    }
+}
+@media (max-width:900px){
+    #card-consultas-anteriores{
+        flex-direction: column;
+        align-items: center;
+    }
+    .card-consulta{
+        width: 100%;
+    }
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfil Médico</title>
+  <link href="./assets/styles/perfil-medico.css" rel="stylesheet" />
+  <link rel="stylesheet" href="./assets/styles/global.css" />
+  <link rel="icon" href="./assets/images/favicon.ico">
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://unpkg.com/scrollreveal@4"></script>
+  <script>
+    ScrollReveal({ duration: 900 })
+  </script>
+</head>
+
+<body>
+    <intern-header-medico></intern-header-medico>
+
+    <!-- Inicia conteúdo da página-->
+  
+    <main>
+  
+      <section class="headline" id="dados-usuario">
+          <svg xmlns="http://www.w3.org/2000/svg" fill="#0367A6" class="bi bi-person-fill" viewBox="0 0 16 16">
+              <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
+            </svg>
+            <div class="dados-user"></div>
+  
+      </section>
+  
+      
+    </main>
+  
+    <!-- Termina conteúdo da página-->
+  
+    <!-- Tela de loading -->
+    <div id="loading">
+      <div class="loader"></div>
+    </div>
+  
+  
+  
+    <footer-home></footer-home>
+  <script>
+    ScrollReveal().reveal('.headline')
+  </script>
+  <script src="./assets/scripts/perfil-medico.js"></script>
+  <script src="./assets/scripts/footer-home-geral.js"></script>
+  <script src="./assets/scripts/intern-header-medico.js"></script>
+</body>
+
+</html>

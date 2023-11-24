@@ -5,63 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/styles/global.css" />
     <link rel="stylesheet" href="./assets/styles/avaliar-consulta.css" />
+    <link rel="icon" href="./assets/images/favicon.ico">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <title>Avaliar Consulta</title>
   </head>
   <body>
+    
     <intern-header-paciente></intern-header-paciente>
 
     <main>
-      <h2 class="headline">Consultas anteriores</h2>
+      <h2 class="headline">Próximas consultas</h2>
 
-      <div class="card-consultas">
-        <div class="card-consulta" data-consulta-id="1">
-          <span name="nome_do_medico" value="nome do médico"
-            >Nome do Médico</span
-          >
-          <span name="email_do_medico" value="email do médico"
-            >E-mail do Medico</span
-          >
-          <span name="data_da_consulta" value="data da consulta"
-            >Data da consulta</span
-          >
-        </div>
+      <div id="card-prox-consultas"></div>
+      
+      <h2 class="headline">Avalie consultas anteriores</h2>
+      <p>Clique em uma consulta para avaliar</p>
 
-        <div class="card-consulta" data-consulta-id="2">
-          <span name="nome_do_medico" value="nome do médico"
-            >Nome do Médico</span
-          >
-          <span name="email_do_medico" value="email do médico"
-            >E-mail do Medico</span
-          >
-          <span name="data_da_consulta" value="data da consulta"
-            >Data da consulta</span
-          >
-        </div>
+      <div id="card-consultas-ante"></div>
 
-        <div class="card-consulta" data-consulta-id="3">
-          <span name="nome_do_medico" value="nome do médico"
-            >Nome do Médico</span
-          >
-          <span name="email_do_medico" value="email do médico"
-            >E-mail do Medico</span
-          >
-          <span name="data_da_consulta" value="data da consulta"
-            >Data da consulta</span
-          >
-        </div>
-
-        <div class="card-consulta" data-consulta-id="4">
-          <span name="nome_do_medico" value="nome do médico"
-            >Nome do Médico</span
-          >
-          <span name="email_do_medico" value="email do médico"
-            >E-mail do Medico</span
-          >
-          <span name="data_da_consulta" value="data da consulta"
-            >Data da consulta</span
-          >
-        </div>
-      </div>
 
       
       <section class="secao-avaliacao">
@@ -70,20 +31,20 @@
 
         <p id="consulta-identificacao"></p>
 
-        <div class="form-grid-item">
-          <div class="select-container">
-            <select class="form-select" aria-label="">
-              <option selected>Selecione o tipo de avaliação</option>
-              <option name="atendimento_medico" value="atendimento medico">
+        <form method="post" action="http://localhost:8080	/avaliar-consulta" id="form-avaliacao">
+
+          <div class="form-grid-item">
+            <div class="select-container">
+            <select id="selectAvaliacao" value="" class="form-select" aria-label="">
+              <option selected value="">Selecione o tipo de avaliação</option>
+              <option name="atendimento_medico" value="Atendimento do Médico">
                 Atendimento do médico
               </option>
-              <option name="atendimento_da_clinica" value="atendimento da clinica">Atendimento da clínica</option>
-              <option name="criticas_e_sugestoes" value="criticas e sugestoes">Críticas e sugetões</option>
+              <option name="atendimento_da_clinica" value="Atendimento da Clínica">Atendimento da clínica</option>
+              <option name="criticas_e_sugestoes" value="Criticas e Sugestões">Críticas e sugetões</option>
             </select>
-            <div class="select-arrow">▼</div>
           </div>
         </div>
-
 
         <textarea
           name="Comentario"
@@ -91,15 +52,25 @@
           placeholder="Comentário:"
         ></textarea>
         
-        <button>Enviar avaliação</button>
+        <button type="submit">Enviar avaliação</button>
+
+      </form>
 
       </section>
     </main>
 
+    
+
+  <!-- Tela de loading -->
+  <div id="loading">
+    <div class="loader"></div>
+  </div>
+
+
     <footer-home></footer-home>
 
+    <script src="./assets/scripts/avaliar-consulta.js"></script>
     <script src="./assets/scripts/footer-home-geral.js"></script>
     <script src="./assets/scripts/intern-header-paciente.js"></script>
-    <script src="./assets/scripts/avaliar-consulta.js"></script>
   </body>
 </html>

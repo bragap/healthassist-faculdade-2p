@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+    <title>Bem-vindo ao HealthAssist</title>
+    <link rel="stylesheet" href="./assets/styles/home-geral.css">
+    <link rel="icon" href="./assets/images/favicon.ico">
+    <script src="https://unpkg.com/scrollreveal@4"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+</head>
+
+<body>
+    <home-header></home-header>
+    <div id="bg1" class="headline">
+        <div id="bg2" class="headline">
+            <div id="bg3" class="headline">
+                <div id="bg4" class="headline">
+                    <div id="bg5" class="headline">
+                        <main>
+                            <section class="headline" id="inicio">
+                                <div>
+                                    <h1> Somos o <br><span>HealthAssist</span></h1>
+                                    <p>Nos preocupamos com sua saúde</p>
+                                </div>
+                                <img src="./assets/images/Doctors-bro.svg">
+                            </section>
+                            <section class="tagline" id="oque-somos">
+                                <img src="./assets/images/Medicine-bro.svg">
+                                <div>
+                                    <h1> O que é?
+                                    </h1>
+                                    <p> Solução que simplifica e <br> aprimora <span>marcações de consultas</span></p>
+                                </div>
+                            </section>
+                            <section class="punchline" id="integrantes">
+                                <div>
+                                    <h1> Quem somos?
+                                    </h1>
+                                    <p>Estudantes de <span>Engenharia de Software</span> <br>do 2º período da PUC Minas
+                                    </p>
+                                </div>
+                                <img src="./assets/images/Medical.svg">
+                            </section>
+
+                        </main>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer-home></footer-home>
+    <script src="./assets/scripts/footer-home-geral.js"></script>
+    <script src="./assets/scripts/home-header.js"></script>
+    <script>
+        ScrollReveal().reveal('.headline')
+        ScrollReveal().reveal('.tagline', { delay: 400 })
+        ScrollReveal().reveal('.punchline', { delay: 500 })
+    </script>
+</body>
+</body>
+
+</html>

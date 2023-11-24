@@ -1,130 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="./assets/images/favicon.ico" />
-    <link rel="stylesheet" href="./assets/styles/login.css" />
-    <title>Acesse o HealthAssist</title>
-  </head>
 
-  <body>
-    <div class="container">
-      <div id="circulo">
-        <img src="./assets/images/logo-v8.png" alt="logo v8" />
-      </div>
-      <div class="forms-login">
-        <h3>LOGIN</h3>
-        <form method="post" action="" id="forms-login-paciente">
-          <input type="text" placeholder="Username" />
-          <input type="password" placeholder="Password" />
-          <button id="btn-entrar" type="submit">Entrar</button>
-        </form>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" href="./assets/images/favicon.ico" />
+  <link rel="stylesheet" href="./assets/styles/login.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" />
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <title>Acesse o HealthAssist</title>
+</head>
 
-        <p>Não possui conta? <button id="button-modal">Registre-se</button></p>
-        <dialog id="modal">
-          <form action="" method="post" id="form-register">
-            <div class="header-modal">
-              <h2>Realize seu cadastro!</h2>
-              <button id="btn-close-modal">X</button>
-            </div>
-            <div class="form-control">
-              <label for="username">Usuário</label>
-              <input
-                type="text"
-                id="username"
-                placeholder="Digite seu nome de usuário"
-              />
-              <i
-                ><img
-                  src="./assets/images/success-icon.svg"
-                  class="img-success"
-              /></i>
-              <i
-                ><img src="./assets/images/error-icon.svg" class="img-error"
-              /></i>
-              <small>Error message</small>
-            </div>
+<body>
 
-            <div class="form-control">
-              <label for="email">Email</label>
-              <input type="text" id="email" placeholder="Digite seu email" />
-              <i
-                ><img
-                  src="./assets/images/success-icon.svg"
-                  class="img-success"
-              /></i>
-              <i
-                ><img src="./assets/images/error-icon.svg" class="img-error"
-              /></i>
-              <small>Error message</small>
-            </div>
-
-            <div class="form-control">
-              <label for="password">Senha</label>
-              <input
-                type="password"
-                id="password"
-                placeholder="Digite sua senha"
-              />
-              <i
-                ><img
-                  src="./assets/images/success-icon.svg"
-                  class="img-success"
-              /></i>
-              <i
-                ><img src="./assets/images/error-icon.svg" class="img-error"
-              /></i>
-              <small>Error message</small>
-            </div>
-
-            <div class="form-control">
-              <label for="password2">Confirme sua senha</label>
-              <input
-                type="password"
-                id="password2"
-                placeholder="Digite sua senha novamente"
-              />
-              <i
-                ><img
-                  src="./assets/images/success-icon.svg"
-                  class="img-success"
-              /></i>
-              <i
-                ><img src="./assets/images/error-icon.svg" class="img-error"
-              /></i>
-              <small>Error message</small>
-            </div>
-            <div class="box-usuario">
-              <div class="tipo-usuario">
-                <input
-                  class="cb1"
-                  type="checkbox"
-                  name="tipo_medico"
-                  id="tipo_medico"
-                  value="MEDICO"
-                />
-                <p>Sou médico</p>
-              </div>
-              <div class="tipo-usuario">
-                <input
-                  class="cb1"
-                  type="checkbox"
-                  name="tipo_paciente"
-                  id="tipo_paciente"
-                  value="PACIENTE"
-                />
-                <p>Sou paciente</p>
-              </div>
-            </div>
-            <p class="text-sucess"></p>
-            <button type="submit" id="btn-submit">Realizar cadastro</button>
-          </form>
-        </dialog>
-        <img src="./assets/images/logo-v6.png" alt="logo v6" />
-      </div>
+  <div class="container">
+    <div id="circulo" class="animate__animated animate__fadeInDownBig">
+      <img src="./assets/images/logo-v8.png" alt="logo v8" />
     </div>
+    <div class="forms-login animate__animated animate__fadeInDownBig">
+      <h3>LOGIN</h3>
+      <form method="POST" action="http://localhost:8080/usuario/login" id="forms-login-paciente">
+        <div class="form-control">
+          <input type="text" id="dado-login-name" placeholder="Email" />
+          <input type="password" id="dado-login-senha" placeholder="Password" />
+        </div>
+        <small id="text-error"></small>
+        <button id="btn-entrar" type="submit">Entrar</button>
+      </form>
 
-    <script src="./assets/scripts/login.js"></script>
-  </body>
+      <p>Não possui conta? <button id="button-modal">Registre-se</button></p>
+      <dialog id="modal">
+        <form action="http://localhost:8080/usuario" method="POST" id="form-register">
+          <div class="header-modal">
+            <h2>Realize seu cadastro!</h2>
+            <button id="btn-close-modal">X</button>
+          </div>
+          <div class="form-control">
+            <label for="username">Usuário</label>
+            <input type="text" id="username" placeholder="Digite seu nome de usuário" />
+
+          </div>
+
+          <div class="form-control">
+            <label for="email">Email</label>
+            <input type="text" id="email" placeholder="Digite seu email" />
+
+          </div>
+
+          <div class="form-control">
+            <label for="password">Senha</label>
+            <input type="password" id="password" placeholder="Digite sua senha" />
+
+          </div>
+
+          <div class="form-control">
+            <label for="password2">Confirme sua senha</label>
+            <input type="password" id="password2" placeholder="Digite sua senha novamente" />
+
+          </div>
+          <div class="box-usuario">
+            <div class="tipo-usuario">
+              <input class="cb1" type="checkbox" name="tipo_medico" id="tipo_medico" value="MEDICO" onclick="disable()"/>
+              <p>Sou médico</p>
+            </div>
+            <div class="tipo-usuario">
+              <input class="cb1" type="checkbox" name="tipo_paciente" id="tipo_paciente" value="PACIENTE" onclick="disable()"/>
+              <p>Sou paciente</p>
+            </div>
+          </div>
+          <small id="text-error-modal"></small>
+
+          <button type="submit" id="btn-submit">Realizar cadastro</button>
+        </form>
+      </dialog>
+      <img src="./assets/images/logo-v6.png" alt="logo v6" />
+    </div>
+  </div>
+
+  <div id="loading">
+    <div class="loader"></div>
+  </div>
+
+  <script src="./assets/scripts/login.js"></script>
+</body>
+
 </html>

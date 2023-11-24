@@ -1,47 +1,45 @@
 main {
-
     width: 90%;
+    padding-top: 200px;
+    min-height: 100vh;
     margin: 0 auto;
-    padding-top: 250px;
-    padding-bottom: 200px;
     display: flex;
-    justify-content: center;
+    justify-content: start;
     flex-direction: column;
 }
 
 #search-doctor {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-direction: column;
     text-align: center;
 }
 
-#btn-submit {
-    display: flex;
-    justify-content: center;
-    align-self: center;
-    width: 60%;
-    margin-top: 30px;
-    background-color: #0487D9;
-    border: none;
-    color: #fff;
-    padding: 5px;
-
+#search-doctor p{
+    margin-top: 20px;
 }
+
 
 #input-box {
     display: flex;
     justify-content: center;
     align-self: center;
     width: 60%;
+    margin-top: 20px;
 }
-
+#input-box select{
+    width: 30%;
+    border-radius: 10px;
+    cursor: pointer;
+    outline: none;
+}
 #input-box input {
     padding: 2px;
     margin: 5px;
     border: none;
     border-bottom: 1px solid black;
-    width: 100%;
+    width: 40%;
     background-color: transparent;
 }
 
@@ -56,25 +54,45 @@ main {
     flex-wrap: wrap;
     text-align: center;
     justify-content: space-between;
+    width: 80%;
+    margin: 0 auto;
 }
 
 #cards-section {
     margin-top: 50px;
     width: 100%;
     display: flex;
-    flex-direction: row;
     flex-wrap: wrap;
-    justify-self: center;
-    justify-content: space-around;
+    justify-content: center;
     padding: 10px;
+   
 }
 
 #card-individual {
-    background-color: #048ABF;
-    color: #fff;
-    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    color: #048ABF;
+    padding: 15px;
     border-radius: 10px;
-    margin: 30px;
+    border: 1.8px solid #048abf;
+    border-style:groove;
+    border-right: 5px solid #048ABF;
+    border-bottom: 5px solid #048abf;
+    margin: 50px;
+    width: 30%;
+    transition: .3s;
+    align-items: center;
+    text-align: center;
+    justify-content: space-between;
+}
+#card-individual:hover{
+    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.375);
+}
+#card-individual div {
+    display: flex;
+    flex-direction: column;
+    margin: 5px;
+    padding: 10px;
 }
 
 #card-individual button {
@@ -83,10 +101,19 @@ main {
     border-radius: 10px;
     padding: 5px;
     transition: 0.5s;
+    background-color: #048abf;
+    color: #fff;
+    cursor: pointer;
+    text-align: center;
+    justify-content: center;
 }
 
+#card-individual h5{
+    font-weight: bold;
+    color: #048ABF;
+}
 #card-individual button:hover {
-    background-color: #192A3E;
+    background-color: #449bbe;
     color: #fff;
 }
 dialog::backdrop{
@@ -98,7 +125,7 @@ dialog{
 }
 #modal {
     width: 50%;
-    height: 60%;
+    height: 75%;
     border: none;
 }
 
@@ -113,30 +140,43 @@ dialog{
   border-radius: 10px;
 }
 
-
-
 #header-modal {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: end;
+    align-items: center;
     text-align: center;
-    justify-content: space-between;
+    margin-bottom: 50px;
 }
-
+#header-modal h4{
+    display: block;
+    width: 100%;
+    font-weight: bold;
+    font-size: 1.2em;
+}
+#header-modal p{
+    display: block;
+    width: 100%;
+}
 #btn-close-modal {
     border: none;
-    width: 10%;
     font-size: 1.5em;
+    cursor: pointer;
+    background-color: transparent;
+    align-self: start;
 }
 
 #modal-filter {
     display: flex;
     justify-content: center;
+    align-items: center;
+    margin-bottom: 50px;
 }
 
 #modal-filter select {
     padding: 5px;
-    margin: 3px;
+    margin: 5px;
 }
 
 table {
@@ -155,6 +195,8 @@ td {
 
 th {
     font-weight: bold;
+    background-color: #048ABF;
+    color: #fff;
 }
 
 
@@ -179,6 +221,7 @@ tr:hover:nth-child(1n + 2) {
     color: #fff;
     padding: 10px;
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .rolagem-bloqueada{
@@ -188,3 +231,75 @@ tr:hover:nth-child(1n + 2) {
 .rolagem-permitida{
     overflow: auto;
 }
+
+@media (max-width: 1315px){
+    #card-individual{
+        width: 20%;
+        height: 30vh;
+    }
+}
+
+@media (max-width: 1000px){
+    #card-individual{
+        width: 25%;
+        height: 30vh;
+    }
+}
+
+@media (max-width:800px){
+    #card-individual{
+        width: 30%;
+        height: 30vh;
+    }
+}
+
+@media (max-width: 722px){
+    main {
+        padding-top: 90px;
+    }
+    #card-individual{
+        height: 30vh;
+        width: 50%;
+    }
+    #input-box{
+        flex-direction: column;
+    }
+    #input-box input, #input-box select{
+        width: 100%;
+    }
+    #modal{
+        width: 100%;
+    }
+}
+
+@media (max-width:400px){
+    #card-individual{
+        height: 30vh;
+        width: 60%;
+    }
+}
+
+/*Responsividade do modal*/
+@media (max-width:1050px){
+    #modal-filter{
+        flex-direction: column;
+        text-align: center;
+    }
+    #modal-filter select{
+        width: 50%;
+    }
+}
+@media (max-width: 400px){
+    #modal{
+        height: 80vh;
+    }
+}
+
+.tag{
+    background-color: #449bbe;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 50px;
+    color: #fff;
+}
+
