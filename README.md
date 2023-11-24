@@ -6,7 +6,6 @@ O objetivo deste trabalho é desenvolver um sistema para facilitar o gerenciamen
 
 * Arthur Ferreira Costa
 * Fernando Antônio Ferreira Ibrahim
-* Ian Matsuhara Ferraz
 * Jhonata Silveira Dias
 * Pedro Henrique Braga de Castro
 
