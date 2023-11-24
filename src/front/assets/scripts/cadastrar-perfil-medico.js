@@ -31,8 +31,6 @@ function checkAuthorization() {
 
 checkAuthorization();
 
-
-
 // get das especialidades
 document.addEventListener('DOMContentLoaded', function () {
     axios.get('http://localhost:8080/especialidade-medico')

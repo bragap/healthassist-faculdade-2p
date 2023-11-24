@@ -147,7 +147,7 @@ class InterHeaderAdmin extends HTMLElement {
               <li><a href="home-admin.html">Início</a></li>
               <li><a href="indicadores.html">Indicadores</a></li>
               <li><a href="relatorio-avaliacoes.html">Avaliações</a></li>
-              <li><a href="#" onclick="redirectTo('index.html')">Sair</a></li>
+              <li><a href="#" class="btn-out" onclick="redirectTo('index.html')">Sair</a></li>
               </ul>
           </nav>
         </header>
@@ -156,10 +156,13 @@ class InterHeaderAdmin extends HTMLElement {
     this.mobileMenu = shadowRoot.querySelector('.mobile-menu');
     this.navList = shadowRoot.querySelector('.nav-list');
     this.navLinks = shadowRoot.querySelectorAll('.nav-list li');
+    this.btnOut = shadowRoot.querySelector('.btn-out');
 
     this.mobileMenu.addEventListener('click', this.handleClick);
 
     this.animateLinks();
+
+    this.btnOut.addEventListener('click', this.limparLocalStorage)
   }
 
   animateLinks() {
@@ -172,7 +175,9 @@ class InterHeaderAdmin extends HTMLElement {
     this.navList.classList.toggle(this.activeClass);
     this.mobileMenu.classList.toggle(this.activeClass);
   }
-
+  limparLocalStorage() {
+    localStorage.clear();
+  }
 }
 
 customElements.define('intern-header-admin', InterHeaderAdmin);
