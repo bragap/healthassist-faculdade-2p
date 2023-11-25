@@ -6,15 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import br.healthassist.healthassist.model.entity.Indicators.TaxaHorarioConsulta;
-import br.healthassist.healthassist.model.repository.Indicators.TaxaHorarioConsultaRepository;
+import br.healthassist.healthassist.model.repository.Indicators.TaxaHorarioRepository;
 import br.healthassist.healthassist.service.Indicators.TaxaHorarioConsultaService;
 @Service
 public class TaxaHorarioConsultaServiceImpl implements TaxaHorarioConsultaService{
     
-    private  TaxaHorarioConsultaRepository taxaHorarioConsultaRepository;
+    private TaxaHorarioRepository taxaHorarioConsultaRepository;
 
     @Autowired
-    public TaxaHorarioConsultaServiceImpl(TaxaHorarioConsultaRepository taxaHorarioConsultaRepository){
+    public TaxaHorarioConsultaServiceImpl(TaxaHorarioRepository taxaHorarioConsultaRepository){
         this.taxaHorarioConsultaRepository = taxaHorarioConsultaRepository;
     }
 
