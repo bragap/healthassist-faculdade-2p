@@ -178,9 +178,7 @@ class InterHeaderAdmin extends HTMLElement {
   limparLocalStorage() {
     localStorage.clear();
   }
-  redirectTo(path) {
-    window.location.href = path;
-  }
+  
 }
 
 customElements.define('intern-header-admin', InterHeaderAdmin);

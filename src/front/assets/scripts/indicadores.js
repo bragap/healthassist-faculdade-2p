@@ -179,170 +179,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
 });
 
+// exibiçao tela de loading
+function showLoading() {
 
+    document.getElementById('loading').style.display = 'flex';
 
-// // Ind 1 - Pacientes cadastrados em cada um dos últimos 12 meses
-// document.addEventListener('DOMContentLoaded', function () {
-//   axios.get(urlQtdePacientes)
-//     .then(response => {
-//       const dados = response.data;
+    setTimeout(function () {
+        document.getElementById('loading').style.display = 'none';
 
-//       dados.forEach((qtdePacientes, index) => {
-//         listConsultas1 += `
-//     <div id="card-individual">
-//       <div id="card-conteudo">
-//           <div id=card-title> ${meses[index]}
-//            </div>
-//               <div id="box-esquerda">
-//                   <p id="nome-usuario">Pacientes cadastrados: ${qtdePacientes}</p>
-//               </div>
-//         </div>
-//     </div>
-//           `
-//       })
-//       painel1.innerHTML = listConsultas1;
-//     })
-//     .catch(error => console.error(error))
-// })
+    }, 2000);
+}
 
-// // Ind 1 - Pacientes cadastrados em cada um dos últimos 12 meses
-// document.addEventListener('DOMContentLoaded', function () {
-//   axios.get(urlQtdePacientes)
-//     .then(response => {
-//       const dados = response.data;
-
-//       dados.forEach((qtdePacientes, index) => {
-//         listConsultas1 += `
-//     <div id="card-individual">
-//       <div id="card-conteudo">
-//           <div id=card-title> ${meses[index]}
-//            </div>
-//               <div id="box-esquerda">
-//                   <p id="nome-usuario">Pacientes cadastrados: ${qtdePacientes}</p>
-//               </div>
-//         </div>
-//     </div>
-//           `
-//       })
-//       painel1.innerHTML = listConsultas1;
-//     })
-//     .catch(error => console.error(error))
-// })
-
-// // Ind - 2 : Taxa Média de Consultas Mensais por Médico
-// document.addEventListener('DOMContentLoaded', function () {
-//   let allMedicos = [];
-
-//   Promise.all([
-//     axios.get(urlMedicos),
-//     axios.get(urlMediaConsultasMedico)
-//   ])
-//     .then(([medicosResponse, consultasResponse]) => {
-
-//       const dadosMedicos = medicosResponse.data;
-//       allMedicos = dadosMedicos.map((medico) => ({
-//         id: medico.id,
-//         nome: medico.nomeCompleto
-//       }));
-
-
-//       const dadosConsultas = consultasResponse.data;
-//       dadosConsultas.forEach((consultasData) => {
-//         const medicoId = consultasData.id_medico;
-//         const medicoInfo = allMedicos.find((medico) => medico.id === medicoId);
-
-//         if (medicoInfo) {
-//           const medicoNome = medicoInfo.nome;
-//           const qtdePacientes = consultasData.quantidade_media_consultas;
-
-//           listConsultas2 += `
-//           <div id="card-individual">
-//             <div id="card-conteudo">
-//               <div id=card-title>${medicoNome}</div>
-//               <div id="box-esquerda">
-//                 <p id="nome-usuario">Consultas mensais: ${qtdePacientes}</p>
-//               </div>
-//             </div>
-//           </div>
-//         `;
-//         }
-//       });
-
-
-//       painel2.innerHTML = listConsultas2;
-//     })
-//     .catch(error => console.error(error));
-// });
-
-// // Ind - 3: Número de Médicos Cadastrados na Clínica
-// document.addEventListener('DOMContentLoaded', function () {
-//   axios.get(urlQtdeMedicos)
-//     .then(response => {
-//       const dados = response.data;
-
-//       dados.forEach((qtdeDoutores, index) => {
-//         listConsultas3 += `
-//     <div id="card-individual">
-//       <div id="card-conteudo">
-//           <div id=card-title> ${meses[index]}
-//            </div>
-//               <div id="box-esquerda">
-//                   <p id="nome-usuario">Médicos cadastrados: ${qtdeDoutores}</p>
-//               </div>
-//         </div>
-//     </div>
-//           `
-//       })
-//       painel3.innerHTML = listConsultas3;
-//     })
-//     .catch(error => console.error(error))
-// })
-
-// // Ind - 4: Taxa Média de Consultas por Cliente
-// document.addEventListener('DOMContentLoaded', function () {
-//   axios.get(urlAvaliacoes)
-//     .then(response => {
-//       const dados = response.data;
-
-//       dados.forEach((porcentagem, index) => {
-//         listConsultas4 += `
-//     <div id="card-individual">
-//       <div id="card-conteudo">
-//           <div id=card-title> ${meses[index]}
-//            </div>
-//               <div id="box-esquerda">
-//                   <p id="nome-usuario">Consultas avalidas nesse mês: ${porcentagem}%</p>
-//               </div>
-//         </div>
-//     </div>
-//           `
-//       })
-//       painel4.innerHTML = listConsultas4;
-//     })
-//     .catch(error => console.error(error))
-// })
-
-// // Ind - 5: Taxa Média de Consultas Mensais por Médico
-// document.addEventListener('DOMContentLoaded', function () {
-//   axios.get(urlConsultasRealizadas)
-//     .then(response => {
-//       const dados = response.data;
-//       console.log(dados)
-
-//       dados.forEach((qtdePacientes, index) => {
-//         listConsultas5 += `
-//     <div id="card-individual">
-//       <div id="card-conteudo">
-//           <div id=card-title>${meses[index]}
-//            </div>
-//               <div id="box-esquerda">
-//                   <p id="nome-usuario">Consultas realizadas: ${qtdePacientes}</p>
-//               </div>
-//         </div>
-//     </div>
-//           `
-//       })
-//       painel5.innerHTML = listConsultas5;
-//     })
-//     .catch(error => console.error(error))
-// })
+// redirecionamento
+function redirectTo(destination) {
+  showLoading();
+  setTimeout(function () {
+      window.location.href = destination;
+  }, 2000);
+}
