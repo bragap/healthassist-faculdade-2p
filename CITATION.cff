@@ -1,16 +1,14 @@
 # YAML 1.2
 ---
 authors: 
-  - family-names: sobrenome do aluno 1
-    given-names: Nome do aluno 1 
-  - family-names: sobrenome do aluno 2
-    given-names: Nome do aluno 2 
-  - family-names: sobrenome do aluno 3
-    given-names: Nome do aluno 3 
-  - family-names: sobrenome do aluno 4
-    given-names: Nome do aluno 4 
-  - family-names: sobrenome do aluno 5
-    given-names: Nome do aluno 5 
+  - family-names: Costa
+    given-names: Arthur Ferreira 
+  - family-names: Ferreira Ibrahim
+    given-names: Fernando Antônio 
+  - family-names: Dias
+    given-names: Jhonata Silveira 
+  - family-names: Braga de Castro
+    given-names: Pedro Henrique
     
   - name-suffix: Professor
     affiliation: PUC Minas
@@ -36,15 +34,15 @@ authors:
 cff-version: "1.1.0"
 keywords: 
   - "Modelagem de Processos de Negócios"
-  - "Palavra chave 2"
-  - "Palavra chave 3"
+  - "Trabalho Interdisciplinar de Engenharia de Software"
+  - "2º Semestre de 2023"
 message: |
     "If you use this software, please cite it using these metadata.
     Se você utilizar este software, por favor cite-o utilizando estes metadados."
-repository-code: "https://github.com/url do projeto"
-title: "Título do projeto"
+repository-code: "https://github.com/ICEI-PUC-Minas-PPLES-TI/plf-es-2023-2-ti2-1372100-healthassist"
+title: "HealthAssist"
 abstract: |
     "
-    Breve descrição do projeto
+    O objetivo deste trabalho é desenvolver um sistema para facilitar o gerenciamento e os processos de consultas em clínicas médicas.
     "
 ...

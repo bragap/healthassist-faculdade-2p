@@ -3,7 +3,7 @@
 
 Visão geral da interação do usuário pelas telas do sistema. Apresente as principais interfaces da plataforma. 
 
-## 6.1. Telas principal do sistema
+## 6.1. Telas principais do sistema
 
 ### Tela inicial do sistema, onde são exibidas informações institucionais da HealthAssist.
 > ![Tela inicial do sistema](images/P0-1-HomePage.png)
