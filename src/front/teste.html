@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
 </head>
 <body>
-$END$
+    <img src="http://localhost:8080/api/paciente/arquivo/1" alt="Imagem Perfil" style=" height: 100px">
+    <form action="http://localhost:8080/api/paciente/arquivo/1" method="post" enctype="multipart/form-data">
+        <input type="file" class="form-control" name="file" id="inputGroupFile"/>
+        <button type="submit">enviar</button>
+    </form>
 </body>
 </html>
