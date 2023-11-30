@@ -13,4 +13,6 @@ public interface ArquivoPacienteService {
     List<ArquivoPaciente> findAllArquivosPaciente();
     
     public Optional<ArquivoPaciente> findArquivosPacienteById(long id);
+
+    ArquivoPaciente obterArquivoPorId(Long id);
 } 

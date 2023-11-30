@@ -3,6 +3,7 @@ package br.healthassist.healthassist.service.impl;
 import java.util.List;
 import java.util.Optional;
 
+import br.healthassist.healthassist.exception.RegraNegocioException;
 import br.healthassist.healthassist.model.entity.ArquivoPaciente;
 import br.healthassist.healthassist.model.repository.ArquivoPacienteRepository;
 import br.healthassist.healthassist.service.ArquivoPacienteService;
@@ -31,6 +32,12 @@ public class ArquivoPacienteServiceImpl implements ArquivoPacienteService {
     @Override
     public Optional<ArquivoPaciente> findArquivosPacienteById(long id){
         return arquivosPacienteRepository.findById(id);
+    }
+
+    @Override
+    public ArquivoPaciente obterArquivoPorId(Long id) {
+        Optional<ArquivoPaciente> arquivoPaciente = arquivosPacienteRepository.findById(id);
+        return arquivoPaciente.orElseThrow(() -> new RegraNegocioException("Id não encontrado"));
     }
 
 }

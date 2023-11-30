@@ -42,4 +42,17 @@ public class ArquivoPacienteController {
 
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<byte[]> downloadArquivo(@PathVariable("id") Long id){
+
+        ArquivoPaciente arquivoPaciente = arquivoPacienteService.obterArquivoPorId(id);
+        if (arquivoPaciente != null){
+            return ResponseEntity.ok()
+                    .header("Content-Disposition", "attachment; filename=" + arquivoPaciente.getNomeArquivo())
+                    .body(arquivoPaciente.getDadosArquivo());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
 }

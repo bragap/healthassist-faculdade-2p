@@ -6,7 +6,6 @@ import br.healthassist.healthassist.model.entity.Indicators.ResultadoConsultaMed
 
 public interface ResultadoConsultaMedicosService {
 
-
     List<ResultadoConsultaMedicos> obterResultados();
 
 }
