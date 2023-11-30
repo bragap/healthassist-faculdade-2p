@@ -59,7 +59,6 @@ main {
 }
 
 #cards-section {
-    margin-top: 50px;
     width: 100%;
     display: flex;
     flex-wrap: wrap;
@@ -68,54 +67,6 @@ main {
    
 }
 
-#card-individual {
-    display: flex;
-    flex-direction: column;
-    color: #048ABF;
-    padding: 15px;
-    border-radius: 10px;
-    border: 1.8px solid #048abf;
-    border-style:groove;
-    border-right: 5px solid #048ABF;
-    border-bottom: 5px solid #048abf;
-    margin: 50px;
-    width: 30%;
-    transition: .3s;
-    align-items: center;
-    text-align: center;
-    justify-content: space-between;
-}
-#card-individual:hover{
-    box-shadow: 0 10px 50px rgba(0, 0, 0, 0.375);
-}
-#card-individual div {
-    display: flex;
-    flex-direction: column;
-    margin: 5px;
-    padding: 10px;
-}
-
-#card-individual button {
-    width: 100%;
-    border: none;
-    border-radius: 10px;
-    padding: 5px;
-    transition: 0.5s;
-    background-color: #048abf;
-    color: #fff;
-    cursor: pointer;
-    text-align: center;
-    justify-content: center;
-}
-
-#card-individual h5{
-    font-weight: bold;
-    color: #048ABF;
-}
-#card-individual button:hover {
-    background-color: #449bbe;
-    color: #fff;
-}
 dialog::backdrop{
     background-color: rgb(0 0 0/ .5);
 }
@@ -232,35 +183,14 @@ tr:hover:nth-child(1n + 2) {
     overflow: auto;
 }
 
-@media (max-width: 1315px){
-    #card-individual{
-        width: 20%;
-        height: 30vh;
-    }
-}
 
-@media (max-width: 1000px){
-    #card-individual{
-        width: 25%;
-        height: 30vh;
-    }
-}
 
-@media (max-width:800px){
-    #card-individual{
-        width: 30%;
-        height: 30vh;
-    }
-}
 
 @media (max-width: 722px){
     main {
         padding-top: 90px;
     }
-    #card-individual{
-        height: 30vh;
-        width: 50%;
-    }
+    
     #input-box{
         flex-direction: column;
     }
@@ -272,12 +202,7 @@ tr:hover:nth-child(1n + 2) {
     }
 }
 
-@media (max-width:400px){
-    #card-individual{
-        height: 30vh;
-        width: 60%;
-    }
-}
+
 
 /*Responsividade do modal*/
 @media (max-width:1050px){
@@ -295,11 +220,229 @@ tr:hover:nth-child(1n + 2) {
     }
 }
 
-.tag{
-    background-color: #449bbe;
-    padding: 10px;
-    margin: 5px;
-    border-radius: 50px;
-    color: #fff;
-}
 
+/* responsividade dos cards*/
+/* Variáveis */
+:root {
+    --font-size: 16px;
+    --blue: #0487D9;
+    --blue2: #e3ebf1;
+    --black: #000;
+    --grey: #7d7d7d;
+    --grey2: #f0f0f0;
+    --grey3: #e8e7e7;
+    --grey4: #fdfdfd;
+    --bluegrey: #A3AFBF;
+    --orange: #ec992c;
+  }
+  
+  /* Mixins */
+  @keyframes cardsOpen {
+    to {
+      background: rgba(10, 72, 112, 0);
+    }
+  }
+  
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+  
+  @keyframes slideDown {
+    to {
+      transform: translateY(0px);
+    }
+  }
+
+  
+  h2 {
+    color: var(--blue);
+    font-weight: 500;
+  }
+  
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+  }
+
+  /* Hover nos cards */
+.booking-card:hover::before {
+    background: rgba(10, 72, 112, 0.6);
+  }
+  
+  .booking-card:hover .book-container .content {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+  
+  .booking-card:hover .informations-container {
+    transform: translateY(0px);
+  }
+  
+  .booking-card:hover .informations-container .more-information {
+    opacity: 1;
+  }
+  
+  /* Estilos do cartão de reserva */
+  .booking-card {
+    position: sticky;
+    width: 300px;
+    display: flex;
+    flex: 0 0 300px;
+    flex-direction: column;
+    margin: 20px;
+    margin-bottom: 30px;
+    border-radius: 10px;
+    overflow: hidden;
+    background-position: center center;
+    background-size: cover;
+    text-align: center;
+    color: var(--blue);
+    transition: 0.3s;
+  
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(10, 72, 112, 0);
+      transition: 0.3s;
+    }
+  
+    .book-container {
+      height: 150px;
+  
+      .content {
+        position: relative;
+        opacity: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+        transform: translateY(-200px);
+        transition: 0.3s;
+      }
+    }
+  
+    .informations-container {
+      flex: 1 0 auto;
+      padding: 20px;
+      background: var(--grey2);
+      transform: translateY(206px);
+      transition: 0.3s;
+  
+      .title {
+        position: relative;
+        padding-bottom: 10px;
+        margin-bottom: 10px;
+        font-weight: bold;
+        font-size: 1.2em;
+  
+        &:after {
+          content: '';
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          right: 0;
+          height: 3px;
+          width: 50px;
+          margin: auto;
+          background: var(--blue);
+        }
+      }
+  
+      .price {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-top: 10px;
+  
+        .icon {
+          margin-right: 10px;
+        }
+      }
+  
+      .more-information {
+        opacity: 0;
+        transition: 0.3s;
+  
+        .info-and-date-container {
+          display: flex;
+  
+          .box {
+            flex: 1 0;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 10px;
+            background: white;
+            font-weight: bold;
+            font-size: 0.9em;
+  
+            .icon {
+              margin-bottom: 5px;
+            }
+  
+            &.info {
+              color: var(--orange);
+              margin-right: 10px;
+            }
+          }
+        }
+  
+        .disclaimer {
+          margin-top: 20px;
+          font-size: 0.8em;
+          color: var(--grey);
+        }
+      }
+    }
+  
+    &:hover {
+      animation: cardsOpen 0.3s forwards;
+      #nome-doutor{
+        display: none;
+      }
+    }
+  }
+
+  
+  
+  h1 {
+    margin: 10px 20px;
+  }
+  
+
+  #btn-open-modal{
+    background-color: #fff;
+    color: #048ABF;
+    border: none;
+    border-radius: 10px;
+    padding: 5px 10px;
+    cursor: pointer;
+    transition: .3s;
+  }
+  #btn-open-modal:hover{
+    background-color: #192A3E;
+    color: #fff;
+  }
+
+  #nome-doutor{
+    font-weight: bold;
+    font-size: 1.2em;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: #F5F5F7;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: .3s;
+  }

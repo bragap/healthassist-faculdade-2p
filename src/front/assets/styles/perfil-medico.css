@@ -1,4 +1,4 @@
-main{
+main {
     width: 60%;
     margin: 0 auto;
     padding-top: 150px;
@@ -7,43 +7,47 @@ main{
     justify-content: center;
 }
 
-#dados-usuario{
+#dados-usuario {
     display: flex;
     flex-direction: column;
+}
+
+svg {
     width: 45%;
-    height: 50vh;
+    display: flex;
+    align-self: center;
+}
+
+
+.dados-user {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
-    text-align: left;
 }
 
-
-
-.dados-user{
-    margin-top: 30px;
-}
-
-.dados-user h3{
+.dados-user h3 {
     text-align: center;
     font-size: 1.3em;
     font-weight: bold;
     padding-bottom: 15px;
 }
 
-.dados-user p{
+.dados-user p {
     padding-bottom: 15px;
 }
 
-.dados-user span{
+.dados-user span {
     font-weight: bold;
     color: #0367A6;
 }
 
-@media (max-width:400px){
+@media (max-width:400px) {
     main {
         padding-top: 100px;
     }
-    #dados-usuario{
+
+    #dados-usuario {
         font-size: 0.8em;
         word-wrap: break-word;
     }

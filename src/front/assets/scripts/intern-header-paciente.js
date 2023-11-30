@@ -35,6 +35,7 @@ class InterHeaderPaciente extends HTMLElement {
             position:fixed;
             top:0;
             width:100%;
+            z-index:1;
             display: flex;
             justify-content: space-around;
             align-items: center;
