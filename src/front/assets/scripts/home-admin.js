@@ -222,7 +222,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // aprovar paciente
 function handleAprovarPaciente(pacienteId) {
-    axios.put(`${urlPaciente}/${pacienteId}/atualizar-status`, { id: pacienteId, aprovacao: "APROVADO" })
+    const pacienteIdNumero = parseInt(pacienteId.split(':')[1].trim(), 10);
+
+
+    axios.put(`${urlPaciente}/${pacienteIdNumero}/atualizar-status`, { id: pacienteIdNumero, aprovacao: "APROVADO" })
         .then(response => {
             sucessMessage2.innerHTML = `<p>Paciente aprovado!</p>`;
             console.log('Patient approved successfully');
@@ -238,7 +241,9 @@ function handleAprovarPaciente(pacienteId) {
 }
 
 function handleRejeitarPaciente(pacienteId) {
-    axios.put(`${urlPaciente}/${pacienteId}/atualizar-status`, { id: pacienteId, aprovacao: "REPROVADO" })
+    const pacienteIdNumero = parseInt(pacienteId.split(':')[1].trim(), 10);
+
+    axios.put(`${urlPaciente}/${pacienteIdNumero}/atualizar-status`, { id: pacienteIdNumero, aprovacao: "REPROVADO" })
         .then(response => {
             sucessMessage2.innerHTML = `<p>Paciente REPROVADO!</p>`;
             console.log('Patient approved successfully');
