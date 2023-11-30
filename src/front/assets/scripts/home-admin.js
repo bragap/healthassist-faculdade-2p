@@ -115,9 +115,7 @@ function handleAprovarMedico(medicoId) {
             sucessMessage.innerHTML = `<p>Médico aprovado!</p>`;
             localStorage.setItem('aprovacao', 'APROVADO');
             console.log('Doctor approved successfully');
-            setTimeout(function () {
-                atualizarListaMedicos();
-            }, 2000);
+            
         })
         .catch(error => {
             console.log('Resposta do servidor:', error.response.data)
@@ -136,7 +134,7 @@ function handleRejeitarMedico(medicoId) {
             console.log('Resposta do servidor:', response.data);
             localStorage.setItem('aprovacao', 'REPROVADO');
             console.log('Doctor rejected successfully');
-            atualizarListaMedicos();
+            
         })
         .catch(error => {
             console.log('Resposta do servidor:', error.response.data)
@@ -230,9 +228,7 @@ function handleAprovarPaciente(pacienteId) {
             sucessMessage2.innerHTML = `<p>Paciente aprovado!</p>`;
             console.log('Patient approved successfully');
             localStorage.setItem('aprovacao', 'APROVADO');
-            setTimeout(function () {
-                atualizarListaPacientes();
-            }, 2000);
+           
         })
         .catch(error => {
             console.log('Resposta do servidor:', error.response.data)
@@ -248,9 +244,7 @@ function handleRejeitarPaciente(pacienteId) {
             sucessMessage2.innerHTML = `<p>Paciente REPROVADO!</p>`;
             console.log('Patient approved successfully');
             localStorage.setItem('aprovacao', 'REPROVADO');
-            setTimeout(function () {
-                atualizarListaPacientes();
-            }, 2000);
+            
         })
         .catch(error => {
             console.log('Resposta do servidor:', error.response.data)

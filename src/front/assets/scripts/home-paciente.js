@@ -20,6 +20,7 @@ const url = 'http://localhost:8080/medico';
 const urlMarcarConsulta = "http://localhost:8080/consulta";
 const endpointCadastroEspecialidades = "http://localhost:8080/especialidade-medico";
 const urlPaciente = "http://localhost:8080/paciente";
+const urlArquivosDoutor = "http://localhost:8080/api/medico/arquivo"
 
 // id usuario
 const idUsuario = localStorage.getItem('idUsuario');
@@ -237,13 +238,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
-// Array de imagens de doutores
-const imagensDoutores = [
-    './assets/images/D-1.svg',
-    './assets/images/D-2.svg',
-    './assets/images/D-3.svg',
-    './assets/images/D-4.svg'
-  ];
+
 
 // Função para fazer a requisição GET e renderizar os médicos
 function getAndRenderDoctors() {
@@ -308,11 +303,11 @@ function renderDoctors(data) {
         cardDoctor.innerHTML = "<p>Nenhum médico encontrado</p>";
     } else {
         dados.forEach((user,index) => {
-            const imagePath = imagensDoutores[index % imagensDoutores.length];
+            const imagePath = index % 5 + 1;
 
             let listDoctors = `
             <li class="booking-card"
-            style="background-image: url('${imagePath}')">
+            style="background-image: url('${urlArquivosDoutor}/${imagePath}')">
             <h2 id="nome-doutor">Dr. ${user.nomeCompleto}</h2>
             <div class="book-container">
                 <div class="content">
