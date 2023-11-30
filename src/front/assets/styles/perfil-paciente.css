@@ -9,6 +9,7 @@ main{
 }
 
 #dados-usuario{
+    margin-top: 30px;
     display: flex;
     flex-direction: column;
     width: 45%;
