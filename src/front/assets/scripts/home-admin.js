@@ -9,6 +9,8 @@ let listPatients = "";
 // endpoints
 const urlPaciente = "http://localhost:8080/paciente"
 const urlDoutor = "http://localhost:8080/medico"
+const urlArquivosDoutor = "http://localhost:8080/api/medico/arquivo"
+const urlArquivosPaciente = "http://localhost:8080/api/paciente/arquivo"
 
 //tipo usuario
 const tipoUsuario = localStorage.getItem('tipoUsuario');
@@ -49,21 +51,7 @@ function verificarAprovacaoTotalPacientes(dados, tipo) {
     }
 }
 
-// Array de imagens de doutores
-const imagensDoutores = [
-    './assets/images/D-1.svg',
-    './assets/images/D-2.svg',
-    './assets/images/D-3.svg',
-    './assets/images/D-4.svg'
-  ];
 
-  // Array de imagens de Pacientes
-const imagensPacientes = [
-    './assets/images/P-1.svg',
-    './assets/images/P-2.svg',
-    './assets/images/P-3.svg',
-    './assets/images/P-4.svg'
-  ];
 
 
 // pegar todos os médicos que nao foram aprovados ainda
@@ -76,11 +64,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (doctor.aprovacao === "APROVADO" || doctor.aprovacao === "REPROVADO") {
                     verificarAprovacaoTotal(dados, 'medico');
                 } else {
-                    const imagePath = imagensDoutores[index % imagensDoutores.length];
+                    const imagePath = index % 5 + 1;
 
                     listDoctors += `
                     <li class="booking-card " id="card-section"
-                    style="background-image: url('${imagePath}')">
+                    style="background-image: url('${urlArquivosDoutor}/${imagePath}')">
                     <div class="book-container">
                         <div class="content">
                         <button class="aceitar-doctor">ACEITAR</button>
@@ -191,11 +179,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     verificarAprovacaoTotalPacientes(dados, 'paciente');
                 } else {
 
-                    const imagePath = imagensPacientes[index % imagensPacientes.length];
+                    const imagePath = index % 5 + 1;
 
                     listPatients += `
                     <li class="booking-card " id="card-section"
-                    style="background-image: url('${imagePath}')">
+                    style="background-image: url('${urlArquivosPaciente}/${imagePath}')">
                     <div class="book-container">
                         <div class="content">
                         <button class="aceitar">ACEITAR</button>

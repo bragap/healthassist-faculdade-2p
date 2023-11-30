@@ -61,26 +61,6 @@ function showLoading() {
 }
 
 
-// // pegar os dados inseridos na disponibilidade de horario    
-// function enviarDisponibilidade() {
-
-//     rows.forEach(row => {
-//         const inputs = row.querySelectorAll('.inputs-dias'); // Captura os inputs de cada linha    
-//         const checkBox = row.querySelector('.cb1'); // Captura o checkbox
-
-//         if (checkBox.checked) { // Verifica se o checkbox está marcado
-//             const dia = checkBox.getAttribute('name');
-//             const horaInicio = inputs[0].value; // Captura o valor do primeiro input
-//             const horaFim = inputs[1].value; // Captura o valor do segundo input
-
-//             disponibilidade_de_horario.push({
-//                 dia_da_semana: dia,    
-//                 hora_inicio: horaInicio,
-//                 hora_fim: horaFim
-//             });
-//         }
-//     });
-// }
 
 
 //mudar nome do arquivo inserido        
@@ -107,18 +87,20 @@ form.addEventListener('submit', async (e) => {
         endereco: endereco.value,
         data_nasc: dataNascimento.value,
         codigo_de_registro: codigoRegistro.value,
-        especialidades: especialidadesSelecionadas.map(option => ({ "nome": option.value })),
+        especialidades: especialidadesSelecionadas,
         nome_completo: nomeCompleto.value,
         id_usuario: idUsuario
     }
 
+
+    console.log('Especialidades selecionadas:', especialidadesSelecionadas);
+
+
     const formData = new FormData();
     formData.append('file', file);
 
-    showLoading();
-    window.location.href = 'aguardando-aprovacao.html';
-
     try {
+        console.log('Dados do cadastro:', JSON.stringify(dadosCadastro));
         const response = await axios.post(url, dadosCadastro, {
             headers: {
                 "Content-Type": "application/json"
@@ -136,11 +118,15 @@ form.addEventListener('submit', async (e) => {
         });
 
         localStorage.setItem('idMedico', idMedico);
-
+        
+        showLoading();
+        window.location.href = 'aguardando-aprovacao.html';
+    
+        
 
     } catch (error) {
 
-        window.location.href = "aguardando-aprovacao.html";
+         window.location.href = "aguardando-aprovacao.html";
 
         if (error.response) {
             console.log("Data:", error.response.data);
