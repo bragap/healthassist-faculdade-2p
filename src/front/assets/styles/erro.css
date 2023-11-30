@@ -2,6 +2,7 @@ body {
     display: flex;
     flex-direction: column;
     text-align: center;
+    align-items: center;
     margin: 0;
     font-family: "Poppins";
     background-color: #0367A6;
@@ -14,12 +15,15 @@ img {
 }
 
 button {
-    background: none;
-    border: none;
-    text-decoration: underline;
+    background: #fff;
+    width: 15%;
+    padding: 15px;
+    font-weight: bold;
+    border-radius: 10px;
+    border:none;
     cursor: pointer;
-    font-size: 1.2em;
-    color:#fff;
+    font-size: 1.1em;
+    color:#0367A6;
   
 }
 
