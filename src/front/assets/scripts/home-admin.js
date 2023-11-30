@@ -49,36 +49,54 @@ function verificarAprovacaoTotalPacientes(dados, tipo) {
     }
 }
 
+// Array de imagens de doutores
+const imagensDoutores = [
+    './assets/images/D-1.svg',
+    './assets/images/D-2.svg',
+    './assets/images/D-3.svg',
+    './assets/images/D-4.svg'
+  ];
 
+  // Array de imagens de Pacientes
+const imagensPacientes = [
+    './assets/images/P-1.svg',
+    './assets/images/P-2.svg',
+    './assets/images/P-3.svg',
+    './assets/images/P-4.svg'
+  ];
+
+
+// pegar todos os médicos que nao foram aprovados ainda
 document.addEventListener('DOMContentLoaded', function () {
     axios.get(urlDoutor)
         .then(response => {
             const dados = response.data;
 
-            dados.forEach((doctor) => {
-                if (doctor.aprovacao === "APROVADO") {
+            dados.forEach((doctor,index) => {
+                if (doctor.aprovacao === "APROVADO" || doctor.aprovacao === "REPROVADO") {
                     verificarAprovacaoTotal(dados, 'medico');
                 } else {
+                    const imagePath = imagensDoutores[index % imagensDoutores.length];
 
                     listDoctors += `
-            <div id="card-section">
-                        <div id="card-conteudo">
-                            <div id="card-esquerda">
-                                <p id="nome-usuario">Dr. ${doctor.nomeCompleto}</p>
-                                <p>Data de Nascimento: ${doctor.dataNasc}</p>
-                                <p>Código de registro: ${doctor.codigoDeRegistro}</p>
-                                <p>Especialidade: ${doctor.especialidades.map((m) => m.nome).join(', ')}</p>
-                                <p>Aprovação: ${doctor.aprovacao}</p>
-                                <p id="id-medico">Id do médico: ${doctor.id}</p>
-                            </div>
-                            <div id="card-direita">
-        
-                                <button class="aceitar-doctor">ACEITAR</button>
-                                <button class="rejeitar-doctor">REJEITAR</button>
+                    <li class="booking-card " id="card-section"
+                    style="background-image: url('${imagePath}')">
+                    <div class="book-container">
+                        <div class="content">
+                        <button class="aceitar-doctor">ACEITAR</button>
+                        <button class="rejeitar-doctor">REJEITAR</button>
+                        </div>
+                    </div>
+                    <div class="informations-container">
+                        <h2 class="title"> ${doctor.nomeCompleto}</h2>
+                        <p class="sub-title">CRM: ${doctor.codigoDeRegistro}</p>
+                        <p class="price">Nascimento: ${doctor.dataNasc}</p>
+                                    <p>Especialidade: ${doctor.especialidades.map((m) => m.nome).join(', ')}</p>
+                                    <p id="id-medico">Id do médico: ${doctor.id}</p>
                             </div>
                         </div>
                     </div>
-    
+                </li>
             `;
 
                 }
@@ -157,6 +175,8 @@ function adicionarEventListenersBotoesMedicos() {
     });
 }
 
+
+// pegar todos os pacientes que nao foram aprovados ainda
 document.addEventListener('DOMContentLoaded', function () {
 
     // get de todos os pacientes
@@ -164,30 +184,34 @@ document.addEventListener('DOMContentLoaded', function () {
         .then(response => {
             const dados = response.data;
 
-            dados.forEach((paciente) => {
+            dados.forEach((paciente,index) => {
 
-                if (paciente.aprovacao === "APROVADO") {
+                if (paciente.aprovacao === "APROVADO" || paciente.aprovacao === "REPROVADO") {
 
                     verificarAprovacaoTotalPacientes(dados, 'paciente');
                 } else {
 
+                    const imagePath = imagensPacientes[index % imagensPacientes.length];
+
                     listPatients += `
-        <div id="card-section">
-            <div id="card-conteudo">
-                <div id="card-esquerda">
-                    <p id="nome-usuario">Paciente: ${paciente.nomeCompleto}</p>
-                    <p>Data de nascimento: ${paciente.dataNasc}</p>
-                    <p>Endereço: ${paciente.endereco}</p>
-                    <p>Aprovação: ${paciente.aprovacao}</p>
-                    <p id="id-paciente">${paciente.id}</p>
-                </div>
-                <div id="card-direita">
-    
-                    <button class="aceitar">ACEITAR</button>
+                    <li class="booking-card " id="card-section"
+                    style="background-image: url('${imagePath}')">
+                    <div class="book-container">
+                        <div class="content">
+                        <button class="aceitar">ACEITAR</button>
                     <button class="rejeitar">REJEITAR</button>
-                </div>
-            </div>
-        </div>
+                        </div>
+                    </div>
+                    <div class="informations-container">
+                        <h2 class="title"> ${paciente.nomeCompleto}</h2>
+                        <p class="sub-title">Nascimento ${paciente.dataNasc}</p>
+                        <p class="price">Endereço: ${paciente.endereco}</p>
+                                    <p>Aprovação: ${paciente.aprovacao}</p>
+                                    <p id="id-paciente">Id do paciente: ${paciente.id}</p>
+                            </div>
+                        </div>
+                    </div>
+                </li>
             `
                 }
 
@@ -204,6 +228,7 @@ document.addEventListener('DOMContentLoaded', function () {
         });
 
 });
+
 
 
 

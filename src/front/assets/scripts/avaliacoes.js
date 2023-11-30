@@ -29,20 +29,19 @@ axios.get(endpointAvaliarConsulta)
     dados.forEach((avaliacoes) => {
        
         listaAvaliacoes+=`
-
-  <div id="lista-conteudo">
-         <p id="relatorio-titulo">Consulta ${avaliacoes.consulta.id} </p>
-         <div id="box-esquerda">
-         <p>Paciente: ${avaliacoes.consulta.paciente.nomeCompleto}</p>
-         <p>Médico: ${avaliacoes.consulta.medico.nomeCompleto}</p>
-         <p>Término da Consulta: ${formatarData(avaliacoes.consulta.dataHoraConsulta)}</p>
-         </div>
-         <div id="box-direita">
-         <p>Avaliação do Tipo: ${avaliacoes.titulo}</p>
-          <p>Comentário:</p>
-          <p>${avaliacoes.comentario}</p>
-        </div> 
-    </div>
+        <li class="booking-card">
+            <h2 id="nome-doutor">Consulta ${avaliacoes.consulta.id} </h2>
+            <div id="dados-consulta">
+            <p>Avaliação do Tipo: ${avaliacoes.titulo}</p>
+            <p>Término da Consulta: ${formatarData(avaliacoes.consulta.dataHoraConsulta)}</p>
+            <p>Paciente: ${avaliacoes.consulta.paciente.nomeCompleto}</p>
+            <p>Médico: ${avaliacoes.consulta.medico.nomeCompleto}</p>
+            </div>
+            <div class="informations-container">
+                <p>Comentário:</p>
+                <p class="sub-title">${avaliacoes.comentario}</p>
+            </div>
+        </li>
             `
         
 })

@@ -237,6 +237,13 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+// Array de imagens de doutores
+const imagensDoutores = [
+    './assets/images/D-1.svg',
+    './assets/images/D-2.svg',
+    './assets/images/D-3.svg',
+    './assets/images/D-4.svg'
+  ];
 
 // Função para fazer a requisição GET e renderizar os médicos
 function getAndRenderDoctors() {
@@ -289,6 +296,7 @@ function filterDoctorsByEspecialidade(doctors, selectedEspecialidade) {
     });
 }
 
+
 // Função para renderizar os médicos no HTML
 function renderDoctors(data) {
     const cardDoctor = document.getElementById("cards-section");
@@ -299,13 +307,23 @@ function renderDoctors(data) {
     if (dados.length === 0) {
         cardDoctor.innerHTML = "<p>Nenhum médico encontrado</p>";
     } else {
-        dados.forEach(user => {
+        dados.forEach((user,index) => {
+            const imagePath = imagensDoutores[index % imagensDoutores.length];
+
             let listDoctors = `
-            <div id="card-individual">
-                <h5>Dr. ${user.nomeCompleto}</h5>
-                <div>${user.especialidades.map(espec => `<span class="tag">${espec.nome}</span>`).join('')}</div>
-                <button type="button" id="btn-open-modal" data-nome="${user.nomeCompleto}" data-especialidade="${user.especialidades.map(espec => espec.nome).join(', ')}" data-id="${user.id}">Agende uma consulta!</button>
+            <li class="booking-card"
+            style="background-image: url('${imagePath}')">
+            <h2 id="nome-doutor">Dr. ${user.nomeCompleto}</h2>
+            <div class="book-container">
+                <div class="content">
+                           <button type="button" id="btn-open-modal" data-nome="${user.nomeCompleto}" data-especialidade="${user.especialidades.map(espec => espec.nome).join(', ')}" data-id="${user.id}">Agende uma consulta!</button>
+                </div>
             </div>
+            <div class="informations-container">
+                <h2 class="title">Dr. ${user.nomeCompleto}</h2>
+                <p class="sub-title">${user.especialidades.map(espec => `<span>${espec.nome}</span>`).join(', ')}</p>
+            </div>
+        </li>
         `;
             cardDoctor.innerHTML += listDoctors;
         })

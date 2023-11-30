@@ -222,3 +222,10 @@ table {
 #redirect-home:hover{
   color:#F5F5F7;
 }
+
+@media(max-width: 400px){
+  .booking-card{
+    width: 100%;
+    flex: 0 0 140%;
+  }
+}
