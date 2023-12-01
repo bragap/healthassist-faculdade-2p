@@ -39,6 +39,14 @@ function checkAuthorization() {
 
 checkAuthorization();
 
+const imageDoctors = [
+    { id: 1, image: 'assets/images/medicos/medico1.png' },
+    { id: 2, image: 'assets/images/medicos/medico2.png' },
+    { id: 3, image: 'assets/images/medicos/medico3.png' },
+    { id: 4, image: 'assets/images/medicos/medico4.png' },
+    { id: 5, image: 'assets/images/medicos/medico5.png' }
+]
+
 // exibir conteudo Table
 
 function obterDiaDaSemana(data) {
@@ -304,10 +312,11 @@ function renderDoctors(data) {
     } else {
         dados.forEach((user,index) => {
             const imagePath = index % 5 + 1;
+            const imageCorreta = imageDoctors[index % 5].image;
 
             let listDoctors = `
             <li class="booking-card"
-            style="background-image: url('${urlArquivosDoutor}/${imagePath}')">
+            style="background-image: url('${imageCorreta}')">
             <h2 id="nome-doutor">Dr. ${user.nomeCompleto}</h2>
             <div class="book-container">
                 <div class="content">

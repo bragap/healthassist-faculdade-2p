@@ -202,6 +202,7 @@ form.addEventListener('submit', (e) => {
                 console.log(response);
                 console.log(usuario);
                 formsSucess();
+                
             }
             ).catch((error) => {
                 displayErrorMessageModal(error.response.data);

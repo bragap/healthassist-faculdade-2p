@@ -91,14 +91,16 @@ form.addEventListener('submit', async (e) => {
         nome_completo: nomeCompleto.value,
         id_usuario: idUsuario
     }
-
-
-    console.log('Especialidades selecionadas:', especialidadesSelecionadas);
-
-
+    
+    
+    
     const formData = new FormData();
     formData.append('file', file);
-
+    
+    
+    showLoading();
+    window.location.href = 'aguardando-aprovacao.html';
+    
     try {
         console.log('Dados do cadastro:', JSON.stringify(dadosCadastro));
         const response = await axios.post(url, dadosCadastro, {
@@ -119,9 +121,6 @@ form.addEventListener('submit', async (e) => {
 
         localStorage.setItem('idMedico', idMedico);
         
-        showLoading();
-        window.location.href = 'aguardando-aprovacao.html';
-    
         
 
     } catch (error) {

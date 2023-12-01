@@ -28,30 +28,43 @@ function checkAuthorization() {
 checkAuthorization();
 
 // VERIFICA SE ESTAO APROVADOS - medicos
-function verificarAprovacaoTotal(dados, tipo) {
+function verificarAprovacaoTotal(dados) {
     const todosAprovados = dados.every(item => item.aprovacao === "APROVADO");
     const mensagemElement = document.getElementById('mensagem');
 
     if (todosAprovados) {
-        const mensagem = tipo === 'medico' ? "Nenhum médico para ser aprovado." : "Nenhum paciente para ser aprovado.";
-        mensagemElement.innerHTML = `<p>${mensagem}</p>`;
+        mensagemElement.innerHTML = "Nenhum doutor para ser aprovado"
     } else {
         mensagemElement.innerHTML = '';
     }
 }
 
-function verificarAprovacaoTotalPacientes(dados, tipo) {
+function verificarAprovacaoTotalPacientes(dados) {
     const todosAprovados = dados.every(item => item.aprovacao === "APROVADO");
-    const mensagemElement = document.getElementById('mensagem-2');
+    const mensagemElement2 = document.getElementById('mensagem-2');
+
     if (todosAprovados) {
-        const mensagem = tipo === 'medico' ? "Nenhum médico para ser aprovado." : "Nenhum paciente para ser aprovado.";
-        mensagemElement.innerHTML = `<p>${mensagem}</p>`;
+        mensagemElement2.innerHTML = "Nenhum paciente para ser aprovado"
     } else {
-        mensagemElement.innerHTML = '';
+        mensagemElement2.innerHTML = '';
     }
 }
 
+const imagePacientes = [
+    { id: 1, image: 'assets/images/pacientes/paciente1.png' },
+    { id: 2, image: 'assets/images/pacientes/paciente2.png' },
+    { id: 3, image: 'assets/images/pacientes/paciente3.png' },
+    { id: 4, image: 'assets/images/pacientes/paciente4.png' },
+    { id: 5, image: 'assets/images/pacientes/paciente5.png'}
+]
 
+const imageDoctors = [
+    { id: 1, image: 'assets/images/medicos/medico1.png' },
+    { id: 2, image: 'assets/images/medicos/medico2.png' },
+    { id: 3, image: 'assets/images/medicos/medico3.png' },
+    { id: 4, image: 'assets/images/medicos/medico4.png' },
+    { id: 5, image: 'assets/images/medicos/medico5.png' }
+]
 
 
 // pegar todos os médicos que nao foram aprovados ainda
@@ -65,10 +78,11 @@ document.addEventListener('DOMContentLoaded', function () {
                     verificarAprovacaoTotal(dados, 'medico');
                 } else {
                     const imagePath = index % 5 + 1;
+                    const imageCorreta = imageDoctors[index % 5].image;
 
                     listDoctors += `
                     <li class="booking-card " id="card-section"
-                    style="background-image: url('${urlArquivosDoutor}/${imagePath}')">
+                    style="background-image: url('${imageCorreta}')">
                     <div class="book-container">
                         <div class="content">
                         <button class="aceitar-doctor">ACEITAR</button>
@@ -84,6 +98,7 @@ document.addEventListener('DOMContentLoaded', function () {
                             </div>
                         </div>
                     </div>
+                    <p id="nome">${doctor.nomeCompleto} </p>
                 </li>
             `;
 
@@ -115,7 +130,7 @@ function handleAprovarMedico(medicoId) {
             sucessMessage.innerHTML = `<p>Médico aprovado!</p>`;
             localStorage.setItem('aprovacao', 'APROVADO');
             console.log('Doctor approved successfully');
-            
+            window.location.reload();     
         })
         .catch(error => {
             console.log('Resposta do servidor:', error.response.data)
@@ -134,7 +149,7 @@ function handleRejeitarMedico(medicoId) {
             console.log('Resposta do servidor:', response.data);
             localStorage.setItem('aprovacao', 'REPROVADO');
             console.log('Doctor rejected successfully');
-            
+            window.location.reload();     
         })
         .catch(error => {
             console.log('Resposta do servidor:', error.response.data)
@@ -178,10 +193,12 @@ document.addEventListener('DOMContentLoaded', function () {
                 } else {
 
                     const imagePath = index % 5 + 1;
+                    const imageCorreta = imagePacientes[index % 5].image;
+
 
                     listPatients += `
                     <li class="booking-card " id="card-section"
-                    style="background-image: url('${urlArquivosPaciente}/${imagePath}')">
+                    style="background-image: url('${imageCorreta}')">
                     <div class="book-container">
                         <div class="content">
                         <button class="aceitar">ACEITAR</button>
@@ -189,14 +206,15 @@ document.addEventListener('DOMContentLoaded', function () {
                         </div>
                     </div>
                     <div class="informations-container">
-                        <h2 class="title"> ${paciente.nomeCompleto}</h2>
-                        <p class="sub-title">Nascimento ${paciente.dataNasc}</p>
-                        <p class="price">Endereço: ${paciente.endereco}</p>
-                                    <p>Aprovação: ${paciente.aprovacao}</p>
-                                    <p id="id-paciente">Id do paciente: ${paciente.id}</p>
-                            </div>
-                        </div>
+                    <h2 class="title"> ${paciente.nomeCompleto}</h2>
+                    <p class="sub-title">Nascimento ${paciente.dataNasc}</p>
+                    <p class="price">Endereço: ${paciente.endereco}</p>
+                    <p>Aprovação: ${paciente.aprovacao}</p>
+                    <p id="id-paciente">Id do paciente: ${paciente.id}</p>
                     </div>
+                    </div>
+                    </div>
+                    <p id="nome">${paciente.nomeCompleto} </p>
                 </li>
             `
                 }
@@ -221,14 +239,13 @@ document.addEventListener('DOMContentLoaded', function () {
 // aprovar paciente
 function handleAprovarPaciente(pacienteId) {
     const pacienteIdNumero = parseInt(pacienteId.split(':')[1].trim(), 10);
-
-
     axios.put(`${urlPaciente}/${pacienteIdNumero}/atualizar-status`, { id: pacienteIdNumero, aprovacao: "APROVADO" })
         .then(response => {
             sucessMessage2.innerHTML = `<p>Paciente aprovado!</p>`;
             console.log('Patient approved successfully');
             localStorage.setItem('aprovacao', 'APROVADO');
-           
+            window.location.reload();     
+
         })
         .catch(error => {
             console.log('Resposta do servidor:', error.response.data)
@@ -244,7 +261,8 @@ function handleRejeitarPaciente(pacienteId) {
             sucessMessage2.innerHTML = `<p>Paciente REPROVADO!</p>`;
             console.log('Patient approved successfully');
             localStorage.setItem('aprovacao', 'REPROVADO');
-            
+            window.location.reload();     
+
         })
         .catch(error => {
             console.log('Resposta do servidor:', error.response.data)
