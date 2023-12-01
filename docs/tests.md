@@ -142,41 +142,52 @@
 
 
 
-**Caso de Teste** | **CT06 - Marcar nova consulta**
+**Caso de Teste** | **CT06 - Paciente: Marcar nova consulta**
  :--------------: | ------------
 **Procedimento**  | Marcar nova consulta. 
 **Dados de entrada** | Selecionar data e horário. 
 **Resultado obtido** | Consulta registrada com sucesso. 
 
+![Alt text](./images/CT06-1.png)
+![Alt text](./images/CT06-2.png)
+
 **Registro do Teste:**
 
 
-**Caso de Teste** | **CT07 - Gerenciar horários**
+**Caso de Teste** | **CT07 - Médico: Gerenciar horários**
  :--------------: | ------------
 **Procedimento**  | Gerenciar consultas e horários do seu dia. 
 **Resultado obtido** | Análise na agenda pessoal e na home. 
 
+![Alt text](./images/CT07-1.png)
+![Alt text](./images/CT07-2.png)
+
 **Registro do Teste:**
 
 
-**Caso de Teste** | **CT08 - Atualizar anamnese**
- :--------------: | ------------
-**Procedimento**  | Atualizar anamnese. 
-**Dados de entrada** | Inserção de dados válidos no formulário de atualização. 
-**Resultado obtido** | Dado cadastrado com sucesso. 
-
-
-**Caso de Teste** | **CT09 - Avaliar consulta**
- :--------------: | ------------
-**Procedimento**  | Avaliar consulta. 
-**Dados de entrada** | Inserção de dados válidos no formulário de avaliação. 
-**Resultado obtido** | Dado cadastrado com sucesso. 
-
-
-**Caso de Teste** | **CT10 - Avaliar consulta não terminada**
+**Caso de Teste** | **CT08 - Paciente: Avaliar consulta não terminada**
  :--------------: | ------------
 **Procedimento**  | Avaliar consulta que não foi terminada. 
 **Dados de entrada** | Inserção de dados válidos no formulário de avaliação. |
 **Resultado obtido** | Dado não cadastrado. |
 
+![Alt text](./images/CT08-1.png)
 
+
+**Caso de Teste** | **CT09 - Médico: Atualizar anamnese**
+ :--------------: | ------------
+**Procedimento**  | Atualizar anamnese. 
+**Dados de entrada** | Inserção de dados válidos no formulário de atualização. 
+**Resultado obtido** | Dado cadastrado com sucesso. 
+
+![Alt text](./images/CT09-1.png)
+![Alt text](./images/CT09-2.png)
+
+**Caso de Teste** | **CT10 - Paciente: Avaliar consulta**
+ :--------------: | ------------
+**Procedimento**  | Avaliar consulta. 
+**Dados de entrada** | Inserção de dados válidos no formulário de avaliação. 
+**Resultado obtido** | Dado cadastrado com sucesso. 
+
+![Alt text](./images/CT10-1.png)
+![Alt text](./images/CT10-2.png)
