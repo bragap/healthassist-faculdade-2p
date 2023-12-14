@@ -81,7 +81,7 @@ axios.get(urlConsultas)
 
       listConsults += `
             <div class="card-consulta-2" data-consulta-id="${consulta.id}">
-              <span name="nome_do_medico" id="nome-medico" value="${consulta.id}">Dr. ${consulta.medico.nomeCompleto}</span>
+              <span name="nome_do_medico" id="nome-medico" value="${consulta.id}"> ${consulta.medico.nomeCompleto}</span>
               <span name="email_do_medico" value="${consulta.id}">Especialidade: ${especialidade}</span>
               <span name="data_da_consulta" value="${consulta.id}">Data/Hora da Consulta: ${formatarData(consulta.dataHoraConsulta)}</span>
             </div>
@@ -93,7 +93,7 @@ axios.get(urlConsultas)
 
         listAllConsults += `
           <div class="card-consulta" data-consulta-id="${consulta.id}">
-            <span name="nome_do_medico" id="nome-medico" value="${consulta.id}">Dr. ${consulta.medico.nomeCompleto}</span>
+            <span name="nome_do_medico" id="nome-medico" value="${consulta.id}"> ${consulta.medico.nomeCompleto}</span>
             <span name="email_do_medico" value="${consulta.id}">Especialidade: ${especialidade}</span>
             <span name="data_da_consulta" value="${consulta.id}">Término da Consulta: ${formatarData(consulta.dataHoraConsulta)}</span>
           </div>

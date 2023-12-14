@@ -317,14 +317,14 @@ function renderDoctors(data) {
             let listDoctors = `
             <li class="booking-card"
             style="background-image: url('${imageCorreta}')">
-            <h2 id="nome-doutor">Dr. ${user.nomeCompleto}</h2>
+            <h2 id="nome-doutor"> ${user.nomeCompleto}</h2>
             <div class="book-container">
                 <div class="content">
                            <button type="button" id="btn-open-modal" data-nome="${user.nomeCompleto}" data-especialidade="${user.especialidades.map(espec => espec.nome).join(', ')}" data-id="${user.id}">Agende uma consulta!</button>
                 </div>
             </div>
             <div class="informations-container">
-                <h2 class="title">Dr. ${user.nomeCompleto}</h2>
+                <h2 class="title"> ${user.nomeCompleto}</h2>
                 <p class="sub-title">${user.especialidades.map(espec => `<span>${espec.nome}</span>`).join(', ')}</p>
             </div>
         </li>
