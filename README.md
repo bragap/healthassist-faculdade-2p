@@ -17,7 +17,23 @@ O objetivo deste trabalho é desenvolver um sistema para facilitar o gerenciamen
 
 ## Instruções de utilização
 
-Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
+1 - Instalação de Dependências
+1.1 - Docker:
+
+Certifique-se de ter o Docker instalado no seu sistema. Siga as instruções no site oficial do Docker para a instalação.
+Navegue até o diretório : 'backend/' e execute o comando docker-compose up --build, para criar as tabelas do Bando De Dados e rodar o BackEnd.
+Certique-se de rodar a aplicação SpringBoot no arquivo main.
+
+2 - Acesso à Aplicação:
+2.1 - As rotas do BackEnd funcionam na seguinte rota: 'http://localhost:8080', sendo possíveis acessar os seguintes endpoints: 
+/usuario
+/paciente
+/medico
+/consulta
+/avaliar-consulta
+
+2.2 - Para acessar o FrontEnd, inicia-se no index.html, e posteriormente, acesso à página interna através do login.
+OBS: Todas as rotas estão autenticadas, portanto, ao tentar acessar a parte interna, certifique-se de fazer o logout, pois assim limpará o LocalStorage com o tipo de Permissão.
 
 ## Histórico de versões
 
