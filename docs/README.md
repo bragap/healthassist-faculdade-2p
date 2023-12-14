@@ -5,8 +5,6 @@
 
 **Fernando Antônio Ferreira Ibrahim, 1443215@sga.pucminas.br**
 
-**Ian Matsuhara Ferraz,	1132917@sga.pucminas.br**
-
 **Jhonata Silveira Dias, 1449072@sga.pucminas.br**
 
 **Pedro Henrique Braga de Castro, 1452503@sga.pucminas.br**
@@ -27,8 +25,7 @@ _Instituto de Informática e Ciências Exatas – Pontifícia Universidade Cató
 
 ---
 
-_**Resumo**. Escrever aqui o resumo. O resumo deve contextualizar rapidamente o trabalho, descrever seu objetivo e, ao final, 
-mostrar algum resultado relevante do trabalho (até 10 linhas)._
+O HealthAssist é uma solução inovadora que visa simplificar e aprimorar o agendamento de consultas em clínicas médicas. Diante dos desafios enfrentados no processo tradicional, como longos tempos de espera e falta de eficiência, nosso projeto utiliza tecnologia avançada para desenvolver um sistema centralizado. Com foco em pacientes, profissionais de saúde e a equipe administrativa, o HealthAssist busca otimizar o gerenciamento de consultas, proporcionando uma experiência mais eficiente e informada para todos os envolvidos no processo de atendimento médico.
 
 ---
 
@@ -142,43 +139,28 @@ A sessão a seguir apresenta a descrição dos testes de unidade e testes de usa
 
 ## 8. Conclusão
 
-_Apresente aqui a conclusão do seu trabalho. Discussão dos resultados obtidos no trabalho, onde se verifica as observações pessoais de cada aluno. Poderá também apresentar sugestões de novas linhas de estudo._
+O HealthAssist, nosso projeto de otimização do agendamento médico, propõe uma solução integral para superar os desafios atuais. Com foco na eficiência do processo, comunicação aprimorada e experiência do paciente, buscamos não apenas resolver questões imediatas, mas também contribuir positivamente para o setor de saúde. O embasamento em estudos relevantes e a incorporação de tecnologias como inteligência artificial fortalecem nossa abordagem. O projeto representa um passo inicial, com sugestões para futuras expansões, visando sempre uma saúde mais acessível, eficiente e centrada no paciente.
 
 # REFERÊNCIAS
 
-
 **[1.1]** - _Moura C., Giovanella L., Emmerich A., Theodoro E.. **Tempo de espera e absenteísmo na atenção especializada: um desafio para os sistemas universais de saúde**. Scielo Saúde Pública, Saúde debate 43 (spe5), https://scielosp.org/article/sdeb/2019.v43nspe5/190-204/#
 
-**[1.2]** - _COPPIN, Ben. **Inteligência artificial**. Rio de Janeiro, RJ: LTC, c2010. E-book. ISBN 978-85-216-2936-8._
-
-**[1.3]** - _CORMEN, Thomas H. et al. **Algoritmos: teoria e prática**. Rio de Janeiro, RJ: Elsevier, Campus, c2012. xvi, 926 p. ISBN 9788535236996._
-
-**[1.4]** - _SUTHERLAND, Jeffrey Victor. **Scrum: a arte de fazer o dobro do trabalho na metade do tempo**. 2. ed. rev. São Paulo, SP: Leya, 2016. 236, [4] p. ISBN 9788544104514._
-
-**[1.5]** - _RUSSELL, Stuart J.; NORVIG, Peter. **Inteligência artificial**. Rio de Janeiro: Elsevier, c2013. xxi, 988 p. ISBN 9788535237016._
-
-
-
 # APÊNDICES
-
-
-_Atualizar os links e adicionar novos links para que a estrutura do código esteja corretamente documentada._
-
 
 ## Apêndice A - Código fonte
 
 [Código do front-end](../src/front) -- repositório do código do front-end
 
-[Código do back-end](../src/back)  -- repositório do código do back-end
+[Código do back-end](../src/backend)  -- repositório do código do back-end
 
 
 ## Apêndice B - Apresentação final
 
 
-[Slides da apresentação final](presentations/arquivo.pdf)
+[Slides da apresentação final](presentations)
 
 
-[Vídeo da apresentação final](videos)
+[Vídeos da apresentação final](videos)
 
 
 
